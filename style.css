@@ -1,0 +1,53 @@
+.star 
+{
+    color: red;
+}
+body
+{
+    background-color: #dbeaf3;
+}
+#boxForm
+{
+    padding-top: 3%;
+}
+.container
+{
+    border-radius: 25px; 
+    border: 2px solid #dbeaf3;
+    padding: 20px; 
+    background-color: white; 
+    width: 700px;
+}
+h2
+{
+    font-size: 26px; 
+    color:#0068ac; 
+    padding: 5px; 
+    text-align: center; 
+    float: left;
+}
+hr
+{
+    border-color: #0068ac;
+}
+p
+{
+    text-align:center;
+}
+.control-label
+{
+    width: 30%;
+    font-weight: 700;
+}
+label
+{
+    font-weight: 500;
+}
+.btn
+{
+    float: right;
+}
+.buttons
+{
+    float: left;
+}
