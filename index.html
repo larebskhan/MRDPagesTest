@@ -135,7 +135,7 @@
               <label class="control-label col-sm-2" for="requirement">Server IDs&nbsp<span class="star">&#42;</span> </label>
               <div class="col-sm-6">
                 <a data-toggle="tooltip" title="Please enter all ServerIDs">
-                  <input type="text" pattern="[a-z0-9]{13}" class="form-control" id="server" placeholder="Server ID" name="Server ID" required>
+                  <input type="text" class="form-control" id="server" placeholder="Server ID" name="Server ID" required minlength="13" maxlength="13" size="13">
                 </a>
                 <div id="addServer">
                   <!--New Server Input Box-->
