@@ -33,7 +33,17 @@
           <p>
             <em><span class="star">&#42;</span> Indicates a required field</em>
           </p>
-		  
+		  <!--Is requester on the support team for application?-->
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="requester">Is requester on the support team for application?&nbsp<span class="star">&#42;</span></label>
+        <div class="col-sm-6">
+          <input class="form-check-input" type="radio" name="requester" id="yesRequester" value="Yes"required>
+            <label for="yesFile">Yes</label><br>
+          
+            <input class="form-check-input" type="radio" name="requester" id="noRequester" value="No"required>
+            <label for="yesFile">No</label><br>
+        </div>
+      </div>
 	        <!--User ID-->
           <div class="form-group">
             <label class="control-label col-sm-2" for="userID">User ID&nbsp<span class="star">&#42;</span></label>
@@ -41,7 +51,7 @@
               <a data-toggle="tooltip" title="Please enter your User ID">
                 <input type="text" class="form-control" id="userID" placeholder="User ID" name="User ID" required>
               </a>
-              </div>
+            </div>
           </div>
 		
 	        <!--Project Title-->
@@ -51,7 +61,7 @@
               <a data-toggle="tooltip" title="Please enter the Project Title">
                 <input type="text" class="form-control" id="projectTitle" placeholder="Project Title" name="Project Title" required>
               </a>
-              </div>
+            </div>
           </div>
 		
 	        <!--Project Number-->
@@ -74,7 +84,7 @@
             </div>
           </div>
 		
-	 <!--Anticipated Completion Date-->
+	        <!--Anticipated Completion Date-->
 	        <div class="form-group">
             <label class="control-label col-sm-2" for="anticipatedCompletionDate">Anticipated Completion Date&nbsp<span class="star">&#42;</span></label>
             <div class="col-sm-6">
@@ -98,15 +108,15 @@
               </div>
             </div>
 		  
-		  <!--Business Reason-->
-          <div class="form-group">
-            <label class="control-label col-sm-2" for="reason">Business Reason&nbsp<span class="star">&#42;</span></label>
-            <div class="col-sm-6">
-              <a data-toggle="tooltip" title="Please enter the business reason.">
-                <input type="text" class="form-control" id="reason" placeholder="Business Reason" name="Business Reason" required>
-              </a>
+		        <!--Business Reason-->
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="reason">Business Reason&nbsp<span class="star">&#42;</span></label>
+              <div class="col-sm-6">
+                <a data-toggle="tooltip" title="Please enter the business reason.">
+                  <input type="text" class="form-control" id="reason" placeholder="Business Reason" name="Business Reason" required>
+                </a>
+              </div>
             </div>
-          </div>
 
 		
 		        <!--Objective (for each requirement)-->
@@ -245,7 +255,7 @@
             <div class="form-group">
               <label class="control-label col-sm-2" for="files">File Monitoring?&nbsp<span class="star">&#42;</span></label>
               <div class="col-sm-6">
-                <input class="form-check-input" type="radio" name="fileMonitoring" id="yesFile" value="Yes" onclick="yesNoInput('files', 'yes', 'Complete File Path');">
+                <input class="form-check-input" type="radio" name="fileMonitoring" checked="checked" id="yesFile" value="Yes" onclick="yesNoInput('files', 'yes', 'Complete File Path');">
                 <label for="yesFile">Yes</label><br>
               
                 <input class="form-check-input" type="radio" name="fileMonitoring" id="noFile" value="No" onclick="yesNoInput('files', 'no', 'None'); removeAll('File')">
