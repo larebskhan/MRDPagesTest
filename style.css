@@ -51,3 +51,13 @@ label
 {
     float: left;
 }
+.triangle-down {
+	width: 0;
+	height: 0;
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 12px solid #0067ac86;
+    position: relative;
+    top: -12px;
+    left: 600px;
+}
