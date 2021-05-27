@@ -1,6 +1,8 @@
 <!--
   To Do:
-  1. Fix buttons for each respective requirement
+    1. Fix add and remove buttons for each respective requirement
+    2. JSON Data file
+    3. Warning server
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -18,6 +20,7 @@
     <!--Include JS and CSS-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="interactionCode.js"></script>
+    <script src="duplicate.js"></script>
     <link href="style.css" rel="stylesheet">
   </head>
 
@@ -32,17 +35,19 @@
           <p>
             <em><span class="star">&#42;</span> Indicates a required field</em>
           </p>
-		  <!--Is requester on the support team for application?-->
-      <div class="form-group">
-        <label class="control-label col-sm-2" for="requester">Is requester on the support team for application?&nbsp<span class="star">&#42;</span></label>
-        <div class="col-sm-6">
-          <input class="form-check-input" type="radio" name="requester" id="yesRequester" value="Yes"required>
-            <label for="yesFile">Yes</label><br>
+
+		      <!--Is requester on the support team for application?-->
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="requester">Is requester on the support team for application?&nbsp<span class="star">&#42;</span></label>
+            <div class="col-sm-6">
+              <input class="form-check-input" type="radio" name="requester" id="yesRequester" value="Yes"required>
+              <label for="yesFile">Yes</label><br>
           
-            <input class="form-check-input" type="radio" name="requester" id="noRequester" value="No"required>
-            <label for="yesFile">No</label><br>
-        </div>
-      </div>
+              <input class="form-check-input" type="radio" name="requester" id="noRequester" value="No"required>
+              <label for="yesFile">No</label><br>
+            </div>
+          </div>
+          
 	        <!--User ID-->
           <div class="form-group">
             <label class="control-label col-sm-2" for="userID">User ID&nbsp<span class="star">&#42;</span></label>
@@ -89,188 +94,143 @@
             <div class="col-sm-6">
               <a data-toggle="tooltip" title="Please enter the Anticipated Completion Date for this Monitoring">
                 <input type="date" class="form-control">
-                <!--value="2021-05-26"--> 
-                <!--<input type="text" class="form-control" id="anticipatedCompletionDate" placeholder="MM/DD/YYYY" name="Anticipated Completion Date" required>-->
               </a>
             </div>
           </div>
-		
-          <section id="req0">
-            <hr>
-		        <!--Requirement Input-->
-            <div class="form-group">
-              <label class="control-label col-sm-2" for="requirement">Requirement&nbsp<span class="star">&#42;</span> </label>
-              <div class="col-sm-6">
-                <a data-toggle="tooltip" title="Please enter the Requirement(s) of the project">
-                  <input type="text" class="form-control" id="requirements" placeholder="Project Requirement" name="Requirement(s)" required>
-                </a>
-              </div>
-            </div>
-		  
-  
-             <!--Business Reason-->
-            <div class="form-group">
-              <label class="control-label col-sm-2" for="reason">Business Reason&nbsp<span class="star">&#42;</span></label>
-              <div class="col-sm-6">
-                <a data-toggle="tooltip" title="Please enter the business reason.">
-                  <input type="text" class="form-control" id="reason" placeholder="Business Reason" name="Business Reason" required>
-                </a>
-              </div>
-            </div>
-		
-		        <!--Objective (for each requirement)-->
-		        <div class="form-group">
-              <label class="control-label col-sm-2" for="objective">Objective&nbsp<span class="star">&#42;</span> </label>
-              <div class="col-sm-6">
-                <a data-toggle="tooltip" title="Please enter the Objective for each Requirement">
-                  <input type="text" class="form-control" id="objective" placeholder="Requirement Objective" name="Objective" required>
-                </a>
-                <!--<label><input type="checkbox" name="No Additional Information" id="none_addInfo" onclick="disableInput('addInfo', 'Additional Information');"> None </label>-->
-              </div>
-            </div>
+          
+          <hr>
+          <p>
+            <em>Click on the requirements tab to input more data.</em>
+          </p>
 
-            <!--Server IDs Input-->
-            <div class="form-group">
-              <label class="control-label col-sm-2" for="requirement">Server IDs&nbsp<span class="star">&#42;</span> </label>
-              <div class="col-sm-6">
-                <a data-toggle="tooltip" title="Please enter all ServerIDs">
-                  <input type="text" class="form-control" id="server" placeholder="Server ID" name="Server ID" required minlength="13" maxlength="13" size="13">
-                </a>
-                <div id="addServer">
-                  <!--New Server Input Box-->
-                </div>  
-              </div>
-              <div class="buttons">
-                <input type="button" class="btn btn-default" value="-" onclick="removeBox('addServer');">
-                <span>&nbsp</span>
-                <input type="button" class="btn btn-default" value="+" onclick="addBox('addServer');">
-              </div>
-            </div>
-
-            <!--Assumption Input-->
-            <div class="form-group">
-              <label class="control-label col-sm-2" for="assumptions">Assumption(s)&nbsp<span class="star">&#42;</span></label>
-              <div class="col-sm-6">
-                <a data-toggle="tooltip" title="Please enter any Assumption(s) for the project">
-                  <input type="text" class="form-control" id="assumptions" placeholder="Project Assumption" name="Assumption(s)" required>
-                </a>
-                <div id="addAssumption">
-                  <!--New Assumption Input Box-->
-                </div>  
-                <label><input type="checkbox" name="No Assumptions" id="none_assumptions" onclick="disableInput('assumptions', 'Project Assumption'); removeAll('Assumption')"> None </label>
-              </div>
-              <div class="buttons">
-                <input id="assumptionsAdd" type="button" class="btn btn-default" value="-" onclick="removeBox('addAssumption');">
-                <span>&nbsp</span>
-                <input id="assumptionsRemove" type="button" class="btn btn-default" value="+" onclick="addBox('addAssumption');">
-              </div>
-            </div>
-
-            <!--Risks Input-->
-            <div class="form-group">
-              <label class="control-label col-sm-2" for="risks">Risk(s)&nbsp<span class="star">&#42;</span></label>
-              <div class="col-sm-6">
-                <a data-toggle="tooltip" title="Please enter any Risk(s) that pertain to the project">
-                  <input type="text" class="form-control" id="risks" placeholder="Project Risk" name="Risk(s)" required>
-                </a>
-                <div id="addRisk">
-                  <!--New Risk Input Box-->
-                </div>  
-                <label><input type="checkbox" name="No Risks" id="none_risks" onclick="disableInput('risks', 'Project Risk'); removeAll('Risk')"> None </label>
-              </div>
-              <div class="buttons">
-                <input id="risksAdd" type="button" class="btn btn-default" value="-" onclick="removeBox('addRisk');">
-                <span>&nbsp</span>
-                <input id="risksRemove" type="button" class="btn btn-default" value="+" onclick="addBox('addRisk');">
-              </div>
-            </div>
-
-            <!--Accceptance Criteria Input-->
-            <div class="form-group">
-              <label class="control-label col-sm-2" for="acceptanceCrit">Acceptance Criteria&nbsp<span class="star">&#42;</span></label>
-              <div class="col-sm-6">
-                <a data-toggle="tooltip" title="Please enter all Acceptance Criteria for the project">
-                  <input type="text" class="form-control" id="acceptanceCrit" placeholder="Acceptance Criteria" name="Acceptance Criteria" required>
-                </a>
-                <div id="addCriteria">
-                  <!--New Criteria Input Box-->
-                </div>
-                <br>
-              </div>
-              <div class="buttons">
-                <input type="button" class="btn btn-default" value="-" onclick="removeBox('addCriteria');">
-                <span>&nbsp</span>
-                <input type="button" class="btn btn-default" value="+" onclick="addBox('addCriteria');">
-              </div>
-            </div>
-
-            <!--Alerting-->
-            <div class="form-group">
-              <p>
-                <em>If no alerting is required, <a href="https://www.google.com/" target="_blank"> click here!</a></em>
-              </p>
-              <label class="control-label col-sm-2" for="alert">Alerting&nbsp<span class="star">&#42;</span></label>
-              <div class="col-sm-6">
-                <input class="form-check-input" type="radio" name="alert" id="ticketAlert" value="Ticket" onclick="alertingInput('ticket', 'email')">
-                <label for="ticketAlert">Ticket</label><br>
-              
-                <input class="form-check-input" type="radio" name="alert" id="emailAlert" value="Email" onclick="alertingInput('email', 'ticket')">
-                <label for="emailAlert">Email</label><br>
-
-                <input class="form-check-input" type="radio" checked="checked" name="alert" id="bothAlert" value="Both" onclick="document.getElementById('ticket').disabled = false;
-                document.getElementById('email').disabled = false;">
-                <label for="bothAlert">Both</label><br>
-                
-                <div id="ticketAlert">
-                  <select id="ticket" class="form-control" aria-label=".form-select-sm example">
-                    <option disabled selected value> -- Select Severity -- </option>
-                    <option value="S1">S1</option>
-                    <option value="S2">S2</option>
-                    <option value="S3">S3</option>
-                  </select>
-                </div>
-
-                <br>
-
-                <div id="emailAlert">
-                  <a data-toggle="tooltip" title="Please enter the Distributor">
-                    <input type="text" class="form-control" id="email" placeholder="Distributor" name="Distributor" required>
-                  </a>
-                  <div id="addDist">
-                    <!--New Distributor Input Box-->
+          <section id="req_1">
+            <div class="panel-group">
+              <div class="panel panel-default">
+                <div class="panel-heading" style="background-color: #dbeaf35b;">
+                  <div id="req">
+                    <h4 class="panel-title">
+                      <a id="toggle_1" data-toggle="collapse" href="#collapse_1"> Requirement 1</a>
+                      <div class="triangle-down"></div>
+                    </h4>
+                    <br>
+                    <a data-toggle="tooltip" title="Please enter the Requirement(s) of the project">
+                      <input type="text" class="form-control" id="requirements" placeholder="Project Requirement" name="Requirement(s)" required>
+                    </a>
                   </div>
                 </div>
-              </div>
 
-              <div class="buttons">
-                <br><br><br><br><br><br><br>
-                <input id="emailAdd" type="button" class="btn btn-default" value="-" onclick="removeBox('addDist');">
-                <span>&nbsp</span>
-                <input id="emailRemove" type="button" class="btn btn-default" value="+" onclick="addBox('addDist');">
-              </div>
-            </div>
+                <div id="collapse_1" class="panel-collapse collapse">
+                  <ul class="list-group">
 
-            <!--File Monitoring-->
-            <div class="form-group">
-              <label class="control-label col-sm-2" for="files">File Monitoring?&nbsp<span class="star">&#42;</span></label>
-              <div class="col-sm-6">
-                <input class="form-check-input" type="radio" name="fileMonitoring" checked="checked" id="yesFile" value="Yes" onclick="yesNoInput('files', 'yes', 'Complete File Path');">
-                <label for="yesFile">Yes</label><br>
-              
-                <input class="form-check-input" type="radio" name="fileMonitoring" id="noFile" value="No" onclick="yesNoInput('files', 'no', 'None'); removeAll('File')">
-                <label for="yesFile">No</label><br>
+                    <li class="list-group-item">
+                      <!--Buisiness Reason-->
+                      <label for="reason">Business Reason&nbsp<span class="star">&#42;</span></label>
+                      <a data-toggle="tooltip" title="Please enter the business reason.">
+                        <input type="text" class="form-control" id="reason" placeholder="Business Reason" name="Business Reason" required>
+                      </a>
 
-                <a data-toggle="tooltip" title="Please enter the Complete File Path">
-                  <input type="text" class="form-control" id="files" placeholder="Complete File Path" name="File Path" required>
-                </a>
-                <div id="addFile">
-                  <!--New File Input Box-->
+                      <br> 
+
+                      <!--Objective-->
+                      <label for="objective">Objective&nbsp<span class="star">&#42;</span> </label>
+                      <a data-toggle="tooltip" title="Please enter the Objective for each Requirement">
+                        <input type="text" class="form-control" id="objective" placeholder="Requirement Objective" name="Objective" required>
+                      </a>
+
+                      <br>
+
+                      <!--Server ID-->
+                      <label for="requirement">Server IDs&nbsp<span class="star">&#42;</span> </label>
+                      <input id="remServer_1" type="button" class="btn btn-default" value="-">
+                      <input id="addServer_1" type="button" class="btn btn-default" value="+">
+                      <br><br>
+                      <a id="serverInput_1" data-toggle="tooltip" title="Please enter all ServerIDs">
+                        <input type="text" class="form-control" id="server" placeholder="Server ID" name="Server ID" required minlength="13" maxlength="13" size="13">
+                      </a>
+
+                      <br>
+
+                      <!--Assumptions-->
+                      <label for="assumptions">Assumption(s)&nbsp<span class="star">&#42;</span></label>
+                      <input id="remAssumption_1" type="button" class="btn btn-default" value="-">
+                      <input id="addAssumption_1" type="button" class="btn btn-default" value="+">
+                      <br><br>
+                      <a id="assumptionInput_1" data-toggle="tooltip" title="Please enter any Assumption(s) for the project">
+                        <input type="text" class="form-control" id="assumptions" placeholder="Project Assumption" name="Assumption(s)" required>
+                      </a>
+                      <label><input type="checkbox" name="No Assumptions" id="none_assumptions" onclick="disableInput('assumptions', 'Project Assumption'); removeAll('Assumption')"> None </label>
+                        
+                      <br><br>
+
+                      <!--Risk-->
+                      <label for="risks">Risk(s)&nbsp<span class="star">&#42;</span></label>
+                      <input id="remRisk_1" type="button" class="btn btn-default" value="-">
+                      <input id="addRisk_1" type="button" class="btn btn-default" value="+">
+                      <br><br>
+                      <a id="riskInput_1" data-toggle="tooltip" title="Please enter any Risk(s) that pertain to the project">
+                        <input type="text" class="form-control" id="risks" placeholder="Project Risk" name="Risk(s)" required>
+                      </a> 
+                      <label><input type="checkbox" name="No Risks" id="none_risks" onclick="disableInput('risks', 'Project Risk'); removeAll('Risk')"> None </label>
+
+                      <br><br>
+
+                      <!--Acceptance Criteria-->
+                      <label for="acceptanceCrit">Acceptance Criteria&nbsp<span class="star">&#42;</span></label>
+                      <input id="remAcc_1" type="button" class="btn btn-default" value="-">
+                      <input id="addAcc_1"type="button" class="btn btn-default" value="+">
+                      <br><br>
+                      <a id="accInput_1" data-toggle="tooltip" title="Please enter all Acceptance Criteria for the project">
+                        <input type="text" class="form-control" id="acceptanceCrit" placeholder="Acceptance Criteria" name="Acceptance Criteria" required>
+                      </a>
+
+                      <br>
+
+                      <!--Alerts-->
+                      <label for="alert">Alerting&nbsp<span class="star">&#42;</span></label><br>
+                      <input id="remEmail_1" type="button" class="btn btn-default" value="-">
+                      <input id="addEmail_1" type="button" class="btn btn-default" value="+">
+                      <input class="form-check-input" type="radio" name="alert" id="ticketAlert" value="Ticket" onclick="alertingInput('ticket', 'email')">
+                      <label for="ticketAlert">Ticket</label><br>
+                      <input class="form-check-input" type="radio" name="alert" id="emailAlert" value="Email" onclick="alertingInput('email', 'ticket')">
+                      <label for="emailAlert">Email</label><br>
+                      <input class="form-check-input" type="radio" checked="checked" name="alert" id="bothAlert" value="Both" onclick="document.getElementById('ticket').disabled = false; document.getElementById('email').disabled = false;">
+                      <label for="bothAlert">Both</label><br>
+                      
+                      <div id="ticketAlert">
+                        <select id="ticket" class="form-control" aria-label=".form-select-sm example">
+                          <option disabled selected value> -- Select Severity -- </option>
+                          <option value="S1">S1</option>
+                          <option value="S2">S2</option>
+                          <option value="S3">S3</option>
+                        </select>
+                      </div>
+                      <br>
+                      <div id="emailAlert">
+                        <a id="emailInput_1" data-toggle="tooltip" title="Please enter the Distributor">
+                          <input type="text" class="form-control" id="email" placeholder="Distributor" name="Distributor" required>
+                        </a>
+                      </div>
+                      <p>
+                        <em>If no alerting is required, <a href="https://www.google.com/" target="_blank"> click here!</a></em>
+                      </p>
+
+                      <br>
+
+                      <!--File Monitoring-->
+                      <label for="files">File Monitoring?&nbsp<span class="star">&#42;</span></label>
+                      <input id="remFile_1" type="button" class="btn btn-default" value="-">
+                      <input id="addFile_1" type="button" class="btn btn-default" value="+">
+                      <br>
+                      <input class="form-check-input" type="radio" name="fileMonitoring" checked="checked" id="yesFile" value="Yes" onclick="yesNoInput('files', 'yes', 'Complete File Path');">
+                      <label for="yesFile">Yes</label><br>
+                      <input class="form-check-input" type="radio" name="fileMonitoring" id="noFile" value="No" onclick="yesNoInput('files', 'no', 'None'); removeAll('File')">
+                      <label for="yesFile">No</label><br>
+                      <a id="fileInput_1" data-toggle="tooltip" title="Please enter the Complete File Path">
+                        <input type="text" class="form-control" id="files" placeholder="Complete File Path" name="File Path" required>
+                      </a>
+                    </li>
+                  </ul>
                 </div>
-              </div>
-              <div class="buttons">
-                <input id="filesAdd" type="button" class="btn btn-default" value="-" onclick="removeBox('addFile');">
-                <span>&nbsp</span>
-                <input id="filesRemove" type="button" class="btn btn-default" value="+" onclick="addBox('addFile');">
               </div>
             </div>
           </section>
@@ -279,15 +239,10 @@
             <!--New Requirement Input Box-->
           </section>
 
-          <div class="buttons">
-            <br>
-            <input id="addReq" type="button" class="btn btn-default" value="+ Add Requirement" onclick="requirementAdd();">
-            <span>&nbsp</span>
-            <input id="remReq" type="button" class="btn btn-default" value="- Delete Requirement" onclick="requirementRemove();">
-          </div>
-          <br>
-          
-          <br><br><br>
+          <input id="remReq" type="button" class="btn btn-default" value="- Delete Requirement">
+          <span>&nbsp</span>
+          <input id="addReq" type="button" class="btn btn-default" value="+ Add Requirement">
+
           <hr>
           <button type="submit" class="btn btn-default">Submit</button>
         </form>
