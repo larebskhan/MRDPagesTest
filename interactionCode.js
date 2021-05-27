@@ -34,6 +34,11 @@ function alertingInput(choice, otherChoice)
         document.getElementById("remEmail_1").disabled = true;
         document.getElementById("addEmail_1").disabled = true;
     }
+    else if(choice == "email")
+    {
+        document.getElementById("remEmail_1").disabled = false;
+        document.getElementById("addEmail_1").disabled = false;
+    }
 }
 function yesNoInput(id, choice, place)
 {
