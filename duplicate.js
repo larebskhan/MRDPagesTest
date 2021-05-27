@@ -6,6 +6,7 @@ $(document).ready(function(){
     var accIndex = 1;
     var fileIndex = 1;
     var emailIndex = 1;
+    var currIndex = 1;
 
     $('#addReq').click(function(){
         index++;
@@ -22,126 +23,190 @@ $(document).ready(function(){
         $('#req_'+ index)
             .find('#toggle_1')
             .text('Requirement '+index);
-
+        
+        //Change add/remove button Ids
+        //Ex. ID Button Requirement Add Server #2: addServer_1
+        //Server Button
         $('#req_'+ index)
             .find('#remServer_1')
-            .attr('id', 'remServer_'+serverIndex);
+            .attr('id', 'remServer_'+index);
         $('#req_'+ index)
             .find('#addServer_1')
-            .attr('id', 'remServer_'+serverIndex);
-
+            .attr('id', 'addServer_'+index);
+        $('#req_'+ index)
+            .find('#serverInput_1_1')
+            .attr('id', 'serverInput_'+index+'_'+serverIndex);
+        
+        //Assumption Button
         $('#req_'+ index)
             .find('#remAssumption_1')
-            .attr('id', 'remServer_'+serverIndex);
+            .attr('id', 'remAssumption_'+index);
         $('#req_'+ index)
-            .find('#remAssumption_1')
-            .attr('id', 'remServer_'+serverIndex);
+            .find('#addAssumption_1')
+            .attr('id', 'addAssumption_'+index);
+        $('#req_'+ index)
+            .find('#assumptionInput_1_1')
+            .attr('id', 'assumptionInput_'+index+'_'+assumptionIndex);
+        
+        //Risk Button
+        $('#req_'+ index)
+            .find('#remRisk_1')
+            .attr('id', 'remRisk_'+index);
+        $('#req_'+ index)
+            .find('#addRisk_1')
+            .attr('id', 'addRisk_'+index);
+        $('#req_'+ index)
+            .find('#riskInput_1_1')
+            .attr('id', 'riskInput_'+index+'_'+riskIndex);
+        
+        //Acceptance Criteria
+        $('#req_'+ index)
+            .find('#remAcc_1')
+            .attr('id', 'remAcc_'+index);
+        $('#req_'+ index)
+            .find('#addAcc_1')
+            .attr('id', 'addAcc_'+index);
+        $('#req_'+ index)
+            .find('#accInput_1_1')
+            .attr('id', 'accInput_'+index+'_'+accIndex);
+        
+        //File Monitoring
+        $('#req_'+ index)
+            .find('#remFile_1')
+            .attr('id', 'remFile_'+index);
+        $('#req_'+ index)
+            .find('#addFile_1')
+            .attr('id', 'addFile_'+index);
+        $('#req_'+ index)
+            .find('#fileInput_1_1')
+            .attr('id', 'fileInput_'+index+'_'+fileIndex);
+        
+        //Alerting: Email
+        $('#req_'+ index)
+            .find('#remEmail_1')
+            .attr('id', 'remEmail_'+index);
+        $('#req_'+ index)
+            .find('#addEmail_1')
+            .attr('id', 'addEmail_'+index);
+        $('#req_'+ index)
+            .find('#emailInput_1_1')
+            .attr('id', 'emailInput_'+index+'_'+emailIndex);
     });
-    
     $('#remReq').click(function(){
         if(index > 1)
         {
             $('#req_'+index)
-                .remove()
+                .remove();
             index--;
         }
     });
 
-    $('#addServer_1').click(function(){
+    $('[id^="addServer_"]').click(function() {
         serverIndex++;
-        $('#serverInput_1')
+        currIndex = $(this).attr('id').split('_').pop();
+        $('#serverInput_1_1')
             .clone()
-            .attr('id', 'serverInput_'+ serverIndex)
-            .insertAfter('#serverInput_1');
+            .attr('id', 'serverInput_'+currIndex+'_'+serverIndex)
+            .insertAfter('#serverInput_'+currIndex+'_'+(serverIndex-1));
     });
-    $('#remServer_1').click(function(){
+    $('[id^="remServer_"]').click(function(){
         if(serverIndex > 1)
         {
-            $('#serverInput_'+serverIndex)
-                .remove()
+            currIndex = $(this).attr('id').split('_').pop();
+            $('#serverInput_'+currIndex+'_'+serverIndex)
+                .remove();
             serverIndex--;
         }
     });
 
-    $('#addAssumption_1').click(function(){
+    $('[id^="addAssumption_"]').click(function(){
         assumptionIndex++;
-        $('#assumptionInput_1')
+        currIndex = $(this).attr('id').split('_').pop();
+        $('#assumptionInput_1_1')
             .clone()
-            .attr('id', 'assumptionInput_'+ assumptionIndex)
-            .insertAfter('#assumptionInput_1');
+            .attr('id', 'assumptionInput_'+currIndex+'_'+assumptionIndex)
+            .insertAfter('#assumptionInput_'+currIndex+'_'+(assumptionIndex-1));
     });
-    $('#remAssumption_1').click(function(){
+    $('[id^="remAssumption_"]').click(function(){
         if(assumptionIndex > 1)
         {
-            $('#assumptionInput_'+assumptionIndex)
-                .remove()
+            currIndex = $(this).attr('id').split('_').pop();
+            $('#assumptionInput_'+currIndex+'_'+assumptionIndex)
+                .remove();
             assumptionIndex--;
         }
     });
 
-    $('#addRisk_1').click(function(){
+    $('[id^="addRisk_"]').click(function(){
+        currIndex = $(this).attr('id').split('_').pop();
         riskIndex++;
-        $('#riskInput_1')
+        $('#riskInput_1_1')
             .clone()
-            .attr('id', 'riskInput_'+ riskIndex)
-            .insertAfter('#riskInput_1');
+            .attr('id', 'riskInput_'+currIndex+'_'+riskIndex)
+            .insertAfter('#riskInput_'+currIndex+'_'+(riskIndex-1));
     });
-    $('#remRisk_1').click(function(){
+    $('[id^="remRisk_"]').click(function(){
         if(riskIndex > 1)
         {
-            $('#riskInput_'+riskIndex)
-                .remove()
+            currIndex = $(this).attr('id').split('_').pop();
+            $('#riskInput_'+currIndex+'_'+riskIndex)
+                .remove();
             riskIndex--;
         } 
     });
 
-    $('#addAcc_1').click(function(){
+    $('[id^="addAcc_"]').click(function(){
         accIndex++;
-        $('#accInput_1')
+        currIndex = $(this).attr('id').split('_').pop();
+        $('#accInput_1_1')
             .clone()
-            .attr('id', 'accInput_'+ accIndex)
-            .insertAfter('#accInput_1');
+            .attr('id', 'accInput_'+currIndex+'_'+accIndex)
+            .insertAfter('#accInput_'+currIndex+'_'+(accIndex-1));
     });
-    $('#remAcc_1').click(function(){
+    $('[id^="remAcc_"]').click(function(){
         if(accIndex > 1)
         {
-            $('#accInput_'+accIndex)
-                .remove()
+            currIndex = $(this).attr('id').split('_').pop();
+            $('#accInput_'+currIndex+'_'+accIndex)
+                .remove();
             accIndex--;
         }
     });
 
-    $('#addFile_1').click(function(){
-        fileIndex++;
-        $('#fileInput_1')
-            .clone()
-            .attr('id', 'fileInput_'+ fileIndex)
-            .insertAfter('#fileInput_1');
-    });
-    $('#remFile_1').click(function(){
-        if(fileIndex > 1)
-        {
-            $('#fileInput_'+fileIndex)
-                .remove()
-            fileIndex--;
-        }
-    });
-
-    $('#addEmail_1').click(function(){
+    $('[id^="addEmail_"]').click(function(){
         emailIndex++;
-        $('#emailInput_1')
+        currIndex = $(this).attr('id').split('_').pop();
+        $('#emailInput_1_1')
             .clone()
-            .attr('id', 'emailInput_'+ emailIndex)
-            .insertAfter('#emailInput_1');
+            .attr('id', 'emailInput_'+currIndex+'_'+emailIndex)
+            .insertAfter('#emailInput_'+currIndex+'_'+(emailIndex-1));
     });
-    $('#remEmail_1').click(function(){
+    $('[id^="remEmail_"]').click(function(){
         if(emailIndex > 1)
         {
-            $('#emailInput_'+emailIndex)
-                .remove()
+            currIndex = $(this).attr('id').split('_').pop();
+            $('#emailInput_'+currIndex+'_'+emailIndex)
+                .remove();
             emailIndex--;
         }
     });
 
+    $('[id^="addFile_"]').click(function(){
+        fileIndex++;
+        currIndex = $(this).attr('id').split('_').pop();
+        $('#fileInput_1_1')
+            .clone()
+            .attr('id', 'fileInput_'+currIndex+'_'+fileIndex)
+            .insertAfter('#fileInput_'+currIndex+'_'+(fileIndex-1));
+    });
+    $('[id^="remFile_"]').click(function(){
+        if(fileIndex > 1)
+        {
+            currIndex = $(this).attr('id').split('_').pop();
+            $('#fileInput_'+currIndex+'_'+fileIndex)
+                .remove();
+            fileIndex--;
+        }
+    });
    
-   });
+});
