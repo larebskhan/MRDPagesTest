@@ -31,9 +31,8 @@ function alertingInput(choice, otherChoice)
     document.getElementById(otherChoice).disabled = true;
     if(choice == "ticket")
     {
-            
-        document.getElementById(otherChoice+"Add").disabled = true;
-        document.getElementById(otherChoice+"Remove").disabled = true;
+        document.getElementById("remEmail_1").disabled = true;
+        document.getElementById("addEmail_1").disabled = true;
     }
 }
 function yesNoInput(id, choice, place)
@@ -57,6 +56,56 @@ function yesNoInput(id, choice, place)
     }
 }
 
+function removeAll(section) 
+{
+    var divID = 'add'+section;
+    document.getElementById(divID).innerHTML = '';
+}
+
+function saveJSON(text, filename)
+{
+    //create anchor element
+    var a = document.createElement('a');
+    //donwload file locally --> THIS NEEDS TO DOWNLOAD TO SERVER
+    a.setAttribute('href', 'data:text/plain;charset=utf-8,'+encodeURIComponent(text));
+    //change donwload filename
+    a.setAttribute('download', filename);
+    a.click();
+    window.location.href = "SubmitValidation.html";
+}
+
+/*var i = 1;
+function requirementAdd()
+{
+    var newBox = document.createElement('div');
+    divID = "req"+i;
+    newBox.id = divID;
+    newBox.innerHTML = document.getElementById('req0').innerHTML;
+    document.getElementById("newReq").appendChild(newBox);
+    i++;
+}
+
+function requirementRemove()
+{
+    divID = "req"+(i-1);
+    //alert(divID);
+    var oldBox = document.getElementById(divID);
+    if(i > 1)
+    {
+        oldBox.remove();
+        i--;
+    }
+}
+
+function addRequirement()
+{
+    var newBox = document.createElement('div');
+    divID = "req"+i;
+    newBox.id = divID;
+    newBox.innerHTML = "hello";
+    document.getElementById("newReq").appendChild(newBox);
+    i++;
+}
 function resetNone(id, place)
 {
     document.getElementById(id).disabled = false;
@@ -64,7 +113,7 @@ function resetNone(id, place)
     document.getElementById(id).placeholder = place;
 }
 
-/*var serverCount = 1
+var serverCount = 1
 function addServer() 
 {
     serverCount+=1
@@ -80,7 +129,37 @@ function removeServer()
     var oldServer = document.getElementById('idBox');
     oldServer.remove();
     serverCount-=1;
-}*/
+}
+function duplicateRequirement()
+{
+    var newBox = document.createElement('div');
+    divID = "req"+i;
+    currentDivID = "req"+(i-1);
+    //alert(currentDivID);
+    newBox.id = divID;
+    newBox.innerHTML = document.getElementById(currentDivID).innerHTML;
+    document.getElementById("newReq").appendChild(newBox);
+    i++;
+}
+
+var i = 0;
+var original = document.getElementById('req');
+
+function duplicate() {
+    alert(original.innerHTML);
+    var clone = original.cloneNode(true); // "deep" clone
+    clone.id = "duplicater" + ++i;
+    // or clone.id = ""; if the divs don't need an ID
+    original.parentNode.appendChild(clone);
+}
+
+    i++
+    //var original = document.getElementById('req');
+    var newBox = document.createElement('div');
+    newBox.setAttribute('id', "req"+i);
+    //alert(newBox.id);
+    newBox.innerHTML = document.getElementById("req"+(i-1)).innerHTML;
+    document.getElementById("newReq").appendChild(newBox);
 
 function addBox(id) 
 {
@@ -149,75 +228,4 @@ function removeBox(id)
     }
     oldBox.remove();
 }
-
-function removeAll(section) 
-{
-    var divID = 'add'+section;
-    document.getElementById(divID).innerHTML = '';
-}
-
-function saveJSON(text, filename)
-{
-    //create anchor element
-    var a = document.createElement('a');
-    //donwload file locally --> THIS NEEDS TO DOWNLOAD TO SERVER
-    a.setAttribute('href', 'data:text/plain;charset=utf-8,'+encodeURIComponent(text));
-    //change donwload filename
-    a.setAttribute('download', filename);
-    a.click();
-    window.location.href = "SubmitValidation.html";
-}
-
-/*var i = 0;
-var original = document.getElementById('req');
-
-function duplicate() {
-    alert(original.innerHTML);
-    var clone = original.cloneNode(true); // "deep" clone
-    clone.id = "duplicater" + ++i;
-    // or clone.id = ""; if the divs don't need an ID
-    original.parentNode.appendChild(clone);
-}*/
-
-var i = 1;
-function requirementAdd()
-{
-    var newBox = document.createElement('div');
-    divID = "req"+i;
-    newBox.id = divID;
-    //alert(newBox.id);
-    newBox.innerHTML = document.getElementById('req0').innerHTML;
-    document.getElementById("newReq").appendChild(newBox);
-    i++;
-}
-function requirementRemove()
-{
-    divID = "req"+(i-1);
-    //alert(divID);
-    var oldBox = document.getElementById(divID);
-    if(i > 1)
-    {
-        oldBox.remove();
-        i--;
-    }
-}
-/*function duplicateRequirement()
-{
-    var newBox = document.createElement('div');
-    divID = "req"+i;
-    currentDivID = "req"+(i-1);
-    //alert(currentDivID);
-    newBox.id = divID;
-    newBox.innerHTML = document.getElementById(currentDivID).innerHTML;
-    document.getElementById("newReq").appendChild(newBox);
-    i++;
-}*/
-/*
-    i++
-    //var original = document.getElementById('req');
-    var newBox = document.createElement('div');
-    newBox.setAttribute('id', "req"+i);
-    //alert(newBox.id);
-    newBox.innerHTML = document.getElementById("req"+(i-1)).innerHTML;
-    document.getElementById("newReq").appendChild(newBox);
 */
