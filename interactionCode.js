@@ -229,3 +229,14 @@ function removeBox(id)
     oldBox.remove();
 }
 */
+function serverWarning(){
+    var str = document.getElementById('server').value;
+    if(str.includes("a03") || (str.includes("a70"))){
+        document.getElementById('serverWarning').className = "";
+        document.getElementById('serverWarningText').innerHTML = "";
+    }
+    else{
+        document.getElementById('serverWarning').className = "has-warning";
+        document.getElementById('serverWarningText').innerHTML = "Warning! ServerID does not start with a03 or a70!";
+    }
+}

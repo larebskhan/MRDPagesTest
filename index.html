@@ -30,7 +30,7 @@
         <!--<img src="https://abcnews4.com/resources/media/0f73c9b8-3b67-4aaf-b61c-5483a3192fb0-large16x9_BCBSSCPartner.png?1538141737266" alt="Photo" width=100">-->
         <h2>Monitoring Requirements Document Form &nbsp</h2>
         
-        <form class="form-horizontal" name="mrdform" id="mrdform">
+        <form class="form-horizontal was-validated" name="mrdform" id="mrdform">
           <br>
           <p>
             <em><span class="star">&#42;</span> Indicates a required field</em>
@@ -144,9 +144,12 @@
                       <input id="remServer_1" type="button" class="btn btn-default" value="-">
                       <input id="addServer_1" type="button" class="btn btn-default" value="+">
                       <br><br>
+                      <div class="" id="serverWarning">
                       <a id="serverInput_1" data-toggle="tooltip" title="Please enter all ServerIDs">
-                        <input type="text" class="form-control" id="server" placeholder="Server ID" name="Server ID" required minlength="13" maxlength="13" size="13">
+                        <input type="text" class="form-control" id="server" oninput="serverWarning()" placeholder="Server ID" name="Server ID" required minlength="13" maxlength="13" size="13">
+                        <span class="help-block" id="serverWarningText"></span>
                       </a>
+                      </div>
 
                       <br>
 
