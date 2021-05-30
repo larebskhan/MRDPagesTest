@@ -141,11 +141,21 @@
                       <br>
                       -->
 
-                      <!--Server ID-->
-                      <label for="requirement">Server IDs&nbsp<span class="star">&#42;</span> </label>
+                      <!--Servers-->
+                      <label for="requirement">Servers &nbsp<span class="star">&#42;</span> </label><br>
                       <input id="remServer_1" type="button" class="btn btn-default" value="-">
                       <input id="addServer_1" type="button" class="btn btn-default" value="+">
-                      <br><br>
+
+                      <!--Server Type buttons-->
+                      <input class="form-check-input" type="radio" name="Server Type" id="windows" value="Windows"> <!-- onclick="--> 
+                      <label for="ticketAlert">Windows</label><br>
+                      <input class="form-check-input" type="radio" name="Server Type" id="linux" value="Linux"> <!-- onclick=" -->
+                      <label for="emailAlert">Linux</label><br>
+                      <input class="form-check-input" type="radio" checked="checked" name="Server Type" id="bothServers" value="Both"> <!-- onclick=" -->  
+                      <label for="bothAlert">Both</label><br>
+
+
+
                       <div class="" id="serverWarning">
                       <a id="serverInput_1_1" data-toggle="tooltip" title="Please enter all ServerIDs">
                         <input type="text" class="form-control" id="server" oninput="serverWarning()" placeholder="Server ID" name="Server ID" required minlength="13" maxlength="13" size="13">
@@ -198,6 +208,7 @@
                       <label for="alert">Alerting&nbsp<span class="star">&#42;</span></label><br>
                       <input id="remEmail_1" type="button" class="btn btn-default" value="-">
                       <input id="addEmail_1" type="button" class="btn btn-default" value="+">
+
                       <input class="form-check-input" type="radio" name="alert" id="ticketAlert" value="Ticket" onclick="alertingInput('ticket', 'email')">
                       <label for="ticketAlert">Ticket</label><br>
                       <input class="form-check-input" type="radio" name="alert" id="emailAlert" value="Email" onclick="alertingInput('email', 'ticket')">
