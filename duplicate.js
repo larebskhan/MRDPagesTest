@@ -34,8 +34,8 @@ $(document).ready(function(){
             .find('#addServer_1')
             .attr('id', 'addServer_'+index);
         $('#req_'+ index)
-            .find('#serverInput_1_1')
-            .attr('id', 'serverInput_'+index+'_'+serverIndex);
+            .find('#serverInput_1')
+            .attr('id', 'serverInput_'+index);
         
         //Assumption Button
         $('#req_'+ index)
@@ -45,8 +45,8 @@ $(document).ready(function(){
             .find('#addAssumption_1')
             .attr('id', 'addAssumption_'+index);
         $('#req_'+ index)
-            .find('#assumptionInput_1_1')
-            .attr('id', 'assumptionInput_'+index+'_'+assumptionIndex);
+            .find('#assumptionInput_1')
+            .attr('id', 'assumptionInput_'+index);
         
         //Risk Button
         $('#req_'+ index)
@@ -56,9 +56,8 @@ $(document).ready(function(){
             .find('#addRisk_1')
             .attr('id', 'addRisk_'+index);
         $('#req_'+ index)
-            .find('#riskInput_1_1')
-            .attr('id', 'riskInput_'+index+'_'+riskIndex);
-        
+            .find('#riskInput_1')
+            .attr('id', 'riskInput_'+index);
         //Acceptance Criteria
         $('#req_'+ index)
             .find('#remAcc_1')
@@ -67,8 +66,8 @@ $(document).ready(function(){
             .find('#addAcc_1')
             .attr('id', 'addAcc_'+index);
         $('#req_'+ index)
-            .find('#accInput_1_1')
-            .attr('id', 'accInput_'+index+'_'+accIndex);
+            .find('#accInput_1')
+            .attr('id', 'accInput_'+index);
         
         //File Monitoring
         $('#req_'+ index)
@@ -78,8 +77,8 @@ $(document).ready(function(){
             .find('#addFile_1')
             .attr('id', 'addFile_'+index);
         $('#req_'+ index)
-            .find('#fileInput_1_1')
-            .attr('id', 'fileInput_'+index+'_'+fileIndex);
+            .find('#fileInput_1')
+            .attr('id', 'fileInput_'+index);
         
         //Alerting: Email
         $('#req_'+ index)
@@ -89,8 +88,8 @@ $(document).ready(function(){
             .find('#addEmail_1')
             .attr('id', 'addEmail_'+index);
         $('#req_'+ index)
-            .find('#emailInput_1_1')
-            .attr('id', 'emailInput_'+index+'_'+emailIndex);
+            .find('#emailInput_1')
+            .attr('id', 'emailInput_'+index);
     });
     $('#remReq').click(function(){
         if(index > 1)
@@ -100,7 +99,7 @@ $(document).ready(function(){
             index--;
         }
     });
-
+    /*
     $('[id^="addServer_"]').click(function() {
         serverIndex++;
         currIndex = $(this).attr('id').split('_').pop();
@@ -208,5 +207,5 @@ $(document).ready(function(){
             fileIndex--;
         }
     });
-   
+   */
 });
