@@ -1,8 +1,9 @@
 <!--
   To Do:
-    1. Fix add and remove buttons for each respective requirement
-    2. JSON Data file
+    1. JSON Data file
+    2. Fix button and input disable for added requirements 
     3. Warning server
+    4. inner HTML empty
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -112,7 +113,7 @@
                       <a id="toggle_1" data-toggle="collapse" href="#collapse_1"> Requirement 1</a>
                       <div class="triangle-down"></div>
                     </h4>
-                    <br>
+                    
                     <a data-toggle="tooltip" title="Please enter the Requirement(s) of the project">
                       <input type="text" class="form-control" id="requirements" placeholder="Project Requirement" name="Requirement(s)" required>
                     </a>
@@ -128,8 +129,7 @@
                       <a data-toggle="tooltip" title="Please enter the business reason.">
                         <input type="text" class="form-control" id="reason" placeholder="Business Reason" name="Business Reason" required>
                       </a>
-
-                      <br> 
+                    </li>
 
                       <!--
                         Objective
@@ -137,14 +137,13 @@
                       <a data-toggle="tooltip" title="Please enter the Objective for each Requirement">
                         <input type="text" class="form-control" id="objective" placeholder="Requirement Objective" name="Objective" required>
                       </a>
-
                       <br>
                       -->
-
+                    <li class="list-group-item">
                       <!--Servers-->
                       <label for="requirement">Servers &nbsp<span class="star">&#42;</span> </label><br>
-                      <input id="remServer_1" type="button" class="btn btn-default" value="-">
-                      <input id="addServer_1" type="button" class="btn btn-default" value="+">
+                      <input id="remServer_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'serverInput')">
+                      <input id="addServer_1" type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'serverInput')">
 
                       <!--Server Type buttons-->
                       <input class="form-check-input" type="radio" name="Server Type" id="windows" value="Windows"> <!-- onclick="--> 
@@ -153,18 +152,15 @@
                       <label for="emailAlert">Linux</label><br>
                       <input class="form-check-input" type="radio" checked="checked" name="Server Type" id="bothServers" value="Both"> <!-- onclick=" -->  
                       <label for="bothAlert">Both</label><br>
-
-
-
                       <div class="" id="serverWarning">
-                      <a id="serverInput_1_1" data-toggle="tooltip" title="Please enter all ServerIDs">
-                        <input type="text" class="form-control" id="server" oninput="serverWarning()" placeholder="Server ID" name="Server ID" required minlength="13" maxlength="13" size="13">
-                        <span class="help-block" id="serverWarningText"></span>
-                      </a>
-			      <span class="help-block" id="serverWarningText"></span>
+                        <div id="serverInput_1">
+                          <a data-toggle="tooltip" title="Please enter all ServerIDs">
+                            <input type="text" class="form-control" oninput="serverWarning()" id="server" placeholder="Server ID" name="Server ID">
+                            <span class="help-block" id="serverWarningText"></span>
+                          </a>
+                        </div>
                       </div>
-
-                      <br>
+                    </li>
 
                       <!--
                         Assumptions
@@ -178,36 +174,38 @@
                       <label><input type="checkbox" name="No Assumptions" id="none_assumptions" onclick="disableInput('assumptions', 'Project Assumption'); removeAll('Assumption')"> None </label>
                         
                       <br><br>
-
                       -->
-
+                    <li class="list-group-item">
                       <!--Risk-->
                       <label for="risks">Risks of not Monitoring&nbsp<span class="star">&#42;</span></label>
-                      <input id="remRisk_1" type="button" class="btn btn-default" value="-">
-                      <input id="addRisk_1" type="button" class="btn btn-default" value="+">
+                      <input id="remRisk_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'riskInput')">
+                      <input id="addRisk_1" type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'riskInput')">
                       <br><br>
-                      <a id="riskInput_1_1" data-toggle="tooltip" title="Please enter any Risk(s) that pertain to the project">
+                      <a id="riskInput_1" data-toggle="tooltip" title="Please enter any Risk(s) that pertain to the project">
                         <input type="text" class="form-control" id="risks" placeholder="Project Risk" name="Risk(s)" required>
                       </a> 
-                      <label><input type="checkbox" name="No Risks" id="none_risks" onclick="disableInput('risks', 'Project Risk'); removeAll('Risk')"> None </label>
+                      <label>
+                        <input type="checkbox" name="No Risks" id="none_risks" onclick="disableInput('risks', 'Project Risk'); removeAll('Risk')"> 
+                        None 
+                      </label>
+                    </li>
 
-                      <br><br>
-
+                    <li class="list-group-item">
                       <!--Acceptance Criteria-->
                       <label for="acceptanceCrit">Acceptance Criteria&nbsp<span class="star">&#42;</span></label>
-                      <input id="remAcc_1" type="button" class="btn btn-default" value="-">
-                      <input id="addAcc_1"type="button" class="btn btn-default" value="+">
+                      <input id="remAcc_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'accInput')">
+                      <input id="addAcc_1"type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'accInput')">
                       <br><br>
-                      <a id="accInput_1_1" data-toggle="tooltip" title="Please enter all Acceptance Criteria for the project">
+                      <a id="accInput_1" data-toggle="tooltip" title="Please enter all Acceptance Criteria for the project">
                         <input type="text" class="form-control" id="acceptanceCrit" placeholder="Acceptance Criteria" name="Acceptance Criteria" required>
                       </a>
+                    </li>
 
-                      <br>
-
+                    <li class="list-group-item">
                       <!--Alerts-->
                       <label for="alert">Alerting&nbsp<span class="star">&#42;</span></label><br>
-                      <input id="remEmail_1" type="button" class="btn btn-default" value="-">
-                      <input id="addEmail_1" type="button" class="btn btn-default" value="+">
+                      <input id="remEmail_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'emailInput')">
+                      <input id="addEmail_1" type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'emailInput')">
 
                       <input class="form-check-input" type="radio" name="alert" id="ticketAlert" value="Ticket" onclick="alertingInput('ticket', 'email')">
                       <label for="ticketAlert">Ticket</label><br>
@@ -227,29 +225,30 @@
                       </div>
                       <br>
                       <div id="emailAlert">
-                        <a id="emailInput_1_1" data-toggle="tooltip" title="Please enter the Distributor">
-                          <input type="text" class="form-control" id="email" placeholder="Distributor" name="Distributor" required>
+                        <a id="emailInput_1" data-toggle="tooltip" title="Please enter the Distributor">
+                          <input type="email" class="form-control" id="email" placeholder="Distributor" name="Distributor" required>
                         </a>
                       </div>
                       <p>
                         <em>If no alerting is required, <a href="https://www.google.com/" target="_blank"> click here!</a></em>
                       </p>
-
-                      <br>
-
+                    </li>
+                    
+                    <li class="list-group-item">
                       <!--File Monitoring-->
                       <label for="files">File Monitoring?&nbsp<span class="star">&#42;</span></label>
-                      <input id="remFile_1" type="button" class="btn btn-default" value="-">
-                      <input id="addFile_1" type="button" class="btn btn-default" value="+">
+                      <input id="remFile_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'fileInput')">
+                      <input id="addFile_1" type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'fileInput')">
                       <br>
                       <input class="form-check-input" type="radio" name="fileMonitoring" checked="checked" id="yesFile" value="Yes" onclick="yesNoInput('files', 'yes', 'Complete File Path');">
                       <label for="yesFile">Yes</label><br>
                       <input class="form-check-input" type="radio" name="fileMonitoring" id="noFile" value="No" onclick="yesNoInput('files', 'no', 'None'); removeAll('File')">
                       <label for="yesFile">No</label><br>
-                      <a id="fileInput_1_1" data-toggle="tooltip" title="Please enter the Complete File Path">
+                      <a id="fileInput_1" data-toggle="tooltip" title="Please enter the Complete File Path">
                         <input type="text" class="form-control" id="files" placeholder="Complete File Path" name="File Path" required>
                       </a>
                     </li>
+
                   </ul>
                 </div>
               </div>
