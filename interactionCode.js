@@ -245,3 +245,66 @@ function serverWarning(){
         document.getElementById('serverWarningText').innerHTML = "Warning! ServerID does not start with a03 or a70!";
     }
 }
+
+function addInputBox(id, name)
+{
+    idNum = id.match(/\d+/);
+    //alert(idNum);
+    //alert(name)
+    var newBox = document.createElement('div');
+    if(name == 'serverInput')
+    {
+        newBox.innerHTML = "<a data-toggle='tooltip' title='Please enter all ServerIDs'> <input type='text' class='form-control' oninput='serverWarning()' id='server"+idNum+"' placeholder='Server ID' name='Server ID'></input> <span class='help-block' id='serverWarningText'> </span> </a>"
+    }
+    else if(name == 'riskInput')
+    {
+        newBox.innerHTML = "<input type='text' class='form-control' id='risks"+idNum+"' placeholder='Project Risk' name='Risk(s)' required>";
+    }
+    else if(name == 'accInput')
+    {
+        newBox.innerHTML = "<input type='text' class='form-control' id='acceptanceCrit"+idNum+"' placeholder='Acceptance Criteria' name='Acceptance Criteria' required>";
+    }
+    else if(name == 'emailInput')
+    {
+        newBox.innerHTML = "<input type='email' class='form-control' id='email"+idNum+"' placeholder='Distributor' name='Distributor' required>";
+    }
+    else if(name == 'fileInput')
+    {
+        newBox.innerHTML = "<input type='text' class='form-control' id='files"+idNum+"' placeholder='Complete File Path' name='File Path' required>";
+    }
+    idInput = name+'_'+idNum;
+    document.getElementById(name+'_'+idNum).appendChild(newBox);
+    /*var newBox = document.createElement('div');
+    newBox.innerHTML = "<input type='text' class='form-control' id=idBoxCriteria placeholder='Acceptance Criteria' name='Acceptance Criteria' required>";
+    alert('accInput_'+idNum);
+    document.getElementById('accInput_'+idNum).appendChild(newBox);
+
+    alert(id.match(/\d+/));*/
+}
+function removeInputBox(id, name)
+{
+    idNum = id.match(/\d+/);
+    idInput = name+'_'+idNum;
+    if(name == 'serverInput')
+    {
+        var oldBox = document.getElementById('server'+idNum);
+    }
+    else if(name == 'riskInput')
+    {
+        var oldBox = document.getElementById('risks'+idNum);
+    }
+    else if(name == 'accInput')
+    {
+        var oldBox = document.getElementById('acceptanceCrit'+idNum);
+    }
+    else if(name == 'emailInput')
+    {
+        var oldBox = document.getElementById('email'+idNum);
+    }
+    else if(name == 'fileInput')
+    {
+        var oldBox = document.getElementById('files'+idNum);
+    }
+    //alert(oldBox.id);
+    oldBox.remove(oldBox);
+}
