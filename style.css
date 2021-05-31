@@ -12,9 +12,8 @@ body
 }
 .container
 {
-    border-radius: 25px; 
+    border-radius: 10px; 
     border: 2px solid #dbeaf3;
-    padding: 20px; 
     background-color: white; 
     width: 700px;
 }
@@ -23,8 +22,13 @@ h2
     font-size: 26px; 
     color:#0068ac; 
     padding: 5px; 
-    text-align: center; 
-    float: left;
+    text-align: center;
+}
+h4 
+{
+    color:#0068ac; 
+    padding: 5px; 
+    text-align: center;
 }
 hr
 {
