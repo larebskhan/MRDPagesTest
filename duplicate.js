@@ -195,6 +195,20 @@ $(document).ready(function(){
         $('#req_'+ index)
             .find('#risks')
             .prop('disabled', false)
+
+        //Enable Ticket after duplicate
+        $('#req_'+ index)
+            .find('#ticketCircum_'+index)
+            .prop('disabled', false)
+        $('#req_'+ index)
+            .find('#ticket_'+index)
+            .prop('disabled', false)
+        $('#req_'+ index)
+            .find('#ticketBucket_'+index)
+            .prop('disabled', false)
+        $('#req_'+ index)
+            .find('#ticketTeam_'+index)
+            .prop('disabled', false)
         
         //Clear div element with old added inputs
         $('#req_'+ index)
