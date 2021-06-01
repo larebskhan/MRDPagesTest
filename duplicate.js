@@ -132,7 +132,7 @@ $(document).ready(function(){
             .attr('id', 'ticket_'+index);
         
         //Alerting: Ticket
-        $('#req_'+ index)
+        /*$('#req_'+ index)
             .find('#ticketCircum_1')
             .attr('id', 'ticketCircum_'+index);
         $('#req_'+ index)
@@ -149,7 +149,7 @@ $(document).ready(function(){
             .val('');
         $('#req_'+ index)
             .find('#ticketTeam_'+index)
-            .val('');
+            .val('');*/
 
 
         //Clear Input Values After Cloned
@@ -210,7 +210,7 @@ $(document).ready(function(){
             .empty(); 
         $('#req_'+ index)
             .find('#addedaddInput_'+index)
-            .empty(); 
+            .empty();
 
     });
     $('#remReq').click(function(){
