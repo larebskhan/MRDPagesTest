@@ -13,6 +13,9 @@ function alertingInput(choice, id)
         document.getElementById(addButton).disabled = true;
         document.getElementById(removeButton).disabled = true;
         document.getElementById(input).getElementsByClassName('form-control')[0].disabled = true;
+        document.getElementById('ticketBucket_'+idNum).disabled = false;
+        document.getElementById('ticketCircum_'+idNum).disabled = false;
+        document.getElementById('ticketTeam_'+idNum).disabled = false;
     }
     else if(choice == 'email')
     {
@@ -20,6 +23,10 @@ function alertingInput(choice, id)
         document.getElementById(removeButton).disabled = false;
         document.getElementById(input).getElementsByClassName('form-control')[0].disabled = false;
         document.getElementById(ticket).disabled = true;
+        document.getElementById('ticketBucket_'+idNum).disabled = true;
+        document.getElementById('ticketCircum_'+idNum).disabled = true;
+        document.getElementById('ticketTeam_'+idNum).disabled = true;
+
     }
     else if(choice == 'both')
     {
@@ -27,6 +34,9 @@ function alertingInput(choice, id)
         document.getElementById(addButton).disabled = false;
         document.getElementById(removeButton).disabled = false;
         document.getElementById(input).getElementsByClassName('form-control')[0].disabled = false;
+        document.getElementById('ticketBucket_'+idNum).disabled = false;
+        document.getElementById('ticketCircum_'+idNum).disabled = false;
+        document.getElementById('ticketTeam_'+idNum).disabled = false;
     }
 }
 
@@ -78,7 +88,7 @@ function addInputBox(id, name)
     }
     else if(name == 'fileInput')
     {
-        newBox.innerHTML = "<input type='text' class='form-control' id='files"+idNum+"' placeholder='Complete File Path' name='File Path' required> <span class='help-block'>";
+        newBox.innerHTML = "<input type='text' class='form-control' id='files"+idNum+"' placeholder='Complete File Path' name='File Path'> <span class='help-block'>";
     }
     else if(name == 'addInput')
     {

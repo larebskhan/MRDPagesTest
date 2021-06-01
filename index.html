@@ -44,10 +44,10 @@
             <label class="control-label col-sm-2" for="requester">Is requester on the support team for application?&nbsp<span class="star">&#42;</span></label>
             <div class="col-sm-6">
               <input class="form-check-input" type="radio" name="requester" id="yesRequester" value="Yes"required>
-              <label for="yesFile">Yes</label><br>
+              <label for="yesReq">Yes</label><br>
           
               <input class="form-check-input" type="radio" name="requester" id="noRequester" value="No"required>
-              <label for="yesFile">No</label><br>
+              <label for="noReq">No</label><br>
             </div>
           </div>
           
@@ -151,7 +151,7 @@
                     <li class="list-group-item">
                       <!--Risk-->
                       <label for="risks">Risks of not Monitoring</label>
-                      <em> If no risks, leave input box empty.</em>
+                      <br><em class='notRequired'>If no risks, leave input box blank.</em>
                       <input id="remRisk_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'riskInput')">
                       <input id="addRisk_1" type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'riskInput')">
                       <br><br>
@@ -196,16 +196,17 @@
 
                     <li class="list-group-item">
                       <!--File Monitoring-->
-                      <label for="files">File Monitoring?&nbsp<span class="star">&#42;</span></label>
+                      <label for="files">File Monitoring?</label>
+                      <br><em class='notRequired'>If no file monitoring, leave input box blank.</em>
                       <input id="remFile_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'fileInput')">
                       <input id="addFile_1" type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'fileInput')">
                       <br>
-                      <input class="form-check-input" type="radio" name="fileMonitoring" checked="checked" id="yesFile_1" value="Yes" onclick="fileInput('yes', this.id)">
+                      <!--<input class="form-check-input" type="radio" name="fileMonitoring" checked="checked" id="yesFile_1" value="Yes" onclick="fileInput('yes', this.id)">
                       <label for="yesFile">Yes</label><br>
                       <input class="form-check-input" type="radio" name="fileMonitoring" id="noFile_1" value="No" onclick="fileInput('no', this.id)">
-                      <label for="yesFile">No</label><br>
+                      <label for="yesFile">No</label><br>-->
                       <a id="fileInput_1" data-toggle="tooltip" title="Please enter the Complete File Path">
-                        <input type="text" class="form-control" id="files" placeholder="Complete File Path" name="File Path" required> <span class="help-block"></span>
+                        <input type="text" class="form-control" id="files" placeholder="Complete File Path" name="File Path"> <span class="help-block"></span>
                         <div id='addedfileInput_1'>
                               
                         </div>
@@ -226,13 +227,16 @@
                       <label for="bothAlert">Both</label><br>
                       
                       <div id="ticketAlert">
+                        <input type="input" class="form-control" id="ticketCircum_1" placeholder="Ticketing Circumstance" name="Ticketing Circumstance"><span class="help-block"></span>
                         <select id="ticket_1" class="form-control" aria-label=".form-select-sm example" name="Ticket Severity">
                           <option disabled selected value> -- Select Severity -- </option>
                           <option value="S1">S1</option>
                           <option value="S2">S2</option>
                           <option value="S3">S3</option>
                           <option value="TBD">TBD</option>
-                        </select>
+                        </select><span class="help-block"></span>
+                        <input type="input" class="form-control" id="ticketBucket_1" placeholder="Ticket Bucket" name="Ticket Bucket"><span class="help-block"></span>
+                        <input type="input" class="form-control" id="ticketTeam_1" placeholder="Ticket Response Team" name="Ticket Response Team">
                       </div>
                       <br>
                       <div id="emailAlert">
@@ -290,6 +294,7 @@
                     <li class="list-group-item">
                       <!--Additional Information-->
                       <label for="addInfo">Additional Information</label>
+                      <br><em class='notRequired'>If no additional information, leave input box blank.</em>
                       <input id="remAdd_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'addInput')">
                       <input id="addAdd_1"type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'addInput')">
                       <br><br>

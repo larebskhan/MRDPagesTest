@@ -130,6 +130,27 @@ $(document).ready(function(){
         $('#req_'+ index)
             .find('#ticket_1')
             .attr('id', 'ticket_'+index);
+        
+        //Alerting: Ticket
+        $('#req_'+ index)
+            .find('#ticketCircum_1')
+            .attr('id', 'ticketCircum_'+index);
+        $('#req_'+ index)
+            .find('#ticketBucket_1')
+            .attr('id', 'ticketBucket_'+index);
+        $('#req_'+ index)
+            .find('#ticketTeam_1')
+            .attr('id', 'ticketTeam_'+index);
+        $('#req_'+ index)
+            .find('#ticketCircum_'+index)
+            .val('');
+        $('#req_'+ index)
+            .find('#ticketBucket_'+index)
+            .val('');
+            $('#req_'+ index)
+            .find('#ticketTeam_'+index)
+            .val('');
+
 
         //Clear Input Values After Cloned
         $('#req_'+ index)
