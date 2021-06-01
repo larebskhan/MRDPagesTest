@@ -132,8 +132,71 @@
                         <input type="text" class="form-control" id="reason" placeholder="Business Reason" name="Business Reason" required>
                       </a>
                     </li>
+
+                    <li class="list-group-item">
+                      <!--Risk-->
+                      <label for="risks">Risks of not Monitoring&nbsp<span class="star">&#42;</span></label>
+                      <input id="remRisk_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'riskInput')">
+                      <input id="addRisk_1" type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'riskInput')">
+                      <br><br>
+                      <a id="riskInput_1" data-toggle="tooltip" title="Please enter any Risk(s) that pertain to the project">
+                        <input type="text" class="form-control" id="risks" placeholder="Project Risk" name="Risk(s)" required>
+                        <span class="help-block"></span>
+                        <div id='addedriskInput_1'>
+                              
+                        </div>
+                      </a> 
+                      <label>
+                        <input type="checkbox" name="No Risks" id="none_risks_1" onclick="riskDisable(this.id)"> 
+                        None 
+                      </label>
+                    </li>
+
+                    <li class="list-group-item">
+                      <!--File Monitoring-->
+                      <label for="files">File Monitoring?&nbsp<span class="star">&#42;</span></label>
+                      <input id="remFile_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'fileInput')">
+                      <input id="addFile_1" type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'fileInput')">
+                      <br>
+                      <input class="form-check-input" type="radio" name="fileMonitoring" checked="checked" id="yesFile_1" value="Yes" onclick="fileInput('yes', this.id)">
+                      <label for="yesFile">Yes</label><br>
+                      <input class="form-check-input" type="radio" name="fileMonitoring" id="noFile_1" value="No" onclick="fileInput('no', this.id)">
+                      <label for="yesFile">No</label><br>
+                      <a id="fileInput_1" data-toggle="tooltip" title="Please enter the Complete File Path">
+                        <input type="text" class="form-control" id="files" placeholder="Complete File Path" name="File Path" required> <span class="help-block"></span>
+                        <div id='addedfileInput_1'>
+                              
+                        </div>
+                      </a>
+                    </li>
+
+                    <li class="list-group-item">
+                      <!--Servers-->
+                      <label for="requirement">Servers &nbsp<span class="star">&#42;</span> </label><br>
+                      <input id="remServer_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'serverInput')">
+                      <input id="addServer_1" type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'serverInput')">
+
+                      <!--Server Type buttons-->
+                      <input class="form-check-input" type="radio" name="Server Type" id="windows" value="Windows"> <!-- onclick="--> 
+                      <label for="ticketAlert">Windows</label><br>
+                      <input class="form-check-input" type="radio" name="Server Type" id="linux" value="Linux"> <!-- onclick=" -->
+                      <label for="emailAlert">Linux</label><br>
+                      <input class="form-check-input" type="radio" checked="checked" name="Server Type" id="bothServers" value="Both"> <!-- onclick=" -->  
+                      <label for="bothAlert">Both</label><br>
+                      <div class="" id="serverWarning">
+                        <div id="serverInput_1">
+                          <a data-toggle="tooltip" title="Please enter all ServerIDs">
+                            <input type="text" class="form-control" oninput="serverWarning()" id="server" placeholder="Server ID" name="Server ID">
+                            <span class="help-block" id="serverWarningText"></span>
+                            <div id='addedserverInput_1'>
+
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </li>
 			  
-		<li class="list-group-item">
+		                <li class="list-group-item">
                       <!--Alerts-->
                       <label for="alert">Alerting&nbsp<span class="star">&#42;</span></label><br>
                       <input id="remEmail_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'emailInput')">
@@ -169,90 +232,29 @@
                         <em>If no alerting is required, <a href="https://www.google.com/" target="_blank"> click here!</a></em>
                       </p>
                     </li>
-			  
-		<li class="list-group-item">
-                      <!--File Monitoring-->
-                      <label for="files">File Monitoring?&nbsp<span class="star">&#42;</span></label>
-                      <input id="remFile_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'fileInput')">
-                      <input id="addFile_1" type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'fileInput')">
-                      <br>
-                      <input class="form-check-input" type="radio" name="fileMonitoring" checked="checked" id="yesFile_1" value="Yes" onclick="fileInput('yes', this.id)">
-                      <label for="yesFile">Yes</label><br>
-                      <input class="form-check-input" type="radio" name="fileMonitoring" id="noFile_1" value="No" onclick="fileInput('no', this.id)">
-                      <label for="yesFile">No</label><br>
-                      <a id="fileInput_1" data-toggle="tooltip" title="Please enter the Complete File Path">
-                        <input type="text" class="form-control" id="files" placeholder="Complete File Path" name="File Path" required> <span class="help-block"></span>
-                        <div id='addedfileInput_1'>
-                              
-                        </div>
-                      </a>
-                    </li>
 
-                      <!--
-                        Objective
+                    <!--
+                      Objective
                       <label for="objective">Objective&nbsp<span class="star">&#42;</span> </label>
                       <a data-toggle="tooltip" title="Please enter the Objective for each Requirement">
                         <input type="text" class="form-control" id="objective" placeholder="Requirement Objective" name="Objective" required>
                       </a>
                       <br>
-                      -->
-                    <li class="list-group-item">
-                      <!--Servers-->
-                      <label for="requirement">Servers &nbsp<span class="star">&#42;</span> </label><br>
-                      <input id="remServer_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'serverInput')">
-                      <input id="addServer_1" type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'serverInput')">
+                    -->
 
-                      <!--Server Type buttons-->
-                      <input class="form-check-input" type="radio" name="Server Type" id="windows" value="Windows"> <!-- onclick="--> 
-                      <label for="ticketAlert">Windows</label><br>
-                      <input class="form-check-input" type="radio" name="Server Type" id="linux" value="Linux"> <!-- onclick=" -->
-                      <label for="emailAlert">Linux</label><br>
-                      <input class="form-check-input" type="radio" checked="checked" name="Server Type" id="bothServers" value="Both"> <!-- onclick=" -->  
-                      <label for="bothAlert">Both</label><br>
-                      <div class="" id="serverWarning">
-                        <div id="serverInput_1">
-                          <a data-toggle="tooltip" title="Please enter all ServerIDs">
-                            <input type="text" class="form-control" oninput="serverWarning()" id="server" placeholder="Server ID" name="Server ID">
-                            <span class="help-block" id="serverWarningText"></span>
-                            <div id='addedserverInput_1'>
-
-                            </div>
-                          </a>
-                        </div>
-                      </div>
-                    </li>
-
-                      <!--
-                        Assumptions
-                      <label for="assumptions">Assumption(s)&nbsp<span class="star">&#42;</span></label>
-                      <input id="remAssumption_1" type="button" class="btn btn-default" value="-">
-                      <input id="addAssumption_1" type="button" class="btn btn-default" value="+">
-                      <br><br>
-                      <a id="assumptionInput_1_1" data-toggle="tooltip" title="Please enter any Assumption(s) for the project">
-                        <input type="text" class="form-control" id="assumptions" placeholder="Project Assumption" name="Assumption(s)" required>
-                      </a>
-                      <label><input type="checkbox" name="No Assumptions" id="none_assumptions" onclick="disableInput('assumptions', 'Project Assumption'); removeAll('Assumption');"> None </label>
+                    <!--
+                    Assumptions
+                    <label for="assumptions">Assumption(s)&nbsp<span class="star">&#42;</span></label>
+                    <input id="remAssumption_1" type="button" class="btn btn-default" value="-">
+                    <input id="addAssumption_1" type="button" class="btn btn-default" value="+">
+                    <br><br>
+                    <a id="assumptionInput_1_1" data-toggle="tooltip" title="Please enter any Assumption(s) for the project">
+                      <input type="text" class="form-control" id="assumptions" placeholder="Project Assumption" name="Assumption(s)" required>
+                    </a>
+                    <label><input type="checkbox" name="No Assumptions" id="none_assumptions" onclick="disableInput('assumptions', 'Project Assumption'); removeAll('Assumption');"> None </label>
                         
-                      <br><br>
-                      -->
-                    <li class="list-group-item">
-                      <!--Risk-->
-                      <label for="risks">Risks of not Monitoring&nbsp<span class="star">&#42;</span></label>
-                      <input id="remRisk_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'riskInput')">
-                      <input id="addRisk_1" type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'riskInput')">
-                      <br><br>
-                      <a id="riskInput_1" data-toggle="tooltip" title="Please enter any Risk(s) that pertain to the project">
-                        <input type="text" class="form-control" id="risks" placeholder="Project Risk" name="Risk(s)" required>
-                        <span class="help-block"></span>
-                        <div id='addedriskInput_1'>
-                              
-                        </div>
-                      </a> 
-                      <label>
-                        <input type="checkbox" name="No Risks" id="none_risks_1" onclick="riskDisable(this.id)"> 
-                        None 
-                      </label>
-                    </li>
+                  <br><br>
+                    -->
 
                     <li class="list-group-item">
                       <!--Acceptance Criteria-->
