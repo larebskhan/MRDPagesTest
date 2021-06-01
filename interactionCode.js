@@ -26,7 +26,6 @@ function alertingInput(choice, id)
         document.getElementById('ticketBucket_'+idNum).disabled = true;
         document.getElementById('ticketCircum_'+idNum).disabled = true;
         document.getElementById('ticketTeam_'+idNum).disabled = true;
-
     }
     else if(choice == 'both')
     {

@@ -24,8 +24,7 @@ $(document).ready(function(){
             .find('#toggle_1')
             .text('Requirement '+index);
         
-        //Change add/remove button Ids
-        //Ex. ID Button Requirement Add Server #2: addServer_1
+        //Change add/remove button IDs
         //Server Button
         $('#req_'+ index)
             .find('#remServer_1')
@@ -39,6 +38,8 @@ $(document).ready(function(){
         $('#req_'+ index)
             .find('#addedserverInput_1')
             .attr('id', 'addedserverInput_'+index);
+
+        //Additional Info
         $('#req_'+ index)
             .find('#addedaddInput_1')
             .attr('id', 'addedaddInput_'+index);
@@ -127,11 +128,11 @@ $(document).ready(function(){
         $('#req_'+ index)
             .find('#bothAlert_1')
             .attr('id', 'bothAlert_'+index);
+        
+        //Alerting: Ticket
         $('#req_'+ index)
             .find('#ticket_1')
             .attr('id', 'ticket_'+index);
-        
-        //Alerting: Ticket
         $('#req_'+ index)
             .find('#ticketCircum_1')
             .attr('id', 'ticketCircum_'+index);
@@ -141,15 +142,15 @@ $(document).ready(function(){
         $('#req_'+ index)
             .find('#ticketTeam_1')
             .attr('id', 'ticketTeam_'+index);
-        $('#req_'+ index)
+        /*$('#req_'+ index)
             .find('#ticketCircum_'+index)
             .val('');
         $('#req_'+ index)
             .find('#ticketBucket_'+index)
             .val('');
-            $('#req_'+ index)
+        $('#req_'+ index)
             .find('#ticketTeam_'+index)
-            .val('');
+            .val('');*/
 
 
         //Clear Input Values After Cloned
