@@ -169,6 +169,24 @@
                         <em>If no alerting is required, <a href="https://www.google.com/" target="_blank"> click here!</a></em>
                       </p>
                     </li>
+			  
+		<li class="list-group-item">
+                      <!--File Monitoring-->
+                      <label for="files">File Monitoring?&nbsp<span class="star">&#42;</span></label>
+                      <input id="remFile_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'fileInput')">
+                      <input id="addFile_1" type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'fileInput')">
+                      <br>
+                      <input class="form-check-input" type="radio" name="fileMonitoring" checked="checked" id="yesFile_1" value="Yes" onclick="fileInput('yes', this.id)">
+                      <label for="yesFile">Yes</label><br>
+                      <input class="form-check-input" type="radio" name="fileMonitoring" id="noFile_1" value="No" onclick="fileInput('no', this.id)">
+                      <label for="yesFile">No</label><br>
+                      <a id="fileInput_1" data-toggle="tooltip" title="Please enter the Complete File Path">
+                        <input type="text" class="form-control" id="files" placeholder="Complete File Path" name="File Path" required> <span class="help-block"></span>
+                        <div id='addedfileInput_1'>
+                              
+                        </div>
+                      </a>
+                    </li>
 
                       <!--
                         Objective
@@ -246,24 +264,6 @@
                         <input type="text" class="form-control" id="acceptanceCrit" placeholder="Acceptance Criteria" name="Acceptance Criteria" required>
                         <span class="help-block"></span>
                         <div id='addedaccInput_1'>
-                              
-                        </div>
-                      </a>
-                    </li>
-                    
-                    <li class="list-group-item">
-                      <!--File Monitoring-->
-                      <label for="files">File Monitoring?&nbsp<span class="star">&#42;</span></label>
-                      <input id="remFile_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'fileInput')">
-                      <input id="addFile_1" type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'fileInput')">
-                      <br>
-                      <input class="form-check-input" type="radio" name="fileMonitoring" checked="checked" id="yesFile_1" value="Yes" onclick="fileInput('yes', this.id)">
-                      <label for="yesFile">Yes</label><br>
-                      <input class="form-check-input" type="radio" name="fileMonitoring" id="noFile_1" value="No" onclick="fileInput('no', this.id)">
-                      <label for="yesFile">No</label><br>
-                      <a id="fileInput_1" data-toggle="tooltip" title="Please enter the Complete File Path">
-                        <input type="text" class="form-control" id="files" placeholder="Complete File Path" name="File Path" required> <span class="help-block"></span>
-                        <div id='addedfileInput_1'>
                               
                         </div>
                       </a>
