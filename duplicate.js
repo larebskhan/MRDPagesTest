@@ -39,6 +39,9 @@ $(document).ready(function(){
         $('#req_'+ index)
             .find('#addedserverInput_1')
             .attr('id', 'addedserverInput_'+index);
+        $('#req_'+ index)
+            .find('#addedaddInput_1')
+            .attr('id', 'addedaddInput_'+index);
         
         //Assumption Button
         /*$('#req_'+ index)
@@ -150,6 +153,9 @@ $(document).ready(function(){
         $('#req_'+ index)
             .find('#files')
             .val(''); 
+        $('#req_'+ index)
+            .find('#addInfo')
+            .val(''); 
         
         //Risk Input Buttons/Checkboxes
         $('#req_'+ index)
@@ -180,6 +186,9 @@ $(document).ready(function(){
             .empty(); 
         $('#req_'+ index)
             .find('#addedemailInput_'+index)
+            .empty(); 
+        $('#req_'+ index)
+            .find('#addedaddInput_'+index)
             .empty(); 
 
     });
