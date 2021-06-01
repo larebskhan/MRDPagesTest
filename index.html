@@ -244,8 +244,9 @@
 
                         <a id="emailInput_1" data-toggle="tooltip" title="Please enter the Distributor">
                           <input type="email" class="form-control" id="email" placeholder="Distributor" name="Distributor" 
-                          pattern=".+@bcbssc.com|.+@BCBSSC.COM|.+@paisc.com|.+@cgifederal.com|.+@palmettogba.com|.+@palmettogbaservices.com|.+@COMPANIONDATASERVICES.COM|.+@cdsedc.com|.+@NGC.COM|.+@cgsadmin.com|.+@docfinity.com|.+@A70ADMED.COM" 
-                          oninvalid="setCustomValidity('Please enter your email address with one of the following domains from below')" required>
+                          pattern=".+@bcbssc.com|.+@BCBSSC.COM|.+@paisc.com|.+@cgifederal.com|.+@palmettogba.com|.+@palmettogbaservices.com|.+@COMPANIONDATASERVICES.COM|.+@cdsedc.com|.+@NGC.COM|.+@cgsadmin.com|.+@docfinity.com|.+@A70ADMED.COM"  
+                          oninvalid="this.setCustomValidity('Please enter your email address with one of the following domains from above')" 
+                          onchange="this.setCustomValidity('')" required>
                           <span class="help-block"></span>
                           <div id='addedemailInput_1'>
                               
