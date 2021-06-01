@@ -114,7 +114,6 @@
 
             </div>
           </div>
-
           
           <hr>
           <p>
@@ -127,7 +126,7 @@
                 <div class="panel-heading" style="background-color: #dbeaf35b;">
                   <div id="req">
                     <h4 class="panel-title">
-                      <a id="toggle_1" data-toggle="collapse" href="#collapse_1"> Requirement 1 <span class="star">&#42;</span></a>
+                      <a id="toggle_1" data-toggle="collapse" href="#collapse_1"> Requirement 1</a>
                       <div class="triangle-down"></div>
                     </h4>
                     
@@ -227,15 +226,15 @@
                       <label for="bothAlert">Both</label><br>
                       
                       <div id="ticketAlert">
-                        <input type="input" class="form-control" id="ticketCircum_1" placeholder="Ticketing Circumstance" name="Ticketing Circumstance"><span class="help-block"></span>
+                        <input type="input" class="form-control" id="ticketCircum_1" placeholder="Ticketing Circumstance" name="Ticketing Circumstance"><span class="help-block" id="serverWarningText"></span>
                         <select id="ticket_1" class="form-control" aria-label=".form-select-sm example" name="Ticket Severity">
                           <option disabled selected value> -- Select Severity -- </option>
                           <option value="S1">S1</option>
                           <option value="S2">S2</option>
                           <option value="S3">S3</option>
                           <option value="TBD">TBD</option>
-                        </select><span class="help-block"></span>
-                        <input type="input" class="form-control" id="ticketBucket_1" placeholder="Ticket Bucket" name="Ticket Bucket"><span class="help-block"></span>
+                        </select><span class="help-block" id="serverWarningText"></span>
+                        <input type="input" class="form-control" id="ticketBucket_1" placeholder="Ticket Bucket" name="Ticket Bucket"><span class="help-block" id="serverWarningText"></span>
                         <input type="input" class="form-control" id="ticketTeam_1" placeholder="Ticket Response Team" name="Ticket Response Team">
                       </div>
                       <br>
@@ -255,7 +254,7 @@
                           <li>@docfinity.com</li>
                           <li>@A70ADMED.COM</li>
                         </ul>
-                        <a id="emailInput_1" data-toggle="tooltip" title="Please enter the Distributor"></a>
+                        <a id="emailInput_1" data-toggle="tooltip" title="Please enter the Distributor">
                           <input type="email" class="form-control" id="email" placeholder="Distributor" name="Distributor" 
                           pattern=".+@bcbssc.com|.+@BCBSSC.COM|.+@paisc.com|.+@cgifederal.com|.+@palmettogba.com|.+@palmettogbaservices.com|.+@COMPANIONDATASERVICES.COM|.+@cdsedc.com|.+@NGC.COM|.+@cgsadmin.com|.+@docfinity.com|.+@A70ADMED.COM" 
                           oninvalid="setCustomValidity('Please enter your email address with one of the following domains from above')" required>
