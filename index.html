@@ -1,8 +1,11 @@
 <!--
   To Do:
-    1. Fix add and remove buttons for each respective requirement
-    2. JSON Data file
-    3. Warning server
+	  1. Reorganize Questions (better flow)
+	  2. JSON File
+	  3. Save confirmation #
+	  4. Review before submit
+	  5. Add Questions
+    6. Email domain validation
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -53,7 +56,7 @@
             <label class="control-label col-sm-2" for="userID">User ID&nbsp<span class="star">&#42;</span></label>
             <div class="col-sm-6">
               <a data-toggle="tooltip" title="Please enter your User ID">
-                <input type="text" class="form-control" id="userID" placeholder="User ID" name="User ID" required>
+                <input type="text" class="form-control" id="userID" placeholder="XXXX" name="User ID" required>
               </a>
             </div>
           </div>
@@ -88,12 +91,12 @@
             </div>
           </div>
 		
-	        <!--Anticipated Completion Date-->
+	        <!--Project End Date-->
 	        <div class="form-group">
-            <label class="control-label col-sm-2" for="anticipatedCompletionDate">Anticipated Completion Date&nbsp<span class="star">&#42;</span></label>
+            <label class="control-label col-sm-2" for="projectEndDate">Project End Date&nbsp<span class="star">&#42;</span></label>
             <div class="col-sm-6">
-              <a data-toggle="tooltip" title="Please enter the Anticipated Completion Date for this Monitoring">
-                <input type="date" class="form-control" id="anticipatedCompletionDate" placeholder="Anticipated Completion Date" name="Anticipated Completion Date" required>
+              <a data-toggle="tooltip" title="Please enter the Project End Date for this Monitoring">
+                <input type="date" class="form-control" id="projectEndDate" placeholder="Project End Date" name="Project End Date" required>
               </a>
             </div>
           </div>
@@ -112,7 +115,7 @@
                       <a id="toggle_1" data-toggle="collapse" href="#collapse_1"> Requirement 1</a>
                       <div class="triangle-down"></div>
                     </h4>
-                    <br>
+                    
                     <a data-toggle="tooltip" title="Please enter the Requirement(s) of the project">
                       <input type="text" class="form-control" id="requirements" placeholder="Project Requirement" name="Requirement(s)" required>
                     </a>
@@ -128,33 +131,99 @@
                       <a data-toggle="tooltip" title="Please enter the business reason.">
                         <input type="text" class="form-control" id="reason" placeholder="Business Reason" name="Business Reason" required>
                       </a>
+                    </li>
+			  
+		<li class="list-group-item">
+                      <!--Alerts-->
+                      <label for="alert">Alerting&nbsp<span class="star">&#42;</span></label><br>
+                      <input id="remEmail_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'emailInput')">
+                      <input id="addEmail_1" type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'emailInput')">
 
-                      <br> 
+                      <input class="form-check-input" type="radio" name="alert" id="ticketAlert_1" value="Ticket" onclick="alertingInput('ticket', this.id)">
+                      <label for="ticketAlert">Ticket</label><br>
+                      <input class="form-check-input" type="radio" name="alert" id="emailAlert_1" value="Email" onclick="alertingInput('email', this.id)">
+                      <label for="emailAlert">Email</label><br>
+                      <input class="form-check-input" type="radio" checked="checked" name="alert" id="bothAlert_1" value="Both" onclick="alertingInput('both', this.id)">
+                      <label for="bothAlert">Both</label><br>
+                      
+                      <div id="ticketAlert">
+                        <select id="ticket_1" class="form-control" aria-label=".form-select-sm example" name="Ticket Severity">
+                          <option disabled selected value> -- Select Severity -- </option>
+                          <option value="S1">S1</option>
+                          <option value="S2">S2</option>
+                          <option value="S3">S3</option>
+                          <option value="TBD">TBD</option>
+                        </select>
+                      </div>
+                      <br>
+                      <div id="emailAlert">
+                        <a id="emailInput_1" data-toggle="tooltip" title="Please enter the Distributor">
+                          <input type="email" class="form-control" id="email" placeholder="Distributor" name="Distributor" required>
+                          <span class="help-block"></span>
+                          <div id='addedemailInput_1'>
+                              
+                          </div>
+                        </a>
+                      </div>
+                      <p>
+                        <em>If no alerting is required, <a href="https://www.google.com/" target="_blank"> click here!</a></em>
+                      </p>
+                    </li>
+			  
+		<li class="list-group-item">
+                      <!--File Monitoring-->
+                      <label for="files">File Monitoring?&nbsp<span class="star">&#42;</span></label>
+                      <input id="remFile_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'fileInput')">
+                      <input id="addFile_1" type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'fileInput')">
+                      <br>
+                      <input class="form-check-input" type="radio" name="fileMonitoring" checked="checked" id="yesFile_1" value="Yes" onclick="fileInput('yes', this.id)">
+                      <label for="yesFile">Yes</label><br>
+                      <input class="form-check-input" type="radio" name="fileMonitoring" id="noFile_1" value="No" onclick="fileInput('no', this.id)">
+                      <label for="yesFile">No</label><br>
+                      <a id="fileInput_1" data-toggle="tooltip" title="Please enter the Complete File Path">
+                        <input type="text" class="form-control" id="files" placeholder="Complete File Path" name="File Path" required> <span class="help-block"></span>
+                        <div id='addedfileInput_1'>
+                              
+                        </div>
+                      </a>
+                    </li>
 
-                      <!--Objective-->
+                      <!--
+                        Objective
                       <label for="objective">Objective&nbsp<span class="star">&#42;</span> </label>
                       <a data-toggle="tooltip" title="Please enter the Objective for each Requirement">
                         <input type="text" class="form-control" id="objective" placeholder="Requirement Objective" name="Objective" required>
                       </a>
-
                       <br>
+                      -->
+                    <li class="list-group-item">
+                      <!--Servers-->
+                      <label for="requirement">Servers &nbsp<span class="star">&#42;</span> </label><br>
+                      <input id="remServer_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'serverInput')">
+                      <input id="addServer_1" type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'serverInput')">
 
-                      <!--Server ID-->
-                      <label for="requirement">Server IDs&nbsp<span class="star">&#42;</span> </label>
-                      <input id="remServer_1" type="button" class="btn btn-default" value="-">
-                      <input id="addServer_1" type="button" class="btn btn-default" value="+">
-                      <br><br>
+                      <!--Server Type buttons-->
+                      <input class="form-check-input" type="radio" name="Server Type" id="windows" value="Windows"> <!-- onclick="--> 
+                      <label for="ticketAlert">Windows</label><br>
+                      <input class="form-check-input" type="radio" name="Server Type" id="linux" value="Linux"> <!-- onclick=" -->
+                      <label for="emailAlert">Linux</label><br>
+                      <input class="form-check-input" type="radio" checked="checked" name="Server Type" id="bothServers" value="Both"> <!-- onclick=" -->  
+                      <label for="bothAlert">Both</label><br>
                       <div class="" id="serverWarning">
-                      <a id="serverInput_1_1" data-toggle="tooltip" title="Please enter all ServerIDs">
-                        <input type="text" class="form-control" id="server" oninput="serverWarning()" placeholder="Server ID" name="Server ID" required minlength="13" maxlength="13" size="13">
-                        <span class="help-block" id="serverWarningText"></span>
-                      </a>
-			      <span class="help-block" id="serverWarningText"></span>
+                        <div id="serverInput_1">
+                          <a data-toggle="tooltip" title="Please enter all ServerIDs">
+                            <input type="text" class="form-control" oninput="serverWarning()" id="server" placeholder="Server ID" name="Server ID">
+                            <span class="help-block" id="serverWarningText"></span>
+                            <div id='addedserverInput_1'>
+
+                            </div>
+                          </a>
+                        </div>
                       </div>
+                    </li>
 
-                      <br>
-
-                      <!--Assumptions-->
+                      <!--
+                        Assumptions
                       <label for="assumptions">Assumption(s)&nbsp<span class="star">&#42;</span></label>
                       <input id="remAssumption_1" type="button" class="btn btn-default" value="-">
                       <input id="addAssumption_1" type="button" class="btn btn-default" value="+">
@@ -165,82 +234,45 @@
                       <label><input type="checkbox" name="No Assumptions" id="none_assumptions" onclick="disableInput('assumptions', 'Project Assumption'); removeAll('Assumption');"> None </label>
                         
                       <br><br>
-
+                      -->
+                    <li class="list-group-item">
                       <!--Risk-->
-                      <label for="risks">Risk(s)&nbsp<span class="star">&#42;</span></label>
-                      <input id="remRisk_1" type="button" class="btn btn-default" value="-">
-                      <input id="addRisk_1" type="button" class="btn btn-default" value="+">
+                      <label for="risks">Risks of not Monitoring&nbsp<span class="star">&#42;</span></label>
+                      <input id="remRisk_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'riskInput')">
+                      <input id="addRisk_1" type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'riskInput')">
                       <br><br>
-                      <a id="riskInput_1_1" data-toggle="tooltip" title="Please enter any Risk(s) that pertain to the project">
+                      <a id="riskInput_1" data-toggle="tooltip" title="Please enter any Risk(s) that pertain to the project">
                         <input type="text" class="form-control" id="risks" placeholder="Project Risk" name="Risk(s)" required>
+                        <span class="help-block"></span>
+                        <div id='addedriskInput_1'>
+                              
+                        </div>
                       </a> 
-                      <label><input type="checkbox" name="No Risks" id="none_risks" onclick="disableInput('risks', 'Project Risk'); removeAll('Risk')"> None </label>
+                      <label>
+                        <input type="checkbox" name="No Risks" id="none_risks_1" onclick="riskDisable(this.id)"> 
+                        None 
+                      </label>
+                    </li>
 
-                      <br><br>
-
+                    <li class="list-group-item">
                       <!--Acceptance Criteria-->
                       <label for="acceptanceCrit">Acceptance Criteria&nbsp<span class="star">&#42;</span></label>
-                      <input id="remAcc_1" type="button" class="btn btn-default" value="-">
-                      <input id="addAcc_1"type="button" class="btn btn-default" value="+">
+                      <input id="remAcc_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'accInput')">
+                      <input id="addAcc_1"type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'accInput')">
                       <br><br>
-                      <a id="accInput_1_1" data-toggle="tooltip" title="Please enter all Acceptance Criteria for the project">
+                      <a id="accInput_1" data-toggle="tooltip" title="Please enter all Acceptance Criteria for the project">
                         <input type="text" class="form-control" id="acceptanceCrit" placeholder="Acceptance Criteria" name="Acceptance Criteria" required>
-                      </a>
-
-                      <br>
-
-                      <!--Alerts-->
-                      <label for="alert">Alerting&nbsp<span class="star">&#42;</span></label><br>
-                      <input id="remEmail_1" type="button" class="btn btn-default" value="-">
-                      <input id="addEmail_1" type="button" class="btn btn-default" value="+">
-                      <input class="form-check-input" type="radio" name="alert" id="ticketAlert" value="Ticket" onclick="alertingInput('ticket', 'email')">
-                      <label for="ticketAlert">Ticket</label><br>
-                      <input class="form-check-input" type="radio" name="alert" id="emailAlert" value="Email" onclick="alertingInput('email', 'ticket')">
-                      <label for="emailAlert">Email</label><br>
-                      <input class="form-check-input" type="radio" checked="checked" name="alert" id="bothAlert" value="Both" onclick="document.getElementById('ticket').disabled = false; document.getElementById('email').disabled = false;">
-                      <label for="bothAlert">Both</label><br>
-                      
-                      <div id="ticketAlert">
-                        <select id="ticket" class="form-control" aria-label=".form-select-sm example" name="Ticket Severity">
-                          <option disabled selected value> -- Select Severity -- </option>
-                          <option value="S1">S1</option>
-                          <option value="S2">S2</option>
-                          <option value="S3">S3</option>
-                        </select>
-                      </div>
-                      <br>
-                      <div id="emailAlert">
-                        <a id="emailInput_1_1" data-toggle="tooltip" title="Please enter the Distributor">
-                          <input type="text" class="form-control" id="email" placeholder="Distributor" name="Distributor" required>
-                        </a>
-                      </div>
-                      <p>
-                        <em>If no alerting is required, <a href="https://www.google.com/" target="_blank"> click here!</a></em>
-                      </p>
-
-                      <br>
-
-                      <!--File Monitoring-->
-                      <label for="files">File Monitoring?&nbsp<span class="star">&#42;</span></label>
-                      <input id="remFile_1" type="button" class="btn btn-default" value="-">
-                      <input id="addFile_1" type="button" class="btn btn-default" value="+">
-                      <br>
-                      <input class="form-check-input" type="radio" name="fileMonitoring" checked="checked" id="yesFile" value="Yes" onclick="yesNoInput('files', 'yes', 'Complete File Path');">
-                      <label for="yesFile">Yes</label><br>
-                      <input class="form-check-input" type="radio" name="fileMonitoring" id="noFile" value="No" onclick="yesNoInput('files', 'no', 'None'); removeAll('File')">
-                      <label for="yesFile">No</label><br>
-                      <a id="fileInput_1_1" data-toggle="tooltip" title="Please enter the Complete File Path">
-                        <input type="text" class="form-control" id="files" placeholder="Complete File Path" name="File Path" required>
+                        <span class="help-block"></span>
+                        <div id='addedaccInput_1'>
+                              
+                        </div>
                       </a>
                     </li>
+
                   </ul>
                 </div>
               </div>
             </div>
-          </section>
-
-          <section id="newReq">
-            <!--New Requirement Input Box-->
           </section>
 
           <input id="remReq" type="button" class="btn btn-default" value="- Delete Requirement">
