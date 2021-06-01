@@ -39,6 +39,9 @@ $(document).ready(function(){
         $('#req_'+ index)
             .find('#addedserverInput_1')
             .attr('id', 'addedserverInput_'+index);
+        $('#req_'+ index)
+            .find('#addedaddInput_1')
+            .attr('id', 'addedaddInput_'+index);
         
         //Assumption Button
         /*$('#req_'+ index)
@@ -127,6 +130,27 @@ $(document).ready(function(){
         $('#req_'+ index)
             .find('#ticket_1')
             .attr('id', 'ticket_'+index);
+        
+        //Alerting: Ticket
+        $('#req_'+ index)
+            .find('#ticketCircum_1')
+            .attr('id', 'ticketCircum_'+index);
+        $('#req_'+ index)
+            .find('#ticketBucket_1')
+            .attr('id', 'ticketBucket_'+index);
+        $('#req_'+ index)
+            .find('#ticketTeam_1')
+            .attr('id', 'ticketTeam_'+index);
+        $('#req_'+ index)
+            .find('#ticketCircum_'+index)
+            .val('');
+        $('#req_'+ index)
+            .find('#ticketBucket_'+index)
+            .val('');
+            $('#req_'+ index)
+            .find('#ticketTeam_'+index)
+            .val('');
+
 
         //Clear Input Values After Cloned
         $('#req_'+ index)
@@ -149,6 +173,9 @@ $(document).ready(function(){
             .val(''); 
         $('#req_'+ index)
             .find('#files')
+            .val(''); 
+        $('#req_'+ index)
+            .find('#addInfo')
             .val(''); 
         
         //Risk Input Buttons/Checkboxes
@@ -180,6 +207,9 @@ $(document).ready(function(){
             .empty(); 
         $('#req_'+ index)
             .find('#addedemailInput_'+index)
+            .empty(); 
+        $('#req_'+ index)
+            .find('#addedaddInput_'+index)
             .empty(); 
 
     });
