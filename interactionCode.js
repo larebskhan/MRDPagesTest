@@ -80,6 +80,10 @@ function addInputBox(id, name)
     {
         newBox.innerHTML = "<input type='text' class='form-control' id='files"+idNum+"' placeholder='Complete File Path' name='File Path' required> <span class='help-block'>";
     }
+    else if(name == 'addInput')
+    {
+        newBox.innerHTML = "<input type='text' class='form-control' id='addInfo"+idNum+"' placeholder='Additional Information' name='Additional Information'> <span class='help-block'>";
+    }
     idInput = name+'_'+idNum;
     document.getElementById('added'+name+'_'+idNum).appendChild(newBox);
     /*var newBox = document.createElement('div');
@@ -112,6 +116,10 @@ function removeInputBox(id, name)
     else if(name == 'fileInput')
     {
         var oldBox = document.getElementById('files'+idNum);
+    }
+    else if(name == 'addInput')
+    {
+        var oldBox = document.getElementById('addInfo'+idNum);
     }
     //alert(oldBox.id);
     oldBox.remove(oldBox);
