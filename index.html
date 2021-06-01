@@ -132,6 +132,43 @@
                         <input type="text" class="form-control" id="reason" placeholder="Business Reason" name="Business Reason" required>
                       </a>
                     </li>
+			  
+		<li class="list-group-item">
+                      <!--Alerts-->
+                      <label for="alert">Alerting&nbsp<span class="star">&#42;</span></label><br>
+                      <input id="remEmail_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'emailInput')">
+                      <input id="addEmail_1" type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'emailInput')">
+
+                      <input class="form-check-input" type="radio" name="alert" id="ticketAlert_1" value="Ticket" onclick="alertingInput('ticket', this.id)">
+                      <label for="ticketAlert">Ticket</label><br>
+                      <input class="form-check-input" type="radio" name="alert" id="emailAlert_1" value="Email" onclick="alertingInput('email', this.id)">
+                      <label for="emailAlert">Email</label><br>
+                      <input class="form-check-input" type="radio" checked="checked" name="alert" id="bothAlert_1" value="Both" onclick="alertingInput('both', this.id)">
+                      <label for="bothAlert">Both</label><br>
+                      
+                      <div id="ticketAlert">
+                        <select id="ticket_1" class="form-control" aria-label=".form-select-sm example" name="Ticket Severity">
+                          <option disabled selected value> -- Select Severity -- </option>
+                          <option value="S1">S1</option>
+                          <option value="S2">S2</option>
+                          <option value="S3">S3</option>
+                          <option value="TBD">TBD</option>
+                        </select>
+                      </div>
+                      <br>
+                      <div id="emailAlert">
+                        <a id="emailInput_1" data-toggle="tooltip" title="Please enter the Distributor">
+                          <input type="email" class="form-control" id="email" placeholder="Distributor" name="Distributor" required>
+                          <span class="help-block"></span>
+                          <div id='addedemailInput_1'>
+                              
+                          </div>
+                        </a>
+                      </div>
+                      <p>
+                        <em>If no alerting is required, <a href="https://www.google.com/" target="_blank"> click here!</a></em>
+                      </p>
+                    </li>
 
                       <!--
                         Objective
@@ -212,43 +249,6 @@
                               
                         </div>
                       </a>
-                    </li>
-
-                    <li class="list-group-item">
-                      <!--Alerts-->
-                      <label for="alert">Alerting&nbsp<span class="star">&#42;</span></label><br>
-                      <input id="remEmail_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'emailInput')">
-                      <input id="addEmail_1" type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'emailInput')">
-
-                      <input class="form-check-input" type="radio" name="alert" id="ticketAlert_1" value="Ticket" onclick="alertingInput('ticket', this.id)">
-                      <label for="ticketAlert">Ticket</label><br>
-                      <input class="form-check-input" type="radio" name="alert" id="emailAlert_1" value="Email" onclick="alertingInput('email', this.id)">
-                      <label for="emailAlert">Email</label><br>
-                      <input class="form-check-input" type="radio" checked="checked" name="alert" id="bothAlert_1" value="Both" onclick="alertingInput('both', this.id)">
-                      <label for="bothAlert">Both</label><br>
-                      
-                      <div id="ticketAlert">
-                        <select id="ticket_1" class="form-control" aria-label=".form-select-sm example" name="Ticket Severity">
-                          <option disabled selected value> -- Select Severity -- </option>
-                          <option value="S1">S1</option>
-                          <option value="S2">S2</option>
-                          <option value="S3">S3</option>
-                          <option value="TBD">TBD</option>
-                        </select>
-                      </div>
-                      <br>
-                      <div id="emailAlert">
-                        <a id="emailInput_1" data-toggle="tooltip" title="Please enter the Distributor">
-                          <input type="email" class="form-control" id="email" placeholder="Distributor" name="Distributor" required>
-                          <span class="help-block"></span>
-                          <div id='addedemailInput_1'>
-                              
-                          </div>
-                        </a>
-                      </div>
-                      <p>
-                        <em>If no alerting is required, <a href="https://www.google.com/" target="_blank"> click here!</a></em>
-                      </p>
                     </li>
                     
                     <li class="list-group-item">
