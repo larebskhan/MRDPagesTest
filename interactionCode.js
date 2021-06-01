@@ -78,7 +78,7 @@ function addInputBox(id, name)
     }
     else if(name == 'fileInput')
     {
-        newBox.innerHTML = "<input type='text' class='form-control' id='files"+idNum+"' placeholder='Complete File Path' name='File Path' required> <span class='help-block'>";
+        newBox.innerHTML = "<input type='text' class='form-control' id='files"+idNum+"' placeholder='Complete File Path' name='File Path'> <span class='help-block'>";
     }
     else if(name == 'addInput')
     {
