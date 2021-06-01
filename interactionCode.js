@@ -82,7 +82,7 @@ function addInputBox(id, name)
     }
     else if(name == 'addInput')
     {
-        newBox.innerHTML = "TEST";
+        newBox.innerHTML = "<input type='text' class='form-control' id='addInfo"+idNum+"' placeholder='Additional Information' name='Additional Information'> <span class='help-block'>";
     }
     idInput = name+'_'+idNum;
     document.getElementById('added'+name+'_'+idNum).appendChild(newBox);
