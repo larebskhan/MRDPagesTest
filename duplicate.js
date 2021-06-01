@@ -147,7 +147,7 @@ $(document).ready(function(){
         $('#req_'+ index)
             .find('#ticketBucket_'+index)
             .val('');
-            $('#req_'+ index)
+        $('#req_'+ index)
             .find('#ticketTeam_'+index)
             .val('');
 
