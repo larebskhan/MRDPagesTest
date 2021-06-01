@@ -1,70 +1,33 @@
-function disableInput(id, place)
+function alertingInput(choice, id)
 {
-    let newId = "none_"+id;
-    var addId = id + "Add";
-    var removeId = id + "Remove";
-    if(document.getElementById(newId).checked == true)
+    var idNum = id.match(/\d+/);
+    var addedInput = 'addedemailInput_'+idNum;
+    var addButton = 'addEmail_'+idNum;
+    var removeButton = 'remEmail_'+idNum;
+    var input = 'emailInput_'+idNum;
+    var ticket = 'ticket_'+idNum;
+    if(choice == 'ticket')
     {
-        document.getElementById(id).disabled = true;
-        document.getElementById(id).value = '';
-        if(id == "assumptions" || id == "risks")
-        {
-            document.getElementById(addId).disabled = true;
-            document.getElementById(removeId).disabled = true;
-        } 
+        document.getElementById(ticket).disabled = false;
+        document.getElementById(addedInput).innerHTML = '';
+        document.getElementById(addButton).disabled = true;
+        document.getElementById(removeButton).disabled = true;
+        document.getElementById(input).getElementsByClassName('form-control')[0].disabled = true;
     }
-    else
+    else if(choice == 'email')
     {
-        document.getElementById(id).disabled = false;
-        document.getElementById(id).value = '';
-        document.getElementById(id).placeholder = place;
-        if(id == "assumptions" || id == "risks")
-        {
-            document.getElementById(addId).disabled = false;
-            document.getElementById(removeId).disabled = false;
-        } 
+        document.getElementById(addButton).disabled = false;
+        document.getElementById(removeButton).disabled = false;
+        document.getElementById(input).getElementsByClassName('form-control')[0].disabled = false;
+        document.getElementById(ticket).disabled = true;
     }
-}
-function alertingInput(choice, otherChoice)
-{
-    document.getElementById(choice).disabled = false;
-    document.getElementById(otherChoice).disabled = true;
-    if(choice == "ticket")
+    else if(choice == 'both')
     {
-        document.getElementById("remEmail_1").disabled = true;
-        document.getElementById("addEmail_1").disabled = true;
+        document.getElementById(ticket).disabled = false;
+        document.getElementById(addButton).disabled = false;
+        document.getElementById(removeButton).disabled = false;
+        document.getElementById(input).getElementsByClassName('form-control')[0].disabled = false;
     }
-    else if(choice == "email")
-    {
-        document.getElementById("remEmail_1").disabled = false;
-        document.getElementById("addEmail_1").disabled = false;
-    }
-}
-function yesNoInput(id, choice, place)
-{
-    var addId = id + "Add";
-    var removeId = id + "Remove";
-    if(choice == 'yes')
-    {
-        document.getElementById(id).disabled = false;
-        document.getElementById(id).value = '';
-        document.getElementById(id).placeholder = place;
-        document.getElementById(addId).disabled = false;
-        document.getElementById(removeId).disabled = false;
-    }
-    else if(choice == "no")
-    {
-        document.getElementById(id).disabled = true;
-        document.getElementById(id).value = '';
-        document.getElementById(addId).disabled = true;
-        document.getElementById(removeId).disabled = true;
-    }
-}
-
-function removeAll(section) 
-{
-    var divID = 'add'+section;
-    document.getElementById(divID).innerHTML = '';
 }
 
 function saveJSON(text, filename)
@@ -77,6 +40,126 @@ function saveJSON(text, filename)
     a.setAttribute('download', filename);
     a.click();
     window.location.href = "SubmitValidation.html";
+}
+
+function serverWarning(){
+    var str = document.getElementById('server').value;
+    if(str.includes("a03") || (str.includes("a70"))){
+        document.getElementById('serverWarning').className = "";
+        document.getElementById('serverWarningText').innerHTML = "";
+    }
+    else{
+        document.getElementById('serverWarning').className = "has-warning";
+        document.getElementById('serverWarningText').innerHTML = "Warning! ServerID does not start with a03 or a70!";
+    }
+}
+
+function addInputBox(id, name)
+{
+    idNum = id.match(/\d+/);
+    //alert(idNum);
+    //alert(name)
+    var newBox = document.createElement('div');
+    if(name == 'serverInput')
+    {
+        newBox.innerHTML = "<a data-toggle='tooltip' title='Please enter all ServerIDs'> <input type='text' class='form-control' oninput='serverWarning()' id='server"+idNum+"' placeholder='Server ID' name='Server ID'></input> <span class='help-block' id='serverWarningText'> </span> </a>"
+    }
+    else if(name == 'riskInput')
+    {
+        newBox.innerHTML = "<input type='text' class='form-control' id='risks"+idNum+"' placeholder='Project Risk' name='Risk(s)' required> <span class='help-block'>";
+    }
+    else if(name == 'accInput')
+    {
+        newBox.innerHTML = "<input type='text' class='form-control' id='acceptanceCrit"+idNum+"' placeholder='Acceptance Criteria' name='Acceptance Criteria' required> <span class='help-block'>";
+    }
+    else if(name == 'emailInput')
+    {
+        newBox.innerHTML = "<input type='email' class='form-control' id='email"+idNum+"' placeholder='Distributor' name='Distributor' required> <span class='help-block'>";
+    }
+    else if(name == 'fileInput')
+    {
+        newBox.innerHTML = "<input type='text' class='form-control' id='files"+idNum+"' placeholder='Complete File Path' name='File Path' required> <span class='help-block'>";
+    }
+    idInput = name+'_'+idNum;
+    document.getElementById('added'+name+'_'+idNum).appendChild(newBox);
+    /*var newBox = document.createElement('div');
+    newBox.innerHTML = "<input type='text' class='form-control' id=idBoxCriteria placeholder='Acceptance Criteria' name='Acceptance Criteria' required>";
+    alert('accInput_'+idNum);
+    document.getElementById('accInput_'+idNum).appendChild(newBox);
+
+    alert(id.match(/\d+/));*/
+}
+function removeInputBox(id, name)
+{
+    idNum = id.match(/\d+/);
+    idInput = name+'_'+idNum;
+    if(name == 'serverInput')
+    {
+        var oldBox = document.getElementById('server'+idNum);
+    }
+    else if(name == 'riskInput')
+    {
+        var oldBox = document.getElementById('risks'+idNum);
+    }
+    else if(name == 'accInput')
+    {
+        var oldBox = document.getElementById('acceptanceCrit'+idNum);
+    }
+    else if(name == 'emailInput')
+    {
+        var oldBox = document.getElementById('email'+idNum);
+    }
+    else if(name == 'fileInput')
+    {
+        var oldBox = document.getElementById('files'+idNum);
+    }
+    //alert(oldBox.id);
+    oldBox.remove(oldBox);
+}
+function riskDisable(id)
+{
+    var idNum = id.match(/\d+/);
+    var addedInput = 'addedriskInput_'+idNum;
+    var addButton = 'addRisk_'+idNum;
+    var removeButton = 'remRisk_'+idNum;
+    var input = 'riskInput_'+idNum;
+    if(document.getElementById(id).checked)
+    {
+        document.getElementById(addedInput).innerHTML = '';
+        document.getElementById(addButton).disabled = true;
+        document.getElementById(removeButton).disabled = true;
+        document.getElementById(input).getElementsByClassName('form-control')[0].disabled = true;
+    }
+    else
+    {
+        document.getElementById(addButton).disabled = false;
+        document.getElementById(removeButton).disabled = false;
+        document.getElementById(input).getElementsByClassName('form-control')[0].disabled = false;
+
+    }
+}
+
+function fileInput(choice, id)
+{
+    var idNum = id.match(/\d+/);
+    var addedInput = 'addedfileInput_'+idNum;
+    var addButton = 'addFile_'+idNum;
+    var removeButton = 'remFile_'+idNum;
+    var input = 'fileInput_'+idNum;
+    if(choice == 'yes')
+    {
+        document.getElementById(addButton).disabled = false;
+        document.getElementById(removeButton).disabled = false;
+        document.getElementById(input).getElementsByClassName('form-control')[0].disabled = false;
+    }
+    else if(choice == 'no')
+    {
+        document.getElementById(addedInput).innerHTML = '';
+        document.getElementById(addButton).disabled = true;
+        document.getElementById(removeButton).disabled = true;
+        document.getElementById(input).getElementsByClassName('form-control')[0].disabled = true;
+
+    }
 }
 
 /*var i = 1;
@@ -233,78 +316,58 @@ function removeBox(id)
     }
     oldBox.remove();
 }
-*/
-function serverWarning(){
-    var str = document.getElementById('server').value;
-    if(str.includes("a03") || (str.includes("a70"))){
-        document.getElementById('serverWarning').className = "";
-        document.getElementById('serverWarningText').innerHTML = "";
+
+function yesNoInput(id, choice, place)
+{
+    var addId = id + "Add";
+    var removeId = id + "Remove";
+    if(choice == 'yes')
+    {
+        document.getElementById(id).disabled = false;
+        document.getElementById(id).value = '';
+        document.getElementById(id).placeholder = place;
+        document.getElementById(addId).disabled = false;
+        document.getElementById(removeId).disabled = false;
     }
-    else{
-        document.getElementById('serverWarning').className = "has-warning";
-        document.getElementById('serverWarningText').innerHTML = "Warning! ServerID does not start with a03 or a70!";
+    else if(choice == "no")
+    {
+        document.getElementById(id).disabled = true;
+        document.getElementById(id).value = '';
+        document.getElementById(addId).disabled = true;
+        document.getElementById(removeId).disabled = true;
     }
 }
 
-function addInputBox(id, name)
+function removeAll(section) 
 {
-    idNum = id.match(/\d+/);
-    //alert(idNum);
-    //alert(name)
-    var newBox = document.createElement('div');
-    if(name == 'serverInput')
-    {
-        newBox.innerHTML = "<a data-toggle='tooltip' title='Please enter all ServerIDs'> <input type='text' class='form-control' oninput='serverWarning()' id='server"+idNum+"' placeholder='Server ID' name='Server ID'></input> <span class='help-block' id='serverWarningText'> </span> </a>"
-    }
-    else if(name == 'riskInput')
-    {
-        newBox.innerHTML = "<input type='text' class='form-control' id='risks"+idNum+"' placeholder='Project Risk' name='Risk(s)' required>";
-    }
-    else if(name == 'accInput')
-    {
-        newBox.innerHTML = "<input type='text' class='form-control' id='acceptanceCrit"+idNum+"' placeholder='Acceptance Criteria' name='Acceptance Criteria' required>";
-    }
-    else if(name == 'emailInput')
-    {
-        newBox.innerHTML = "<input type='email' class='form-control' id='email"+idNum+"' placeholder='Distributor' name='Distributor' required>";
-    }
-    else if(name == 'fileInput')
-    {
-        newBox.innerHTML = "<input type='text' class='form-control' id='files"+idNum+"' placeholder='Complete File Path' name='File Path' required>";
-    }
-    idInput = name+'_'+idNum;
-    document.getElementById(name+'_'+idNum).appendChild(newBox);
-    /*var newBox = document.createElement('div');
-    newBox.innerHTML = "<input type='text' class='form-control' id=idBoxCriteria placeholder='Acceptance Criteria' name='Acceptance Criteria' required>";
-    alert('accInput_'+idNum);
-    document.getElementById('accInput_'+idNum).appendChild(newBox);
+    var divID = 'add'+section;
+    document.getElementById(divID).innerHTML = '';
+}
 
-    alert(id.match(/\d+/));*/
-}
-function removeInputBox(id, name)
+function disableInput(id, place)
 {
-    idNum = id.match(/\d+/);
-    idInput = name+'_'+idNum;
-    if(name == 'serverInput')
+    let newId = "none_"+id;
+    var addId = id + "Add";
+    var removeId = id + "Remove";
+    if(document.getElementById(newId).checked == true)
     {
-        var oldBox = document.getElementById('server'+idNum);
+        document.getElementById(id).disabled = true;
+        document.getElementById(id).value = '';
+        if(id == "assumptions" || id == "risks")
+        {
+            document.getElementById(addId).disabled = true;
+            document.getElementById(removeId).disabled = true;
+        } 
     }
-    else if(name == 'riskInput')
+    else
     {
-        var oldBox = document.getElementById('risks'+idNum);
+        document.getElementById(id).disabled = false;
+        document.getElementById(id).value = '';
+        document.getElementById(id).placeholder = place;
+        if(id == "assumptions" || id == "risks")
+        {
+            document.getElementById(addId).disabled = false;
+            document.getElementById(removeId).disabled = false;
+        } 
     }
-    else if(name == 'accInput')
-    {
-        var oldBox = document.getElementById('acceptanceCrit'+idNum);
-    }
-    else if(name == 'emailInput')
-    {
-        var oldBox = document.getElementById('email'+idNum);
-    }
-    else if(name == 'fileInput')
-    {
-        var oldBox = document.getElementById('files'+idNum);
-    }
-    //alert(oldBox.id);
-    oldBox.remove(oldBox);
-}
+}*/
