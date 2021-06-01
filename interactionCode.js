@@ -179,6 +179,16 @@ function fileInput(choice, id)
     }
 }
 
+//email domain button
+function showED() {
+    var x = document.getElementById("ED");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+
 /*var i = 1;
 function requirementAdd()
 {

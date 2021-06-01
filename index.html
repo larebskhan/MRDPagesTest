@@ -239,8 +239,20 @@
                       </div>
                       <br>
                       <div id="emailAlert">
-                        <ul>
-                          Acceptable email domains:
+
+                        <a id="emailInput_1" data-toggle="tooltip" title="Please enter the Distributor">
+                          <input type="email" class="form-control" id="email" placeholder="Distributor" name="Distributor" 
+                          pattern=".+@bcbssc.com|.+@BCBSSC.COM|.+@paisc.com|.+@cgifederal.com|.+@palmettogba.com|.+@palmettogbaservices.com|.+@COMPANIONDATASERVICES.COM|.+@cdsedc.com|.+@NGC.COM|.+@cgsadmin.com|.+@docfinity.com|.+@A70ADMED.COM" 
+                          oninvalid="setCustomValidity('Please enter your email address with one of the following domains from above')" required>
+                          <span class="help-block"></span>
+                          <div id='addedemailInput_1'>
+                              
+                          </div>
+                        </a>
+
+                        <!-- Button-->
+                        <button align ="left" type = "button" onclick="showED()" class="btn btn-default">Click to show acceptable email domains</button>
+                      <div id="ED"><ul>
                           <li>@bcbssc.com</li> 
                           <li>@BCBSSC.COM</li> 
                           <li>@paisc.com</li>
@@ -253,16 +265,7 @@
                           <li>@cgsadmin.com</li>
                           <li>@docfinity.com</li>
                           <li>@A70ADMED.COM</li>
-                        </ul>
-                        <a id="emailInput_1" data-toggle="tooltip" title="Please enter the Distributor">
-                          <input type="email" class="form-control" id="email" placeholder="Distributor" name="Distributor" 
-                          pattern=".+@bcbssc.com|.+@BCBSSC.COM|.+@paisc.com|.+@cgifederal.com|.+@palmettogba.com|.+@palmettogbaservices.com|.+@COMPANIONDATASERVICES.COM|.+@cdsedc.com|.+@NGC.COM|.+@cgsadmin.com|.+@docfinity.com|.+@A70ADMED.COM" 
-                          oninvalid="setCustomValidity('Please enter your email address with one of the following domains from above')" required>
-                          <span class="help-block"></span>
-                          <div id='addedemailInput_1'>
-                              
-                          </div>
-                        </a>
+                        </ul></div>
                       </div>
                       <p>
                         <em>If no alerting is required, <a href="https://www.google.com/" target="_blank"> click here!</a></em>
