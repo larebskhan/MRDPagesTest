@@ -240,8 +240,25 @@
                       </div>
                       <br>
                       <div id="emailAlert">
-                        <a id="emailInput_1" data-toggle="tooltip" title="Please enter the Distributor">
-                          <input type="email" class="form-control" id="email" placeholder="Distributor" name="Distributor" required>
+                        <ul>
+                          Acceptable email domains:
+                          <li>@bcbssc.com</li> 
+                          <li>@BCBSSC.COM</li> 
+                          <li>@paisc.com</li>
+                          <li>@cgifederal.com</li>
+                          <li>@palmettogba.com</li>
+                          <li>@palmettogbaservices.com</li>
+                          <li>@COMPANIONDATASERVICES.COM</li>
+                          <li>@cdsedc.com</li>
+                          <li>@NGC.COM</li>
+                          <li>@cgsadmin.com</li>
+                          <li>@docfinity.com</li>
+                          <li>@A70ADMED.COM</li>
+                        </ul>
+                        <a id="emailInput_1" data-toggle="tooltip" title="Please enter the Distributor"></a>
+                          <input type="email" class="form-control" id="email" placeholder="Distributor" name="Distributor" 
+                          pattern=".+@bcbssc.com|.+@BCBSSC.COM|.+@paisc.com|.+@cgifederal.com|.+@palmettogba.com|.+@palmettogbaservices.com|.+@COMPANIONDATASERVICES.COM|.+@cdsedc.com|.+@NGC.COM|.+@cgsadmin.com|.+@docfinity.com|.+@A70ADMED.COM" 
+                          oninvalid="setCustomValidity('Please enter your email address with one of the following domains from above')" required>
                           <span class="help-block"></span>
                           <div id='addedemailInput_1'>
                               
