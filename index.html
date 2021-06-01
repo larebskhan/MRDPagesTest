@@ -39,7 +39,21 @@
             <em><span class="star">&#42;</span> Indicates a required field</em>
           </p>
 
-		      <!--Is requester on the support team for application?-->
+           <!--Assumptions-->
+	        <div class="form-group">
+            <label class="control-label col-sm-2" for="assumptoins">Assumptions&nbsp<span class="star">&#42;</span></label>
+            <div class="col-sm-6">
+
+              <input type="checkbox" id="assum1" name="assum1" value="Form" required>
+              <label for="assum1"> No reports will be provided</label><br>
+              <input type="checkbox" id="assum2" name="assum2" value="Server" required>
+              <label for="assum2"> Servers are already built</label><br>
+              <input type="checkbox" id="assum3" name="assum3" value="Support" required>
+              <label for="assum3">I am on the support team for this application </label><br>
+            </div>
+          </div>
+
+		      <!--Is requester on the support team for application?
           <div class="form-group">
             <label class="control-label col-sm-2" for="requester">Is requester on the support team for application?&nbsp<span class="star">&#42;</span></label>
             <div class="col-sm-6">
@@ -50,6 +64,7 @@
               <label for="noReq">No</label><br>
             </div>
           </div>
+          -->
           
 	        <!--User ID-->
           <div class="form-group">
@@ -98,20 +113,6 @@
               <a data-toggle="tooltip" title="Please enter the Project End Date for this Monitoring">
                 <input type="date" class="form-control" id="projectEndDate" placeholder="Project End Date" name="Project End Date" required>
               </a>
-            </div>
-          </div>
-
-          <!--Assumptions-->
-	        <div class="form-group">
-            <label class="control-label col-sm-2" for="assumptoins">Assumptions&nbsp</label>
-            <div class="col-sm-6">
-
-              <input type="checkbox" id="assum1" name="assum1" value="Form">
-              <label for="assum1"> No reports will be provided</label><br>
-              <input type="checkbox" id="assum2" name="assum2" value="Server">
-              <label for="assum2"> Servers are already built</label><br>
-
-
             </div>
           </div>
           
