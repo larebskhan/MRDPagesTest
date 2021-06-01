@@ -66,7 +66,7 @@ function addInputBox(id, name)
     }
     else if(name == 'riskInput')
     {
-        newBox.innerHTML = "<input type='text' class='form-control' id='risks"+idNum+"' placeholder='Project Risk' name='Risk(s)' required> <span class='help-block'>";
+        newBox.innerHTML = "<input type='text' class='form-control' id='risks"+idNum+"' placeholder='Project Risk' name='Risk(s)'> <span class='help-block'>";
     }
     else if(name == 'accInput')
     {
