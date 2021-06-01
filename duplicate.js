@@ -23,8 +23,13 @@ $(document).ready(function(){
         $('#req_'+ index)
             .find('#toggle_1')
             .text('Requirement '+index);
+
+        //Keep req 1 radio button options
+        var alertingInputReq1 = $("input[name='alert']:checked").attr('id');
+        var serverInputReq1 = $("input[name='Server Type']:checked").attr('id');
         
-        //Change add/remove button IDs
+        //Change add/remove button Ids
+        //Ex. ID Button Requirement Add Server #2: addServer_1
         //Server Button
         $('#req_'+ index)
             .find('#remServer_1')
@@ -38,8 +43,6 @@ $(document).ready(function(){
         $('#req_'+ index)
             .find('#addedserverInput_1')
             .attr('id', 'addedserverInput_'+index);
-
-        //Additional Info
         $('#req_'+ index)
             .find('#addedaddInput_1')
             .attr('id', 'addedaddInput_'+index);
@@ -128,11 +131,11 @@ $(document).ready(function(){
         $('#req_'+ index)
             .find('#bothAlert_1')
             .attr('id', 'bothAlert_'+index);
-        
-        //Alerting: Ticket
         $('#req_'+ index)
             .find('#ticket_1')
             .attr('id', 'ticket_'+index);
+        
+        //Alerting: Ticket
         $('#req_'+ index)
             .find('#ticketCircum_1')
             .attr('id', 'ticketCircum_'+index);
@@ -142,7 +145,7 @@ $(document).ready(function(){
         $('#req_'+ index)
             .find('#ticketTeam_1')
             .attr('id', 'ticketTeam_'+index);
-        /*$('#req_'+ index)
+        $('#req_'+ index)
             .find('#ticketCircum_'+index)
             .val('');
         $('#req_'+ index)
@@ -150,7 +153,7 @@ $(document).ready(function(){
             .val('');
         $('#req_'+ index)
             .find('#ticketTeam_'+index)
-            .val('');*/
+            .val('');
 
 
         //Clear Input Values After Cloned
@@ -192,6 +195,20 @@ $(document).ready(function(){
         $('#req_'+ index)
             .find('#risks')
             .prop('disabled', false)
+
+        //Enable Ticket after duplicate
+        $('#req_'+ index)
+            .find('#ticketCircum_'+index)
+            .prop('disabled', false)
+        $('#req_'+ index)
+            .find('#ticket_'+index)
+            .prop('disabled', false)
+        $('#req_'+ index)
+            .find('#ticketBucket_'+index)
+            .prop('disabled', false)
+        $('#req_'+ index)
+            .find('#ticketTeam_'+index)
+            .prop('disabled', false)
         
         //Clear div element with old added inputs
         $('#req_'+ index)
@@ -211,7 +228,15 @@ $(document).ready(function(){
             .empty(); 
         $('#req_'+ index)
             .find('#addedaddInput_'+index)
-            .empty(); 
+            .empty();
+        
+        //Set req1 values to req1 values
+        $('#req_1')
+            .find('#'+alertingInputReq1)
+            .prop('checked', true);
+        $('#req_1')
+            .find('#'+serverInputReq1)
+            .prop('checked', true);
 
     });
     $('#remReq').click(function(){
