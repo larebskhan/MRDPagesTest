@@ -155,6 +155,20 @@ $(document).ready(function(){
             .find('#ticketTeam_'+index)
             .val('');
 
+        //Email Domain
+        $('#req_'+ index)
+            .find('#domains_1')
+            .attr('id', 'domains_'+index);
+        $('#req_'+ index)
+            .find('#domainButton_1')
+            .attr('id', 'domainButton_'+index);
+        $('#req_'+ index)
+            .find('#emailDomain_1')
+            .attr('id', 'emailDomains_'+index);
+        $('#req_'+ index)
+            .find('#domainButton_'+index)
+            .attr('data-target', '#domains_'+index);
+
 
         //Clear Input Values After Cloned
         $('#req_'+ index)
@@ -208,6 +222,9 @@ $(document).ready(function(){
             .prop('disabled', false)
         $('#req_'+ index)
             .find('#ticketTeam_'+index)
+            .prop('disabled', false)
+        $('#req_'+ index)
+            .find('#email')
             .prop('disabled', false)
         
         //Clear div element with old added inputs
