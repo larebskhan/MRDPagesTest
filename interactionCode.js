@@ -19,16 +19,13 @@ function alertingInput(choice, id)
     }
     else if(choice == 'email')
     {
+        document.getElementById(addButton).disabled = false;
+        document.getElementById(removeButton).disabled = false;
+        document.getElementById(input).getElementsByClassName('form-control')[0].disabled = false;
         document.getElementById(ticket).disabled = true;
         document.getElementById('ticketBucket_'+idNum).disabled = true;
         document.getElementById('ticketCircum_'+idNum).disabled = true;
         document.getElementById('ticketTeam_'+idNum).disabled = true;
-        document.getElementById(addButton).disabled = false;
-        document.getElementById(removeButton).disabled = false;
-        document.getElementById(input).getElementsByClassName('form-control')[0].disabled = false;
-        
-        
-
     }
     else if(choice == 'both')
     {
