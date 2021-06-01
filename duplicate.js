@@ -36,9 +36,12 @@ $(document).ready(function(){
         $('#req_'+ index)
             .find('#serverInput_1')
             .attr('id', 'serverInput_'+index);
+        $('#req_'+ index)
+            .find('#addedserverInput_1')
+            .attr('id', 'addedserverInput_'+index);
         
         //Assumption Button
-        $('#req_'+ index)
+        /*$('#req_'+ index)
             .find('#remAssumption_1')
             .attr('id', 'remAssumption_'+index);
         $('#req_'+ index)
@@ -46,7 +49,7 @@ $(document).ready(function(){
             .attr('id', 'addAssumption_'+index);
         $('#req_'+ index)
             .find('#assumptionInput_1')
-            .attr('id', 'assumptionInput_'+index);
+            .attr('id', 'assumptionInput_'+index);*/
         
         //Risk Button
         $('#req_'+ index)
@@ -58,6 +61,13 @@ $(document).ready(function(){
         $('#req_'+ index)
             .find('#riskInput_1')
             .attr('id', 'riskInput_'+index);
+        $('#req_'+ index)
+            .find('#addedriskInput_1')
+            .attr('id', 'addedriskInput_'+index);
+        $('#req_'+ index)
+            .find('#none_risks_1')
+            .attr('id', 'none_risks_'+index);
+        
         //Acceptance Criteria
         $('#req_'+ index)
             .find('#remAcc_1')
@@ -68,6 +78,9 @@ $(document).ready(function(){
         $('#req_'+ index)
             .find('#accInput_1')
             .attr('id', 'accInput_'+index);
+        $('#req_'+ index)
+            .find('#addedaccInput_1')
+            .attr('id', 'addedaccInput_'+index);
         
         //File Monitoring
         $('#req_'+ index)
@@ -79,6 +92,15 @@ $(document).ready(function(){
         $('#req_'+ index)
             .find('#fileInput_1')
             .attr('id', 'fileInput_'+index);
+        $('#req_'+ index)
+            .find('#addedfileInput_1')
+            .attr('id', 'addedfileInput_'+index);
+        $('#req_'+ index)
+            .find('#yesFile_1')
+            .attr('id', 'yesFile_'+index);
+        $('#req_'+ index)
+            .find('#noFile_1')
+            .attr('id', 'noFile_'+index);
         
         //Alerting: Email
         $('#req_'+ index)
@@ -90,6 +112,76 @@ $(document).ready(function(){
         $('#req_'+ index)
             .find('#emailInput_1')
             .attr('id', 'emailInput_'+index);
+        $('#req_'+ index)
+            .find('#addedemailInput_1')
+            .attr('id', 'addedemailInput_'+index);
+        $('#req_'+ index)
+            .find('#ticketAlert_1')
+            .attr('id', 'ticketAlert_'+index);
+        $('#req_'+ index)
+            .find('#emailAlert_1')
+            .attr('id', 'emailAlert_'+index);
+        $('#req_'+ index)
+            .find('#bothAlert_1')
+            .attr('id', 'bothAlert_'+index);
+        $('#req_'+ index)
+            .find('#ticket_1')
+            .attr('id', 'ticket_'+index);
+
+        //Clear Input Values After Cloned
+        $('#req_'+ index)
+            .find('#server')
+            .val('');
+        $('#req_'+ index)
+            .find('#reason')
+            .val(''); 
+        $('#req_'+ index)
+            .find('#requirements')
+            .val(''); 
+        $('#req_'+ index)
+            .find('#risks')
+            .val('');
+        $('#req_'+ index)
+            .find('#acceptanceCrit')
+            .val(''); 
+        $('#req_'+ index)
+            .find('#email')
+            .val(''); 
+        $('#req_'+ index)
+            .find('#files')
+            .val(''); 
+        
+        //Risk Input Buttons/Checkboxes
+        $('#req_'+ index)
+            .find('#remRisk_'+index)
+            .prop('disabled', false)
+        $('#req_'+ index)
+            .find('#addRisk_'+index)
+            .prop('disabled', false)
+        $('#req_'+ index)
+            .find('#none_risks_'+index)
+            .prop('checked', false)
+        $('#req_'+ index)
+            .find('#risks')
+            .prop('disabled', false)
+        
+        //Clear div element with old added inputs
+        $('#req_'+ index)
+            .find('#addedserverInput_'+index)
+            .empty(); 
+        $('#req_'+ index)
+            .find('#addedriskInput_'+index)
+            .empty(); 
+        $('#req_'+ index)
+            .find('#addedaccInput_'+index)
+            .empty(); 
+        $('#req_'+ index)
+            .find('#addedfileInput_'+index)
+            .empty(); 
+        $('#req_'+ index)
+            .find('#addedemailInput_'+index)
+            .empty(); 
+
     });
     $('#remReq').click(function(){
         if(index > 1)
