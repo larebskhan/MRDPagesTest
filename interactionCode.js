@@ -50,8 +50,8 @@ function saveJSON(text, filename)
     a.click();
     window.location.href = "SubmitValidation.html";
 }
-
-function serverWarning(){
+function serverWarning(id){
+    idNum = id.match(/\d+/);
     var str = document.getElementById('server').value;
     if(str.includes("a03") || (str.includes("a70"))){
         document.getElementById('serverWarning').className = "";
@@ -61,6 +61,19 @@ function serverWarning(){
         document.getElementById('serverWarning').className = "has-warning";
         document.getElementById('serverWarningText').innerHTML = "Warning! ServerID does not start with a03 or a70!";
     }
+    while(document.getElementById('addServer_1').onclick==true){
+        var str2 = document.getElementById('server'+idNum).value;
+        if(str2.includes("a03") || (str2.includes("a70"))){
+            document.getElementById('serverWarning'+idNum).className = "";
+            document.getElementById('serverWarningText'+idNum).innerHTML = "";
+        }
+        else{
+            document.getElementById('serverWarning'+idNum).className = "has-warning";
+            document.getElementById('serverWarningText'+idNum).innerHTML = "Warning! ServerID does not start with a03 or a70!";
+        }
+    }
+   
+    
 }
 
 function addInputBox(id, name)
@@ -71,7 +84,7 @@ function addInputBox(id, name)
     var newBox = document.createElement('div');
     if(name == 'serverInput')
     {
-        newBox.innerHTML = "<a data-toggle='tooltip' title='Please enter all ServerIDs'> <input type='text' class='form-control' oninput='serverWarning()' id='server"+idNum+"' placeholder='Server ID' name='Server ID'></input> <span class='help-block' id='serverWarningText'> </span> </a>"
+        newBox.innerHTML = "<div class = '' id='serverWarning"+idNum+"' <a data-toggle='tooltip' title='Please enter all ServerIDs'> <input type='text' class='form-control' oninput='serverWarning(this.id)' id='server"+idNum+"' placeholder='Server ID' name='Server ID'></input> <span class='help-block' id='serverWarningText"+idNum+"'> </span> </a> </div>"
     }
     else if(name == 'riskInput')
     {
@@ -178,16 +191,6 @@ function fileInput(choice, id)
 
     }
 }
-
-//email domain button
-function showED() {
-    var x = document.getElementById("ED");
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
-    }
-  }
 
 /*var i = 1;
 function requirementAdd()
