@@ -33,7 +33,7 @@
         <!--<img src="https://abcnews4.com/resources/media/0f73c9b8-3b67-4aaf-b61c-5483a3192fb0-large16x9_BCBSSCPartner.png?1538141737266" alt="Photo" width=100">-->
         <h2>Monitoring Requirements Document Form &nbsp</h2>
         
-        <form class="form-horizontal was-validated" name="mrdform" id="mrdform">
+        <form class="form-horizontal was-validated" name="mrdform" id="mrdform" >
           <br>
           <p>
             <em><span class="star">&#42;</span> Indicates a required field</em>
@@ -342,7 +342,7 @@
           <input id="addReq" type="button" class="btn btn-default" value="+ Add Requirement">
 
           <hr>
-          <button type="submit" class="btn btn-default">Submit</button>
+          <button type="submit" class="btn btn-default" onclick="return confirm('Are you sure?')">Submit</button>
         </form>
         
         <script src="dataHandling.js"></script>
