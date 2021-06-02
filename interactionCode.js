@@ -51,9 +51,8 @@ function saveJSON(text, filename)
     window.location.href = "SubmitValidation.html";
 }
 function serverWarning(id){
-    idNum = id.match(/\d+/);
     var str = document.getElementById('server').value;
-    if(str.includes("a03") || (str.includes("a70"))){
+    if(str.startsWith("a03") || (str.startsWith("a70"))){
         document.getElementById('serverWarning').className = "";
         document.getElementById('serverWarningText').innerHTML = "";
     }
@@ -61,9 +60,10 @@ function serverWarning(id){
         document.getElementById('serverWarning').className = "has-warning";
         document.getElementById('serverWarningText').innerHTML = "Warning! ServerID does not start with a03 or a70!";
     }
-    while(document.getElementById('addServer_1').onclick==true){
+    while(forEach(document.getElementById('addServer_1').onclick==true)){
+        idNum = id.match(/\d+/);
         var str2 = document.getElementById('server'+idNum).value;
-        if(str2.includes("a03") || (str2.includes("a70"))){
+        if(str2.startsWith("a03") || (str2.startsWith("a70"))){
             document.getElementById('serverWarning'+idNum).className = "";
             document.getElementById('serverWarningText'+idNum).innerHTML = "";
         }
@@ -84,27 +84,27 @@ function addInputBox(id, name)
     var newBox = document.createElement('div');
     if(name == 'serverInput')
     {
-        newBox.innerHTML = "<div class = '' id='serverWarning"+idNum+"' <a data-toggle='tooltip' title='Please enter all ServerIDs'> <input type='text' class='form-control' oninput='serverWarning(this.id)' id='server"+idNum+"' placeholder='Server ID' name='Server ID'></input> <span class='help-block' id='serverWarningText"+idNum+"'> </span> </a> </div>"
+        newBox.innerHTML = "<div class = '' id='serverWarning"+idNum+"' <a data-toggle='tooltip' title='Please enter all ServerIDs'> <input type='text' class='form-control' oninput='serverWarning(this.id)' id='server"+idNum+"' placeholder='Server ID' name='Server ID "+idNum+"'></input> <span class='help-block' id='serverWarningText"+idNum+"'> </span> </a> </div>"
     }
     else if(name == 'riskInput')
     {
-        newBox.innerHTML = "<input type='text' class='form-control' id='risks"+idNum+"' placeholder='Project Risk' name='Risk(s)'> <span class='help-block'>";
+        newBox.innerHTML = "<input type='text' class='form-control' id='risks"+idNum+"' placeholder='Project Risk' name='Risk(s) "+idNum+"'> <span class='help-block'>";
     }
     else if(name == 'accInput')
     {
-        newBox.innerHTML = "<input type='text' class='form-control' id='acceptanceCrit"+idNum+"' placeholder='Acceptance Criteria' name='Acceptance Criteria' required> <span class='help-block'>";
+        newBox.innerHTML = "<input type='text' class='form-control' id='acceptanceCrit"+idNum+"' placeholder='Acceptance Criteria' name='Acceptance Criteria "+idNum+"' required> <span class='help-block'>";
     }
     else if(name == 'emailInput')
     {
-        newBox.innerHTML = "<input type='email' class='form-control' id='email"+idNum+"' placeholder='Distributor' name='Distributor' required> <span class='help-block'>";
+        newBox.innerHTML = "<input type='email' class='form-control' id='email"+idNum+"' placeholder='Distributor' name='Distributor "+idNum+"' required> <span class='help-block'>";
     }
     else if(name == 'fileInput')
     {
-        newBox.innerHTML = "<input type='text' class='form-control' id='files"+idNum+"' placeholder='Complete File Path' name='File Path'> <span class='help-block'>";
+        newBox.innerHTML = "<input type='text' class='form-control' id='files"+idNum+"' placeholder='Complete File Path' name='File Path "+idNum+"'> <span class='help-block'>";
     }
     else if(name == 'addInput')
     {
-        newBox.innerHTML = "<input type='text' class='form-control' id='addInfo"+idNum+"' placeholder='Additional Information' name='Additional Information'> <span class='help-block'>";
+        newBox.innerHTML = "<input type='text' class='form-control' id='addInfo"+idNum+"' placeholder='Additional Information' name='Additional Information "+idNum+"'> <span class='help-block'>";
     }
     idInput = name+'_'+idNum;
     document.getElementById('added'+name+'_'+idNum).appendChild(newBox);
