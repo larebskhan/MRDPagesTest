@@ -24,7 +24,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="interactionCode.js"></script>
     <script src="duplicate.js"></script>
-	<script src="confirmation.js"></script>
+    <script src="confirmation.js"></script>
     <link href="style.css" rel="stylesheet">
   </head>
 
@@ -34,13 +34,13 @@
         <!--<img src="https://abcnews4.com/resources/media/0f73c9b8-3b67-4aaf-b61c-5483a3192fb0-large16x9_BCBSSCPartner.png?1538141737266" alt="Photo" width=100">-->
         <h2>Monitoring Requirements Document Form &nbsp</h2>
         
-        <form class="form-horizontal was-validated" name="mrdform" id="mrdform" >
+        <form class="form-horizontal was-validated" name="mrdform" id="mrdform">
           <br>
           <p>
             <em><span class="star">&#42;</span> Indicates a required field</em>
           </p>
-		
-	<!--Confirmation Number-->
+
+          <!--Confirmation Number-->
           <div hidden class="form-group">
             <label class="control-label col-sm-2" for="confirmationNum">Confirmation Number</label>
             <div class="col-sm-6">
@@ -48,11 +48,10 @@
             </div>
           </div>
 
-           <!--Assumptions-->
+          <!--Assumptions-->
 	        <div class="form-group">
             <label class="control-label col-sm-2" for="assumptoins">Assumptions&nbsp<span class="star">&#42;</span></label>
             <div class="col-sm-6">
-
               <input type="checkbox" id="assum1" name="assum1" value="Form" required>
               <label for="assum1"> I understand no reports will be provided</label><br>
               <input type="checkbox" id="assum2" name="assum2" value="Server" required>
@@ -351,7 +350,9 @@
           <input id="addReq" type="button" class="btn btn-default" value="+ Add Requirement">
 
           <hr>
+          
           <button type="submit" class="btn btn-default" onclick="return confirm('Are you sure?')">Submit</button>
+          
         </form>
         
         <script src="dataHandling.js"></script>
