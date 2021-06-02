@@ -50,15 +50,12 @@
 
           <!--Assumptions-->
 	        <div class="form-group">
-            <label class="control-label col-sm-2" for="assumptoins">Assumptions&nbsp<span class="star">&#42;</span></label>
+            <label class="control-label col-sm-2" for="assumptoins">Prerequisites&nbsp<span class="star">&#42;</span></label>
             <div class="col-sm-6">
-
+		    
               <input type="checkbox" id="assum1" required>
-              <label for="assum1"> I understand no reports will be provided</label><br>
-              <input type="checkbox" id="assum2" required>
-              <label for="assum2"> The listed servers are already built</label><br>
-              <input type="checkbox" id="assum3" required>
-              <label for="assum3">I am on the support team for this application </label><br>
+              <label for="assum1"> Servers/Appliances are active and available </label><br>
+		<input type="input" class="form-control" id="ticketTeam_1" placeholder="Ticket Response Team" name="Ticket Response Team">
             </div>
           </div>
 
@@ -74,13 +71,23 @@
             </div>
           </div>
           -->
+		
+	<!--Objective Input-->
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="mainObjective" >Monitoring Objective&nbsp<span class="star">&#42;</span></label>
+            <div class="col-sm-6">
+              <a data-toggle="tooltip" title="Please enter the monitoring objective of the project">
+                <input type="text" class="form-control" id="mainObjective" placeholder="Ex. File Up/Down Status, Synthetic Monitoring" name="Monitoring Objective" required>
+              </a>
+            </div>
+          </div>
           
 	        <!--User ID-->
           <div class="form-group">
-            <label class="control-label col-sm-2" for="userID">User ID&nbsp<span class="star">&#42;</span></label>
+            <label class="control-label col-sm-2" for="employeeID">User ID&nbsp<span class="star">&#42;</span></label>
             <div class="col-sm-6">
-              <a data-toggle="tooltip" title="Please enter your User ID">
-                <input type="text" class="form-control" id="userID" placeholder="XXXX" name="User ID" required>
+              <a data-toggle="tooltip" title="Please enter your Employee">
+                <input type="text" class="form-control" id="employeeID" placeholder="XXXX" name="Employee ID" required>
               </a>
             </div>
           </div>
@@ -101,16 +108,6 @@
             <div class="col-sm-6">
               <a data-toggle="tooltip" title="Please enter the Project Number">
                 <input type="text" class="form-control" id="projectNumber" placeholder="Project Number" name="Project Number" required>
-              </a>
-            </div>
-          </div>
-
-          <!--Objective Input-->
-          <div class="form-group">
-            <label class="control-label col-sm-2" for="mainObjective" >Main Objective&nbsp<span class="star">&#42;</span></label>
-            <div class="col-sm-6">
-              <a data-toggle="tooltip" title="Please enter the Objective of the project">
-                <input type="text" class="form-control" id="mainObjective" placeholder="Main Objective" name="Main Objective" required>
               </a>
             </div>
           </div>
