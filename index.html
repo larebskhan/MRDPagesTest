@@ -228,16 +228,20 @@
                       <label for="alert">Alerting&nbsp<span class="star">&#42;</span></label><br>
                       <input id="remEmail_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'emailInput')">
                       <input id="addEmail_1" type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'emailInput')">
+					
+			<p>
+                        <em class='notRequired'> Note: For servers, the only required field is ticket severity.</em>
+                      </p>
 
-                      <input class="form-check-input" type="radio" name="alert" id="ticketAlert_1" value="Ticket" onclick="alertingInput('ticket', this.id)">
+                      <input class="form-check-input" type="radio" name="Alert" id="ticketAlert_1" value="Ticket" onclick="alertingInput('ticket', this.id)">
                       <label for="ticketAlert">Ticket</label><br>
-                      <input class="form-check-input" type="radio" name="alert" id="emailAlert_1" value="Email" onclick="alertingInput('email', this.id)">
+                      <input class="form-check-input" type="radio" name="Alert" id="emailAlert_1" value="Email" onclick="alertingInput('email', this.id)">
                       <label for="emailAlert">Email</label><br>
-                      <input class="form-check-input" type="radio" checked="checked" name="alert" id="bothAlert_1" value="Both" onclick="alertingInput('both', this.id)">
+                      <input class="form-check-input" type="radio" checked="checked" name="Alert" id="bothAlert_1" value="Both" onclick="alertingInput('both', this.id)">
                       <label for="bothAlert">Both</label><br>
                       
                       <div id="ticketAlert">
-                        <input type="input" class="form-control" id="ticketCircum_1" placeholder="Ticketing Circumstance" name="Ticketing Circumstance"><span class="help-block" id="serverWarningText"></span>
+                        
                         <select id="ticket_1" class="form-control" aria-label=".form-select-sm example" name="Ticket Severity">
                           <option disabled selected value> -- Select Severity -- </option>
                           <option value="S1">S1</option>
@@ -245,6 +249,7 @@
                           <option value="S3">S3</option>
                           <option value="TBD">TBD</option>
                         </select><span class="help-block" id="serverWarningText"></span>
+			<input type="input" class="form-control" id="ticketCircum_1" placeholder="Ticketing Circumstance" name="Ticketing Circumstance"><span class="help-block" id="serverWarningText"></span>
                         <input type="input" class="form-control" id="ticketBucket_1" placeholder="Ticket Bucket" name="Ticket Bucket"><span class="help-block" id="serverWarningText"></span>
                         <input type="input" class="form-control" id="ticketTeam_1" placeholder="Ticket Response Team" name="Ticket Response Team">
                       </div>
