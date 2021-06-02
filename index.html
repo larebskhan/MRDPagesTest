@@ -51,45 +51,31 @@
           <!--Assumptions-->
 	        <div class="form-group">
             <label class="control-label col-sm-2" for="assumptoins">Prerequisites&nbsp<span class="star">&#42;</span></label>
-            <div class="col-sm-6">
-		    
+            <div class="col-sm-7">
               <input type="checkbox" id="assum1" required>
-              <label for="assum1"> Servers/Appliances are active and available </label><br>
-		<input type="checkbox" id="assum2" required>
-		<label for="assum2">The support team is prepared to accept tickets</label><br>
-		<input type="input" class="form-control" id="ticketTeam_1" placeholder="Ticket Response Team" name="Ticket Response Team">
+              <label for="assum1"> Servers/Appliances are active and available</label><br>
+              <input type="checkbox" id="assum2" required>
+              <label for="assum2"> The support team is prepared to accept tickets</label><br>
+              <input type="input" class="form-control" id="ticketTeam_1" placeholder="Ticket Response Team" name="Ticket Response Team" required>
             </div>
           </div>
 
-		      <!--Is requester on the support team for application?
+          <!--Objective Input-->
           <div class="form-group">
-            <label class="control-label col-sm-2" for="requester">Is requester on the support team for application?&nbsp<span class="star">&#42;</span></label>
+            <label class="control-label col-sm-2" for="mainObjective">Monitoring Objective&nbsp<span class="star">&#42;</span></label>
             <div class="col-sm-6">
-              <input class="form-check-input" type="radio" name="requester" id="yesRequester" value="Yes"required>
-              <label for="yesReq">Yes</label><br>
-          
-              <input class="form-check-input" type="radio" name="requester" id="noRequester" value="No"required>
-              <label for="noReq">No</label><br>
-            </div>
-          </div>
-          -->
-		
-	<!--Objective Input-->
-          <div class="form-group">
-            <label class="control-label col-sm-2" for="mainObjective" >Monitoring Objective&nbsp<span class="star">&#42;</span></label>
-            <div class="col-sm-6">
-              <a data-toggle="tooltip" title="Please enter the monitoring objective of the project">
-                <input type="text" class="form-control" id="mainObjective" placeholder="Ex. File Up/Down Status, Synthetic Monitoring" name="Monitoring Objective" required>
+              <a data-toggle="tooltip" title="Please enter the Objective of the project">
+                <input type="text" class="form-control" id="mainObjective" placeholder="Ex. File Monitoring, File Up/Down Status" name="Monitoring Objective" required>
               </a>
             </div>
           </div>
           
 	        <!--User ID-->
           <div class="form-group">
-            <label class="control-label col-sm-2" for="employeeID">Employee ID&nbsp<span class="star">&#42;</span></label>
+            <label class="control-label col-sm-2" for="userID">Employee ID&nbsp<span class="star">&#42;</span></label>
             <div class="col-sm-6">
-              <a data-toggle="tooltip" title="Please enter your Employee">
-                <input type="text" class="form-control" id="employeeID" placeholder="XXXX" name="Employee ID" required>
+              <a data-toggle="tooltip" title="Please enter your Employee ID">
+                <input type="text" class="form-control" id="userID" placeholder="XXXX" name="Employee ID" required>
               </a>
             </div>
           </div>
@@ -141,7 +127,7 @@
                     </h4>
                     
                     <a data-toggle="tooltip" title="Please enter the Requirement(s) of the project">
-                      <input type="text" class="form-control" id="requirements" placeholder="Ex. Synthetic Monitoring" name="Requirement(s)" required>
+                      <input type="text" class="form-control" id="requirements" placeholder="Ex. Synthetic Monitoring, " name="Requirement(s)" required>
                     </a>
                   </div>
                 </div>
@@ -153,7 +139,7 @@
                       <!--Buisiness Reason-->
                       <label for="reason">Business Reason&nbsp<span class="star">&#42;</span></label>
                       <a data-toggle="tooltip" title="Please enter the business reason.">
-                        <input type="text" class="form-control" id="reason" placeholder="Business Reason" name="Business Reason" required>
+                        <input type="text" class="form-control" id="reason" placeholder="Ex. Utilization is too high, Application may crash" name="Business Reason" required>
                       </a>
                     </li>
 
@@ -165,7 +151,7 @@
                       <input id="addRisk_1" type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'riskInput')">
                       <br><br>
                       <a id="riskInput_1" data-toggle="tooltip" title="Please enter any Risk(s) that pertain to the project">
-                        <input type="text" class="form-control" id="risks" placeholder="Project Risk" name="Risk(s)">
+                        <input type="text" class="form-control" id="risks" placeholder="Ex. Contractual Obligation, Financial Risk, Customer Impact" name="Risk(s)">
                         <span class="help-block"></span>
                         <div id='addedriskInput_1'>
                               
@@ -215,7 +201,7 @@
                       <input class="form-check-input" type="radio" name="fileMonitoring" id="noFile_1" value="No" onclick="fileInput('no', this.id)">
                       <label for="yesFile">No</label><br>-->
                       <a id="fileInput_1" data-toggle="tooltip" title="Please enter the Complete File Path">
-                        <input type="text" class="form-control" id="files" placeholder="Complete File Path" name="File Path"> <span class="help-block"></span>
+                        <input type="text" class="form-control" id="files" placeholder="Ex. D:\Program Files\MyApplication\Logs\" name="File Path"> <span class="help-block"></span>
                         <div id='addedfileInput_1'>
                               
                         </div>
@@ -225,12 +211,12 @@
 		                <li class="list-group-item">
                       <!--Alerts-->
                       <label for="alert">Alerting&nbsp<span class="star">&#42;</span></label><br>
+                      <p>
+                        <em style="position: relative; right: 26%;" class='notRequired'> Note: For servers, the only required field is ticket severity.</em>
+                      </p>
                       <input id="remEmail_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'emailInput')">
                       <input id="addEmail_1" type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'emailInput')">
 					
-			<p>
-                        <em class='notRequired'> Note: For servers, the only required field is ticket severity.</em>
-                      </p>
 
                       <input class="form-check-input" type="radio" name="Alert" id="ticketAlert_1" value="Ticket" onclick="alertingInput('ticket', this.id)">
                       <label for="ticketAlert">Ticket</label><br>
@@ -248,16 +234,15 @@
                           <option value="S3">S3</option>
                           <option value="TBD">TBD</option>
                         </select><span class="help-block" id="serverWarningText"></span>
-			<input type="input" class="form-control" id="ticketCircum_1" placeholder="Ticketing Circumstance" name="Ticketing Circumstance"><span class="help-block" id="serverWarningText"></span>
+			                  <input type="input" class="form-control" id="ticketCircum_1" placeholder="Ticketing Condition" name="Ticketing Condition"><span class="help-block" id="serverWarningText"></span>
                         <input type="input" class="form-control" id="ticketBucket_1" placeholder="Ticket Bucket" name="Ticket Bucket"><span class="help-block" id="serverWarningText"></span>
-                        <input type="input" class="form-control" id="ticketTeam_1" placeholder="Ticket Response Team" name="Ticket Response Team">
                       </div>
                       <br>
                       <div id="emailAlert">
 
                         <a id="emailInput_1" data-toggle="tooltip" title="Please enter the Distribution List">
-                          <input type="email" class="form-control" id="email" placeholder="Distribution List" name="Distributor" 
-                          pattern=".+@bcbssc.com|.+@paisc.com|.+@cgifederal.com|.+@palmettogba.com|.+@palmettogbaservices.com|.+@companiondataservices|.+@cdsedc.com|.+@ngc.com|.+@cgsadmin.com|.+@docfinity.com|.+@a70admed.com"  
+                          <input type="email" class="form-control" id="email" placeholder="Distribution List" name="Distribution List" 
+                          pattern=".+@bcbssc.com|.+@paisc.com|.+@cgifederal.com|.+@palmettogba.com|.+@palmettogbaservices.com|.+@companiondataservices.com|.+@cdsedc.com|.+@ngc.com|.+@cgsadmin.com|.+@docfinity.com|.+@a70amed.com"  
                           oninvalid="this.setCustomValidity('Please enter your email address with one of the following domains from below')" 
                           onchange="this.setCustomValidity('')" required>
                           <span class="help-block"></span>
@@ -285,7 +270,7 @@
                       </div>
 
                       <p>
-                        <em>If no alerting is required, <a href="https://www.google.com/" target="_blank"> click here!</a></em>
+                        <em class="notRequired">If no alerting is required, <a href="http://a70lpcrpcapm009/isWiki/index.php?title=Add_Data_to_Splunk" target="_blank"> click here!</a></em>
                       </p>
                     </li>
 
@@ -315,12 +300,13 @@
                     <li class="list-group-item">
                       <!--Acceptance Criteria-->
                       <label for="acceptanceCrit">Acceptance Criteria&nbsp<span class="star">&#42;</span></label>
+                      <p>
+                        <em style="position: relative; right: 32%" class='notRequired'> Acceptance Criteria should be measurable</em>
+                      </p>
                       <input id="remAcc_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'accInput')">
                       <input id="addAcc_1"type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'accInput')">
                       <br><br>
-			<p>
-                        <em>Acceptance Criteria should be measurable.</a></em>
-                      </p>
+                      
                       <a id="accInput_1" data-toggle="tooltip" title="Please enter all Acceptance Criteria for the project">
                         <input type="text" class="form-control" id="acceptanceCrit" placeholder="Acceptance Criteria" name="Acceptance Criteria" required>
                         <span class="help-block"></span>
