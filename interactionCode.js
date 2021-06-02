@@ -75,6 +75,12 @@ function serverWarning(id){
    
     
 }
+/*
+function minDate() 
+{
+    projectEndDate.min = new Date().toISOString().split("T")[0];
+}
+*/
 
 function addInputBox(id, name)
 {
