@@ -44,11 +44,11 @@
             <label class="control-label col-sm-2" for="assumptoins">Assumptions&nbsp<span class="star">&#42;</span></label>
             <div class="col-sm-6">
 
-              <input type="checkbox" id="assum1" name="assum1" value="Form" required>
+              <input type="checkbox" id="assum1" required>
               <label for="assum1"> I understand no reports will be provided</label><br>
-              <input type="checkbox" id="assum2" name="assum2" value="Server" required>
+              <input type="checkbox" id="assum2" required>
               <label for="assum2"> The listed servers are already built</label><br>
-              <input type="checkbox" id="assum3" name="assum3" value="Support" required>
+              <input type="checkbox" id="assum3" required>
               <label for="assum3">I am on the support team for this application </label><br>
             </div>
           </div>
@@ -348,8 +348,55 @@
         <script src="dataHandling.js"></script>
       </div>
     </div>
-    
+
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+
+    <!-- Attempt to fix JSON file output, make array of requirements (BROKEN)-->
+        <!--
+          <div class="formBox">
+            <button id="btnnn" type="button">Click to Add</button>
+        </div>
+
+        <script>
+          let reqs = [];
+          const addReq = (ev)=>{
+            alert("Hello! I am an alert box!");
+            //ev.preventDefault();  //to stop the form submitting
+            let req = {
+                Requirement: document.getElementById('requirements').value,
+                Business Reason: document.getElementById('reason').value,
+                Risk(s): document.getElementById('risks').value,
+                Server Type: document.getElementById('bothServers').value,
+                Server ID(s): document.getElementById('server').value,
+                File Path: document.getElementById('files').value,
+                Alert: document.getElementById('both').value,
+                Ticketing Circumstance: document.getElementById('ticketCircum_1').value,
+                Ticketing Severity:document.getElementById('ticket_1').value,
+                Ticket Bucket:document.getElementById('ticketBucket_1').value,
+                Ticket Response Team:document.getElementById('ticketTeam_1').value,
+                Distributor:document.getElementById('email').value,
+                Acceptance Criteria:document.getElementById('accInput_1').value,
+                Additional Information:document.getElementById('addInput_1').value
+
+            }
+            reqs.push(req);
+            document.forms[0].reset(); // to clear the form for the next entries
+            //document.querySelector('form').reset();
+
+            //for display purposes only
+            console.warn('added' , {reqs} );
+            let pre = document.querySelector('#msg pre');
+            pre.textContent = '\n' + JSON.stringify(reqs, '\t', 2);
+            
+            //saving to localStorage
+            localStorage.setItem('MyReqList', JSON.stringify(reqs) );
+        }
+        document.addEventListener('DOMContentLoaded', ()=>{
+            document.getElementById('btnnn').addEventListener('click', addReq);
+        });
+    </script>
+    -->
+    
   </body>
 </html>
