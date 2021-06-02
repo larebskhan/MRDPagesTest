@@ -56,7 +56,7 @@
               <input type="checkbox" id="assum1" required>
               <label for="assum1"> Servers/Appliances are active and available </label><br>
 		<input type="checkbox" id="assum2" required>
-		<label for="assum2"> The support team is prepared to accept tickets </label><br>
+		<label for="assum2">The support team is prepared to accept tickets</label><br>
 		<input type="input" class="form-control" id="ticketTeam_1" placeholder="Ticket Response Team" name="Ticket Response Team">
             </div>
           </div>
@@ -255,8 +255,8 @@
                       <br>
                       <div id="emailAlert">
 
-                        <a id="emailInput_1" data-toggle="tooltip" title="Please enter the Distributor">
-                          <input type="email" class="form-control" id="email" placeholder="Distributor" name="Distributor" 
+                        <a id="emailInput_1" data-toggle="tooltip" title="Please enter the Distribution List">
+                          <input type="email" class="form-control" id="email" placeholder="Distribution List" name="Distributor" 
                           pattern=".+@bcbssc.com|.+@BCBSSC.COM|.+@paisc.com|.+@cgifederal.com|.+@palmettogba.com|.+@palmettogbaservices.com|.+@COMPANIONDATASERVICES.COM|.+@cdsedc.com|.+@NGC.COM|.+@cgsadmin.com|.+@docfinity.com|.+@A70ADMED.COM"  
                           oninvalid="this.setCustomValidity('Please enter your email address with one of the following domains from below')" 
                           onchange="this.setCustomValidity('')" required>
@@ -270,17 +270,16 @@
                           <br><br>
                           <div id="domains_1" class="collapse">
                             @bcbssc.com<br>
-                            @BCBSSC.COM<br>
                             @paisc.com<br>
                             @cgifederal.com<br>
                             @palmettogba.com<br>
                             @palmettogbaservices.com<br>
-                            @COMPANIONDATASERVICES.COM<br>
+                            @companiondataservices.com<br>
                             @cdsedc.com<br>
-                            @NGC.COM<br>
+                            @ngc.com<br>
                             @cgsadmin.com<br>
                             @docfinity.com<br>
-                            @A70ADMED.COM
+                            @a70amed.com
                           </div>
                         </div>
                       </div>
@@ -319,6 +318,9 @@
                       <input id="remAcc_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'accInput')">
                       <input id="addAcc_1"type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'accInput')">
                       <br><br>
+			<p>
+                        <em>Acceptance Criteria should be measurable.</a></em>
+                      </p>
                       <a id="accInput_1" data-toggle="tooltip" title="Please enter all Acceptance Criteria for the project">
                         <input type="text" class="form-control" id="acceptanceCrit" placeholder="Acceptance Criteria" name="Acceptance Criteria" required>
                         <span class="help-block"></span>
