@@ -51,9 +51,8 @@ function saveJSON(text, filename)
     window.location.href = "SubmitValidation.html";
 }
 function serverWarning(id){
-    idNum = id.match(/\d+/);
     var str = document.getElementById('server').value;
-    if(str.includes("a03") || (str.includes("a70"))){
+    if(str.startsWith("a03") || (str.startsWith("a70"))){
         document.getElementById('serverWarning').className = "";
         document.getElementById('serverWarningText').innerHTML = "";
     }
@@ -61,9 +60,10 @@ function serverWarning(id){
         document.getElementById('serverWarning').className = "has-warning";
         document.getElementById('serverWarningText').innerHTML = "Warning! ServerID does not start with a03 or a70!";
     }
-    while(document.getElementById('addServer_1').onclick==true){
+    while(forEach(document.getElementById('addServer_1').onclick==true)){
+        idNum = id.match(/\d+/);
         var str2 = document.getElementById('server'+idNum).value;
-        if(str2.includes("a03") || (str2.includes("a70"))){
+        if(str2.startsWith("a03") || (str2.startsWith("a70"))){
             document.getElementById('serverWarning'+idNum).className = "";
             document.getElementById('serverWarningText'+idNum).innerHTML = "";
         }
@@ -96,7 +96,7 @@ function addInputBox(id, name)
     }
     else if(name == 'emailInput')
     {
-        newBox.innerHTML = "<input type='email' class='form-control' id='email"+idNum+"' placeholder='Distributor' name='Distributor' required> <span class='help-block'>";
+        newBox.innerHTML = "<input type='email' class='form-control' id='email"+idNum+"' placeholder='Distributor' name='Distributor' pattern='.+@bcbssc.com|.+@BCBSSC.COM|.+@paisc.com|.+@cgifederal.com|.+@palmettogba.com|.+@palmettogbaservices.com|.+@COMPANIONDATASERVICES.COM|.+@cdsedc.com|.+@NGC.COM|.+@cgsadmin.com|.+@docfinity.com|.+@A70ADMED.COM' oninvalid='this.setCustomValidity('Please enter your email address with one of the following domains from above')' onchange='this.setCustomValidity('')' required> <span class='help-block'>";
     }
     else if(name == 'fileInput')
     {
