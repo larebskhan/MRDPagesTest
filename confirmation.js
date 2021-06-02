@@ -1,6 +1,9 @@
+var number = 0
 $(document).ready(function(){
-    var number = 1 + Math.floor(Math.random() * 999999999);
-    document.getElementById('confirNum').innerHTML = number;
-    //Add num tp JSON object: https://stackoverflow.com/questions/736590/add-new-attribute-element-to-json-object-using-javascript
-    //$.extend(result, {"ConfirmationNumber":number});
+    number = 1 + Math.floor(Math.random() * 999999999);
+    alert(number);
+    document.getElementById('confirmationNum').value = number;
+    localStorage.setItem('ConfirmationNumber', number);
+    //alert(localStorage.getItem("ConfirmationNumber"));
     });
+    
