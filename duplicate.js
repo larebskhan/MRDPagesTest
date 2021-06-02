@@ -254,6 +254,63 @@ $(document).ready(function(){
         $('#req_1')
             .find('#'+serverInputReq1)
             .prop('checked', true);
+        
+        //Change Names of all Inputs
+        $('#req_'+ index)
+            .find("[name='Requirement(s)']")
+            .attr('name', 'Requirement(s) '+index)
+
+        $('#req_'+ index)
+            .find("[name='Business Reason']")
+            .attr('name', 'Business Reason '+index)
+
+        $('#req_'+ index)
+            .find("[name='Risk(s)']")
+            .attr('name', 'Risk(s) '+index)
+            
+        $('#req_'+ index)
+            .find("[name='Server ID']")
+            .attr('name', 'Server ID '+index)
+        
+        $('#req_'+ index)
+            .find("[name='File Path']")
+            .attr('name', 'File Path '+index)
+
+        $('#req_'+ index)
+            .find("[name='Ticket Severity']")
+            .attr('name', 'Ticket Severity '+index)
+        
+        $('#req_'+ index)
+            .find("[name='Ticketing Circumstance']")
+            .attr('name', 'Ticketing Circumstance '+index)
+        
+        $('#req_'+ index)
+            .find("[name='Ticket Bucket']")
+            .attr('name', 'Ticket Bucket '+index)
+
+        $('#req_'+ index)
+            .find("[name='Ticket Response Team']")
+            .attr('name', 'Ticket Response Team '+index)
+
+        $('#req_'+ index)
+            .find("[name='Acceptance Criteria']")
+            .attr('name', 'Acceptance Criteria '+index)
+
+        $('#req_'+ index)
+            .find("[name='Additional Information']")
+            .attr('name', 'Additional Information '+index)
+
+        $('#req_'+ index)
+            .find("[name='Server Type']")
+            .attr('name', 'Server Type '+index)
+
+        $('#req_'+ index)
+            .find("[name='Alert']")
+            .attr('name', 'Alert '+index)
+
+        $('#req_'+ index)
+            .find("[name='Distributor']")
+            .attr('name', 'Distributor '+index)
 
     });
     $('#remReq').click(function(){
