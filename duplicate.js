@@ -168,6 +168,17 @@ $(document).ready(function(){
         $('#req_'+ index)
             .find('#domainButton_'+index)
             .attr('data-target', '#domains_'+index);
+        
+        //Additional Info Button
+        $('#req_'+ index)
+            .find('#remAdd_1')
+            .attr('id', 'remAdd_'+index);
+        $('#req_'+ index)
+            .find('#addAdd_1')
+            .attr('id', 'addAdd_'+index);
+        $('#req_'+ index)
+            .find('#addInput_1')
+            .attr('id', 'addInput_'+index);
 
 
         //Clear Input Values After Cloned
