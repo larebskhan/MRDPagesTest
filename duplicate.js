@@ -296,6 +296,11 @@ $(document).ready(function(){
             .attr('name', 'Alert '+index)
 
         $('#req_'+ index)
+            .find("[name='Search Schedule 1']")
+            .attr('name', 'Search Schedule '+index)
+
+
+        $('#req_'+ index)
             .find("[name='Ticket Severity 1']")
             .attr('name', 'Ticket Severity '+index)
         
