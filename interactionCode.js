@@ -1,41 +1,36 @@
 function alertingInput(choice, id)
 {
     var idNum = id.match(/\d+/);
-    var addedInput = 'addedemailInput_'+idNum;
+    /*var addedInput = 'addedemailInput_'+idNum;
     var addButton = 'addEmail_'+idNum;
     var removeButton = 'remEmail_'+idNum;
     var input = 'emailInput_'+idNum;
-    var ticket = 'ticket_'+idNum;
+    var ticket = 'ticket_'+idNum;*/
     if(choice == 'ticket')
     {
-        document.getElementById(ticket).disabled = false;
-        document.getElementById(addedInput).innerHTML = '';
-        document.getElementById(addButton).disabled = true;
-        document.getElementById(removeButton).disabled = true;
-        document.getElementById(input).getElementsByClassName('form-control')[0].disabled = true;
-        document.getElementById('ticketBucket_'+idNum).disabled = false;
+        document.getElementById('emailInput_'+idNum).getElementsByClassName('form-control')[0].disabled = true;
+        document.getElementById('addedemailInput_'+idNum).innerHTML = '';
+        document.getElementById('addedemailRemButton_'+idNum).innerHTML = '';
+        document.getElementById('addEmail_'+idNum).disabled = true;
+        document.getElementById('ticket_'+idNum).disabled = false;
         document.getElementById('ticketCircum_'+idNum).disabled = false;
-        document.getElementById('ticketTeam_'+idNum).disabled = false;
+        document.getElementById('ticketBucket_'+idNum).disabled = false;
     }
     else if(choice == 'email')
     {
-        document.getElementById(addButton).disabled = false;
-        document.getElementById(removeButton).disabled = false;
-        document.getElementById(input).getElementsByClassName('form-control')[0].disabled = false;
-        document.getElementById(ticket).disabled = true;
-        document.getElementById('ticketBucket_'+idNum).disabled = true;
+        document.getElementById('ticket_'+idNum).disabled = true;
         document.getElementById('ticketCircum_'+idNum).disabled = true;
-        document.getElementById('ticketTeam_'+idNum).disabled = true;
+        document.getElementById('ticketBucket_'+idNum).disabled = true;
+        document.getElementById('emailInput_'+idNum).getElementsByClassName('form-control')[0].disabled = false;
+        document.getElementById('addEmail_'+idNum).disabled = false;
     }
     else if(choice == 'both')
     {
-        document.getElementById(ticket).disabled = false;
-        document.getElementById(addButton).disabled = false;
-        document.getElementById(removeButton).disabled = false;
-        document.getElementById(input).getElementsByClassName('form-control')[0].disabled = false;
-        document.getElementById('ticketBucket_'+idNum).disabled = false;
+        document.getElementById('ticket_'+idNum).disabled = false;
         document.getElementById('ticketCircum_'+idNum).disabled = false;
-        document.getElementById('ticketTeam_'+idNum).disabled = false;
+        document.getElementById('ticketBucket_'+idNum).disabled = false;
+        document.getElementById('emailInput_'+idNum).getElementsByClassName('form-control')[0].disabled = false;
+        document.getElementById('addEmail_'+idNum).disabled = false;
     }
 }
 
@@ -221,36 +216,97 @@ function minDate()
     document.getElementById("projectEndDate").setAttribute("min", today);
 }
 
-
+var riskNum = 1;
+var serverNum = 1;
+var fileNum = 1;
+var emailNum = 1;
+var accNum = 1;
+var addNum = 1;
 function addInputBox(id, name)
 {
     idNum = id.match(/\d+/);
     //alert(idNum);
     //alert(name)
     var newBox = document.createElement('div');
+    var newRemBox = document.createElement('div');
     if(name == 'serverInput')
     {
         newBox.innerHTML = "<div class = '' id='serverWarning"+idNum+"' <a data-toggle='tooltip' title='Please enter all ServerIDs'> <input type='text' class='form-control' oninput='serverWarning(this.id)' id='server"+idNum+"' placeholder='Server ID' name='Server ID "+idNum+"'></input> <span class='help-block' id='serverWarningText"+idNum+"'> </span> </a> </div>"
+        newRemBox.innerHTML = "<button type='button' id='serverRem"+idNum+"_"+serverNum+"' class='btn btn-default'>x</button> <span class='help-block'></span>";
+        serverNum++;
+        document.getElementById('addedserverRemButton_'+idNum).appendChild(newRemBox);
+        newRemBox.onclick = function() 
+        {
+            //alert('hello');
+            newBox.innerHTML = '';
+            newRemBox.innerHTML = '';
+        };
     }
     else if(name == 'riskInput')
     {
-        newBox.innerHTML = "<input type='text' class='form-control' id='risks"+idNum+"' placeholder='Ex. Contractual Obligation, Financial Risk, Customer Impact' name='Risk "+idNum+"'> <span class='help-block'>";
+        newBox.innerHTML = "<input type='text' class='form-control' id='risks"+idNum+"_"+riskNum+"' placeholder='Ex. Contractual Obligation, Financial Risk, Customer Impact' name='Risk "+idNum+"'> <span class='help-block'>";
+        newRemBox.innerHTML = "<button type='button' id='risksRem"+idNum+"_"+riskNum+"' class='btn btn-default'>x</button> <span class='help-block'></span>"
+        riskNum++;
+        document.getElementById('addedriskRemButton_'+idNum).appendChild(newRemBox);
+        newRemBox.onclick = function() 
+        {
+            //alert('hello');
+            newBox.innerHTML = '';
+            newRemBox.innerHTML = '';
+        };
     }
     else if(name == 'accInput')
     {
-        newBox.innerHTML = "<input type='text' class='form-control' id='acceptanceCrit"+idNum+"' placeholder='Acceptance Criteria' name='Acceptance Criteria "+idNum+"' required> <span class='help-block'>";
+        newBox.innerHTML = "<input type='text' class='form-control' id='acceptanceCrit"+idNum+"_"+accNum+"' placeholder='Acceptance Criteria' name='Acceptance Criteria "+idNum+"' required> <span class='help-block'>";
+        newRemBox.innerHTML = "<button type='button' id='accRem"+idNum+"_"+accNum+"' class='btn btn-default'>x</button> <span class='help-block'></span>"
+        accNum++;
+        document.getElementById('addedaccRemButton_'+idNum).appendChild(newRemBox);
+        newRemBox.onclick = function() 
+        {
+            //alert('hello');
+            newBox.innerHTML = '';
+            newRemBox.innerHTML = '';
+        };
     }
     else if(name == 'emailInput')
     {
-        newBox.innerHTML = "<input type='email' class='form-control' id='email"+idNum+"' placeholder='Distributor' name='Distribution List "+idNum+"' required> <span class='help-block'>";
+        newBox.innerHTML = "<input type='email' class='form-control' id='email"+idNum+"_"+emailNum+"' placeholder='Distribution List' name='Distribution List "+idNum+"' required> <span class='help-block'>";
+        newRemBox.innerHTML = "<button type='button' id='emailRem"+idNum+"_"+emailNum+"' class='btn btn-default'>x</button> <span class='help-block'></span>"
+        emailNum++;
+        document.getElementById('addedemailRemButton_'+idNum).appendChild(newRemBox);
+        newRemBox.onclick = function() 
+        {
+            //alert('hello');
+            newBox.innerHTML = '';
+            newRemBox.innerHTML = '';
+        };
     }
     else if(name == 'fileInput')
     {
-        newBox.innerHTML = "<input type='text' class='form-control' id='files"+idNum+"' placeholder='Ex. D:\\Program Files\\MyApplication\\Logs\\' name='File Path "+idNum+"'> <span class='help-block'>";
+        newBox.innerHTML = "<input type='text' class='form-control' id='files"+idNum+"_"+fileNum+"' placeholder='Ex. D:\\Program Files\\MyApplication\\Logs\\' name='File Path "+idNum+"'> <span class='help-block'>";
+        newRemBox.innerHTML = "<button type='button' id='fileRem"+idNum+"_"+fileNum+"' class='btn btn-default'>x</button> <span class='help-block'></span>";
+        fileNum++;
+        document.getElementById('addedfileRemButton_'+idNum).appendChild(newRemBox);
+        newRemBox.onclick = function() 
+        {
+            //alert('hello');
+            newBox.innerHTML = '';
+            newRemBox.innerHTML = '';
+        };
+
     }
     else if(name == 'addInput')
     {
-        newBox.innerHTML = "<input type='text' class='form-control' id='addInfo"+idNum+"' placeholder='Additional Information' name='Additional Information "+idNum+"'> <span class='help-block'>";
+        newBox.innerHTML = "<input type='text' class='form-control' id='addInfo"+idNum+"_"+addNum+"' placeholder='Additional Information' name='Additional Information "+idNum+"'> <span class='help-block'>";
+        newRemBox.innerHTML = "<button type='button' id='addRem"+idNum+"_"+addNum+"' class='btn btn-default'>x</button> <span class='help-block'></span>";
+        addNum++;
+        document.getElementById('addedaddRemButton_'+idNum).appendChild(newRemBox);
+        newRemBox.onclick = function() 
+        {
+            //alert('hello');
+            newBox.innerHTML = '';
+            newRemBox.innerHTML = '';
+        };
     }
     idInput = name+'_'+idNum;
     document.getElementById('added'+name+'_'+idNum).appendChild(newBox);
@@ -292,6 +348,11 @@ function removeInputBox(id, name)
     //alert(oldBox.id);
     oldBox.remove(oldBox);
 }
+function removeInput(id, name)
+{
+    alert(id);
+}
+
 function riskDisable(id)
 {
     var idNum = id.match(/\d+/);
