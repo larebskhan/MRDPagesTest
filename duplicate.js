@@ -115,6 +115,9 @@ $(document).ready(function(){
             .find('#addedfileInput_1')
             .attr('id', 'addedfileInput_'+index);
         $('#req_'+ index)
+            .find('#addedlogInput_1')
+            .attr('id', 'addedlogInput_'+index);
+        $('#req_'+ index)
             .find('#addedfileRemButton_1')
             .attr('id', 'addedfileRemButton_'+index);
         $('#req_'+ index)
@@ -222,7 +225,13 @@ $(document).ready(function(){
             .find('#files')
             .val(''); 
         $('#req_'+ index)
+            .find('#logRotation')
+            .val(''); 
+        $('#req_'+ index)
             .find('#addInfo')
+            .val(''); 
+        $('#req_'+ index)
+            .find('#searchSched')
             .val(''); 
         
         //Risk Input Buttons/Checkboxes
@@ -279,6 +288,9 @@ $(document).ready(function(){
             .find('#addedfileInput_'+index)
             .empty(); 
         $('#req_'+ index)
+            .find('#addedlogInput_'+index)
+            .empty();
+        $('#req_'+ index)
             .find('#addedfileRemButton_'+index)
             .empty();
         $('#req_'+ index)
@@ -326,6 +338,10 @@ $(document).ready(function(){
         $('#req_'+ index)
             .find("[name='File Path 1']")
             .attr('name', 'File Path '+index)
+
+        $('#req_'+ index)
+            .find("[name='Log Rotation 1']")
+            .attr('name', 'Log Rotation '+index)
 
         $('#req_'+ index)
             .find("[name='Alert 1']")
