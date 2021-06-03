@@ -153,15 +153,40 @@
                       <br><em class='notRequired'>If no risks, leave input box blank.</em>
                       
                       <br><br>
-                      <a id="riskInput_1" data-toggle="tooltip" title="Please enter any Risk(s) that pertain to the project">
+                      <!--<a id="riskInput_1" data-toggle="tooltip" title="Please enter any Risk(s) that pertain to the project">
                         <input type="text" class="form-control" id="risks" placeholder="Ex. Contractual Obligation, Financial Risk, Customer Impact" name="Risk 1">
+                        <button type="button" class="btn btn-default">x</button>
                         <span class="help-block"></span>
                         <div id='addedriskInput_1'>
                               
                         </div>
-                      </a> 
-                      <input id="remRisk_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'riskInput')">
-                      <input id="addRisk_1" type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'riskInput')">
+                      </a> -->
+
+                      <div class="flex">
+                        <div style="width: 200%" >
+                          <a id="riskInput_1" data-toggle="tooltip" title="Please enter any Risk(s) that pertain to the project">
+                            <input type="text" class="form-control" id="risks" placeholder="Ex. Contractual Obligation, Financial Risk, Customer Impact" name="Risk 1">
+                            <!--<button type="button" class="btn btn-default">x</button>-->
+                            <span class="help-block"></span>
+                            <div id='addedriskInput_1'>
+                                  
+                            </div>
+                          </a>
+                        </div>
+                        &nbsp
+                        <div>
+                          <div class="input-group">
+                            <button type="button" class="btn btn-default" id="riskRem" onclick="removeInput(this.id, 'risk')" disabled>x</button>
+                            <span class="help-block"></span>
+                            <div id='addedriskRemButton_1'>
+                                  
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!--<input id="remRisk_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'riskInput')">-->
+                      <input id="addRisk_1" type="button" class="btn btn-default" value="Add Risk" onclick="addInputBox(this.id, 'riskInput')">
                       <!--<label>
                         <input type="checkbox" name="No Risks" id="none_risks_1" onclick="riskDisable(this.id)"> 
                         None 
@@ -179,7 +204,34 @@
                       <label for="emailAlert">Linux</label><br>
                       <input class="form-check-input" type="radio" checked="checked" name="Server Type 1" id="bothServers" value="Both"> <!-- onclick=" -->  
                       <label for="bothAlert">Both</label><br>
-                      <div class="" id="serverWarning">
+                      
+                      <div class="flex">
+                        <div style="width: 200%" >
+                          <a id="serverInput_1" data-toggle="tooltip" title="Please enter all server IDs">
+                            <input type="text" class="form-control" oninput="serverWarning(this.id)" id="server" placeholder="Server ID" name="Server ID 1">
+                            <!--<button type="button" class="btn btn-default">x</button>-->
+                            <span class="help-block"></span>
+                            <div id='addedserverInput_1'>
+                                  
+                            </div>
+                          </a>
+                        </div>
+                        &nbsp
+                        <div>
+                          <div class="input-group">
+                            <button type="button" class="btn btn-default" id="serverRem" disabled>x</button>
+                            <span class="help-block"></span>
+                            <div id='addedserverRemButton_1'>
+                                    
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <input id="addServer_1" type="button" class="btn btn-default" value="Add Server" onclick="addInputBox(this.id, 'serverInput')">
+
+                      
+                      <!--<div class="" id="serverWarning">
                         <div id="serverInput_1">
                           <a data-toggle="tooltip" title="Please enter all ServerIDs">
                             <input type="text" class="form-control" oninput="serverWarning(this.id)" id="server" placeholder="Server ID" name="Server ID 1">
@@ -190,7 +242,7 @@
                         </div>
                         <input id="remServer_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'serverInput')">
                         <input id="addServer_1" type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'serverInput')">
-                      </div>
+                      </div>-->
                     </li>
 
                     <li class="list-group-item">
@@ -202,6 +254,31 @@
                       <label for="yesFile">Yes</label><br>
                       <input class="form-check-input" type="radio" name="fileMonitoring" id="noFile_1" value="No" onclick="fileInput('no', this.id)">
                       <label for="yesFile">No</label><br>-->
+
+                      <div class="flex">
+                        <div style="width: 200%" >
+                          <a id="fileInput_1" data-toggle="tooltip" title="Please enter the complete file path.">
+                            <input type="text" class="form-control" id="files" placeholder="Ex. D:\Program Files\MyApplication\Logs\" name="File Path 1"> <span class="help-block"></span>
+                            <!--<button type="button" class="btn btn-default">x</button>-->
+                            <span class="help-block"></span>
+                            <div id='addedfileInput_1'>
+                                  
+                            </div>
+                          </a>
+                        </div>
+                        &nbsp
+                        <div>
+                          <div class="input-group">
+                            <button type="button" class="btn btn-default" id="fileRem" disabled>x</button>
+                            <span class="help-block"></span>
+                            <div id='addedfileRemButton_1'>
+                                  
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!--
                       <a id="fileInput_1" data-toggle="tooltip" title="Please enter the Complete File Path">
                         <input type="text" class="form-control" id="files" placeholder="Ex. D:\Program Files\MyApplication\Logs\" name="File Path 1"> <span class="help-block"></span>
                         <div id='addedfileInput_1'>
@@ -210,6 +287,9 @@
                       </a>
                       <input id="remFile_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'fileInput')">
                       <input id="addFile_1" type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'fileInput')">
+                      -->
+
+                      <input id="addFile_1" type="button" class="btn btn-default" value="Add File" onclick="addInputBox(this.id, 'fileInput')">
                     </li>
 			  
 		                <li class="list-group-item">
@@ -239,9 +319,8 @@
                         </select><span class="help-block" id="serverWarningText"></span>
 			                  <input type="input" class="form-control" id="ticketCircum_1" placeholder="Ticketing Condition" name="Ticketing Condition 1"><span class="help-block" id="serverWarningText"></span>
                         <input type="input" class="form-control" id="ticketBucket_1" placeholder="Ticket Bucket" name="Ticket Bucket 1"><span class="help-block" id="serverWarningText"></span>
-                        <div id='emailDomain_1'>
-                          <button type="button" id='bucketButton_1' class="btn btn-default" data-toggle="collapse" data-target="#buckets_1">Click to see ticket buckets</button>
-                          <br><br>
+                        <div id='tbucket_1'>
+                          <button type="button" id='bucketButton_1' class="btn" data-toggle="collapse" data-target="#buckets_1">Click to see ticket buckets</button>
                           <div id="buckets_1" class="collapse">
                             SS-CGSAPP<br>
                             SS-CIRCA<br>
@@ -278,6 +357,33 @@
                       <br>
                       <div id="emailAlert">
 
+                        <div class="flex">
+                          <div style="width: 200%" >
+                            <a id="emailInput_1" data-toggle="tooltip" title="Please enter your distribution list.">
+                              <input type="email" class="form-control" id="email" placeholder="Distribution List" name="Distribution List 1" 
+                              pattern=".+@bcbssc.com|.+@paisc.com|.+@cgifederal.com|.+@palmettogba.com|.+@palmettogbaservices.com|.+@companiondataservices.com|.+@cdsedc.com|.+@ngc.com|.+@cgsadmin.com|.+@docfinity.com|.+@a70amed.com"  
+                              oninvalid="this.setCustomValidity('Please enter your email address with one of the following domains from below')" 
+                              onchange="this.setCustomValidity('')" required>                              <!--<button type="button" class="btn btn-default">x</button>-->
+                              <span class="help-block"></span>
+                              <div id='addedemailInput_1'>
+                                    
+                              </div>
+                            </a>
+                          </div>
+                          &nbsp
+                          <div>
+                            <div class="input-group">
+                              <button type="button" class="btn btn-default" id="emailRem" disabled>x</button>
+                              <span class="help-block"></span>
+                              <div id='addedemailRemButton_1'>
+                                    
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!--
+
                         <a id="emailInput_1" data-toggle="tooltip" title="Please enter the Distribution List">
                           <input type="email" class="form-control" id="email" placeholder="Distribution List" name="Distribution List 1" 
                           pattern=".+@bcbssc.com|.+@paisc.com|.+@cgifederal.com|.+@palmettogba.com|.+@palmettogbaservices.com|.+@companiondataservices.com|.+@cdsedc.com|.+@ngc.com|.+@cgsadmin.com|.+@docfinity.com|.+@a70amed.com"  
@@ -306,8 +412,27 @@
                           </div>
                         </div>
                         
-                      <input id="remEmail_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'emailInput')">
-                      <input id="addEmail_1" type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'emailInput')">
+                        <input id="remEmail_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'emailInput')">
+                        <input id="addEmail_1" type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'emailInput')">
+                        -->
+                        <input id="addEmail_1" type="button" class="btn btn-default" value="Add Email" onclick="addInputBox(this.id, 'emailInput')">
+                        <span class="help-block"></span>
+                        <div id='emailDomain_1'>
+                          <button type="button" id='domainButton_1' class="btn" data-toggle="collapse" data-target="#domains_1">Click to see acceptable email domains</button>
+                          <div id="domains_1" class="collapse">
+                            @bcbssc.com<br>
+                            @paisc.com<br>
+                            @cgifederal.com<br>
+                            @palmettogba.com<br>
+                            @palmettogbaservices.com<br>
+                            @companiondataservices.com<br>
+                            @cdsedc.com<br>
+                            @ngc.com<br>
+                            @cgsadmin.com<br>
+                            @docfinity.com<br>
+                            @a70amed.com
+                          </div>
+                        </div>
                       </div>
 
                       <p>
@@ -344,9 +469,31 @@
                       <p>
                         <em style="position: relative; right: 32%" class='notRequired'> Acceptance Criteria should be measurable</em>
                       </p>
-                      
-                      <br><br>
-                      
+
+                      <div class="flex">
+                        <div style="width: 200%" >
+                          <a id="accInput_1" data-toggle="tooltip" title="Please enter all acceptance criteria.">
+                            <input type="text" class="form-control" id="acceptanceCrit" placeholder="Acceptance Criteria" name="Acceptance Criteria 1" required>
+                            <!--<button type="button" class="btn btn-default">x</button>-->
+                            <span class="help-block"></span>
+                            <div id='addedaccInput_1'>
+                                  
+                            </div>
+                          </a>
+                        </div>
+                        &nbsp
+                        <div>
+                          <div class="input-group">
+                            <button type="button" class="btn btn-default" id="accRem" disabled>x</button>
+                            <span class="help-block"></span>
+                            <div id='addedaccRemButton_1'>
+                                  
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!--
                       <a id="accInput_1" data-toggle="tooltip" title="Please enter all Acceptance Criteria for the project">
                         <input type="text" class="form-control" id="acceptanceCrit" placeholder="Acceptance Criteria" name="Acceptance Criteria 1" required>
                         <span class="help-block"></span>
@@ -356,6 +503,8 @@
                       </a>
                       <input id="remAcc_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'accInput')">
                       <input id="addAcc_1"type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'accInput')">
+                      -->
+                      <input id="addAcc_1"type="button" class="btn btn-default" value="Add Acceptance Criteria" onclick="addInputBox(this.id, 'accInput')">
                     </li>
 
                     <li class="list-group-item">
@@ -364,7 +513,31 @@
                       <br><em class='notRequired'>If no additional information, leave input box blank.</em>
                       
                       <br><br>
-                      <a id="addInput_1" data-toggle="tooltip" title="Please enter any additional information for the project">
+                      <div class="flex">
+                        <div style="width: 200%" >
+                          <a id="addInput_1" data-toggle="tooltip" title="Please enter any additional information.">
+                            <input type="text" class="form-control" id="addInfo" placeholder="Additional Information" name="Additional Information 1">
+                            <!--<button type="button" class="btn btn-default">x</button>-->
+                            <span class="help-block"></span>
+                            <div id='addedaddInput_1'>
+                                  
+                            </div>
+                          </a>
+                        </div>
+                        &nbsp
+                        <div>
+                          <div class="input-group">
+                            <button type="button" class="btn btn-default" id="addRem" disabled>x</button>
+                            <span class="help-block"></span>
+                            <div id='addedaddRemButton_1'>
+                                  
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <input id="addAdd_1"type="button" class="btn btn-default" value="Add Additional Information" onclick="addInputBox(this.id, 'addInput')">
+
+                      <!--<a id="addInput_1" data-toggle="tooltip" title="Please enter any additional information for the project">
                         <input type="text" class="form-control" id="addInfo" placeholder="Additional Information" name="Additional Information 1">
                         <span class="help-block"></span>
                         <div id='addedaddInput_1'>
@@ -372,7 +545,7 @@
                         </div>
                       </a>
                       <input id="remAdd_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'addInput')">
-                      <input id="addAdd_1"type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'addInput')">
+                      <input id="addAdd_1"type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'addInput')">-->
                     </li>
 
                   </ul>

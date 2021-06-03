@@ -44,8 +44,14 @@ $(document).ready(function(){
             .find('#addedserverInput_1')
             .attr('id', 'addedserverInput_'+index);
         $('#req_'+ index)
+            .find('#addedserverRemButton_1')
+            .attr('id', 'addedserverRemButton_'+index);
+        $('#req_'+ index)
             .find('#addedaddInput_1')
             .attr('id', 'addedaddInput_'+index);
+        $('#req_'+ index)
+            .find('#addedaddRemButton_1')
+            .attr('id', 'addedaddRemButton_'+index);
         
         //Assumption Button
         /*$('#req_'+ index)
@@ -72,6 +78,9 @@ $(document).ready(function(){
             .find('#addedriskInput_1')
             .attr('id', 'addedriskInput_'+index);
         $('#req_'+ index)
+            .find('#addedriskRemButton_1')
+            .attr('id', 'addedriskRemButton_'+index)
+        $('#req_'+ index)
             .find('#none_risks_1')
             .attr('id', 'none_risks_'+index);
         
@@ -88,6 +97,9 @@ $(document).ready(function(){
         $('#req_'+ index)
             .find('#addedaccInput_1')
             .attr('id', 'addedaccInput_'+index);
+        $('#req_'+ index)
+            .find('#addedaccRemButton_1')
+            .attr('id', 'addedaccRemButton_'+index);
         
         //File Monitoring
         $('#req_'+ index)
@@ -102,6 +114,9 @@ $(document).ready(function(){
         $('#req_'+ index)
             .find('#addedfileInput_1')
             .attr('id', 'addedfileInput_'+index);
+        $('#req_'+ index)
+            .find('#addedfileRemButton_1')
+            .attr('id', 'addedfileRemButton_'+index);
         $('#req_'+ index)
             .find('#yesFile_1')
             .attr('id', 'yesFile_'+index);
@@ -122,6 +137,9 @@ $(document).ready(function(){
         $('#req_'+ index)
             .find('#addedemailInput_1')
             .attr('id', 'addedemailInput_'+index);
+        $('#req_'+ index)
+            .find('#addedemailRemButton_1')
+            .attr('id', 'addedemailRemButton_'+index);
         $('#req_'+ index)
             .find('#ticketAlert_1')
             .attr('id', 'ticketAlert_'+index);
@@ -243,19 +261,37 @@ $(document).ready(function(){
             .find('#addedserverInput_'+index)
             .empty(); 
         $('#req_'+ index)
+            .find('#addedserverRemButton_'+index)
+            .empty(); 
+        $('#req_'+ index)
             .find('#addedriskInput_'+index)
+            .empty(); 
+        $('#req_'+ index)
+            .find('#addedriskRemButton_'+index)
             .empty(); 
         $('#req_'+ index)
             .find('#addedaccInput_'+index)
             .empty(); 
         $('#req_'+ index)
+            .find('#addedaccRemButton_'+index)
+            .empty(); 
+        $('#req_'+ index)
             .find('#addedfileInput_'+index)
             .empty(); 
+        $('#req_'+ index)
+            .find('#addedfileRemButton_'+index)
+            .empty();
         $('#req_'+ index)
             .find('#addedemailInput_'+index)
             .empty(); 
         $('#req_'+ index)
+            .find('#addedemailRemButton_'+index)
+            .empty();
+        $('#req_'+ index)
             .find('#addedaddInput_'+index)
+            .empty();
+        $('#req_'+ index)
+            .find('#addedaddRemButton_'+index)
             .empty();
         
         //Set req1 values to req1 values
