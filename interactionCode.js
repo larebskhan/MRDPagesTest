@@ -1,3 +1,4 @@
+//disable ticketing if email is secelected and vice versa, if both is selected, neither should be disabled
 function alertingInput(choice, id)
 {
     var idNum = id.match(/\d+/);
@@ -45,6 +46,8 @@ function saveJSON(text, filename)
     a.click();
     window.location.href = "SubmitValidation.html";
 }
+
+//give a warning if the server names do not start with a03 or a70
 function serverWarning(id){
     var str = document.getElementById('server').value;
     if(str.startsWith("a03") || (str.startsWith("a70"))){
@@ -73,6 +76,7 @@ function serverWarning(id){
     
 }
 
+//turn the borders of input boxes red if the field is required and nothing has been entered
 function validatetextboxes()
     {
     var txtval = $("#ticketTeam_1").val();
@@ -201,7 +205,7 @@ function validatetextboxes()
 }
 
 
-
+//function that makes sure the project end date cannot be a date in the past
 function minDate() 
 {
     var today = new Date();
@@ -224,6 +228,7 @@ var fileNum = 1;
 var emailNum = 1;
 var accNum = 1;
 var addNum = 1;
+//add new input boxes when the add buttons are clicked
 function addInputBox(id, name)
 {
     idNum = id.match(/\d+/);
@@ -319,6 +324,7 @@ function addInputBox(id, name)
 
     alert(id.match(/\d+/));*/
 }
+//remove new input boxes when the remove buttons are clicked
 function removeInputBox(id, name)
 {
     idNum = id.match(/\d+/);
