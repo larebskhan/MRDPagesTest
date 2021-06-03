@@ -94,7 +94,7 @@ function addInputBox(id, name)
     }
     else if(name == 'riskInput')
     {
-        newBox.innerHTML = "<input type='text' class='form-control' id='risks"+idNum+"' placeholder='Project Risk' name='Risk(s) "+idNum+"'> <span class='help-block'>";
+        newBox.innerHTML = "<input type='text' class='form-control' id='risks"+idNum+"' placeholder='Project Risk' name='Risk "+idNum+"'> <span class='help-block'>";
     }
     else if(name == 'accInput')
     {
@@ -102,7 +102,7 @@ function addInputBox(id, name)
     }
     else if(name == 'emailInput')
     {
-        newBox.innerHTML = "<input type='email' class='form-control' id='email"+idNum+"' placeholder='Distributor' name='Distributor "+idNum+"' required> <span class='help-block'>";
+        newBox.innerHTML = "<input type='email' class='form-control' id='email"+idNum+"' placeholder='Distributor' name='Distribution List "+idNum+"' required> <span class='help-block'>";
     }
     else if(name == 'fileInput')
     {
