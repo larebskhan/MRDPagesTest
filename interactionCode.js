@@ -150,6 +150,7 @@ function validatetextboxes()
     {
       $("#reason").css("border", "1px solid #ccc");
     } 
+    /*
     var txtval9 = $("#searchSched_1").val();
      if (txtval9 == "") {
         //if empty then assign the border
@@ -159,6 +160,7 @@ function validatetextboxes()
     {
       $("#searchSched_1").css("border", "1px solid #ccc");
     } 
+    */
     var txtval10 = $("#server").val();
      if (txtval10 == "") {
         //if empty then assign the border
