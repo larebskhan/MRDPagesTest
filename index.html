@@ -54,7 +54,13 @@
               <label for="assum1"> Servers/Appliances are active and available</label><br>
               <input type="checkbox" id="assum2" required>
               <label for="assum2"> The support team is prepared to accept tickets</label><br>
-              <input type="input" class="form-control" id="ticketTeam_1" placeholder="Ticket Response Team" name="Ticket Response Team" required>
+            
+            <div class="col-sm-11" style = "position:relative; left:-15px;">
+              <a data-toggle="tooltip" title="Enter the Ticket Response Team">
+                <input type="input" class="form-control" id="ticketTeam_1" placeholder="Ticket Response Team" name="Ticket Response Team" required>
+              </a>
+            </div>
+                        <!-- <input type="input" class="form-control" id="ticketTeam_1" placeholder="Ticket Response Team" name="Ticket Response Team" required> -->
             </div>
           </div>
 
@@ -63,7 +69,7 @@
             <label class="control-label col-sm-2" for="mainObjective">Monitoring Objective&nbsp<span class="star">&#42;</span></label>
             <div class="col-sm-6">
               <a data-toggle="tooltip" title="Please enter the Objective of the project">
-                <input type="text" class="form-control" id="mainObjective" placeholder="Ex. File Monitoring, File Up/Down Status" name="Monitoring Objective" required>
+                <input type="text" class="form-control" id="mainObjective" placeholder="Ex. Ensure the application is stable by monitoring these requirements" name="Monitoring Objective" required>
               </a>
             </div>
           </div>
