@@ -25,8 +25,8 @@ $(document).ready(function(){
             .text('Requirement '+index);
 
         //Keep req 1 radio button options
-        var alertingInputReq1 = $("input[name='alert']:checked").attr('id');
-        var serverInputReq1 = $("input[name='Server Type']:checked").attr('id');
+        var alertingInputReq1 = $("input[name='Alert 1']:checked").attr('id');
+        var serverInputReq1 = $("input[name='Server Type 1']:checked").attr('id');
         
         //Change add/remove button Ids
         //Ex. ID Button Requirement Add Server #2: addServer_1

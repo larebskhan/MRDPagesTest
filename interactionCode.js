@@ -1,41 +1,36 @@
 function alertingInput(choice, id)
 {
     var idNum = id.match(/\d+/);
-    var addedInput = 'addedemailInput_'+idNum;
+    /*var addedInput = 'addedemailInput_'+idNum;
     var addButton = 'addEmail_'+idNum;
     var removeButton = 'remEmail_'+idNum;
     var input = 'emailInput_'+idNum;
-    var ticket = 'ticket_'+idNum;
+    var ticket = 'ticket_'+idNum;*/
     if(choice == 'ticket')
     {
-        document.getElementById(ticket).disabled = false;
-        document.getElementById(addedInput).innerHTML = '';
-        document.getElementById(addButton).disabled = true;
-        document.getElementById(removeButton).disabled = true;
-        document.getElementById(input).getElementsByClassName('form-control')[0].disabled = true;
-        document.getElementById('ticketBucket_'+idNum).disabled = false;
+        document.getElementById('emailInput_'+idNum).getElementsByClassName('form-control')[0].disabled = true;
+        document.getElementById('addedemailInput_'+idNum).innerHTML = '';
+        document.getElementById('addedemailRemButton_'+idNum).innerHTML = '';
+        document.getElementById('addEmail_'+idNum).disabled = true;
+        document.getElementById('ticket_'+idNum).disabled = false;
         document.getElementById('ticketCircum_'+idNum).disabled = false;
-        document.getElementById('ticketTeam_'+idNum).disabled = false;
+        document.getElementById('ticketBucket_'+idNum).disabled = false;
     }
     else if(choice == 'email')
     {
-        document.getElementById(addButton).disabled = false;
-        document.getElementById(removeButton).disabled = false;
-        document.getElementById(input).getElementsByClassName('form-control')[0].disabled = false;
-        document.getElementById(ticket).disabled = true;
-        document.getElementById('ticketBucket_'+idNum).disabled = true;
+        document.getElementById('ticket_'+idNum).disabled = true;
         document.getElementById('ticketCircum_'+idNum).disabled = true;
-        document.getElementById('ticketTeam_'+idNum).disabled = true;
+        document.getElementById('ticketBucket_'+idNum).disabled = true;
+        document.getElementById('emailInput_'+idNum).getElementsByClassName('form-control')[0].disabled = false;
+        document.getElementById('addEmail_'+idNum).disabled = false;
     }
     else if(choice == 'both')
     {
-        document.getElementById(ticket).disabled = false;
-        document.getElementById(addButton).disabled = false;
-        document.getElementById(removeButton).disabled = false;
-        document.getElementById(input).getElementsByClassName('form-control')[0].disabled = false;
-        document.getElementById('ticketBucket_'+idNum).disabled = false;
+        document.getElementById('ticket_'+idNum).disabled = false;
         document.getElementById('ticketCircum_'+idNum).disabled = false;
-        document.getElementById('ticketTeam_'+idNum).disabled = false;
+        document.getElementById('ticketBucket_'+idNum).disabled = false;
+        document.getElementById('emailInput_'+idNum).getElementsByClassName('form-control')[0].disabled = false;
+        document.getElementById('addEmail_'+idNum).disabled = false;
     }
 }
 
