@@ -28,13 +28,14 @@
   </head>
 
   <body>
+
+  <!--Heading-->
     <div id="boxForm">
       <div class="container">
         <!--<img src="https://abcnews4.com/resources/media/0f73c9b8-3b67-4aaf-b61c-5483a3192fb0-large16x9_BCBSSCPartner.png?1538141737266" alt="Photo" width=100">-->
         <h2>Monitoring Requirements Document Form &nbsp</h2>
         
         <form class="form-horizontal was-validated" name="mrdform" id="mrdform">
-          <br>
           <p>
             <em><span class="star">&#42;</span> Indicates a required field</em>
           </p>
@@ -51,21 +52,22 @@
 	        <div class="form-group">
             <label class="control-label col-sm-2" for="assumptoins">Prerequisites&nbsp<span class="star">&#42;</span></label>
             <div class="col-sm-7">
+            <!--First Prereq-->
               <input type="checkbox" id="assum1" required>
               <label for="assum1"> Servers/Appliances are active and available</label><br>
+              <!--Second Prereq-->
               <input type="checkbox" id="assum2" required>
               <label for="assum2"> The support team is prepared to accept tickets</label><br>
-            
+            <!--3rd Prereq: Ticket Response Team-->
             <div class="col-sm-11" style = "position:relative; left:-15px;">
               <a data-toggle="tooltip" title="Enter the Ticket Response Team">
                 <input type="input" class="form-control" id="ticketTeam_1" placeholder="Ticket Response Team" name="Ticket Response Team" required>
               </a>
             </div>
-                        <!-- <input type="input" class="form-control" id="ticketTeam_1" placeholder="Ticket Response Team" name="Ticket Response Team" required> -->
-            </div>
+          </div>
           </div>
 
-          <!--Objective Input-->
+          <!--Main Objective Input-->
           <div class="form-group">
             <label class="control-label col-sm-2" for="mainObjective">Monitoring Objective&nbsp<span class="star">&#42;</span></label>
             <div class="col-sm-6">
@@ -75,7 +77,7 @@
             </div>
           </div>
           
-	        <!--User ID-->
+	        <!--Employee ID-->
           <div class="form-group">
             <label class="control-label col-sm-2" for="userID">Employee ID&nbsp<span class="star">&#42;</span></label>
             <div class="col-sm-6">
@@ -115,11 +117,13 @@
             </div>
           </div>
           
+          <!--Separates header from Requirements-->
           <hr>
           <p>
             <em>Click on the requirements tab to input more data.</em>
           </p>
 
+          <!--Requirement 1-->
           <section id="req_1">
             <div class="panel-group">
               <div class="panel panel-default">
@@ -149,19 +153,11 @@
                     </li>
 
                     <li class="list-group-item">
-                      <!--Risk-->
+                      <!--Risk of not Monioring-->
                       <label for="risks">Risks of not Monitoring</label>
                       <br><em class='notRequired'>If no risks, leave input box blank.</em>
                       
                       <br><br>
-                      <!--<a id="riskInput_1" data-toggle="tooltip" title="Please enter any Risk(s) that pertain to the project">
-                        <input type="text" class="form-control" id="risks" placeholder="Ex. Contractual Obligation, Financial Risk, Customer Impact" name="Risk 1">
-                        <button type="button" class="btn btn-default">x</button>
-                        <span class="help-block"></span>
-                        <div id='addedriskInput_1'>
-                              
-                        </div>
-                      </a> -->
 
                       <div class="flex">
                         <div style="width: 200%" >
@@ -206,13 +202,27 @@
                       <input class="form-check-input" type="radio" checked="checked" name="Server Type 1" id="bothServers" value="Both"> <!-- onclick=" -->  
                       <label for="bothAlert">Both</label><br>
                       
+                      <div class="" id="serverWarning">
                       <div class="flex">
                         <div style="width: 200%" >
                           <a id="serverInput_1" data-toggle="tooltip" title="Please enter all server IDs">
                             <input type="text" class="form-control" oninput="serverWarning(this.id)" id="server" placeholder="Server ID" name="Server ID 1">
                             <!--<button type="button" class="btn btn-default">x</button>-->
-                            <span class="help-block"></span>
+                            <span class="help-block"id="serverWarningText"></span>
                             <div id='addedserverInput_1'>
+
+                            <!--<div class="" id="serverWarning">
+                        <div id="serverInput_1">
+                          <a data-toggle="tooltip" title="Please enter all ServerIDs">
+                            <input type="text" class="form-control" oninput="serverWarning(this.id)" id="server" placeholder="Server ID" name="Server ID 1">
+                            <span class="help-block" id="serverWarningText"></span>
+                            <div id='addedserverInput_1'>
+                            </div>
+                          </a>
+                        </div>
+                        <input id="remServer_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'serverInput')">
+                        <input id="addServer_1" type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'serverInput')">
+                      </div>-->
                                   
                             </div>
                           </a>
@@ -231,19 +241,6 @@
 
                       <input id="addServer_1" type="button" class="btn btn-default" value="Add Server" onclick="addInputBox(this.id, 'serverInput')">
 
-                      
-                      <!--<div class="" id="serverWarning">
-                        <div id="serverInput_1">
-                          <a data-toggle="tooltip" title="Please enter all ServerIDs">
-                            <input type="text" class="form-control" oninput="serverWarning(this.id)" id="server" placeholder="Server ID" name="Server ID 1">
-                            <span class="help-block" id="serverWarningText"></span>
-                            <div id='addedserverInput_1'>
-                            </div>
-                          </a>
-                        </div>
-                        <input id="remServer_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'serverInput')">
-                        <input id="addServer_1" type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'serverInput')">
-                      </div>-->
                     </li>
 
                     <li class="list-group-item">
