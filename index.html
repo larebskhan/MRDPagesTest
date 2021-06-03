@@ -1,10 +1,8 @@
 <!--
   To Do:
-	  1. Reorganize Questions (better flow)
-	  2. JSON File
-	  3. Save confirmation #
-	  4. Review before submit
-	  5. Add Questions
+	  1. JSON File
+	  2. Review before submit
+	  5. Remove button per input
     6. Email domain validation
 -->
 <!DOCTYPE html>
@@ -48,7 +46,7 @@
             </div>
           </div>
 
-          <!--Prerequesites-->
+          <!--Prereqs-->
 	        <div class="form-group">
             <label class="control-label col-sm-2" for="assumptoins">Prerequisites&nbsp<span class="star">&#42;</span></label>
             <div class="col-sm-7">
@@ -133,7 +131,7 @@
                     </h4>
                     
                     <a data-toggle="tooltip" title="Please enter the Requirement(s) of the project">
-                      <input type="text" class="form-control" id="requirements" placeholder="Ex. Synthetic Monitoring, " name="Requirement(s)" required>
+                      <input type="text" class="form-control" id="requirements" placeholder="Ex. X should be monitored" name="Requirement 1" required>
                     </a>
                   </div>
                 </div>
@@ -145,7 +143,7 @@
                       <!--Buisiness Reason-->
                       <label for="reason">Business Reason&nbsp<span class="star">&#42;</span></label>
                       <a data-toggle="tooltip" title="Please enter the business reason.">
-                        <input type="text" class="form-control" id="reason" placeholder="Ex. Utilization is too high, Application may crash" name="Business Reason" required>
+                        <input type="text" class="form-control" id="reason" placeholder="Ex. Utilization is too high, Application may crash" name="Business Reason 1" required>
                       </a>
                     </li>
 
@@ -157,7 +155,7 @@
                       <input id="addRisk_1" type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'riskInput')">
                       <br><br>
                       <a id="riskInput_1" data-toggle="tooltip" title="Please enter any Risk(s) that pertain to the project">
-                        <input type="text" class="form-control" id="risks" placeholder="Ex. Contractual Obligation, Financial Risk, Customer Impact" name="Risk(s)">
+                        <input type="text" class="form-control" id="risks" placeholder="Ex. Contractual Obligation, Financial Risk, Customer Impact" name="Risk 1">
                         <span class="help-block"></span>
                         <div id='addedriskInput_1'>
                               
@@ -176,16 +174,16 @@
                       <input id="addServer_1" type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'serverInput')">
 
                       <!--Server Type buttons-->
-                      <input class="form-check-input" type="radio" name="Server Type" id="windows" value="Windows"> <!-- onclick="--> 
+                      <input class="form-check-input" type="radio" name="Server Type 1" id="windows" value="Windows"> <!-- onclick="--> 
                       <label for="ticketAlert">Windows</label><br>
-                      <input class="form-check-input" type="radio" name="Server Type" id="linux" value="Linux"> <!-- onclick=" -->
+                      <input class="form-check-input" type="radio" name="Server Type 1" id="linux" value="Linux"> <!-- onclick=" -->
                       <label for="emailAlert">Linux</label><br>
-                      <input class="form-check-input" type="radio" checked="checked" name="Server Type" id="bothServers" value="Both"> <!-- onclick=" -->  
+                      <input class="form-check-input" type="radio" checked="checked" name="Server Type 1" id="bothServers" value="Both"> <!-- onclick=" -->  
                       <label for="bothAlert">Both</label><br>
                       <div class="" id="serverWarning">
                         <div id="serverInput_1">
                           <a data-toggle="tooltip" title="Please enter all ServerIDs">
-                            <input type="text" class="form-control" oninput="serverWarning(this.id)" id="server" placeholder="Server ID" name="Server ID">
+                            <input type="text" class="form-control" oninput="serverWarning(this.id)" id="server" placeholder="Server ID" name="Server ID 1">
                             <span class="help-block" id="serverWarningText"></span>
                             <div id='addedserverInput_1'>
 
@@ -207,7 +205,7 @@
                       <input class="form-check-input" type="radio" name="fileMonitoring" id="noFile_1" value="No" onclick="fileInput('no', this.id)">
                       <label for="yesFile">No</label><br>-->
                       <a id="fileInput_1" data-toggle="tooltip" title="Please enter the Complete File Path">
-                        <input type="text" class="form-control" id="files" placeholder="Ex. D:\Program Files\MyApplication\Logs\" name="File Path"> <span class="help-block"></span>
+                        <input type="text" class="form-control" id="files" placeholder="Ex. D:\Program Files\MyApplication\Logs\" name="File Path 1"> <span class="help-block"></span>
                         <div id='addedfileInput_1'>
                               
                         </div>
@@ -222,32 +220,33 @@
                       </p>
                       <input id="remEmail_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'emailInput')">
                       <input id="addEmail_1" type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'emailInput')">
-					
+                      
+                      <input type="input" class="form-control" id="searchSched_1" placeholder="Search Schedule: Ex. Every 10 minutes" name="Search Schedule 1"><span class="help-block"></span>
 
-                      <input class="form-check-input" type="radio" name="Alert" id="ticketAlert_1" value="Ticket" onclick="alertingInput('ticket', this.id)">
+                      <input class="form-check-input" type="radio" name="Alert 1" id="ticketAlert_1" value="Ticket" onclick="alertingInput('ticket', this.id)">
                       <label for="ticketAlert">Ticket</label><br>
-                      <input class="form-check-input" type="radio" name="Alert" id="emailAlert_1" value="Email" onclick="alertingInput('email', this.id)">
+                      <input class="form-check-input" type="radio" name="Alert 1" id="emailAlert_1" value="Email" onclick="alertingInput('email', this.id)">
                       <label for="emailAlert">Email</label><br>
-                      <input class="form-check-input" type="radio" checked="checked" name="Alert" id="bothAlert_1" value="Both" onclick="alertingInput('both', this.id)">
+                      <input class="form-check-input" type="radio" checked="checked" name="Alert 1" id="bothAlert_1" value="Both" onclick="alertingInput('both', this.id)">
                       <label for="bothAlert">Both</label><br>
                       
                       <div id="ticketAlert">
                         
-                        <select id="ticket_1" class="form-control" aria-label=".form-select-sm example" name="Ticket Severity">
+                        <select id="ticket_1" class="form-control" aria-label=".form-select-sm example" name="Ticket Severity 1">
                           <option disabled selected value> -- Select Severity -- </option>
                           <option value="S1">S1</option>
                           <option value="S2">S2</option>
                           <option value="S3">S3</option>
                           <option value="TBD">TBD</option>
                         </select><span class="help-block" id="serverWarningText"></span>
-			                  <input type="input" class="form-control" id="ticketCircum_1" placeholder="Ticketing Condition" name="Ticketing Condition"><span class="help-block" id="serverWarningText"></span>
-                        <input type="input" class="form-control" id="ticketBucket_1" placeholder="Ticket Bucket" name="Ticket Bucket"><span class="help-block" id="serverWarningText"></span>
+			                  <input type="input" class="form-control" id="ticketCircum_1" placeholder="Ticketing Condition" name="Ticketing Condition 1"><span class="help-block" id="serverWarningText"></span>
+                        <input type="input" class="form-control" id="ticketBucket_1" placeholder="Ticket Bucket" name="Ticket Bucket 1"><span class="help-block" id="serverWarningText"></span>
                       </div>
                       <br>
                       <div id="emailAlert">
 
                         <a id="emailInput_1" data-toggle="tooltip" title="Please enter the Distribution List">
-                          <input type="email" class="form-control" id="email" placeholder="Distribution List" name="Distribution List" 
+                          <input type="email" class="form-control" id="email" placeholder="Distribution List" name="Distribution List 1" 
                           pattern=".+@bcbssc.com|.+@paisc.com|.+@cgifederal.com|.+@palmettogba.com|.+@palmettogbaservices.com|.+@companiondataservices.com|.+@cdsedc.com|.+@ngc.com|.+@cgsadmin.com|.+@docfinity.com|.+@a70amed.com"  
                           oninvalid="this.setCustomValidity('Please enter your email address with one of the following domains from below')" 
                           onchange="this.setCustomValidity('')" required>
@@ -314,7 +313,7 @@
                       <br><br>
                       
                       <a id="accInput_1" data-toggle="tooltip" title="Please enter all Acceptance Criteria for the project">
-                        <input type="text" class="form-control" id="acceptanceCrit" placeholder="Acceptance Criteria" name="Acceptance Criteria" required>
+                        <input type="text" class="form-control" id="acceptanceCrit" placeholder="Acceptance Criteria" name="Acceptance Criteria 1" required>
                         <span class="help-block"></span>
                         <div id='addedaccInput_1'>
                               
@@ -330,7 +329,7 @@
                       <input id="addAdd_1"type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'addInput')">
                       <br><br>
                       <a id="addInput_1" data-toggle="tooltip" title="Please enter any additional information for the project">
-                        <input type="text" class="form-control" id="addInfo" placeholder="Additional Information" name="Additional Information">
+                        <input type="text" class="form-control" id="addInfo" placeholder="Additional Information" name="Additional Information 1">
                         <span class="help-block"></span>
                         <div id='addedaddInput_1'>
                               

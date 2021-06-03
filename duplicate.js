@@ -268,60 +268,61 @@ $(document).ready(function(){
         
         //Change Names of all Inputs
         $('#req_'+ index)
-            .find("[name='Requirement(s)']")
-            .attr('name', 'Requirement(s) '+index)
+            .find("[name='Requirement 1']")
+            .attr('name', 'Requirement '+index)
 
         $('#req_'+ index)
-            .find("[name='Business Reason']")
+            .find("[name='Business Reason 1']")
             .attr('name', 'Business Reason '+index)
 
         $('#req_'+ index)
-            .find("[name='Risk(s)']")
-            .attr('name', 'Risk(s) '+index)
+            .find("[name='Risk 1']")
+            .attr('name', 'Risk '+index)
             
         $('#req_'+ index)
-            .find("[name='Server ID']")
-            .attr('name', 'Server ID '+index)
+            .find("[name='Server Type 1']")
+            .attr('name', 'Server Type '+index)
         
         $('#req_'+ index)
-            .find("[name='File Path']")
+            .find("[name='Server ID 1']")
+            .attr('name', 'Server ID '+index)
+            
+        $('#req_'+ index)
+            .find("[name='File Path 1']")
             .attr('name', 'File Path '+index)
 
         $('#req_'+ index)
-            .find("[name='Ticket Severity']")
+            .find("[name='Alert 1']")
+            .attr('name', 'Alert '+index)
+
+        $('#req_'+ index)
+            .find("[name='Search Schedule 1']")
+            .attr('name', 'Search Schedule '+index)
+
+
+        $('#req_'+ index)
+            .find("[name='Ticket Severity 1']")
             .attr('name', 'Ticket Severity '+index)
         
         $('#req_'+ index)
-            .find("[name='Ticketing Circumstance']")
-            .attr('name', 'Ticketing Circumstance '+index)
+            .find("[name='Ticketing Condition 1']")
+            .attr('name', 'Ticketing Condition '+index)
         
         $('#req_'+ index)
             .find("[name='Ticket Bucket']")
             .attr('name', 'Ticket Bucket '+index)
 
         $('#req_'+ index)
-            .find("[name='Ticket Response Team']")
-            .attr('name', 'Ticket Response Team '+index)
+            .find("[name='Distribution List 1']")
+            .attr('name', 'Distribution List '+index)
 
         $('#req_'+ index)
-            .find("[name='Acceptance Criteria']")
+            .find("[name='Acceptance Criteria 1']")
             .attr('name', 'Acceptance Criteria '+index)
 
         $('#req_'+ index)
-            .find("[name='Additional Information']")
+            .find("[name='Additional Information 1']")
             .attr('name', 'Additional Information '+index)
-
-        $('#req_'+ index)
-            .find("[name='Server Type']")
-            .attr('name', 'Server Type '+index)
-
-        $('#req_'+ index)
-            .find("[name='Alert']")
-            .attr('name', 'Alert '+index)
-
-        $('#req_'+ index)
-            .find("[name='Distributor']")
-            .attr('name', 'Distributor '+index)
 
     });
     $('#remReq').click(function(){
