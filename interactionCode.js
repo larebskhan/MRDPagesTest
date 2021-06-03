@@ -231,6 +231,8 @@ function addInputBox(id, name)
     //alert(name)
     var newBox = document.createElement('div');
     var newRemBox = document.createElement('div');
+    var logBox = document.createElement('div');
+
     if(name == 'serverInput')
     {
         newBox.innerHTML = "<div class = '' id='serverWarning"+idNum+"' <a data-toggle='tooltip' title='Please enter all ServerIDs'> <input type='text' class='form-control' oninput='serverWarning(this.id)' id='server"+idNum+"' placeholder='Server ID' name='Server ID "+idNum+"'></input> <span class='help-block' id='serverWarningText"+idNum+"'> </span> </a> </div>"
@@ -287,13 +289,17 @@ function addInputBox(id, name)
     {
         newBox.innerHTML = "<input type='text' class='form-control' id='files"+idNum+"_"+fileNum+"' placeholder='Ex. D:\\Program Files\\MyApplication\\Logs\\' name='File Path "+idNum+"'> <span class='help-block'>";
         newRemBox.innerHTML = "<button type='button' id='fileRem"+idNum+"_"+fileNum+"' class='btn btn-default'>x</button> <span class='help-block'></span>";
+        logBox.innerHTML = "<input type='text' class='form-control' id='logRotation"+idNum+"_"+fileNum+"' placeholder='Ex. By date, by size' name='Log Rotation 1'> <span class='help-block'></span>"
         fileNum++;
         document.getElementById('addedfileRemButton_'+idNum).appendChild(newRemBox);
+        document.getElementById('addedlogInput_'+idNum).appendChild(logBox);
         newRemBox.onclick = function() 
         {
             //alert('hello');
             newBox.innerHTML = '';
             newRemBox.innerHTML = '';
+            logBox.innerHTML = '';
+
         };
 
     }
