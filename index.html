@@ -23,6 +23,7 @@
     <script src="interactionCode.js"></script>
     <script src="duplicate.js"></script>
     <script src="confirmation.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <link href="style.css" rel="stylesheet">
   </head>
 
@@ -221,7 +222,7 @@
                       <input id="remEmail_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'emailInput')">
                       <input id="addEmail_1" type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'emailInput')">
                       
-                      <input type="input" class="form-control" id="searchSched_1" placeholder="Search Schedule: Ex. Every 10 minutes" name="Search Schedule 1"><span class="help-block"></span>
+                      <input type="input" class="form-control" id="searchSched_1" placeholder="Search Schedule: Ex. Every 10 minutes" name="Search Schedule 1" required><span class="help-block"></span>
 
                       <input class="form-check-input" type="radio" name="Alert 1" id="ticketAlert_1" value="Ticket" onclick="alertingInput('ticket', this.id)">
                       <label for="ticketAlert">Ticket</label><br>
@@ -232,7 +233,7 @@
                       
                       <div id="ticketAlert">
                         
-                        <select id="ticket_1" class="form-control" aria-label=".form-select-sm example" name="Ticket Severity 1">
+                        <select id="ticket_1" class="form-control" aria-label=".form-select-sm example" name="Ticket Severity 1" required>
                           <option disabled selected value> -- Select Severity -- </option>
                           <option value="S1">S1</option>
                           <option value="S2">S2</option>
@@ -349,7 +350,7 @@
 
           <hr>
           
-          <button type="submit" class="btn btn-default" onclick="return confirm('Are you sure you want to submit?')">Submit</button>
+          <button type="submit" class="btn btn-default" onclick="validatetextboxes(); return confirm('Are you sure you want to submit?');">Submit</button>
           
         </form>
         

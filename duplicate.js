@@ -333,6 +333,21 @@ $(document).ready(function(){
             index--;
         }
     });
+
+    /* red border, not sure if we need this one
+    $("#textbox1").change(function() {
+          //Check if value is empty or not
+          if ($(this).val() == "") {
+              //if empty then assign the border
+              $(this).css("border", "1px solid red");
+         }
+        else
+        {
+          $(this).css("border", "1px solid black");
+        }
+      })
+    /*
+    
     /*
     $('[id^="addServer_"]').click(function() {
         serverIndex++;

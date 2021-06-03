@@ -75,6 +75,132 @@ function serverWarning(id){
    
     
 }
+
+function validatetextboxes()
+    {
+    var txtval = $("#ticketTeam_1").val();
+      //Check if value is empty or not
+    if (txtval == "") {
+           //if empty then assign the border
+          $("#ticketTeam_1").css("border", "1px solid red");
+      }
+      else
+     {
+         $("#ticketTeam_1").css("border", "1px solid #ccc");
+     }
+     var txtval2 = $("#mainObjective").val();
+     if (txtval2 == "") {
+        //if empty then assign the border
+       $("#mainObjective").css("border", "1px solid red");
+    }
+    else
+    {
+      $("#mainObjective").css("border", "1px solid #ccc");
+    } 
+    var txtval3 = $("#userID").val();
+     if (txtval3 == "") {
+        //if empty then assign the border
+       $("#userID").css("border", "1px solid red");
+    }
+    else
+    {
+      $("#userID").css("border", "1px solid #ccc");
+    } 
+    var txtval4 = $("#projectTitle").val();
+     if (txtval4 == "") {
+        //if empty then assign the border
+       $("#projectTitle").css("border", "1px solid red");
+    }
+    else
+    {
+      $("#projectTitle").css("border", "1px solid #ccc");
+    } 
+    var txtval5 = $("#projectNumber").val();
+     if (txtval5 == "") {
+        //if empty then assign the border
+       $("#projectNumber").css("border", "1px solid red");
+    }
+    else
+    {
+      $("#projectNumber").css("border", "1px solid #ccc");
+    } 
+    var txtval6 = $("#projectEndDate").val();
+     if (txtval6 == "") {
+        //if empty then assign the border
+       $("#projectEndDate").css("border", "1px solid red");
+    }
+    else
+    {
+      $("#projectEndDate").css("border", "1px solid #ccc");
+    } 
+
+
+    var txtval7 = $("#requirements").val();
+     if (txtval7 == "") {
+        //if empty then assign the border
+       $("#requirements").css("border", "1px solid red");
+    }
+    else
+    {
+      $("#requirements").css("border", "1px solid #ccc");
+    } 
+    var txtval8 = $("#reason").val();
+     if (txtval8 == "") {
+        //if empty then assign the border
+       $("#reason").css("border", "1px solid red");
+    }
+    else
+    {
+      $("#reason").css("border", "1px solid #ccc");
+    } 
+    var txtval9 = $("#searchSched_1").val();
+     if (txtval9 == "") {
+        //if empty then assign the border
+       $("#searchSched_1").css("border", "1px solid red");
+    }
+    else
+    {
+      $("#searchSched_1").css("border", "1px solid #ccc");
+    } 
+    var txtval10 = $("#server").val();
+     if (txtval10 == "") {
+        //if empty then assign the border
+       $("#server").css("border", "1px solid red");
+    }
+    else
+    {
+      $("#server").css("border", "1px solid #ccc");
+    } 
+    var txtval11 = $("#acceptanceCrit").val();
+     if (txtval11 == "") {
+        //if empty then assign the border
+       $("#acceptanceCrit").css("border", "1px solid red");
+    }
+    else
+    {
+      $("#acceptanceCrit").css("border", "1px solid #ccc");
+    } 
+    var txtval12 = $("#ticket_1").val();
+    //does not work
+     if (txtval12 == "-- Select Severity --") {
+        //if empty then assign the border
+       $("#ticket_1").css("border", "1px solid red");
+    }
+    else
+    {
+      $("#ticket_1").css("border", "1px solid #ccc");
+    } 
+    var txtval13 = $("#email").val();
+     if (txtval13 == "") {
+        //if empty then assign the border
+       $("#email").css("border", "1px solid red");
+    }
+    else
+    {
+      $("#email").css("border", "1px solid #ccc");
+    } 
+}
+
 /*
 function minDate() 
 {
