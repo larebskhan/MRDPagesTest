@@ -244,10 +244,9 @@
                     </li>
 
                     <li class="list-group-item">
-
                       <!--File Monitoring-->
                       <label for="files">File Monitoring?</label>
-                      <br><em class='notRequired'>If no file monitoring, leave input box blank.</em>
+                      <br><em class='notRequired'>If no file monitoring, leave input box blank. <br> If log rotates, specify rotation logic.</em>
                       <br>
                       <!--<input class="form-check-input" type="radio" name="fileMonitoring" checked="checked" id="yesFile_1" value="Yes" onclick="fileInput('yes', this.id)">
                       <label for="yesFile">Yes</label><br>
@@ -255,19 +254,43 @@
                       <label for="yesFile">No</label><br>-->
 
                       <div class="flex">
-                        <div style="width: 200%" >
-                          <a id="fileInput_1" data-toggle="tooltip" title="Please enter the complete file path.">
-                            <input type="text" class="form-control" id="files" placeholder="Ex. D:\Program Files\MyApplication\Logs\" name="File Path 1"> <span class="help-block"></span>
-                            <!--<button type="button" class="btn btn-default">x</button>-->
-                            <span class="help-block"></span>
-                            <div id='addedfileInput_1'>
-                                  
-                            </div>
-                          </a>
+                        <div style="width: 200%">
+                          <table style="width:100%">
+                            <tr>
+                              <td>
+                                <br>
+                                File Path
+                              </td>
+                              <td>
+                                <br>
+                                Log Rotation
+                              </td>
+                            </tr>
+                            <tr>
+                              <td width="70%">
+                                <a id="fileInput_1" data-toggle="tooltip" title="Please enter the complete file path.">
+                                  <input type="text" class="form-control" id="files" placeholder="Ex. D:\Program Files\MyApplication\Logs\" name="File Path 1"> <span class="help-block"></span>
+                                  <!--<button type="button" class="btn btn-default">x</button>-->
+                                  <span class="help-block"></span>
+                                  <div id='addedfileInput_1'>
+                                        
+                                  </div>
+                                </a>
+                              </td>
+                              <td>
+                                <input type='text' class='form-control' id='logRotation' placeholder='Ex. By date, by size' name='Log Rotation 1'> <span class='help-block'></span>
+                                <div id='addedlogInput_1'>
+                                        
+                                </div>
+                              </td>
+                            </tr>
+                          </table>
+                          
                         </div>
                         &nbsp
                         <div>
                           <div class="input-group">
+                            <br><br>
                             <button type="button" class="btn btn-default" id="fileRem" disabled>x</button>
                             <span class="help-block"></span>
                             <div id='addedfileRemButton_1'>
