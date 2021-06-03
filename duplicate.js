@@ -309,7 +309,7 @@ $(document).ready(function(){
             .attr('name', 'Ticketing Condition '+index)
         
         $('#req_'+ index)
-            .find("[name='Ticket Bucket']")
+            .find("[name='Ticket Bucket 1']")
             .attr('name', 'Ticket Bucket '+index)
 
         $('#req_'+ index)
