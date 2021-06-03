@@ -59,6 +59,7 @@ function serverWarning(id){
     else{
         document.getElementById('serverWarning').className = "has-warning";
         document.getElementById('serverWarningText').innerHTML = "Warning! ServerID does not start with a03 or a70!";
+        //$("#serverWarningText").css("color", "orange");
     }
     while(forEach(document.getElementById('addServer_1').onclick==true)){
         idNum = id.match(/\d+/);
@@ -70,6 +71,7 @@ function serverWarning(id){
         else{
             document.getElementById('serverWarning'+idNum).className = "has-warning";
             document.getElementById('serverWarningText'+idNum).innerHTML = "Warning! ServerID does not start with a03 or a70!";
+            //$("#serverWarningText").css("color", "orange");
         }
     }
    
