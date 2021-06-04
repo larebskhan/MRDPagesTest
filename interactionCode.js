@@ -83,6 +83,20 @@ function serverWarning(id){
     
 }
 
+function removeReq(id, name)
+{
+    idNum = id.match(/\d+/);
+    if(idNum > 1)
+    {
+        var requirement = name+idNum;
+        $('#'+requirement).empty();
+    }
+    if(idNum == 1)
+    {
+        alert('You cannot remove the first requirement');
+    }
+}
+
 //function that makes sure the project end date cannot be a date in the past
 function minDate() 
 {
