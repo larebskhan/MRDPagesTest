@@ -149,7 +149,7 @@ function addInputBox(id, name)
     }
     else if(name == 'emailInput')
     {
-        newBox.innerHTML = "<input type='email' class='form-control' id='email"+idNum+"_"+emailNum+"' placeholder='Distribution List' name='Distribution List "+idNum+"' required> <span class='help-block'>";
+        newBox.innerHTML = "<input type='email' class='form-control' id='email"+idNum+"_"+emailNum+"' pattern='.+@bcbssc.com|.+@paisc.com|.+@cgifederal.com|.+@palmettogba.com|.+@palmettogbaservices.com|.+@companiondataservices.com|.+@cdsedc.com|.+@ngc.com|.+@cgsadmin.com|.+@docfinity.com|.+@a70amed.com' placeholder='Distribution List' name='Distribution List "+idNum+"' required> <span class='help-block'>";
         newRemBox.innerHTML = "<button type='button' id='emailRem"+idNum+"_"+emailNum+"' class='btn btn-default'>x</button> <span class='help-block'></span>"
         emailNum++;
         document.getElementById('addedemailRemButton_'+idNum).appendChild(newRemBox);
