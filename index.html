@@ -155,29 +155,11 @@
               <div class="panel panel-default">
                 <div class="panel-heading" style="background-color: #dbeaf35b;">
                   <div id="req">
-                    <table width="100%">
-                      <tr>
-                        <td width="95%">
-                          <h4 style="text-align: left" class="panel-title">
-                            <a id="toggle_1" data-toggle="collapse" href="#collapse_1">Requirement</a>
-                            <span class="star">&#42;</span>
-                            <!--div class="triangle-down"></div>-->
-                          </h4>
-                          
-                        </td>
-                        <td>
-                          <button id="remReq_1" type="button" class="btn" onclick="removeReq(this.id, 'req_');">x</button>
-                        </td>
-                      </tr>
-                      <tr" height="1%">
-                        <td>
-                          &nbsp;
-                        </td>
-                        <td>
-
-                        </td>
-                      </tr>
-                    </table>
+                    <h4 class="panel-title">
+                      <a id="toggle_1" data-toggle="collapse" href="#collapse_1"> Requirement 1</a>
+                      <span class="star">&#42;</span>
+                      <div class="triangle-down"></div>
+                    </h4>
                     
                     <a data-toggle="tooltip" title="Please enter the Requirement(s) of the project">
                       <input type="text" class="form-control" id="requirements" placeholder="Ex. X should be monitored" name="Requirement 1" required>
@@ -488,10 +470,10 @@
               </div>
             </div>
           </section>
-          <div style="position: relative; left: 45%" id="addRemReq">
+          <div style="position: relative; left: 30%" id="addRemReq">
             <input id="addReq" type="button" class="btn" value="+ Add Requirement">
-            <!--<span>&nbsp</span>
-            <input id="remReq" type="button" class="btn" value="- Delete Requirement">-->
+            <span>&nbsp</span>
+            <input id="remReq" type="button" class="btn" value="- Delete Requirement">
           </div>
           <button style="position: relative; left: 90%;" type="submit" class="btn"onclick="validatetextboxes(); return confirm('Are you sure you want to submit?');">Submit</button>
           
