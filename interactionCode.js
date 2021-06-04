@@ -34,12 +34,6 @@ function alertingInput(choice, id)
     }
 }
 
-function reviewMRD(){
-    validatetextboxes();
-    $('#submitBtn').click(function(){
-         $('#ticketTeamPrev').text($('#ticketTeam_1').val());
-    });
-}
 function saveJSON(text, filename)
 {
     //create anchor element
@@ -64,6 +58,7 @@ function serverWarning(id){
         document.getElementById('serverWarningText').innerHTML = "";
         //document.getElementById(id).style.borderColor = color;
 
+
     }
     else
     {
@@ -71,8 +66,35 @@ function serverWarning(id){
         //document.getElementById(id).style.borderColor = "orange";
         document.getElementById('serverWarningText').innerHTML = "<i class='fa fa-exclamation-circle' aria-hidden='true'></i><em style='font-size: 12px;'> Server ID does not start with a03 or a70!<em>";
     }
+    /*while(forEach(document.getElementById('addServer_1').onclick==true)){
+        idNum = id.match(/\d+/);
+        var str2 = document.getElementById('server'+idNum).value;
+        if(str2.startsWith("a03") || (str2.startsWith("a70"))){
+            document.getElementById('serverWarning'+idNum).className = "";
+            document.getElementById('serverWarningText'+idNum).innerHTML = "";
+        }
+        else{
+            document.getElementById('serverWarning'+idNum).className = "has-warning";
+            document.getElementById('serverWarningText'+idNum).innerHTML = "Warning! ServerID does not start with a03 or a70!";
+            //$("#serverWarningText").css("color", "orange");
+        }
+    }*/
    
     
+}
+
+function removeReq(id, name)
+{
+    idNum = id.match(/\d+/);
+    if(idNum > 1)
+    {
+        var requirement = name+idNum;
+        $('#'+requirement).empty();
+    }
+    if(idNum == 1)
+    {
+        alert('You cannot remove the first requirement');
+    }
 }
 
 //function that makes sure the project end date cannot be a date in the past
@@ -149,7 +171,7 @@ function addInputBox(id, name)
     }
     else if(name == 'emailInput')
     {
-        newBox.innerHTML = "<input type='email' class='form-control' id='email"+idNum+"_"+emailNum+"' pattern='.+@bcbssc.com|.+@paisc.com|.+@cgifederal.com|.+@palmettogba.com|.+@palmettogbaservices.com|.+@companiondataservices.com|.+@cdsedc.com|.+@ngc.com|.+@cgsadmin.com|.+@docfinity.com|.+@a70amed.com' placeholder='Distribution List' name='Distribution List "+idNum+"' required> <span class='help-block'>";
+        newBox.innerHTML = "<input type='email' class='form-control' id='email"+idNum+"_"+emailNum+"' placeholder='Distribution List' name='Distribution List "+idNum+"' pattern='.+@bcbssc.com|.+@paisc.com|.+@cgifederal.com|.+@palmettogba.com|.+@palmettogbaservices.com|.+@companiondataservices.com|.+@cdsedc.com|.+@ngc.com|.+@cgsadmin.com|.+@docfinity.com|.+@a70amed.com'  oninvalid='this.setCustomValidity('Please enter your email address with one of the following domains from below')' onchange='this.setCustomValidity('')'required> <span class='help-block'>";
         newRemBox.innerHTML = "<button type='button' id='emailRem"+idNum+"_"+emailNum+"' class='btn btn-default'>x</button> <span class='help-block'></span>"
         emailNum++;
         document.getElementById('addedemailRemButton_'+idNum).appendChild(newRemBox);
