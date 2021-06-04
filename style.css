@@ -15,6 +15,7 @@ body
     background-color: #0067ab;
     width: 950px;
     border-radius: 2px; 
+
     position: relative;
     left: 18%
 }
@@ -90,3 +91,21 @@ li:nth-child(even)
 {
     background:white
 }
+/*input:invalid 
+{
+	border-color: rgb(245, 0, 37);
+}
+select:invalid 
+{
+	border-color: rgb(245, 0, 37);
+}*/
+
+/*input:valid 
+{
+	border-color: rgb(6, 92, 59);
+}
+select:valid 
+{
+	border-color: rgb(6, 92, 59);
+}*/
+
