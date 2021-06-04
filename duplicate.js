@@ -10,6 +10,7 @@ $(document).ready(function(){
 
     $('#addReq').click(function(){
         index++;
+        //Clone Requirement and Change IDs Collapse Functioanlity
         $('#req_1')
             .clone()
             .attr('id', 'req_'+ index)
@@ -21,17 +22,26 @@ $(document).ready(function(){
             .find('#collapse_1')
             .attr('id', 'collapse_'+index);
 
-        //Keep req 1 radio button options
-        var alertingInputReq1 = $("input[name='Alert 1']:checked").attr('id');
-        var serverInputReq1 = $("input[name='Server Type 1']:checked").attr('id');
-        var serverURLInputReq1 = $("input[name='Server/URL 1']:checked").attr('id');
-
-        //remReq id Change
+        //remReq Id Change
         $('#req_'+ index)
             .find('#remReq_1')
             .attr('id', 'remReq_'+index);
 
-        //Server
+        //Keep Requirement 1 Radio Buttons Checked
+        var alertingInputReq1 = $("input[name='Alert 1']:checked").attr('id');
+        var serverInputReq1 = $("input[name='Server Type 1']:checked").attr('id');
+        var serverURLInputReq1 = $("input[name='Server/URL 1']:checked").attr('id');
+        $('#req_1')
+            .find('#'+alertingInputReq1)
+            .prop('checked', true);
+        $('#req_1')
+            .find('#'+serverInputReq1)
+            .prop('checked', true);
+        $('#req_1')
+            .find('#'+serverURLInputReq1)
+            .prop('checked', true);
+
+        //Server ID Changes
         $('#req_'+ index)
             .find('#addServer_1')
             .attr('id', 'addServer_'+index);
@@ -45,7 +55,7 @@ $(document).ready(function(){
             .find('#addedserverRemButton_1')
             .attr('id', 'addedserverRemButton_'+index);
 
-        //URL or Server Radio
+        //URL or Server Radio ID Changes
         $('#req_'+ index)
             .find('#servChoice_1')
             .attr('id', 'servChoice_'+index);
@@ -56,7 +66,7 @@ $(document).ready(function(){
             .find('#bothServerURL_1')
             .attr('id', 'bothServerURL_'+index);
 
-        //URL
+        //URL ID Changes
         $('#req_'+ index)
             .find('#addURL_1')
             .attr('id', 'addURL_'+index);
@@ -70,7 +80,7 @@ $(document).ready(function(){
             .find('#addedURLRemButton_1')
             .attr('id', 'addedURLRemButton_'+index);
 
-        //Risk
+        //Risk ID Changes
         $('#req_'+ index)
             .find('#addRisk_1')
             .attr('id', 'addRisk_'+index);
@@ -84,7 +94,7 @@ $(document).ready(function(){
             .find('#addedriskRemButton_1')
             .attr('id', 'addedriskRemButton_'+index)
         
-        //Acceptance Criteria
+        //Acceptance Criteria ID Changes
         $('#req_'+ index)
             .find('#addAcc_1')
             .attr('id', 'addAcc_'+index);
@@ -99,6 +109,7 @@ $(document).ready(function(){
             .attr('id', 'addedaccRemButton_'+index);
         
         //File Monitoring
+        //Files ID Change
         $('#req_'+ index)
             .find('#addFile_1')
             .attr('id', 'addFile_'+index);
@@ -109,31 +120,14 @@ $(document).ready(function(){
             .find('#addedfileInput_1')
             .attr('id', 'addedfileInput_'+index);
         $('#req_'+ index)
-            .find('#addedlogInput_1')
-            .attr('id', 'addedlogInput_'+index);
-        $('#req_'+ index)
             .find('#addedfileRemButton_1')
             .attr('id', 'addedfileRemButton_'+index);
+        //Log ID Change
         $('#req_'+ index)
-            .find('#yesFile_1')
-            .attr('id', 'yesFile_'+index);
-        $('#req_'+ index)
-            .find('#noFile_1')
-            .attr('id', 'noFile_'+index);
+            .find('#addedlogInput_1')
+            .attr('id', 'addedlogInput_'+index);
         
-        //Alerting
-        $('#req_'+ index)
-            .find('#addEmail_1')
-            .attr('id', 'addEmail_'+index);
-        $('#req_'+ index)
-            .find('#emailInput_1')
-            .attr('id', 'emailInput_'+index);
-        $('#req_'+ index)
-            .find('#addedemailInput_1')
-            .attr('id', 'addedemailInput_'+index);
-        $('#req_'+ index)
-            .find('#addedemailRemButton_1')
-            .attr('id', 'addedemailRemButton_'+index);
+        //Alerting: Radio Button ID Change
         $('#req_'+ index)
             .find('#ticketAlert_1')
             .attr('id', 'ticketAlert_'+index);
@@ -143,6 +137,8 @@ $(document).ready(function(){
         $('#req_'+ index)
             .find('#bothAlert_1')
             .attr('id', 'bothAlert_'+index);
+
+        //Alerting: Ticketing ID Change
         $('#req_'+ index)
             .find('#ticket_1')
             .attr('id', 'ticket_'+index);
@@ -155,17 +151,22 @@ $(document).ready(function(){
         $('#req_'+ index)
             .find('#ticketTeam_1')
             .attr('id', 'ticketTeam_'+index);
-        $('#req_'+ index)
-            .find('#ticketCircum_'+index)
-            .val('');
-        $('#req_'+ index)
-            .find('#ticketBucket_'+index)
-            .val('');
-        $('#req_'+ index)
-            .find('#ticketTeam_'+index)
-            .val('');
 
-        //Email Domain
+        //Alerting: Email ID Change
+        $('#req_'+ index)
+            .find('#addEmail_1')
+            .attr('id', 'addEmail_'+index);
+        $('#req_'+ index)
+            .find('#emailInput_1')
+            .attr('id', 'emailInput_'+index);
+        $('#req_'+ index)
+            .find('#addedemailInput_1')
+            .attr('id', 'addedemailInput_'+index);
+        $('#req_'+ index)
+            .find('#addedemailRemButton_1')
+            .attr('id', 'addedemailRemButton_'+index);
+
+        //Alerting: Email Domain ID Change
         $('#req_'+ index)
             .find('#domains_1')
             .attr('id', 'domains_'+index);
@@ -178,21 +179,6 @@ $(document).ready(function(){
         $('#req_'+ index)
             .find('#domainButton_'+index)
             .attr('data-target', '#domains_'+index);
-        
-        //Additional Info
-        $('#req_'+ index)
-            .find('#addAdd_1')
-            .attr('id', 'addAdd_'+index);
-        $('#req_'+ index)
-            .find('#addInput_1')
-            .attr('id', 'addInput_'+index);
-        $('#req_'+ index)
-            .find('#addedaddInput_1')
-            .attr('id', 'addedaddInput_'+index);
-        $('#req_'+ index)
-            .find('#addedaddRemButton_1')
-            .attr('id', 'addedaddRemButton_'+index);
-
 
         //Clear Input Values After Cloned
         $('#req_'+ index)
@@ -225,16 +211,20 @@ $(document).ready(function(){
         $('#req_'+ index)
             .find('#searchSched')
             .val(''); 
-        
-        //Risk Input Buttons/Checkboxes
         $('#req_'+ index)
-            .find('#addRisk_'+index)
-            .prop('disabled', false)
+            .find('#ticketCircum_'+index)
+            .val('');
+        $('#req_'+ index)
+            .find('#ticketBucket_'+index)
+            .val('');
+        $('#req_'+ index)
+            .find('#ticketTeam_'+index)
+            .val('');
+        
+        //Enable Buttons/Inputs after Duplication
         $('#req_'+ index)
             .find('#risks')
             .prop('disabled', false)
-
-        //Enable Ticket after duplicate
         $('#req_'+ index)
             .find('#ticketCircum_'+index)
             .prop('disabled', false)
@@ -249,6 +239,24 @@ $(document).ready(function(){
             .prop('disabled', false)
         $('#req_'+ index)
             .find('#email')
+            .prop('disabled', false)
+        $('#req_'+ index)
+            .find('#addEmail_'+index)
+            .prop('disabled', false)
+        $('#req_'+ index)
+            .find('#server')
+            .prop('disabled', false)
+        $('#req_'+ index)
+            .find('#server')
+            .prop('disabled', false)
+        $('#req_'+ index)
+            .find('#addServer_'+index)
+            .prop('disabled', false)
+        $('#req_'+ index)
+            .find('#url')
+            .prop('disabled', false)
+        $('#req_'+ index)
+            .find('#addURL_'+index)
             .prop('disabled', false)
         
         //Clear div element with old added inputs
@@ -285,23 +293,6 @@ $(document).ready(function(){
         $('#req_'+ index)
             .find('#addedemailRemButton_'+index)
             .empty();
-        $('#req_'+ index)
-            .find('#addedaddInput_'+index)
-            .empty();
-        $('#req_'+ index)
-            .find('#addedaddRemButton_'+index)
-            .empty();
-        
-        //Set req1 values to req1 values
-        $('#req_1')
-            .find('#'+alertingInputReq1)
-            .prop('checked', true);
-        $('#req_1')
-            .find('#'+serverInputReq1)
-            .prop('checked', true);
-        $('#req_1')
-            .find('#'+serverURLInputReq1)
-            .prop('checked', true);
         
         //Change Names of all Inputs
         $('#req_'+ index)
