@@ -231,33 +231,6 @@ function removeInputBox(id, name)
     //alert(oldBox.id);
     oldBox.remove(oldBox);
 }
-function removeInput(id, name)
-{
-    alert(id);
-}
-
-function riskDisable(id)
-{
-    var idNum = id.match(/\d+/);
-    var addedInput = 'addedriskInput_'+idNum;
-    var addButton = 'addRisk_'+idNum;
-    var removeButton = 'remRisk_'+idNum;
-    var input = 'riskInput_'+idNum;
-    if(document.getElementById(id).checked)
-    {
-        document.getElementById(addedInput).innerHTML = '';
-        document.getElementById(addButton).disabled = true;
-        document.getElementById(removeButton).disabled = true;
-        document.getElementById(input).getElementsByClassName('form-control')[0].disabled = true;
-    }
-    else
-    {
-        document.getElementById(addButton).disabled = false;
-        document.getElementById(removeButton).disabled = false;
-        document.getElementById(input).getElementsByClassName('form-control')[0].disabled = false;
-
-    }
-}
 
 function fileInput(choice, id)
 {
