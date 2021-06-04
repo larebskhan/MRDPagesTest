@@ -308,3 +308,23 @@ function validatetextboxes()
 {
     document.getElementById('validate').innerHTML = '<style> input:invalid{ border-color: rgb(245, 0, 37);}select:invalid {border-color: rgb(245, 0, 37);}</style>';
 }
+
+function characterCount(){
+    $(document).ready(function(){
+        var len = 0;
+        var maxchar = 350;
+
+    $( '#addInfo' ).keyup(function(){
+        len = this.value.length
+        if(len > maxchar){
+            return false;
+        }
+        else if (len>0){
+            $( "#remainingC" ).html( "Remaining characters: " +( maxchar - len ));
+        }
+        else{
+            $( "#remainingC" ).html( "Remaining characters: " + ( maxchar ));
+        }
+    })
+    });
+}

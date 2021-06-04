@@ -461,26 +461,9 @@
                       <div class="flex">
                         <div style="width: 200%" >
                           <a id="addInput_1" data-toggle="tooltip" title="Please enter any additional information.">
-                            <input type="text" class="form-control" id="addInfo" placeholder="Additional Information" name="Additional Information 1">
+                            <textarea class="form-control" id="addInfo" placeholder="Additional Information" name="Additional Information 1" rows="3" maxlength="350" oninput="characterCount()"></textarea><span id='remainingC'></span>
                             <!--<button type="button" class="btn btn-default">x</button>-->
                             <span class="help-block"></span>
-                            <div id='addedaddInput_1'>
-                                  
-                            </div>
-                          </a>
-                        </div>
-                        &nbsp
-                        <div>
-                          <div class="input-group">
-                            <button style="border-color: white; color: white" type="button" class="btn btn-default" id="addRem" disabled>x</button>
-                            <span class="help-block"></span>
-                            <div id='addedaddRemButton_1'>
-                                  
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <input id="addAdd_1"type="button" class="btn" value="Add Additional Information" onclick="addInputBox(this.id, 'addInput')">
                     </li>
  
                   </ul>
