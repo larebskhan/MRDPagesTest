@@ -4,31 +4,44 @@
 }
 body
 {
+    padding-top: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
     background-color: #dbeaf3;
 }
 #boxForm
 {
-    padding-top: 3%;
+    padding-top: 1%;
+    background-color: #0067ab;
+    width: 900px;
+    border-radius: 2px; 
+
+    position: relative;
+    left: 10%
 }
 .container
 {
-    border-radius: 10px; 
+    /*border-radius: 10px; 
     border: 2px solid #dbeaf3;
-    background-color: white; 
-    width: 700px;
+    background-color: white; */
+    border-radius: 2px; 
+    background-color: white;
+    width: 900px;
+    position: relative;
+    left: 5%;
 }
 h2
 {
     font-size: 26px; 
-    color:#0068ac; 
+    color:white; 
     padding: 5px; 
     text-align: center;
 }
 h4 
 {
+    text-align: center;
     color:#0068ac; 
     padding: 5px; 
-    text-align: center;
 }
 hr
 {
@@ -74,4 +87,7 @@ form
 {
     font-size: 12px;
 }
-
+li:nth-child(even) 
+{
+    background:white
+}
