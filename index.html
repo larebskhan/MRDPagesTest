@@ -1,8 +1,3 @@
-<!--
-  To Do:
-    1. JSON File
-    2. Review before submit
--->
 <!DOCTYPE html>
 <html lang="en">
  
@@ -67,8 +62,8 @@
               <label for="assum2"> The support team is prepared to accept tickets</label><br>
               <!--3rd Prereq: Ticket Response Team-->
               <div class="col-sm-11" style = "position:relative; left:-15px;">
-                <a data-toggle="tooltip" title="Enter the System Team">
-                  <input type="input" class="form-control" id="ticketTeam_1" placeholder="System Support Team" name="System Support Team" required>
+                <a data-toggle="tooltip" title="Enter the Ticket Response Team">
+                  <input type="input" class="form-control" id="ticketTeam_1" placeholder="Ticket Response Team" name="Ticket Response Team" required>
                 </a>
               </div>
             </div>
@@ -146,7 +141,7 @@
           
           <br>
           <p>
-            <em>Click on requirements to input more data.</em>
+            <em>Click on the requirements tab to input more data.</em>
           </p>
  
           <!--Requirement 1-->
@@ -180,7 +175,7 @@
                     </table>
                     
                     <a data-toggle="tooltip" title="Please enter the Requirement(s) of the project">
-                      <input type="text" class="form-control" id="requirements" placeholder="Ex. The following URL’s must be monitored via API monitoring:" name="Requirement 1" required>
+                      <input type="text" class="form-control" id="requirements" placeholder="Ex. X should be monitored" name="Requirement 1" required>
                     </a>
                   </div>
                 </div>
@@ -214,7 +209,7 @@
 
                         <div>
                           <div class="input-group">
-                            <button style="border-color: white; color: white" type="button" class="btn btn-default" id="riskRem" onclick="removeInput(this.id, 'risk')" disabled>x</button>
+                            <button style="border-color: white; color: white" type="button" class="btn btn-default" id="riskRem" disabled>x</button>
                             <span class="help-block"></span>
                             <div id='addedriskRemButton_1'>
                             </div>
@@ -225,40 +220,81 @@
                     </li>
  
                     <li class="list-group-item">
+                      
+                      <label for="requirement">Servers/URL &nbsp<span class="star">&#42;</span> </label><br>
+                      
+                      <input class="form-check-input" type="radio" name="Server/URL 1" id="servChoice_1" value="Server" onclick="URLServerInput('server', this.id)">
+                      <label for="Server">Server</label><br>
+                      <input class="form-check-input" type="radio" name="Server/URL 1" id="urlChoice_1" value="URL" onclick="URLServerInput('url', this.id)">
+                      <label for="URL">URL</label><br>
+                      <input class="form-check-input" type="radio" checked="checked" name="Server/URL 1" id="bothServerURL_1" value="Both" onclick="URLServerInput('both', this.id)">
+                      <label for="bothServerURL">Both</label><br>
+                      <br>
+                      
                       <!--Servers-->
-                      <label for="requirement">Servers &nbsp<span class="star">&#42;</span> </label><br>
- 
-                      <!--Server Type buttons-->
-                      <input class="form-check-input" type="radio" name="Server Type 1" id="windows" value="Windows"> <!-- onclick="--> 
-                      <label for="ticketAlert">Windows</label><br>
-                      <input class="form-check-input" type="radio" name="Server Type 1" id="linux" value="Linux"> <!-- onclick=" -->
-                      <label for="emailAlert">Linux</label><br>
-                      <input class="form-check-input" type="radio" checked="checked" name="Server Type 1" id="bothServers" value="Both"> <!-- onclick=" -->  
-                      <label for="bothAlert">Both</label><br>
-                      <span class="help-block"id="serverWarningText"></span>
-                      <div class="" id="serverWarning">
-                      <div class="flex">
-                        <div style="width: 200%" >
-                          <a id="serverInput_1" data-toggle="tooltip" title="Please enter all server IDs">
-                            <input type="text" class="form-control" oninput="serverWarning(this.id)" id="server" placeholder="Server ID" name="Server ID 1" required>
-                            <span class="help-block"></span>
-                            <div id='addedserverInput_1'>
-                            </div>
-                          </a>
-                        </div>
+                      <div id="serverSection_1"></div>
+                        <h5 style="text-decoration: underline;"> Servers</h5>
+                        <!--Server Type buttons-->
+                        <input class="form-check-input" type="radio" name="Server Type 1" id="windows" value="Windows"> <!-- onclick="--> 
+                        <label for="ticketAlert">Windows</label><br>
+                        <input class="form-check-input" type="radio" name="Server Type 1" id="linux" value="Linux"> <!-- onclick=" -->
+                        <label for="emailAlert">Linux</label><br>
+                        <input class="form-check-input" type="radio" checked="checked" name="Server Type 1" id="bothServers" value="Both"> <!-- onclick=" -->  
+                        <label for="bothAlert">Both</label><br>
+                        <span class="help-block"id="serverWarningText"></span>
+                        <div class="" id="serverWarning">
+                        <div class="flex">
+                          <div style="width: 200%" >
+                            <a id="serverInput_1" data-toggle="tooltip" title="Please enter all server IDs">
+                              <input type="text" class="form-control" oninput="serverWarning(this.id)" id="server" placeholder="Server ID" name="Server ID 1" required>
+                              <span class="help-block"></span>
+                              <div id='addedserverInput_1'>
+                              </div>
+                            </a>
+                          </div>
 
-                        &nbsp
+                          &nbsp
 
-                        <div>
-                          <div class="input-group">
-                            <button style="border-color: white; color: white" type="button" class="btn btn-default" id="serverRem" disabled>x</button>
-                            <span class="help-block"></span>
-                            <div id='addedserverRemButton_1'> 
+                          <div>
+                            <div class="input-group">
+                              <button style="border-color: white; color: white" type="button" class="btn btn-default" id="serverRem" disabled>x</button>
+                              <span class="help-block"></span>
+                              <div id='addedserverRemButton_1'> 
+                              </div>
                             </div>
                           </div>
                         </div>
+                        <input id="addServer_1" type="button" class="btn" value="Add Server" onclick="addInputBox(this.id, 'serverInput')">
                       </div>
-                      <input id="addServer_1" type="button" class="btn" value="Add Server" onclick="addInputBox(this.id, 'serverInput')">
+
+                      <!--URL-->
+                      <div id="URLSection">
+                        <br>
+                        <h5 style="text-decoration: underline;"> URL</h5>
+                        <div class="flex">
+                          <div style="width: 200%" >
+                            <a id="URLInput_1" data-toggle="tooltip" title="Please enter all URLs.">
+                              <input type="text" class="form-control" id="url" placeholder="URL" name="URL 1" required>
+                              <span class="help-block"></span>
+                              <div id='addedURLInput_1'>
+                                    
+                              </div>
+                            </a>
+                          </div>
+                          &nbsp
+                          <div>
+                            <div class="input-group">
+                              <button style="border-color: white; color: white" type="button" class="btn btn-default" id="URLRem" disabled>x</button>
+                              <span class="help-block"></span>
+                              <div id='addedURLRemButton_1'>
+                                    
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <input id="addURL_1" type="button" class="btn" value="Add URL" onclick="addInputBox(this.id, 'URLInput')">
+
+
                     </li>
  
                     <li class="list-group-item">
