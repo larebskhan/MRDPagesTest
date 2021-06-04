@@ -34,6 +34,37 @@ function alertingInput(choice, id)
     }
 }
 
+function URLServerInput(choice, id)
+{
+    var idNum = id.match(/\d+/);
+    //alert(idNum);
+    if(choice == 'server')
+    {
+        document.getElementById('server').disabled = false;
+        document.getElementById('addServer_'+idNum).disabled = false;
+        document.getElementById('url').disabled = true;
+        document.getElementById('addURL_'+idNum).disabled = true;
+        document.getElementById('addedURLInput_'+idNum).innerHTML = '';
+        document.getElementById('addedURLRemButton_'+idNum).innerHTML = '';
+    }
+    else if(choice == 'url')
+    {
+        document.getElementById('url').disabled = false;
+        document.getElementById('addURL_'+idNum).disabled = false;
+        document.getElementById('server').disabled = true;
+        document.getElementById('addServer_'+idNum).disabled = true;
+        document.getElementById('addedserverInput_'+idNum).innerHTML = '';
+        document.getElementById('addedserverRemButton_'+idNum).innerHTML = '';
+    }
+    else if(choice == 'both')
+    {
+        document.getElementById('url').disabled = false;
+        document.getElementById('addURL_'+idNum).disabled = false;
+        document.getElementById('server').disabled = false;
+        document.getElementById('addServer_'+idNum).disabled = false;
+    }
+}
+
 function saveJSON(text, filename)
 {
     //create anchor element
@@ -49,36 +80,17 @@ function saveJSON(text, filename)
 //give a warning if the server names do not start with a03 or a70
 function serverWarning(id){
     color = document.getElementById(id).style.borderColor;
-    //alert(id);
     var str = document.getElementById(id).value;
-    //alert(str)
     if(str.startsWith("a03") || (str.startsWith("a70")))
     {
-        //document.getElementById('serverWarning').className = "";
         document.getElementById('serverWarningText').innerHTML = "";
-        //document.getElementById(id).style.borderColor = color;
 
 
     }
     else
     {
-        //document.getElementById('serverWarning').className = "has-warning";
-        //document.getElementById(id).style.borderColor = "orange";
         document.getElementById('serverWarningText').innerHTML = "<i class='fa fa-exclamation-circle' aria-hidden='true'></i><em style='font-size: 12px;'> Server ID does not start with a03 or a70!<em>";
     }
-    /*while(forEach(document.getElementById('addServer_1').onclick==true)){
-        idNum = id.match(/\d+/);
-        var str2 = document.getElementById('server'+idNum).value;
-        if(str2.startsWith("a03") || (str2.startsWith("a70"))){
-            document.getElementById('serverWarning'+idNum).className = "";
-            document.getElementById('serverWarningText'+idNum).innerHTML = "";
-        }
-        else{
-            document.getElementById('serverWarning'+idNum).className = "has-warning";
-            document.getElementById('serverWarningText'+idNum).innerHTML = "Warning! ServerID does not start with a03 or a70!";
-            //$("#serverWarningText").css("color", "orange");
-        }
-    }*/
    
     
 }
@@ -120,12 +132,11 @@ var fileNum = 1;
 var emailNum = 1;
 var accNum = 1;
 var addNum = 1;
+var URLNum = 1;
 //add new input boxes when the add buttons are clicked
 function addInputBox(id, name)
 {
     idNum = id.match(/\d+/);
-    //alert(idNum);
-    //alert(name)
     var newBox = document.createElement('div');
     var newRemBox = document.createElement('div');
     var logBox = document.createElement('div');
@@ -207,108 +218,30 @@ function addInputBox(id, name)
         document.getElementById('addedaddRemButton_'+idNum).appendChild(newRemBox);
         newRemBox.onclick = function() 
         {
-            //alert('hello');
+            newBox.innerHTML = '';
+            newRemBox.innerHTML = '';
+        };
+    }
+    else if(name=="URLInput")
+    {
+        newBox.innerHTML = "<input type='text' class='form-control' id='url"+idNum+"_"+URLNum+"' placeholder='URL' name='URL "+idNum+"' required><span class='help-block'>";
+        newRemBox.innerHTML = "<button type='button' id='URLRem"+idNum+"_"+URLNum+"' class='btn btn-default'>x</button> <span class='help-block'></span>";
+        URLNum++;
+        document.getElementById('addedURLRemButton_'+idNum).appendChild(newRemBox);
+        newRemBox.onclick = function() 
+        {
             newBox.innerHTML = '';
             newRemBox.innerHTML = '';
         };
     }
     idInput = name+'_'+idNum;
     document.getElementById('added'+name+'_'+idNum).appendChild(newBox);
-    /*var newBox = document.createElement('div');
-    newBox.innerHTML = "<input type='text' class='form-control' id=idBoxCriteria placeholder='Acceptance Criteria' name='Acceptance Criteria' required>";
-    alert('accInput_'+idNum);
-    document.getElementById('accInput_'+idNum).appendChild(newBox);
-
-    alert(id.match(/\d+/));*/
-}
-//remove new input boxes when the remove buttons are clicked
-function removeInputBox(id, name)
-{
-    idNum = id.match(/\d+/);
-    idInput = name+'_'+idNum;
-    if(name == 'serverInput')
-    {
-        var oldBox = document.getElementById('server'+idNum);
-    }
-    else if(name == 'riskInput')
-    {
-        var oldBox = document.getElementById('risks'+idNum);
-    }
-    else if(name == 'accInput')
-    {
-        var oldBox = document.getElementById('acceptanceCrit'+idNum);
-    }
-    else if(name == 'emailInput')
-    {
-        var oldBox = document.getElementById('email'+idNum);
-    }
-    else if(name == 'fileInput')
-    {
-        var oldBox = document.getElementById('files'+idNum);
-    }
-    else if(name == 'addInput')
-    {
-        var oldBox = document.getElementById('addInfo'+idNum);
-    }
-    //alert(oldBox.id);
-    oldBox.remove(oldBox);
-}
-function removeInput(id, name)
-{
-    alert(id);
-}
-
-function riskDisable(id)
-{
-    var idNum = id.match(/\d+/);
-    var addedInput = 'addedriskInput_'+idNum;
-    var addButton = 'addRisk_'+idNum;
-    var removeButton = 'remRisk_'+idNum;
-    var input = 'riskInput_'+idNum;
-    if(document.getElementById(id).checked)
-    {
-        document.getElementById(addedInput).innerHTML = '';
-        document.getElementById(addButton).disabled = true;
-        document.getElementById(removeButton).disabled = true;
-        document.getElementById(input).getElementsByClassName('form-control')[0].disabled = true;
-    }
-    else
-    {
-        document.getElementById(addButton).disabled = false;
-        document.getElementById(removeButton).disabled = false;
-        document.getElementById(input).getElementsByClassName('form-control')[0].disabled = false;
-
-    }
-}
-
-function fileInput(choice, id)
-{
-    var idNum = id.match(/\d+/);
-    var addedInput = 'addedfileInput_'+idNum;
-    var addButton = 'addFile_'+idNum;
-    var removeButton = 'remFile_'+idNum;
-    var input = 'fileInput_'+idNum;
-    if(choice == 'yes')
-    {
-        document.getElementById(addButton).disabled = false;
-        document.getElementById(removeButton).disabled = false;
-        document.getElementById(input).getElementsByClassName('form-control')[0].disabled = false;
-    }
-    else if(choice == 'no')
-    {
-        document.getElementById(addedInput).innerHTML = '';
-        document.getElementById(addButton).disabled = true;
-        document.getElementById(removeButton).disabled = true;
-        document.getElementById(input).getElementsByClassName('form-control')[0].disabled = true;
-
-    }
 }
 
 function validatetextboxes()
 {
     document.getElementById('validate').innerHTML = '<style> input:invalid{ border-color: rgb(245, 0, 37);}select:invalid {border-color: rgb(245, 0, 37);}</style>';
 }
-
 function characterCount(){
     $(document).ready(function(){
         var len = 0;
