@@ -33,3 +33,24 @@ The github repository for the form files is ....
 | index.html | Creates form fields and input boxes on page with formatting|
 | interactionCode.js | Functions for form elements in index.html |
 | style.css |  Style classes of form elements: color, size, position, font, borders, etc|
+
+###interactionCode.js Function Descriptions
+
+    - alertingInput(choice,id)
+  This function is called when the radio buttons for ticket, email, or 'both' are selected in the alerting section of the form (index.html). If ticket is selected, the email input elements will be disabled. If email is selected, the ticket input elements will be disabled. If 'both' is selected, all elements will b enabled.
+
+    - URLServerInput(choice,id)
+...
+    - saveJSON(text, filename)
+Downloads files locally
+    - serverWarning(id)
+...
+    - removeReq(id,name)
+...
+    - minDate()
+...
+    - addInputBox(id, name)
+...
+    - validatetextboxes
+...
+    - characterCount
