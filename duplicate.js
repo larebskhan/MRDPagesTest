@@ -20,9 +20,9 @@ $(document).ready(function(){
         $('#req_'+ index)
             .find('#collapse_1')
             .attr('id', 'collapse_'+index);
-        $('#req_'+ index)
+        /*$('#req_'+ index)
             .find('#toggle_1')
-            .text('Requirement '+index);
+            .text('Requirement '+index);*/
 
         //Keep req 1 radio button options
         var alertingInputReq1 = $("input[name='Alert 1']:checked").attr('id');
@@ -52,6 +52,13 @@ $(document).ready(function(){
         $('#req_'+ index)
             .find('#addedaddRemButton_1')
             .attr('id', 'addedaddRemButton_'+index);
+        
+        //remReq id Change
+        $('#req_'+ index)
+            .find('#remReq_1')
+            .attr('id', 'remReq_'+index);
+        
+        
         
         //Assumption Button
         /*$('#req_'+ index)
