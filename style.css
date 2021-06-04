@@ -13,9 +13,8 @@ body
 {
     padding-top: 1%;
     background-color: #0067ab;
-    width: 900px;
+    width: 950px;
     border-radius: 2px; 
-
     position: relative;
     left: 10%
 }
@@ -28,7 +27,7 @@ body
     background-color: white;
     width: 900px;
     position: relative;
-    left: 5%;
+    left: 2.7%;
 }
 h2
 {
