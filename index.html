@@ -1,45 +1,49 @@
 <!--
   To Do:
-	  1. JSON File
-	  2. Review before submit
-	  5. Remove button per input
-    6. Email domain validation
+    1. JSON File
+    2. Review before submit
 -->
 <!DOCTYPE html>
 <html lang="en">
-
+ 
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <title>MRD Form</title>
-
+ 
     <!-- Bootstrap CSS Styling-->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
+ 
     <!--Include JS and CSS-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="interactionCode.js"></script>
     <script src="duplicate.js"></script>
     <script src="confirmation.js"></script>
     <link href="style.css" rel="stylesheet">
   </head>
 
-  <body>
+  <div id="validate">
 
+  </div>
+
+  <body>
   <!--Heading-->
     <div id="boxForm">
+      <h2>Monitoring Requirements Document Form &nbsp</h2>
+              <!--<img src="https://abcnews4.com/resources/media/0f73c9b8-3b67-4aaf-b61c-5483a3192fb0-large16x9_BCBSSCPartner.png?1538141737266" alt="Photo" width=100">-->
+
+      
       <div class="container">
-        <!--<img src="https://abcnews4.com/resources/media/0f73c9b8-3b67-4aaf-b61c-5483a3192fb0-large16x9_BCBSSCPartner.png?1538141737266" alt="Photo" width=100">-->
-        <h2>Monitoring Requirements Document Form &nbsp</h2>
-        
+        <br>
         <form class="form-horizontal was-validated" name="mrdform" id="mrdform">
           <p>
             <em><span class="star">&#42;</span> Indicates a required field</em>
           </p>
-
+          
           <!--Confirmation Number-->
           <div hidden class="form-group">
             <label class="control-label col-sm-2" for="confirmationNum">Confirmation Number</label>
@@ -47,84 +51,106 @@
                 <input type="text" class="form-control" id="confirmationNum" name="Confirmation Number">
             </div>
           </div>
-
+ 
           <!--Prereqs-->
-	        <div class="form-group">
-            <label class="control-label col-sm-2" for="assumptoins">Prerequisites&nbsp<span class="star">&#42;</span></label>
+          <div style="width: 90%; position: relative; left: 5%" class="form-group">
+            <label class="control-label col-sm-2" for="assumptoins">
+              Prerequisites&nbsp<span class="star">&#42;</span>
+              <i class="fa fa-question-circle" onmouseover="this.innerHTML = '<em> The following statements must be true in order for this MRD to be submitted.</em>'" onmouseout="this.innerHTML = ''"></i>
+            </label>
             <div class="col-sm-7">
-            <!--First Prereq-->
+              <!--First Prereq-->
               <input type="checkbox" id="assum1" required>
               <label for="assum1"> Servers/Appliances are active and available</label><br>
               <!--Second Prereq-->
               <input type="checkbox" id="assum2" required>
               <label for="assum2"> The support team is prepared to accept tickets</label><br>
-            <!--3rd Prereq: Ticket Response Team-->
-            <div class="col-sm-11" style = "position:relative; left:-15px;">
-              <a data-toggle="tooltip" title="Enter the Ticket Response Team">
-                <input type="input" class="form-control" id="ticketTeam_1" placeholder="Ticket Response Team" name="Ticket Response Team" required>
-              </a>
+              <!--3rd Prereq: Ticket Response Team-->
+              <div class="col-sm-11" style = "position:relative; left:-15px;">
+                <a data-toggle="tooltip" title="Enter the Ticket Response Team">
+                  <input type="input" class="form-control" id="ticketTeam_1" placeholder="Ticket Response Team" name="Ticket Response Team" required>
+                </a>
+              </div>
             </div>
           </div>
-          </div>
-
-          <!--Main Objective Input-->
-          <div class="form-group">
-            <label class="control-label col-sm-2" for="mainObjective">Monitoring Objective&nbsp<span class="star">&#42;</span></label>
-            <div class="col-sm-6">
-              <a data-toggle="tooltip" title="Please enter the Objective of the project">
-                <input type="text" class="form-control" id="mainObjective" placeholder="Ex. Ensure the application is stable by monitoring these requirements" name="Monitoring Objective" required>
-              </a>
-            </div>
-          </div>
-          
-	        <!--Employee ID-->
-          <div class="form-group">
-            <label class="control-label col-sm-2" for="userID">Employee ID&nbsp<span class="star">&#42;</span></label>
-            <div class="col-sm-6">
-              <a data-toggle="tooltip" title="Please enter your Employee ID">
-                <input type="text" class="form-control" id="userID" placeholder="XXXX" name="Employee ID" required>
-              </a>
-            </div>
-          </div>
-		
-	        <!--Project Title-->
-	        <div class="form-group">
-            <label class="control-label col-sm-2" for="projectTitle">Project Title&nbsp<span class="star">&#42;</span></label>
-            <div class="col-sm-6">
-              <a data-toggle="tooltip" title="Please enter the Project Title">
-                <input type="text" class="form-control" id="projectTitle" placeholder="Project Title" name="Project Title" required>
-              </a>
-            </div>
-          </div>
-		
-	        <!--Project Number-->
-	        <div class="form-group">
-            <label class="control-label col-sm-2" for="projectNumber">Project Number&nbsp<span class="star">&#42;</span></label>
-            <div class="col-sm-6">
-              <a data-toggle="tooltip" title="Please enter the Project Number">
-                <input type="text" class="form-control" id="projectNumber" placeholder="Project Number" name="Project Number" required>
-              </a>
-            </div>
-          </div>
-		
-	        <!--Project End Date-->
-	        <div class="form-group">
-            <label class="control-label col-sm-2" for="projectEndDate">Project End Date&nbsp<span class="star">&#42;</span></label>
-            <div class="col-sm-6">
-              <a data-toggle="tooltip" title="Please enter the Project End Date for this Monitoring">
-                <input type="date" class="form-control" id="projectEndDate" onclick="minDate()" placeholder="Project End Date" name="Project End Date" required>
-              </a>
-            </div>
-          </div>
+ 
+          <table style="width: 90%; position: relative; left: 5%">
+            <tr>
+              <th width="74%">
+                <label style="font-weight: bold;" for="mainObjective">Monitoring Objective&nbsp<span class="star">&#42;</span></label>
+              </th>
+              <th width="1%">
+              </th>
+              <th>
+                <label style="font-weight: bold;" for="userID">Employee ID&nbsp<span class="star">&#42;</span></label>
+              </th>
+            </tr>
+            <tr>
+              <td>
+                <a data-toggle="tooltip" title="Please enter the Objective of the project">
+                  <input type="text" class="form-control" id="mainObjective" placeholder="Ex. Ensure the application is stable by monitoring these requirements" name="Monitoring Objective" required>
+                </a>
+              </td>
+              <td>
+              </td>
+              <td>
+                <a data-toggle="tooltip" title="Please enter your Employee ID">
+                  <input type="text" class="form-control" id="userID" placeholder="XXXX" name="Employee ID" required>
+                </a>
+              </td>
+            </tr>
+          </table>
+          <br>
+          <table style="width: 90%; position: relative; left: 5%">
+            <tr>
+              <th>
+                <label style="font-weight: bold;" for="projectTitle">Project Title&nbsp<span class="star">&#42;</span></label>
+              </th>
+              <th width="1%">
+              </th>
+              <th>
+                <label style="font-weight: bold;" for="projectNumber">Project Number&nbsp<span class="star">&#42;</span></label>
+              </th>
+              <th width="1%">
+              </th>
+              <th>
+                <label style="font-weight: bold;" for="projectEndDate">Project End Date&nbsp<span class="star">&#42;</span></label>
+              </th>
+            </tr>
+            <tr>
+              <td>
+                <a data-toggle="tooltip" title="Please enter the Project Title">
+                  <input type="text" class="form-control" id="projectTitle" placeholder="Project Title" name="Project Title" required>
+                </a>
+              </td>
+              <th>
+              </th>
+              <td>
+                <a data-toggle="tooltip" title="Please enter the Project Number">
+                  <input type="text" class="form-control" id="projectNumber" placeholder="Project Number" name="Project Number" required>
+                </a>
+              </td>
+              <th>
+              </th>
+              <td>
+                <a data-toggle="tooltip" title="Please enter the Project End Date for this Monitoring">
+                  <input type="date" class="form-control" id="projectEndDate" onclick="minDate()" placeholder="Project End Date" name="Project End Date" required>
+                </a>
+              </td>
+            </tr>
+          </table>
           
           <!--Separates header from Requirements-->
-          <hr>
+          <!--<hr>-->
+          <br>
+          
+          <br>
           <p>
             <em>Click on the requirements tab to input more data.</em>
           </p>
-
+ 
           <!--Requirement 1-->
-          <section id="req_1">
+          <section id="req_1" style="width: 90%; position: relative; left: 5%">
             <div class="panel-group">
               <div class="panel panel-default">
                 <div class="panel-heading" style="background-color: #dbeaf35b;">
@@ -140,7 +166,6 @@
                     </a>
                   </div>
                 </div>
-
                 <div id="collapse_1" class="panel-collapse collapse">
                   <ul class="list-group">
 
@@ -151,14 +176,11 @@
                         <input type="text" class="form-control" id="reason" placeholder="Ex. Utilization is too high, Application may crash" name="Business Reason 1" required>
                       </a>
                     </li>
-
+ 
                     <li class="list-group-item">
                       <!--Risk of not Monioring-->
                       <label for="risks">Risks of not Monitoring</label>
-                      <br><em class='notRequired'>If no risks, leave input box blank.</em>
-                      
-                      <br><br>
-
+                      <i class="fa fa-question-circle" onmouseover="this.innerHTML = '<em> If no risks, leave input box blank.</em>'" onmouseout="this.innerHTML = ''"></i>
                       <div class="flex">
                         <div style="width: 200%" >
                           <a id="riskInput_1" data-toggle="tooltip" title="Please enter any Risk(s) that pertain to the project">
@@ -166,34 +188,28 @@
                             <!--<button type="button" class="btn btn-default">x</button>-->
                             <span class="help-block"></span>
                             <div id='addedriskInput_1'>
-                                  
                             </div>
                           </a>
                         </div>
+
                         &nbsp
+
                         <div>
                           <div class="input-group">
-                            <button type="button" class="btn btn-default" id="riskRem" onclick="removeInput(this.id, 'risk')" disabled>x</button>
+                            <button style="border-color: white; color: white" type="button" class="btn btn-default" id="riskRem" onclick="removeInput(this.id, 'risk')" disabled>x</button>
                             <span class="help-block"></span>
                             <div id='addedriskRemButton_1'>
-                                  
                             </div>
                           </div>
                         </div>
                       </div>
-
-                      <!--<input id="remRisk_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'riskInput')">-->
-                      <input id="addRisk_1" type="button" class="btn btn-default" value="Add Risk" onclick="addInputBox(this.id, 'riskInput')">
-                      <!--<label>
-                        <input type="checkbox" name="No Risks" id="none_risks_1" onclick="riskDisable(this.id)"> 
-                        None 
-                      </label>-->
+                      <input id="addRisk_1" type="button" class="btn" value="Add Risk" onclick="addInputBox(this.id, 'riskInput')">
                     </li>
-
+ 
                     <li class="list-group-item">
                       <!--Servers-->
                       <label for="requirement">Servers &nbsp<span class="star">&#42;</span> </label><br>
-
+ 
                       <!--Server Type buttons-->
                       <input class="form-check-input" type="radio" name="Server Type 1" id="windows" value="Windows"> <!-- onclick="--> 
                       <label for="ticketAlert">Windows</label><br>
@@ -201,58 +217,36 @@
                       <label for="emailAlert">Linux</label><br>
                       <input class="form-check-input" type="radio" checked="checked" name="Server Type 1" id="bothServers" value="Both"> <!-- onclick=" -->  
                       <label for="bothAlert">Both</label><br>
-                      
+                      <span class="help-block"id="serverWarningText"></span>
                       <div class="" id="serverWarning">
                       <div class="flex">
                         <div style="width: 200%" >
                           <a id="serverInput_1" data-toggle="tooltip" title="Please enter all server IDs">
-                            <input type="text" class="form-control" oninput="serverWarning(this.id)" id="server" placeholder="Server ID" name="Server ID 1">
-                            <!--<button type="button" class="btn btn-default">x</button>-->
-                            <span class="help-block"id="serverWarningText"></span>
+                            <input type="text" class="form-control" oninput="serverWarning(this.id)" id="server" placeholder="Server ID" name="Server ID 1" required>
+                            <span class="help-block"></span>
                             <div id='addedserverInput_1'>
+                            </div>
+                          </a>
+                        </div>
 
-                            <!--<div class="" id="serverWarning">
-                        <div id="serverInput_1">
-                          <a data-toggle="tooltip" title="Please enter all ServerIDs">
-                            <input type="text" class="form-control" oninput="serverWarning(this.id)" id="server" placeholder="Server ID" name="Server ID 1">
-                            <span class="help-block" id="serverWarningText"></span>
-                            <div id='addedserverInput_1'>
-                            </div>
-                          </a>
-                        </div>
-                        <input id="remServer_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'serverInput')">
-                        <input id="addServer_1" type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'serverInput')">
-                      </div>-->
-                                  
-                            </div>
-                          </a>
-                        </div>
                         &nbsp
+
                         <div>
                           <div class="input-group">
-                            <button type="button" class="btn btn-default" id="serverRem" disabled>x</button>
+                            <button style="border-color: white; color: white" type="button" class="btn btn-default" id="serverRem" disabled>x</button>
                             <span class="help-block"></span>
-                            <div id='addedserverRemButton_1'>
-                                    
+                            <div id='addedserverRemButton_1'> 
                             </div>
                           </div>
                         </div>
                       </div>
-
-                      <input id="addServer_1" type="button" class="btn btn-default" value="Add Server" onclick="addInputBox(this.id, 'serverInput')">
-
+                      <input id="addServer_1" type="button" class="btn" value="Add Server" onclick="addInputBox(this.id, 'serverInput')">
                     </li>
-
+ 
                     <li class="list-group-item">
                       <!--File Monitoring-->
                       <label for="files">File Monitoring?</label>
-                      <br><em class='notRequired'>If no file monitoring, leave input box blank. <br> If log rotates, specify rotation logic.</em>
-                      <br>
-                      <!--<input class="form-check-input" type="radio" name="fileMonitoring" checked="checked" id="yesFile_1" value="Yes" onclick="fileInput('yes', this.id)">
-                      <label for="yesFile">Yes</label><br>
-                      <input class="form-check-input" type="radio" name="fileMonitoring" id="noFile_1" value="No" onclick="fileInput('no', this.id)">
-                      <label for="yesFile">No</label><br>-->
-
+                      <i class="fa fa-question-circle" onmouseover="this.innerHTML = '<em> If no file monitoring, leave input box blank. If log rotates, specify rotation logic.</em>'" onmouseout="this.innerHTML = ''"></i>
                       <div class="flex">
                         <div style="width: 200%">
                           <table style="width:100%">
@@ -260,6 +254,8 @@
                               <td>
                                 <br>
                                 File Path
+                              </td>
+                              <td width="1%">
                               </td>
                               <td>
                                 <br>
@@ -270,65 +266,55 @@
                               <td width="70%">
                                 <a id="fileInput_1" data-toggle="tooltip" title="Please enter the complete file path.">
                                   <input type="text" class="form-control" id="files" placeholder="Ex. D:\Program Files\MyApplication\Logs\" name="File Path 1"> <span class="help-block"></span>
-                                  <!--<button type="button" class="btn btn-default">x</button>-->
                                   <span class="help-block"></span>
                                   <div id='addedfileInput_1'>
-                                        
                                   </div>
                                 </a>
                               </td>
                               <td>
+                              </td>
+                              <td>
                                 <input type='text' class='form-control' id='logRotation' placeholder='Ex. By date, by size' name='Log Rotation 1'> <span class='help-block'></span>
                                 <div id='addedlogInput_1'>
-                                        
                                 </div>
                               </td>
                             </tr>
                           </table>
-                          
                         </div>
+
                         &nbsp
+
                         <div>
                           <div class="input-group">
                             <br><br>
-                            <button type="button" class="btn btn-default" id="fileRem" disabled>x</button>
+                            <button style="border-color: white; color: white" type="button" class="btn btn-default" id="fileRem" disabled>x</button>
                             <span class="help-block"></span>
                             <div id='addedfileRemButton_1'>
-                                  
                             </div>
                           </div>
                         </div>
                       </div>
-
-                      <!--
-                      <a id="fileInput_1" data-toggle="tooltip" title="Please enter the Complete File Path">
-                        <input type="text" class="form-control" id="files" placeholder="Ex. D:\Program Files\MyApplication\Logs\" name="File Path 1"> <span class="help-block"></span>
-                        <div id='addedfileInput_1'>
-                              
-                        </div>
-                      </a>
-                      <input id="remFile_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'fileInput')">
-                      <input id="addFile_1" type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'fileInput')">
-                      -->
-
-                      <input id="addFile_1" type="button" class="btn btn-default" value="Add File" onclick="addInputBox(this.id, 'fileInput')">
+                      <input id="addFile_1" type="button" class="btn" value="Add File" onclick="addInputBox(this.id, 'fileInput')">
                     </li>
-			  
-		                <li class="list-group-item">
-
+        
+                    <li class="list-group-item">
                       <!--Alerts-->
                       <label for="alert">Alerting&nbsp<span class="star">&#42;</span></label><br>
-                      <p>
-                        <em style="position: relative; right: 26%;" class='notRequired'> Note: For servers, the only required field is ticket severity.</em>
+                      <p style="text-align: left;">
+                        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                        <em style="font-size: 12px;">If no alerting is required, <a href="http://a70lpcrpcapm009/isWiki/index.php?title=Add_Data_to_Splunk" target="_blank"> click here!</a></em>
+                        <br>
+                        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                        <em style="font-size: 12px;"> Note: For servers, the only required field is ticket severity.</em>
                       </p>
                       <!-- Search Schedule-->
                       <input type="input" class="form-control" id="searchSched" placeholder="Search Schedule: Ex. Every 10 minutes" name="Search Schedule 1"><span class="help-block"></span>
                       <!-- Ticket email or both alerts-->
-                      <input class="form-check-input" type="radio" name="Alert 1" id="ticketAlert_1" value="Ticket" onclick="alertingInput('ticket', this.id)">
+                      <input class="form-check-input" type="radio" name="Alert 1" id="ticketAlert_1" value="Ticket" onclick="alertingInput('ticket', this.id);">
                       <label for="ticketAlert">Ticket</label><br>
                       <input class="form-check-input" type="radio" name="Alert 1" id="emailAlert_1" value="Email" onclick="alertingInput('email', this.id)">
                       <label for="emailAlert">Email</label><br>
-                      <input class="form-check-input" type="radio" checked="checked" name="Alert 1" id="bothAlert_1" value="Both" onclick="alertingInput('both', this.id)">
+                      <input class="form-check-input" type="radio" checked="checked" name="Alert 1" id="bothAlert_1" value="Both" onclick="alertingInput('both', this.id); ">
                       <label for="bothAlert">Both</label><br>
                       
                       <div id="ticketAlert">
@@ -339,55 +325,65 @@
                           <option value="S2">S2</option>
                           <option value="S3">S3</option>
                           <option value="TBD">TBD</option>
-                        </select><span class="help-block" id="serverWarningText"></span>
-			                  <input type="input" class="form-control" id="ticketCircum_1" placeholder="Ticketing Condition" name="Ticketing Condition 1"><span class="help-block" id="serverWarningText"></span>
-                        <input type="input" class="form-control" id="ticketBucket_1" placeholder="Ticket Bucket" name="Ticket Bucket 1"><span class="help-block" id="serverWarningText"></span>
-                        <div id='tbucket_1'>
-                          <button type="button" id='bucketButton_1' class="btn" data-toggle="collapse" data-target="#buckets_1">Click to see ticket buckets</button>
-                          <div id="buckets_1" class="collapse">
-                            SS-CGSAPP<br>
-                            SS-CIRCA<br>
-                            SS-COMBTH<br>
-                            SS-COMONL<br>
-                            SS-DBA<br>
-                            SS-DSKWB<br>
-                            SS-ICTTEL<br>
-                            SS-ITBSPT<br>
-                            SS-LCASHS<br>
-                            SS-MQ<br>
-                            SS-NETSVC<br>
-                            SS-OPSSVC<br>
-                            SS-SECADM<br>
-                            SS-SECHS<br>
-                            SS-SECINV<br>
-                            SS-SECNH<br>
-                            SS-TCONL<br>
-                            SS-TRIWB<br>
-                            SS-TSCBFX<br>
-                            SS-TSCIMS<br>
-                            SS-TSCTS<br>
-                            SS-TSCXWB<br>
-                            SS-WMSDMS<br>
-                            SS-WSSCOL<br>
-                            SS-WSSECC<br>
-                            SS-WSSECR<br>
-                            SS-WSSREM<br>
-                            SS-WSSTX<br>
-                            SS-ZLINX<br>
-                          </div>
-                        </div>
+                        </select>
+                        <span class="help-block" id="serverWarningText"></span>
+                        <table width="100%">
+                          <tr>
+                            <td>
+                              <span class="help-block" id="serverWarningText"></span>
+                              <input type="input" class="form-control" id="ticketCircum_1" placeholder="Ticketing Condition" name="Ticketing Condition 1"><span class="help-block" id="serverWarningText"></span>
+                            </td>
+                            <td width="1%">
+                            </td>
+                            <td>
+                              <select id="ticketBucket_1" class="form-control" aria-label=".form-select-sm example" name="Ticket Bucket 1">
+                                <option disabled selected value> -- Select Ticket Bucket -- </option>
+                                <option value="SS-CGSAPP">SS-CGSAPP</option>
+                                <option value="SS-CIRCA">SS-CIRCA</option>
+                                <option value="SS-COMBTH">SS-COMBTH</option>
+                                <option value="SS-COMONL">SS-COMONL</option>
+                                <option value="SS-DBA">SS-DBA</option>
+                                <option value="SS-DSKWB">SS-DSKWB</option>
+                                <option value="SS-ICTTEL">SS-ICTTEL</option>
+                                <option value="SS-ITBSPT">SS-ITBSPT</option>
+                                <option value="SS-LCASHS">SS-LCASHS</option>
+                                <option value="SS-MQ">SS-MQ</option>
+                                <option value="SS-NETSVC">SS-NETSVC</option>
+                                <option value="SS-OPSSVC">SS-OPSSVC</option>
+                                <option value="SS-SECADM">SS-SECADM</option>
+                                <option value="SS-SECHS">SS-SECHS</option>
+                                <option value="SS-SECINV">SS-SECINV</option>
+                                <option value="SS-SECNH">SS-SECNH</option>
+                                <option value="SS-TCONL">SS-TCONL</option>
+                                <option value="SS-TRIWB">SS-TRIWB</option>
+                                <option value="SS-TSCBFX">SS-TSCBFX</option>
+                                <option value="SS-TSCIMS">SS-TSCIMS</option>
+                                <option value="SS-TSCTS">SS-TSCTS</option>
+                                <option value="SS-TSCXWB">SS-TSCXWB</option>
+                                <option value="SS-WMSDMS">SS-WMSDMS</option>
+                                <option value="SS-WSSCOL">SS-WSSCOL</option>
+                                <option value="SS-WSSECC">SS-WSSECC</option>
+                                <option value="SS-WSSECR">SS-WSSECR</option>
+                                <option value="SS-WSSREM">SS-WSSREM</option>
+                                <option value="SS-WSSTX">SS-WSSTX</option>
+                                <option value="SS-ZLINX">SS-ZLINX</option>
+                              </select>
+                            </td>
+                          </tr>
+                        </table>
                       </div>
                       <br>
-                      <!-- email distributor and acceptable domains-->
-                      <div id="emailAlert">
 
+                      <!-- Email Distributor and Acceptable Domains-->
+                      <div id="emailAlert">
+ 
                         <div class="flex">
                           <div style="width: 200%" >
                             <a id="emailInput_1" data-toggle="tooltip" title="Please enter your distribution list.">
                               <input type="email" class="form-control" id="email" placeholder="Distribution List" name="Distribution List 1" 
                               pattern=".+@bcbssc.com|.+@paisc.com|.+@cgifederal.com|.+@palmettogba.com|.+@palmettogbaservices.com|.+@companiondataservices.com|.+@cdsedc.com|.+@ngc.com|.+@cgsadmin.com|.+@docfinity.com|.+@a70amed.com"  
                               oninvalid="this.setCustomValidity('Please enter your email address with one of the following domains from below')" 
-                              onchange="this.setCustomValidity('')" required>                              <!--<button type="button" class="btn btn-default">x</button>-->
+                              onchange="this.setCustomValidity('')" required>
                               <span class="help-block"></span>
                               <div id='addedemailInput_1'>
                                     
@@ -397,7 +393,7 @@
                           &nbsp
                           <div>
                             <div class="input-group">
-                              <button type="button" class="btn btn-default" id="emailRem" disabled>x</button>
+                              <button style="border-color: white; color: white" type="button" class="btn btn-default" id="emailRem" disabled>x</button>
                               <span class="help-block"></span>
                               <div id='addedemailRemButton_1'>
                                     
@@ -405,95 +401,16 @@
                             </div>
                           </div>
                         </div>
-
-                        <!--
-
-                        <a id="emailInput_1" data-toggle="tooltip" title="Please enter the Distribution List">
-                          <input type="email" class="form-control" id="email" placeholder="Distribution List" name="Distribution List 1" 
-                          pattern=".+@bcbssc.com|.+@paisc.com|.+@cgifederal.com|.+@palmettogba.com|.+@palmettogbaservices.com|.+@companiondataservices.com|.+@cdsedc.com|.+@ngc.com|.+@cgsadmin.com|.+@docfinity.com|.+@a70amed.com"  
-                          oninvalid="this.setCustomValidity('Please enter your email address with one of the following domains from below')" 
-                          onchange="this.setCustomValidity('')" required>
-                          <span class="help-block"></span>
-                          <div id='addedemailInput_1'>
-                              
-                          </div>
-                        </a>
-                        <div id='emailDomain_1'>
-                          <button type="button" id='domainButton_1' class="btn btn-default" data-toggle="collapse" data-target="#domains_1">Click to see acceptable email domains</button>
-                          <br><br>
-                          <div id="domains_1" class="collapse">
-                            @bcbssc.com<br>
-                            @paisc.com<br>
-                            @cgifederal.com<br>
-                            @palmettogba.com<br>
-                            @palmettogbaservices.com<br>
-                            @companiondataservices.com<br>
-                            @cdsedc.com<br>
-                            @ngc.com<br>
-                            @cgsadmin.com<br>
-                            @docfinity.com<br>
-                            @a70amed.com
-                          </div>
-                        </div>
-                        
-                        <input id="remEmail_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'emailInput')">
-                        <input id="addEmail_1" type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'emailInput')">
-                        -->
-                        <input id="addEmail_1" type="button" class="btn btn-default" value="Add Email" onclick="addInputBox(this.id, 'emailInput')">
-                        <span class="help-block"></span>
-                        <div id='emailDomain_1'>
-                          <button type="button" id='domainButton_1' class="btn" data-toggle="collapse" data-target="#domains_1">Click to see acceptable email domains</button>
-                          <div id="domains_1" class="collapse">
-                            @bcbssc.com<br>
-                            @paisc.com<br>
-                            @cgifederal.com<br>
-                            @palmettogba.com<br>
-                            @palmettogbaservices.com<br>
-                            @companiondataservices.com<br>
-                            @cdsedc.com<br>
-                            @ngc.com<br>
-                            @cgsadmin.com<br>
-                            @docfinity.com<br>
-                            @a70amed.com
-                          </div>
-                        </div>
-                      </div>
-
-                      <p>
-                        <em class="notRequired">If no alerting is required, <a href="http://a70lpcrpcapm009/isWiki/index.php?title=Add_Data_to_Splunk" target="_blank"> click here!</a></em>
-                      </p>
+                        <input id="addEmail_1" type="button" class="btn" value="Add Email" onclick="addInputBox(this.id, 'emailInput')">
+                        <br>
+                        <i class="fa fa-question-circle" onmouseover="this.innerHTML = '<em> Acceptable Domains:<br>@bcbssc.com<br>@paisc.com<br>@cgifederal.com<br>@palmettogba.com<br>@palmettogbaservices.com<br>@companiondataservices.com<br>@cdsedc.com<br>@ngc.com<br>@cgsadmin.com<br>@docfinity.com<br>@a70amed.com</em>'" onmouseout="this.innerHTML = ' Hover to see acceptable email domains'"> Hover to see acceptable email domains</i>
                     </li>
-
-                    <!--
-                      Objective
-                      <label for="objective">Objective&nbsp<span class="star">&#42;</span> </label>
-                      <a data-toggle="tooltip" title="Please enter the Objective for each Requirement">
-                        <input type="text" class="form-control" id="objective" placeholder="Requirement Objective" name="Objective" required>
-                      </a>
-                      <br>
-                    -->
-
-                    <!--
-                    Assumptions
-                    <label for="assumptions">Assumption(s)&nbsp<span class="star">&#42;</span></label>
-                    <input id="remAssumption_1" type="button" class="btn btn-default" value="-">
-                    <input id="addAssumption_1" type="button" class="btn btn-default" value="+">
-                    <br><br>
-                    <a id="assumptionInput_1_1" data-toggle="tooltip" title="Please enter any Assumption(s) for the project">
-                      <input type="text" class="form-control" id="assumptions" placeholder="Project Assumption" name="Assumption(s)" required>
-                    </a>
-                    <label><input type="checkbox" name="No Assumptions" id="none_assumptions" onclick="disableInput('assumptions', 'Project Assumption'); removeAll('Assumption');"> None </label>
-                        
-                  <br><br>
-                    -->
-
+ 
                     <li class="list-group-item">
                       <!--Acceptance Criteria-->
                       <label for="acceptanceCrit">Acceptance Criteria&nbsp<span class="star">&#42;</span></label>
-                      <p>
-                        <em style="position: relative; right: 32%" class='notRequired'> Acceptance Criteria should be measurable</em>
-                      </p>
-
+                      <i class="fa fa-question-circle" onmouseover="this.innerHTML = '<em> Acceptance criteria should be measurable.</em>'" onmouseout="this.innerHTML = ''"></i>
+ 
                       <div class="flex">
                         <div style="width: 200%" >
                           <a id="accInput_1" data-toggle="tooltip" title="Please enter all acceptance criteria.">
@@ -508,7 +425,7 @@
                         &nbsp
                         <div>
                           <div class="input-group">
-                            <button type="button" class="btn btn-default" id="accRem" disabled>x</button>
+                            <button style="border-color: white; color: white" type="button" class="btn btn-default" id="accRem" disabled>x</button>
                             <span class="help-block"></span>
                             <div id='addedaccRemButton_1'>
                                   
@@ -516,27 +433,13 @@
                           </div>
                         </div>
                       </div>
-
-                      <!--
-                      <a id="accInput_1" data-toggle="tooltip" title="Please enter all Acceptance Criteria for the project">
-                        <input type="text" class="form-control" id="acceptanceCrit" placeholder="Acceptance Criteria" name="Acceptance Criteria 1" required>
-                        <span class="help-block"></span>
-                        <div id='addedaccInput_1'>
-                              
-                        </div>
-                      </a>
-                      <input id="remAcc_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'accInput')">
-                      <input id="addAcc_1"type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'accInput')">
-                      -->
-                      <input id="addAcc_1"type="button" class="btn btn-default" value="Add Acceptance Criteria" onclick="addInputBox(this.id, 'accInput')">
+                      <input id="addAcc_1"type="button" class="btn" value="Add Acceptance Criteria" onclick="addInputBox(this.id, 'accInput')">
                     </li>
-
+ 
                     <li class="list-group-item">
                       <!--Additional Information-->
                       <label for="addInfo">Additional Information</label>
-                      <br><em class='notRequired'>If no additional information, leave input box blank.</em>
-                      
-                      <br><br>
+                      <i class="fa fa-question-circle" onmouseover="this.innerHTML = '<em> If no additional information, leave input box blank.</em>'" onmouseout="this.innerHTML = ''"></i>
                       <div class="flex">
                         <div style="width: 200%" >
                           <a id="addInput_1" data-toggle="tooltip" title="Please enter any additional information.">
@@ -551,7 +454,7 @@
                         &nbsp
                         <div>
                           <div class="input-group">
-                            <button type="button" class="btn btn-default" id="addRem" disabled>x</button>
+                            <button style="border-color: white; color: white" type="button" class="btn btn-default" id="addRem" disabled>x</button>
                             <span class="help-block"></span>
                             <div id='addedaddRemButton_1'>
                                   
@@ -559,86 +462,28 @@
                           </div>
                         </div>
                       </div>
-                      <input id="addAdd_1"type="button" class="btn btn-default" value="Add Additional Information" onclick="addInputBox(this.id, 'addInput')">
-
-                      <!--<a id="addInput_1" data-toggle="tooltip" title="Please enter any additional information for the project">
-                        <input type="text" class="form-control" id="addInfo" placeholder="Additional Information" name="Additional Information 1">
-                        <span class="help-block"></span>
-                        <div id='addedaddInput_1'>
-                              
-                        </div>
-                      </a>
-                      <input id="remAdd_1" type="button" class="btn btn-default" value="-" onclick="removeInputBox(this.id, 'addInput')">
-                      <input id="addAdd_1"type="button" class="btn btn-default" value="+" onclick="addInputBox(this.id, 'addInput')">-->
+                      <input id="addAdd_1"type="button" class="btn" value="Add Additional Information" onclick="addInputBox(this.id, 'addInput')">
                     </li>
-
+ 
                   </ul>
                 </div>
               </div>
             </div>
           </section>
-          <input id="addReq" type="button" class="btn btn-default" value="+ Add Requirement">
-          <span>&nbsp</span>
-          <input id="remReq" type="button" class="btn btn-default" value="- Delete Requirement">
-
-          <hr>
-          
-          <button type="submit" class="btn btn-default" onclick="validatetextboxes(); return confirm('Are you sure you want to submit?');">Submit</button>
+          <div style="position: relative; left: 30%" id="addRemReq">
+            <input id="addReq" type="button" class="btn" value="+ Add Requirement">
+            <span>&nbsp</span>
+            <input id="remReq" type="button" class="btn" value="- Delete Requirement">
+          </div>
+          <button style="position: relative; left: 90%;" type="submit" class="btn"onclick="validatetextboxes(); return confirm('Are you sure you want to submit?');">Submit</button>
           
         </form>
         
         <script src="dataHandling.js"></script>
       </div>
     </div>
-
+ 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-
-    <!-- Attempt to fix JSON file output, make array of requirements (BROKEN)-->
-        <!--
-          <div class="formBox">
-            <button id="btnnn" type="button">Click to Add</button>
-        </div>
-
-        <script>
-          let reqs = [];
-          const addReq = (ev)=>{
-            alert("Hello! I am an alert box!");
-            //ev.preventDefault();  //to stop the form submitting
-            let req = {
-                Requirement: document.getElementById('requirements').value,
-                Business Reason: document.getElementById('reason').value,
-                Risk(s): document.getElementById('risks').value,
-                Server Type: document.getElementById('bothServers').value,
-                Server ID(s): document.getElementById('server').value,
-                File Path: document.getElementById('files').value,
-                Alert: document.getElementById('both').value,
-                Ticketing Circumstance: document.getElementById('ticketCircum_1').value,
-                Ticketing Severity:document.getElementById('ticket_1').value,
-                Ticket Bucket:document.getElementById('ticketBucket_1').value,
-                Ticket Response Team:document.getElementById('ticketTeam_1').value,
-                Distributor:document.getElementById('email').value,
-                Acceptance Criteria:document.getElementById('accInput_1').value,
-                Additional Information:document.getElementById('addInput_1').value
-
-            }
-            reqs.push(req);
-            document.forms[0].reset(); // to clear the form for the next entries
-            //document.querySelector('form').reset();
-
-            //for display purposes only
-            console.warn('added' , {reqs} );
-            let pre = document.querySelector('#msg pre');
-            pre.textContent = '\n' + JSON.stringify(reqs, '\t', 2);
-            
-            //saving to localStorage
-            localStorage.setItem('MyReqList', JSON.stringify(reqs) );
-        }
-        document.addEventListener('DOMContentLoaded', ()=>{
-            document.getElementById('btnnn').addEventListener('click', addReq);
-        });
-    </script>
-    -->
-    
   </body>
 </html>
