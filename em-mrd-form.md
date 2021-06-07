@@ -72,7 +72,7 @@ The GitHub repository for the form files is ....
     index.html
     1. Add a new list element in the unordered list element in requirements section
     1. Add inputs/labels/tool tips/any other additional information needed for the new section inside of the list element
-        1. For input names, name them as: **Section Identifier** + “ 1” <br> [1] UN
+        1. For input names, name them as: <br>_**Section Identifier** + “ 1_ <br> [1] UN
 
     duplicate.js
     1. If checkboxes were used:
@@ -87,17 +87,17 @@ The GitHub repository for the form files is ....
     <br>
 1. Create an "add" button
     index.html
-    1. Underneath the original input box add a div element with an id of “added” + **Section Identifier** + “Input_1” <br>[1] LLU
-    1. At the bottom of the list element add a button with an id of “add” + **Section Identifier** + “_1” <br> [1] LUN
-    1. Add an onclick event to the add button that calls on the function “addInputBox” and sends the button id and a name as parameters. <br> “addInputBox(this.id, name)” <br> *The name should be the same as the id of the div in part a, except without “added” and “_1”. <br> (**Section Identifier** + “Input”) 
+    1. Underneath the original input box add a div element with an id: <br> *“added” + **Section Identifier** + “Input_1”* <br> [1] LLU
+    1. At the bottom of the list element add a button with an id: <br> *“add” + **Section Identifier** + “_1”* <br> [1] LUN
+    1. Add an onclick event to the add button that calls on the function “addInputBox” and sends the button id and a name as parameters. <br> “addInputBox(this.id, name)” <br> *The name should be the same as the id of the div in part a, except without “added” and “_1”. <br> _**Section Identifier** + “Input”_
     [1] LU
 
     interactionCode.js
-    1. Find the “addInputBox()” function and add another else-if clause with the condition: name == **section identifier** (value passed in part c)
+    1. Find the “addInputBox()” function and add another else-if clause with the <br> _condition: name == **section identifier** (value passed in part c)_
     1. Outside of the function, add a global variable for the section and initialize it to 1.
     1. Inside the else-if clause, set “newBox.innerHTML” to the input element used to create the original input box in part a.
-        1. Set the id of this new input to: “**Original Input Id**” + idNum + “_” + **Section Global Variable**
-        1. Set the name of this new input to: “**Original Input Name** ” + idNum
+        1. Set the id of this new input to: <br> *“**Original Input Id**” + idNum + “_” + **Section Global Variable***
+        1. Set the name of this new input to: <br> *“**Original Input Name** ” + idNum*
     1. Increment the global variable created in part e
     
     duplicate.js
@@ -106,12 +106,12 @@ The GitHub repository for the form files is ....
     <br>
 1. Create "remove" button
     index.html
-    1. Create a button inside of the list element for the section and create a button. Set the id as: **Section Identifier** + “Rem” <br> [1] LU
-    1. Add a div element with an id: “added” + **Section Identifier** + “RemButton_1” <br> [1] LLUU
+    1. Create a button inside of the list element for the section and create a button. Set the id: <br> ***Section Identifier** + “Rem”* <br> [1] LU
+    1. Add a div element with an id: <br> *“added” + **Section Identifier** + “RemButton_1”* <br> [1] LLUU
 
     interactionCode.js
-    1. Inside of the else-if clause for the section in the “addInputBox” function set “newRemBox.innerHTML” to button element created the original input box in part a. Set the id of this new button to: “**Original Button Id**” + idNum + “_” + **Section Global Variable**
-    1. After the global variable increment, add: 
+    1. Inside of the else-if clause for the section in the “addInputBox” function set “newRemBox.innerHTML” to button element created the original input box in part a. Set the id of this new button to: <br> *“**Original Button Id**” + idNum + “_” + **Section Global Variable***
+    1. After the global variable increment, add:
     *document.getElementById('**divIDString**_' + idNum).appendChild(newRemBox);
     newRemBox.onclick = function() 
     {
