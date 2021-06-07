@@ -1,4 +1,4 @@
-//disable ticketing if email is secelected and vice versa, if both is selected, neither should be disabled
+//Disable ticketing if email is secelected and vice versa, if "both" is selected, neither should be disabled
 function alertingInput(choice, id)
 {
     var idNum = id.match(/\d+/);
@@ -34,6 +34,7 @@ function alertingInput(choice, id)
     }
 }
 
+//Disable URL if server is secelected and vice versa, if "both" is selected, neither should be disabled
 function URLServerInput(choice, id)
 {
     var idNum = id.match(/\d+/);
@@ -65,6 +66,7 @@ function URLServerInput(choice, id)
     }
 }
 
+//Saves data in a JSON file
 function saveJSON(text, filename)
 {
     //create anchor element
@@ -77,7 +79,7 @@ function saveJSON(text, filename)
     window.location.href = "SubmitValidation.html";
 }
 
-//give a warning if the server names do not start with a03 or a70
+//Gives a warning if the server names do not start with a03 or a70
 function serverWarning(id){
     color = document.getElementById(id).style.borderColor;
     var str = document.getElementById(id).value;
@@ -88,11 +90,10 @@ function serverWarning(id){
     else
     {
         document.getElementById('serverWarningText').innerHTML = "<i class='fa fa-exclamation-circle' aria-hidden='true'></i><em style='font-size: 12px;'> Server ID does not start with a03 or a70!<em>";
-    }
-   
-    
+    }  
 }
 
+//Remove requirements
 function removeReq(id, name)
 {
     idNum = id.match(/\d+/);
@@ -107,7 +108,7 @@ function removeReq(id, name)
     }
 }
 
-//function that makes sure the project end date cannot be a date in the past
+//Ensure the project end date is not a date in the past
 function minDate() 
 {
     var today = new Date();
@@ -124,6 +125,7 @@ function minDate()
     document.getElementById("projectEndDate").setAttribute("min", today);
 }
 
+//Add new input boxes when the add buttons are clicked and delete specific ones
 var riskNum = 1;
 var serverNum = 1;
 var fileNum = 1;
@@ -131,7 +133,6 @@ var emailNum = 1;
 var accNum = 1;
 var addNum = 1;
 var URLNum = 1;
-//add new input boxes when the add buttons are clicked
 function addInputBox(id, name)
 {
     idNum = id.match(/\d+/);
@@ -236,10 +237,13 @@ function addInputBox(id, name)
     document.getElementById('added'+name+'_'+idNum).appendChild(newBox);
 }
 
+//Outline required input boxes in red if not filled
 function validatetextboxes()
 {
     document.getElementById('validate').innerHTML = '<style> input:invalid{ border-color: rgb(245, 0, 37);}select:invalid {border-color: rgb(245, 0, 37);}</style>';
 }
+
+//Displays character count
 function characterCount(){
     $(document).ready(function(){
         var len = 0;
@@ -259,3 +263,4 @@ function characterCount(){
     })
     });
 }
+
