@@ -35,7 +35,7 @@ The GitHub repository for the form files is ....
 | SubmitValidation.html | Confirmation page that is accessed once form is submitted <p>&nbsp;</p> Includes a confirmation number, some additional information, and a button to fill out another form |
 | confirmation.js | A simple JavaScript function that genertes a confirmation number when each form is loaded using the built in Math.floor() and Math.random() functions |
 | confirmationSubmit.js | Function that grabs the confirmation number that was generated in confirmation.js and outputs it to the confrimation page for the user to view|
-| dataHandling.js | Convert the form data to a JSON file when submitted using two functions <p>&nbsp;</p> The function *getFormJSON* creates a json object including all fields in the form as key-value pairs <p>&nbsp;</p> The function *handler* handles the form submission event, prevents default form behaviour, checks validity, and converts form to a JSON file  |
+| dataHandling.js | Convert the form data to a JSON file when submitted using two functions <p>&nbsp;</p> The function *getFormJSON* creates a json object including all fields in the form as key-value pairs <p>&nbsp;</p> The function *handler* handles the form submission event, prevents default form behaviour, and checks validity. Saving the JSON file is done in interactioncode.js  |
 | duplicate.js | Function to duplicate input boxes when any add button is clicked <p>&nbsp;</p> Every time a new field is created this function needs to be updated so that any duplicate fields can be added for multiple requirements or multiple instances of that field. Instructions for this are included below|
 | index.html | Creates form fields and input boxes on page with formatting <p>&nbsp;</p> The *head* section includes form metadata, the title, and imports necesary bootstrap and css files as well as javascript files and scripts <p>&nbsp;</p> The *body* section creates all form fields and input boxes with proper formatting, it is the frontend code in html. The code appears in the order of the page from top to bottom. <p>&nbsp;</p>Instuctions on how to create form fields with certain attributes can be found below|
 | interactionCode.js | Functions to manipulate form elements in index.html based on user interaction. <p>&nbsp;</p> Descriptions for each function in interactionCode.js can be found below |
@@ -138,6 +138,7 @@ The GitHub repository for the form files is ....
     1. In the section where the previous ids for this section were changed add: 
         - $('#req_'+ index).find('#**divID**’).attr('id', '**divIDString**_'+index);
 
+<!---
 ###Detailed Functionality Instructions
 **Key: <span style="color:red">File name</span>-<span style="color:blue">Reference to specific attribute</span>-<span style="color:green">Function Name</span>*
 1. Add new element within a requirement(ex. Server, Additional Information, etc.)
@@ -189,20 +190,20 @@ The GitHub repository for the form files is ....
     - a.
 17. Disable Inputs
     - a. 
-
+--->
 ###interactionCode.js Function Descriptions
 
     - alertingInput(choice,id)
-  This function is called when the radio buttons for ticket, email, or 'both' are selected in the alerting section of the form (index.html). If ticket is selected, the email input elements will be disabled. If email is selected, the ticket input elements will be disabled. If 'both' is selected, all elements will b enabled.
+  This function is called when the radio buttons for ticket, email, or 'both' are selected in the alerting section of the form (index.html). If ticket is selected, the email input elements will be disabled. If email is selected, the ticket input elements will be disabled. If 'both' is selected, all elements will be enabled.
 
     - URLServerInput(choice,id)
-...
+  Similar to alerting Input, disable URL if server is secelected and vice versa, if "both" is selected, neither should be disabled
 
     - saveJSON(text, filename)
 Downloads files locally
 
     - serverWarning(id)
-A warning pops up if a user inputs a server name that does not start with a03 or a70.
+A warning pops up if a user inputs a server name that does not start with a03 or a70. The warning does not prevent the user from submitting.
 
     - removeReq(id,name)
 Allows user to remove requirements using an X button. The first requirement cannot be removed.
@@ -214,7 +215,7 @@ Restricts the user from inputting Project End Dates that occurred in the past.
 Adds a new input box whenever an add button is clicked for a field. 
 
     -validatetextboxes()
-If a user clicks submit and any text boxes that are required are not filled out, that text box will then have red border around it to indicate it has not been completed. 
+If a user clicks submit and any input boxes that are required are not filled out, that input box will then have red border around it to indicate it has not been completed. The border will change to default once the input box has been filled out
 
     - characterCount
 Once user begins typing in the text area for additional information, a character counter of 350 characters appears at the bottom of the textarea and reaches 0 once user has reached the character limit.  
