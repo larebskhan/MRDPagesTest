@@ -32,7 +32,6 @@ The GitHub repository for the form files is ....
 ###File List
 | File Name | File Purpose / Description |
 | ----------- | ----------- |
-<<<<<<< HEAD
 | SubmitValidation.html | Confirmation page that is accessed once form is submitted. <br><br> Includes a confirmation number, some additional information, and a button to fill out another form. |
 | confirmation.js | A simple JavaScript function that genertes a confirmation number when each form is loaded using the built in Math.floor() and Math.random() functions. |
 | confirmationSubmit.js | Function that grabs the confirmation number that was generated in confirmation.js and outputs it to the confrimation page for the user to view. |
@@ -41,16 +40,6 @@ The GitHub repository for the form files is ....
 | index.html | Creates form fields and input boxes on page with formatting. <br><br> The *head* section includes form metadata, the title, and imports necesary bootstrap and css files as well as javascript files and scripts. <br><br> The *body* section creates all form fields and input boxes with proper formatting, it is the frontend code in html. The code appears in the order of the page from top to bottom. <br><br>Instuctions on how to create form fields with certain attributes can be found in the *Adding a New Input Section under Requirements* section below. |
 | interactionCode.js | Includes functions that manipulate form elements in index.html and SubmitValidation.html based on user interaction. <br><br> Descriptions for each function in interactionCode.js can be found in the *interactionCode.js Function Descriptions* section below. |
 | style.css |  Contains styles for most elements in index.html and SubmitValidation.html. Style classes of form element attributes. These attributes include color, size, position, font, borders, etc. <br><br> To give an html element a class of attributes use class="className" within the html element <br><br> *Note: Some styling has also been done using internal CSS in the index.html file.* |
-=======
-| SubmitValidation.html | Confirmation page that is accessed once form is submitted <p>&nbsp;</p> Includes a confirmation number, some additional information, and a button to fill out another form |
-| confirmation.js | A simple JavaScript function that genertes a confirmation number when each form is loaded using the built in Math.floor() and Math.random() functions |
-| confirmationSubmit.js | Function that grabs the confirmation number that was generated in confirmation.js and outputs it to the confrimation page for the user to view|
-| dataHandling.js | Convert the form data to a JSON file when submitted using two functions <p>&nbsp;</p> The function *getFormJSON* creates a json object including all fields in the form as key-value pairs <p>&nbsp;</p> The function *handler* handles the form submission event, prevents default form behaviour, and checks validity. Saving the JSON file is done in interactioncode.js  |
-| duplicate.js | Function to duplicate input boxes when any add button is clicked <p>&nbsp;</p> Every time a new field is created this function needs to be updated so that any duplicate fields can be added for multiple requirements or multiple instances of that field. Instructions for this are included below|
-| index.html | Creates form fields and input boxes on page with formatting <p>&nbsp;</p> The *head* section includes form metadata, the title, and imports necesary bootstrap and css files as well as javascript files and scripts <p>&nbsp;</p> The *body* section creates all form fields and input boxes with proper formatting, it is the frontend code in html. The code appears in the order of the page from top to bottom. <p>&nbsp;</p>Instuctions on how to create form fields with certain attributes can be found below|
-| interactionCode.js | Functions to manipulate form elements in index.html based on user interaction. <p>&nbsp;</p> Descriptions for each function in interactionCode.js can be found below |
-| style.css |  Style classes of form element attributes. These attributes include color, size, position, font, borders, etc <p>&nbsp;</p> To give an html element a class of attributes use class="className" within the html element|
->>>>>>> f9804ce5132de83439f71c072ff3129be7f08ef1
 
 ###Form Functionality Overview
 | Form Section/Question/Input | Functionality/Features |
@@ -230,3 +219,22 @@ If a user clicks submit and any input boxes that are required are not filled out
 
     - characterCount
 Once user begins typing in the text area for additional information, a character counter of 350 characters appears at the bottom of the textarea and reaches 0 once user has reached the character limit.  
+
+###Tool Tips
+Tool tip images were imported using: <xmp> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</xmp>
+- To add a question mark: <xmp> <i class="fa fa-question-circle"></i> </xmp>
+- To add an exclamation mark: <xmp><i class="fa fa-exclamation-circle" aria-hidden="true"></i> </xmp>
+
+##Email Form Validation
+Email form validation is done in *index.html* using the pattern attribute: 
+<xmp><input type="email" 
+    class="form-control" id="email" 
+    placeholder="Distribution List" 
+    name="Distribution List 1" 
+    pattern=".+@bcbssc.com|.+@paisc.com|.+@cgifederal.com|.+@palmettogba.com|.+@palmettogbaservices.com|.+@companiondataservices.com|.+@cdsedc.com|.+@ngc.com|.+@cgsadmin.com|.+@docfinity.com|.+@a70amed.com"  
+    oninvalid="this.setCustomValidity('Please enter your email address with one of the following domains from below')" 
+    onchange="this.setCustomValidity('')" 
+    required></xmp>
+
+
