@@ -43,68 +43,11 @@ The github repository for the form files is ....
 | Risks | <ul><li>Add</li><li>Remove</li><li>Tool Tip</li></ul> |
 | Servers/URL | <ul><li>"Required" Field</li><li>Radio Button (Disable Future Inputs)</li><li>Add</li><li>Remove</li></ul> |
 | File Monioting | <ul><li>Add</li><li>Remove</li><li>Tool Tip</li></ul> |
-| Alerting | Ticketing <br><ul><li>"Required" Field</li><li>Radio Button (Disable Future Inputs)</li><li>Tool Tip</li><li>Form Validation</li></ul> Distribution List |
-| | |
-| | |
-| | |
-| | |
-
-###Form Functionality Overview
-1. Header information
-    - Checkboxes
-    - Required
-    - Calendar Date
-2. Requirements 
-    - Required
-    - Collapsible
-    - Add
-    - Remove targeted requirements
-3. Business Reason
-    - Required
-4. Risks
-    - Add
-    - Remove
-    - Tooltip
-5. Servers
-    - Required
-    - Radio Button
-    - Add
-    - Remove
-6. File Monitoring
-    - Tooltip
-    - Add
-    - Remove
-7. Alerting
-    - Required
-    - Tooltip
-    - Search Scheduler
-    - Radio Button
-        - Disables/enables specific sections based on user input
-    - Ticketing
-        - Serverity drop-down(required)
-        - Ticketing Condition
-        - Ticket bucket drop-down
-    - Distribution List
-        - Add
-            - Form Validation(email with specific domains)
-        - Remove
-        - Tooltip
-8. Acceptance Criteria
-    - Tooltip
-    - Add
-    - Remove
-9. Additional Information
-    - Tooltip
-    - Add
-    - Remove
-10. Submit
-    - Alerts user
-    - Highlights inputs red on invalid input
-    - Moves to SubmitValidation.html on success
-    - Saves data to JSON
-11. Confirmation Page
-    - Display confirmation number
-    - Button to submit new form 
+| Alerting | Ticketing <br><ul><li>"Required" Field</li><li>Radio Button (Disable Future Inputs)</li><li>Tool Tip</li></ul> Distribution List <ul><li>"Required" Field</li><li>Tool Tip</li><li>Add</li><li>Remove</li><li>Form Validation</li></ul> |
+| Acceptance Criteria | <ul><li>Add</li><li>Remove</li><li>Tool Tip</li></ul> |
+| Additional Information | <ul><li>Add</li><li>Remove</li><li>Tool Tip</li></ul> |
+| Submit | <ul><li>Alerts User</li><li>Highlight Inavlid Inputs</li><li>Change to SubmitValidation.js on success</li><li>Saves data to JSON</li></ul> |
+| Confirmation Page | <ul><li>Display Confirmation Number </li><li>Option to Submit New Form</li></ul> |
 
 
 ###Detailed Functionality Instructions
