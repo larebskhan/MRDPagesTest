@@ -59,6 +59,18 @@ The github repository for the form files is ....
 | Checkbox | <ul><li>Servers/URL</li><li>Alerting</li></ul> | 
 | Drop Down | <ul><li>Alerting</li></ul> | 
 
+
+##Adding a New Input Section under Requirements
+1. Add the section
+    1. (index.html) <br> Add a new list element in the unordered list element in requirements section
+    1. (index.html) <br> Add inputs/labels/tool tips/any other additional information needed for the new section inside of the list element
+        1. For input names, name them as: **Section Identifier** + “ 1” <br> [1] UN
+    1. (duplicate.js) <br> If checkboxes were used:
+        1. Under the section commented with “Keep Requirement 1 Radio Buttons Checked”, create a variable and initialize it with the checked value of the input. <br> var *variableName = $("input[name='**inputName**']:checked").attr('id');*
+        1. Set the value of the radio button in requirement 1 to that variable. <br> *$('#req_1').find('#'+**variableName**).prop('checked', true);*
+
+
+
 ###Detailed Functionality Instructions
 **Key: <span style="color:red">File name</span>-<span style="color:blue">Reference to specific attribute</span>-<span style="color:green">Function Name</span>*
 1. Add new element within a requirement(ex. Server, Additional Information, etc.)
