@@ -1,16 +1,9 @@
 $(document).ready(function(){
     var index = 1;
-    var serverIndex = 1;
-    var assumptionIndex = 1;
-    var riskIndex = 1;
-    var accIndex = 1;
-    var fileIndex = 1;
-    var emailIndex = 1;
-    var currIndex = 1;
 
     $('#addReq').click(function(){
         index++;
-        //Clone Requirement and Change IDs Collapse Functioanlity
+        //Clone Requirement and Change IDs Collapse Functionality
         $('#req_1')
             .clone()
             .attr('id', 'req_'+ index)
