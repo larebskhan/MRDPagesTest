@@ -37,8 +37,7 @@ The github repository for the form files is ....
 ##Form Functionality Overview
 | Form Section/Question/Input | Functionality/Features |
 | ----------- | ----------- |
-|Prerequisites/Preliminary Information | 1. "Required" Field
-2. Calendar Date | 
+|Prerequisites/Preliminary Information | <ul><li>"Required" Field</li><li>Calendar Date</li></ul> | 
 
 ###Form Functionality Overview
 1. Header information
