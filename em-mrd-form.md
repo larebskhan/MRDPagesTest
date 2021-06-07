@@ -44,17 +44,17 @@ The GitHub repository for the form files is ....
 #### Form Functionality Overview
 | Form Section/Question/Input | Functionality/Features |
 | ----------- | ----------- |
-|Prerequisites/Preliminary Information | "Required" Field<br>Calendar Date</li></ul> | 
-| Requirements | <ul><li>"Required" Field</li><li>Collapsible</li><li>Add</li><li>Remove</li></ul> |
-| Buisness Reason | <ul><li>"Required" Field</li></ul> |
-| Risks | <ul><li>Add</li><li>Remove</li><li>Tool Tip</li></ul> |
-| Servers/URL | <ul><li>"Required" Field</li><li>Radio Button (Disable Future Inputs)</li><li>Add</li><li>Remove</li></ul> |
-| File Monioting | <ul><li>Add</li><li>Remove</li><li>Tool Tip</li></ul> |
-| Alerting | Ticketing <br><ul><li>"Required" Field</li><li>Radio Button (Disable Future Inputs)</li><li>Tool Tip</li></ul> Distribution List <ul><li>"Required" Field</li><li>Tool Tip</li><li>Add</li><li>Remove</li><li>Form Validation</li></ul> |
-| Acceptance Criteria | <ul><li>Add</li><li>Remove</li><li>Tool Tip</li></ul> |
-| Additional Information | <ul><li>Add</li><li>Remove</li><li>Tool Tip</li></ul> |
-| Submit | <ul><li>Alerts User</li><li>Highlight Inavlid Inputs</li><li>Change to SubmitValidation.js on success</li><li>Saves data to JSON</li></ul> |
-| Confirmation Page | <ul><li>Display Confirmation Number </li><li>Option to Submit New Form</li></ul> |
+|Prerequisites/Preliminary Information | "Required" Field<br>Calendar Date| 
+| Requirements | "Required" Field<br>Collapsible<br>Add<br>Remove |
+| Buisness Reason | "Required" Field |
+| Risks | Add<br>Remove<br>Tool Tip<br> |
+| Servers/URL | "Required" Field<br>Radio Button (Disable Future Inputs)<br>Add<br>Remove |
+| File Monioting | Add<br>Remove<br>Tool Tip |
+| Alerting | *Ticketing* <br>"Required" Field<br>Radio Button (Disable Future Inputs)<br>Tool Tip<br> *Distribution List* <br>"Required" Field<br>Tool Tip<br>Add<br>Remove<br>Form Validation |
+| Acceptance Criteria | Add<br>Remove<br>Tool Tip<br> |
+| Additional Information | Add<br>Remove<br>Tool Tip |
+| Submit | Alerts User<br>Highlight Inavlid Inputs<br>Change to SubmitValidation.js on success<br>Saves data to JSON |
+| Confirmation Page | Display Confirmation Number <br>Option to Submit New Form |
 
 
 #### Input Types
