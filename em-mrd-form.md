@@ -99,11 +99,10 @@ The GitHub repository for the form files is ....
         1. Set the id of this new input to: “**Original Input Id**” + idNum + “_” + **Section Global Variable**
         1. Set the name of this new input to: “**Original Input Name** ” + idNum
     1. Increment the global variable created in part e
-
-(duplicate.js) 
-Change the id of the cloned version of the div created in part a $('#req_'+ index).find('#divID).attr('id', 'divIDString_'+index);
-(duplicate.js)
-Change the id of the cloned version of the of the button created in part b $('#req_'+ index).find('#buttonID').attr('id', 'buttonIDString_'+index);
+    
+    duplicate.js
+    1. Change the id of the cloned version of the div created in part a <br> *$('#req_'+ index).find('#**divID**).attr('id', '**divIDString**_'+index);*
+    1. Change the id of the cloned version of the of the button created in part b $('#req_'+ index).find('#**buttonID**').attr('id', '**buttonIDString**_'+index);
 
 
 
