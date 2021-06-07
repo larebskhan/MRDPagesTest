@@ -10,25 +10,26 @@ product: MRD
 *Please see MRD Form files for more detailed commentary
 The Monitroing Requirements Document Form was created in order to produce and process MRDS more easily. The form ensures both clear communication between clients and the data monitoring team. It ensures all expectations are met.
 
-Users can access the form at ...... On submission, the form data is saved in  JSON file format and injected into Splunk to be accessed by the monitoring team. Each form has a confirmation number so users can find the status of their monitroing request.
+Users can access the form at ...... On submission, the form data is saved in  JSON file format and inkected into Splunk to be accessed by the monitoring team. Each form has a confirmation number so users can find the status of their monitroing request.
 
 The github repository for the form files is ....
 
 ##Required Preliminary Knowledge:
 - Basic HTML (Form Structure / elements)
-- Basic JavaScript (Create functions to manipulate form elements)
+- Basic JavaScript(Create functions to manipulate form elements)
 - Basic CSS (Styling)
-- Basic familiarity with jQuery (JavaScript library)
+- Basic familiarity with jQuery(JavaScript library)
 - Basic familiarity with Bootstrap (Webpage framework of HTML, JS, and CSS)
 
 ##File List
 | File Name | File Purpose / Description |
 | ----------- | ----------- |
-| SubmitValidation.html | Confirmation page that is accessed once form is submitted <p>&nbsp;</p> Includes a confirmation number, some additional information, and a button to fill out another form |
-| confirmation.js | A simple JavaScript function that genertes a confirmation number when each form is loaded using the built in Math.floor() and Math.random() functions |
-| confirmationSubmit.js | Function that grabs the confirmation number that was generated in confirmation.js and outputs it to the confrimation page for the user to view|
-| dataHandling.js | Convert the form data to a JSON file when submitted using two functions <p>&nbsp;</p> The function *getFormJSON* creates a json object including all fields in the form as key-value pairs <p>&nbsp;</p> The function *handler* handles the form submission event, prevents default form behaviour, checks validity, and converts form to a JSON file  |
-| duplicate.js | Functions to duplicate input boxes when any add button is clicked <p>&nbsp;</p>|
+| SubmitValidation.html | Confirmation page that is accessed once form is submitted |
+| confirmation.js | Function to generte a confirmation number for each form |
+| confirmationSubmit.js | Function to generate a confirmation number for each form |
+| confirmationSubmit.js | Script that is run in SubmitValidation to show the confimration # |
+| dataHandling.js | Convert the form data to a JSON file when submitted |
+| duplicate.js | Functions to duplicate input boxes when any add button is clicked|
 | index.html | Creates form fields and input boxes on page with formatting|
 | interactionCode.js | Functions for form elements in index.html |
 | style.css |  Style classes of form elements: color, size, position, font, borders, etc|
@@ -67,6 +68,17 @@ The github repository for the form files is ....
     1. (duplicate.js) <br> If checkboxes were used:
         1. Under the section commented with “Keep Requirement 1 Radio Buttons Checked”, create a variable and initialize it with the checked value of the input. <br> var *variableName = $("input[name='**inputName**']:checked").attr('id');*
         1. Set the value of the radio button in requirement 1 to that variable. <br> *$('#req_1').find('#'+**variableName**).prop('checked', true);*
+    1. (duplicate.js) <br> If any inputs/buttons were disabled using interaction.js:
+        1. Under the section commented with “Enable Buttons/Inputs after Duplication”, enable the inputs. <br> *$('#req_'+ index).find('#**inputId**') prop('disabled', false)*
+     1. (duplicate.js) <br> Change input id and name values. For names, change the value under the section commented with “” and for id values, create a commented section for the specific section and change the id value there. For id, ensure that the value is changed after the section commented with “Clone Requirement and Change IDs Collapse Functionality section”.
+        1. Id Change: <br> *$('#req_'+index).find('#**idValue**').attr('id','#**idValueString**_'+index);*
+        1. Name Change: <br> *$('#req_'+ index).find("[name='**Input Name** 1']").attr('name', '**Input Name** '+index)*
+     1. (duplicate.js) <br> Under the section commented with “Clear Input Values After Cloned”, clear the value of the new input (after creation of new requirement). <br>
+*$('#req_'+ index).find('#**idValue**').val('');*
+
+
+
+
 
 
 
