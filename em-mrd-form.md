@@ -7,6 +7,21 @@ product: MRD
 ---
 
 # MRD Form
+###Important Information!
+[1] L: Lower Case
+    &nbsp;&nbsp;&nbsp;&nbsp; U: Upper Case
+    &nbsp;&nbsp;&nbsp;&nbsp; N: No case
+    &nbsp;&nbsp;&nbsp;&nbsp; Ex. LUL = Lower Case, Upper Case, Lower Case
+*Bolded values are not to be written verbatim: Change value depending on previous naming conventions
+*Please see MRD Form files for more detailed commentary
+
+###MRD Form Overview
+The Monitoring Requirements Document Form was created in order to produce and process MRDS more easily. The form ensures both clear communication between clients and the data monitoring team. It ensures all expectations are met.
+
+Users can access the form at ...... On submission, the form data is saved in JSON file format and injected into Splunk to be accessed by the monitoring team. Each form has a confirmation number so users can find the status of their monitoring request.
+
+The GitHub repository for the form files is ....
+
 *Please see MRD Form files for more detailed commentary
 The Monitroing Requirements Document Form was created in order to produce and process MRDS more easily. The form ensures both clear communication between clients and the data monitoring team. It ensures all expectations are met.
 
@@ -14,14 +29,14 @@ Users can access the form at ...... On submission, the form data is saved in  JS
 
 The github repository for the form files is ....
 
-##Required Preliminary Knowledge:
+###Required Preliminary Knowledge:
 - Basic HTML (Form Structure / elements)
 - Basic JavaScript(Create functions to manipulate form elements)
 - Basic CSS (Styling)
 - Basic familiarity with jQuery(JavaScript library)
 - Basic familiarity with Bootstrap (Webpage framework of HTML, JS, and CSS)
 
-##File List
+###File List
 | File Name | File Purpose / Description |
 | ----------- | ----------- |
 | SubmitValidation.html | Confirmation page that is accessed once form is submitted |
@@ -34,7 +49,7 @@ The github repository for the form files is ....
 | interactionCode.js | Functions for form elements in index.html |
 | style.css |  Style classes of form elements: color, size, position, font, borders, etc|
 
-##Form Functionality Overview
+###Form Functionality Overview
 | Form Section/Question/Input | Functionality/Features |
 | ----------- | ----------- |
 |Prerequisites/Preliminary Information | <ul><li>"Required" Field</li><li>Calendar Date</li></ul> | 
@@ -50,7 +65,7 @@ The github repository for the form files is ....
 | Confirmation Page | <ul><li>Display Confirmation Number </li><li>Option to Submit New Form</li></ul> |
 
 
-##Input Types
+###Input Types
 | Input Type | Section Used In |
 | ----------- | ----------- |
 | Text | <ul><li>Preliminary Information/Prequisites</li><li>Business Reason</li><li>Risks</li><li>Servers/URL</li><li>File Monitoring</li><li>Alerting</li><li>Acceptance Criteria</li><li>Additional Information</li></ul> |
@@ -60,7 +75,7 @@ The github repository for the form files is ....
 | Drop Down | <ul><li>Alerting</li></ul> | 
 
 
-##Adding a New Input Section under Requirements
+###Adding a New Input Section under Requirements
 1. Add the section
     1. (index.html) <br> Add a new list element in the unordered list element in requirements section
     1. (index.html) <br> Add inputs/labels/tool tips/any other additional information needed for the new section inside of the list element
@@ -70,11 +85,18 @@ The github repository for the form files is ....
         1. Set the value of the radio button in requirement 1 to that variable. <br> *$('#req_1').find('#'+**variableName**).prop('checked', true);*
     1. (duplicate.js) <br> If any inputs/buttons were disabled using interaction.js:
         1. Under the section commented with “Enable Buttons/Inputs after Duplication”, enable the inputs. <br> *$('#req_'+ index).find('#**inputId**') prop('disabled', false)*
-     1. (duplicate.js) <br> Change input id and name values. For names, change the value under the section commented with “” and for id values, create a commented section for the specific section and change the id value there. For id, ensure that the value is changed after the section commented with “Clone Requirement and Change IDs Collapse Functionality section”.
+    1. (duplicate.js) <br> Change input id and name values. For names, change the value under the section commented with “” and for id values, create a commented section for the specific section and change the id value there. For id, ensure that the value is changed after the section commented with “Clone Requirement and Change IDs Collapse Functionality section”.
         1. Id Change: <br> *$('#req_'+index).find('#**idValue**').attr('id','#**idValueString**_'+index);*
         1. Name Change: <br> *$('#req_'+ index).find("[name='**Input Name** 1']").attr('name', '**Input Name** '+index)*
-     1. (duplicate.js) <br> Under the section commented with “Clear Input Values After Cloned”, clear the value of the new input (after creation of new requirement). <br>
-*$('#req_'+ index).find('#**idValue**').val('');*
+    1. (duplicate.js) <br> Under the section commented with “Clear Input Values After Cloned”, clear the value of the new input (after creation of new requirement). <br> *$('#req_'+ index).find('#**idValue**').val('');*
+1. Create an "add" button
+    1. (index.html) <br> Underneath the original input box add a div element with an id of “added” + **Section Identifier** + “Input_1” <br>[1] LLU
+    1. (index.html) <br> At the bottom of the list element add a button with an id of “add” + **Section Identifier** + “_1” <br> [1] LUN
+    1. (index.html) <br> Add an onclick event to the add button that calls on the function “addInputBox” and sends the button id and a name as parameters. <br> “addInputBox(this.id, name)” <br> *The name should be the same as the id of the div in part a, except without “added” and “_1”. <br> (**Section Identifier** + “Input”) 
+    [1] LU
+
+
+
 
 
 
