@@ -7,7 +7,7 @@ product: MRD
 ---
 
 # MRD Form
-###Important Information!
+####Important Information:
 [1] L: Lower Case
     &nbsp;&nbsp;&nbsp;&nbsp; U: Upper Case
     &nbsp;&nbsp;&nbsp;&nbsp; N: No case
@@ -15,21 +15,21 @@ product: MRD
 *Bolded values are not to be written verbatim: Change value depending on previous naming conventions
 *Please see MRD Form files for more detailed commentary
 
-###MRD Form Overview
+####MRD Form Overview
 The Monitoring Requirements Document Form was created in order to produce and process MRDS more easily. The form ensures both clear communication between clients and the data monitoring team. It ensures all expectations are met.
 
 Users can access the form at ...... On submission, the form data is saved in JSON file format and injected into Splunk to be accessed by the monitoring team. Each form has a confirmation number so users can find the status of their monitoring request.
 
 The GitHub repository for the form files is ....
 
-###Required Preliminary Knowledge:
+####Required Preliminary Knowledge:
 - Basic HTML (Form Structure / elements)
 - Basic JavaScript (Create functions to manipulate form elements)
 - Basic CSS (Styling)
 - Basic familiarity with jQuery (JavaScript library)
 - Basic familiarity with Bootstrap (Webpage framework of HTML, JS, and CSS)
 
-###File List
+####File List
 | File Name | File Purpose / Description |
 | ----------- | ----------- |
 | SubmitValidation.html | Confirmation page that is accessed once form is submitted. <br><br> Includes a confirmation number, some additional information, and a button to fill out another form. |
@@ -41,7 +41,7 @@ The GitHub repository for the form files is ....
 | interactionCode.js | Includes functions that manipulate form elements in index.html and SubmitValidation.html based on user interaction. <br><br> Descriptions for each function in interactionCode.js can be found in the *interactionCode.js Function Descriptions* section below. |
 | style.css |  Contains styles for most elements in index.html and SubmitValidation.html. Style classes of form element attributes. These attributes include color, size, position, font, borders, etc. <br><br> To give an html element a class of attributes use class="className" within the html element <br><br> *Note: Some styling has also been done using internal CSS in the index.html file.* |
 
-###Form Functionality Overview
+####Form Functionality Overview
 | Form Section/Question/Input | Functionality/Features |
 | ----------- | ----------- |
 |Prerequisites/Preliminary Information | <ul><li>"Required" Field</li><li>Calendar Date</li></ul> | 
@@ -57,7 +57,7 @@ The GitHub repository for the form files is ....
 | Confirmation Page | <ul><li>Display Confirmation Number </li><li>Option to Submit New Form</li></ul> |
 
 
-###Input Types
+####Input Types
 | Input Type | Section Used In |
 | ----------- | ----------- |
 | Text | <ul><li>Preliminary Information/Prequisites</li><li>Business Reason</li><li>Risks</li><li>Servers/URL</li><li>File Monitoring</li><li>Alerting</li><li>Acceptance Criteria</li><li>Additional Information</li></ul> |
@@ -67,7 +67,7 @@ The GitHub repository for the form files is ....
 | Drop Down | <ul><li>Alerting</li></ul> | 
 
 
-###Adding a New Input Section under Requirements
+####Adding a New Input Section under Requirements
 1. Add the section
     index.html
     1. Add a new list element in the unordered list element in requirements section
@@ -138,6 +138,26 @@ The GitHub repository for the form files is ....
     1. In the section where the previous ids for this section were changed add: 
         - $('#req_'+ index).find('#**divID**’).attr('id', '**divIDString**_'+index);
 
+####Additional Functionality Information
+######Tool Tips
+Tool tip images were imported using: 
+<xmp> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></xmp>
+- To add a question mark: <xmp> <i class="fa fa-question-circle"></i> </xmp>
+- To add an exclamation mark: <xmp><i class="fa fa-exclamation-circle" aria-hidden="true"></i> </xmp>
+
+######Email Form Validation
+Email form validation is done in *index.html* using the pattern attribute: 
+<xmp><input type="email" 
+    class="form-control" id="email" 
+    placeholder="Distribution List" 
+    name="Distribution List 1" 
+    pattern=".+@bcbssc.com|.+@paisc.com|.+@cgifederal.com|.+@palmettogba.com|.+@palmettogbaservices.com|.+@companiondataservices.com|.+@cdsedc.com|.+@ngc.com|.+@cgsadmin.com|.+@docfinity.com|.+@a70amed.com"  
+    oninvalid="this.setCustomValidity('Please enter your email address with one of the following domains from below')" 
+    onchange="this.setCustomValidity('')" 
+    required></xmp>
+    
+######Confirmation Number
+The confirmation number is generated in *confirmation.js* when *index.html* loads. That value is saved, and displayed on *SubmitValidation.html* when *SubmitValidation.html* loads using *confirmationSubmit.js*.
 <!---
 ###Detailed Functionality Instructions
 **Key: <span style="color:red">File name</span>-<span style="color:blue">Reference to specific attribute</span>-<span style="color:green">Function Name</span>*
@@ -191,7 +211,7 @@ The GitHub repository for the form files is ....
 17. Disable Inputs
     - a. 
 --->
-###interactionCode.js Function Descriptions
+####interactionCode.js Function Descriptions
 
     - alertingInput(choice,id)
   This function is called when the radio buttons for ticket, email, or 'both' are selected in the alerting section of the form (index.html). If ticket is selected, the email input elements will be disabled. If email is selected, the ticket input elements will be disabled. If 'both' is selected, all elements will be enabled.
@@ -214,27 +234,12 @@ Restricts the user from inputting Project End Dates that occurred in the past.
     - addInputBox(id, name)
 Adds a new input box whenever an add button is clicked for a field. 
 
-    -validatetextboxes()
+    - validatetextboxes()
 If a user clicks submit and any input boxes that are required are not filled out, that input box will then have red border around it to indicate it has not been completed. The border will change to default once the input box has been filled out
 
-    - characterCount
+    - characterCount()
 Once user begins typing in the text area for additional information, a character counter of 350 characters appears at the bottom of the textarea and reaches 0 once user has reached the character limit.  
 
-###Tool Tips
-Tool tip images were imported using: <xmp> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</xmp>
-- To add a question mark: <xmp> <i class="fa fa-question-circle"></i> </xmp>
-- To add an exclamation mark: <xmp><i class="fa fa-exclamation-circle" aria-hidden="true"></i> </xmp>
 
-##Email Form Validation
-Email form validation is done in *index.html* using the pattern attribute: 
-<xmp><input type="email" 
-    class="form-control" id="email" 
-    placeholder="Distribution List" 
-    name="Distribution List 1" 
-    pattern=".+@bcbssc.com|.+@paisc.com|.+@cgifederal.com|.+@palmettogba.com|.+@palmettogbaservices.com|.+@companiondataservices.com|.+@cdsedc.com|.+@ngc.com|.+@cgsadmin.com|.+@docfinity.com|.+@a70amed.com"  
-    oninvalid="this.setCustomValidity('Please enter your email address with one of the following domains from below')" 
-    onchange="this.setCustomValidity('')" 
-    required></xmp>
 
 
