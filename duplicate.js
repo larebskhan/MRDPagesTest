@@ -1,15 +1,9 @@
 $(document).ready(function(){
     var index = 1;
-    var serverIndex = 1;
-    var assumptionIndex = 1;
-    var riskIndex = 1;
-    var accIndex = 1;
-    var fileIndex = 1;
-    var emailIndex = 1;
-    var currIndex = 1;
 
     $('#addReq').click(function(){
         index++;
+        //Clone Requirement and Change IDs Collapse Functionality
         $('#req_1')
             .clone()
             .attr('id', 'req_'+ index)
@@ -20,20 +14,27 @@ $(document).ready(function(){
         $('#req_'+ index)
             .find('#collapse_1')
             .attr('id', 'collapse_'+index);
-        /*$('#req_'+ index)
-            .find('#toggle_1')
-            .text('Requirement '+index);*/
 
-        //Keep req 1 radio button options
+        //remReq Id Change
+        $('#req_'+ index)
+            .find('#remReq_1')
+            .attr('id', 'remReq_'+index);
+
+        //Keep Requirement 1 Radio Buttons Checked
         var alertingInputReq1 = $("input[name='Alert 1']:checked").attr('id');
         var serverInputReq1 = $("input[name='Server Type 1']:checked").attr('id');
-        
-        //Change add/remove button Ids
-        //Ex. ID Button Requirement Add Server #2: addServer_1
-        //Server Button
-        $('#req_'+ index)
-            .find('#remServer_1')
-            .attr('id', 'remServer_'+index);
+        var serverURLInputReq1 = $("input[name='Server/URL 1']:checked").attr('id');
+        $('#req_1')
+            .find('#'+alertingInputReq1)
+            .prop('checked', true);
+        $('#req_1')
+            .find('#'+serverInputReq1)
+            .prop('checked', true);
+        $('#req_1')
+            .find('#'+serverURLInputReq1)
+            .prop('checked', true);
+
+        //Server ID Changes
         $('#req_'+ index)
             .find('#addServer_1')
             .attr('id', 'addServer_'+index);
@@ -46,35 +47,33 @@ $(document).ready(function(){
         $('#req_'+ index)
             .find('#addedserverRemButton_1')
             .attr('id', 'addedserverRemButton_'+index);
+
+        //URL or Server Radio ID Changes
         $('#req_'+ index)
-            .find('#addedaddInput_1')
-            .attr('id', 'addedaddInput_'+index);
+            .find('#servChoice_1')
+            .attr('id', 'servChoice_'+index);
         $('#req_'+ index)
-            .find('#addedaddRemButton_1')
-            .attr('id', 'addedaddRemButton_'+index);
-        
-        //remReq id Change
+            .find('#urlChoice_1')
+            .attr('id', 'urlChoice_'+index);
         $('#req_'+ index)
-            .find('#remReq_1')
-            .attr('id', 'remReq_'+index);
-        
-        
-        
-        //Assumption Button
-        /*$('#req_'+ index)
-            .find('#remAssumption_1')
-            .attr('id', 'remAssumption_'+index);
+            .find('#bothServerURL_1')
+            .attr('id', 'bothServerURL_'+index);
+
+        //URL ID Changes
         $('#req_'+ index)
-            .find('#addAssumption_1')
-            .attr('id', 'addAssumption_'+index);
+            .find('#addURL_1')
+            .attr('id', 'addURL_'+index);
         $('#req_'+ index)
-            .find('#assumptionInput_1')
-            .attr('id', 'assumptionInput_'+index);*/
-        
-        //Risk Button
+            .find('#URLInput_1')
+            .attr('id', 'URLInput_'+index);
         $('#req_'+ index)
-            .find('#remRisk_1')
-            .attr('id', 'remRisk_'+index);
+            .find('#addedURLInput_1')
+            .attr('id', 'addedURLInput_'+index);
+        $('#req_'+ index)
+            .find('#addedURLRemButton_1')
+            .attr('id', 'addedURLRemButton_'+index);
+
+        //Risk ID Changes
         $('#req_'+ index)
             .find('#addRisk_1')
             .attr('id', 'addRisk_'+index);
@@ -87,14 +86,8 @@ $(document).ready(function(){
         $('#req_'+ index)
             .find('#addedriskRemButton_1')
             .attr('id', 'addedriskRemButton_'+index)
-        $('#req_'+ index)
-            .find('#none_risks_1')
-            .attr('id', 'none_risks_'+index);
         
-        //Acceptance Criteria
-        $('#req_'+ index)
-            .find('#remAcc_1')
-            .attr('id', 'remAcc_'+index);
+        //Acceptance Criteria ID Changes
         $('#req_'+ index)
             .find('#addAcc_1')
             .attr('id', 'addAcc_'+index);
@@ -109,9 +102,7 @@ $(document).ready(function(){
             .attr('id', 'addedaccRemButton_'+index);
         
         //File Monitoring
-        $('#req_'+ index)
-            .find('#remFile_1')
-            .attr('id', 'remFile_'+index);
+        //Files ID Change
         $('#req_'+ index)
             .find('#addFile_1')
             .attr('id', 'addFile_'+index);
@@ -122,22 +113,39 @@ $(document).ready(function(){
             .find('#addedfileInput_1')
             .attr('id', 'addedfileInput_'+index);
         $('#req_'+ index)
-            .find('#addedlogInput_1')
-            .attr('id', 'addedlogInput_'+index);
-        $('#req_'+ index)
             .find('#addedfileRemButton_1')
             .attr('id', 'addedfileRemButton_'+index);
+        //Log ID Change
         $('#req_'+ index)
-            .find('#yesFile_1')
-            .attr('id', 'yesFile_'+index);
-        $('#req_'+ index)
-            .find('#noFile_1')
-            .attr('id', 'noFile_'+index);
+            .find('#addedlogInput_1')
+            .attr('id', 'addedlogInput_'+index);
         
-        //Alerting: Email
+        //Alerting: Radio Button ID Change
         $('#req_'+ index)
-            .find('#remEmail_1')
-            .attr('id', 'remEmail_'+index);
+            .find('#ticketAlert_1')
+            .attr('id', 'ticketAlert_'+index);
+        $('#req_'+ index)
+            .find('#emailAlert_1')
+            .attr('id', 'emailAlert_'+index);
+        $('#req_'+ index)
+            .find('#bothAlert_1')
+            .attr('id', 'bothAlert_'+index);
+
+        //Alerting: Ticketing ID Change
+        $('#req_'+ index)
+            .find('#ticket_1')
+            .attr('id', 'ticket_'+index);
+        $('#req_'+ index)
+            .find('#ticketCircum_1')
+            .attr('id', 'ticketCircum_'+index);
+        $('#req_'+ index)
+            .find('#ticketBucket_1')
+            .attr('id', 'ticketBucket_'+index);
+        $('#req_'+ index)
+            .find('#ticketTeam_1')
+            .attr('id', 'ticketTeam_'+index);
+
+        //Alerting: Email ID Change
         $('#req_'+ index)
             .find('#addEmail_1')
             .attr('id', 'addEmail_'+index);
@@ -150,40 +158,8 @@ $(document).ready(function(){
         $('#req_'+ index)
             .find('#addedemailRemButton_1')
             .attr('id', 'addedemailRemButton_'+index);
-        $('#req_'+ index)
-            .find('#ticketAlert_1')
-            .attr('id', 'ticketAlert_'+index);
-        $('#req_'+ index)
-            .find('#emailAlert_1')
-            .attr('id', 'emailAlert_'+index);
-        $('#req_'+ index)
-            .find('#bothAlert_1')
-            .attr('id', 'bothAlert_'+index);
-        $('#req_'+ index)
-            .find('#ticket_1')
-            .attr('id', 'ticket_'+index);
-        
-        //Alerting: Ticket
-        $('#req_'+ index)
-            .find('#ticketCircum_1')
-            .attr('id', 'ticketCircum_'+index);
-        $('#req_'+ index)
-            .find('#ticketBucket_1')
-            .attr('id', 'ticketBucket_'+index);
-        $('#req_'+ index)
-            .find('#ticketTeam_1')
-            .attr('id', 'ticketTeam_'+index);
-        $('#req_'+ index)
-            .find('#ticketCircum_'+index)
-            .val('');
-        $('#req_'+ index)
-            .find('#ticketBucket_'+index)
-            .val('');
-        $('#req_'+ index)
-            .find('#ticketTeam_'+index)
-            .val('');
 
-        //Email Domain
+        //Alerting: Email Domain ID Change
         $('#req_'+ index)
             .find('#domains_1')
             .attr('id', 'domains_'+index);
@@ -196,18 +172,6 @@ $(document).ready(function(){
         $('#req_'+ index)
             .find('#domainButton_'+index)
             .attr('data-target', '#domains_'+index);
-        
-        //Additional Info Button
-        $('#req_'+ index)
-            .find('#remAdd_1')
-            .attr('id', 'remAdd_'+index);
-        $('#req_'+ index)
-            .find('#addAdd_1')
-            .attr('id', 'addAdd_'+index);
-        $('#req_'+ index)
-            .find('#addInput_1')
-            .attr('id', 'addInput_'+index);
-
 
         //Clear Input Values After Cloned
         $('#req_'+ index)
@@ -240,22 +204,20 @@ $(document).ready(function(){
         $('#req_'+ index)
             .find('#searchSched')
             .val(''); 
+        $('#req_'+ index)
+            .find('#ticketCircum_'+index)
+            .val('');
+        $('#req_'+ index)
+            .find('#ticketBucket_'+index)
+            .val('');
+        $('#req_'+ index)
+            .find('#ticketTeam_'+index)
+            .val('');
         
-        //Risk Input Buttons/Checkboxes
-        $('#req_'+ index)
-            .find('#remRisk_'+index)
-            .prop('disabled', false)
-        $('#req_'+ index)
-            .find('#addRisk_'+index)
-            .prop('disabled', false)
-        $('#req_'+ index)
-            .find('#none_risks_'+index)
-            .prop('checked', false)
+        //Enable Buttons/Inputs after Duplication
         $('#req_'+ index)
             .find('#risks')
             .prop('disabled', false)
-
-        //Enable Ticket after duplicate
         $('#req_'+ index)
             .find('#ticketCircum_'+index)
             .prop('disabled', false)
@@ -270,6 +232,24 @@ $(document).ready(function(){
             .prop('disabled', false)
         $('#req_'+ index)
             .find('#email')
+            .prop('disabled', false)
+        $('#req_'+ index)
+            .find('#addEmail_'+index)
+            .prop('disabled', false)
+        $('#req_'+ index)
+            .find('#server')
+            .prop('disabled', false)
+        $('#req_'+ index)
+            .find('#server')
+            .prop('disabled', false)
+        $('#req_'+ index)
+            .find('#addServer_'+index)
+            .prop('disabled', false)
+        $('#req_'+ index)
+            .find('#url')
+            .prop('disabled', false)
+        $('#req_'+ index)
+            .find('#addURL_'+index)
             .prop('disabled', false)
         
         //Clear div element with old added inputs
@@ -306,20 +286,6 @@ $(document).ready(function(){
         $('#req_'+ index)
             .find('#addedemailRemButton_'+index)
             .empty();
-        $('#req_'+ index)
-            .find('#addedaddInput_'+index)
-            .empty();
-        $('#req_'+ index)
-            .find('#addedaddRemButton_'+index)
-            .empty();
-        
-        //Set req1 values to req1 values
-        $('#req_1')
-            .find('#'+alertingInputReq1)
-            .prop('checked', true);
-        $('#req_1')
-            .find('#'+serverInputReq1)
-            .prop('checked', true);
         
         //Change Names of all Inputs
         $('#req_'+ index)
@@ -335,12 +301,20 @@ $(document).ready(function(){
             .attr('name', 'Risk '+index)
             
         $('#req_'+ index)
+            .find("[name='Server/URL 1']")
+            .attr('name', 'Server/URL '+index)
+
+        $('#req_'+ index)
             .find("[name='Server Type 1']")
             .attr('name', 'Server Type '+index)
         
         $('#req_'+ index)
             .find("[name='Server ID 1']")
             .attr('name', 'Server ID '+index)
+        
+        $('#req_'+ index)
+            .find("[name='URL 1']")
+            .attr('name', 'URL '+index)
             
         $('#req_'+ index)
             .find("[name='File Path 1']")
@@ -384,136 +358,4 @@ $(document).ready(function(){
             .attr('name', 'Additional Information '+index)
 
     });
-    $('#remReq').click(function(){
-        if(index > 1)
-        {
-            $('#req_'+index)
-                .remove();
-            index--;
-        }
-    });
-
-    /* red border, not sure if we need this one
-    $("#textbox1").change(function() {
-          //Check if value is empty or not
-          if ($(this).val() == "") {
-              //if empty then assign the border
-              $(this).css("border", "1px solid red");
-         }
-        else
-        {
-          $(this).css("border", "1px solid black");
-        }
-      })
-    /*
-    
-    /*
-    $('[id^="addServer_"]').click(function() {
-        serverIndex++;
-        currIndex = $(this).attr('id').split('_').pop();
-        $('#serverInput_1_1')
-            .clone()
-            .attr('id', 'serverInput_'+currIndex+'_'+serverIndex)
-            .insertAfter('#serverInput_'+currIndex+'_'+(serverIndex-1));
-    });
-    $('[id^="remServer_"]').click(function(){
-        if(serverIndex > 1)
-        {
-            currIndex = $(this).attr('id').split('_').pop();
-            $('#serverInput_'+currIndex+'_'+serverIndex)
-                .remove();
-            serverIndex--;
-        }
-    });
-
-    $('[id^="addAssumption_"]').click(function(){
-        assumptionIndex++;
-        currIndex = $(this).attr('id').split('_').pop();
-        $('#assumptionInput_1_1')
-            .clone()
-            .attr('id', 'assumptionInput_'+currIndex+'_'+assumptionIndex)
-            .insertAfter('#assumptionInput_'+currIndex+'_'+(assumptionIndex-1));
-    });
-    $('[id^="remAssumption_"]').click(function(){
-        if(assumptionIndex > 1)
-        {
-            currIndex = $(this).attr('id').split('_').pop();
-            $('#assumptionInput_'+currIndex+'_'+assumptionIndex)
-                .remove();
-            assumptionIndex--;
-        }
-    });
-
-    $('[id^="addRisk_"]').click(function(){
-        currIndex = $(this).attr('id').split('_').pop();
-        riskIndex++;
-        $('#riskInput_1_1')
-            .clone()
-            .attr('id', 'riskInput_'+currIndex+'_'+riskIndex)
-            .insertAfter('#riskInput_'+currIndex+'_'+(riskIndex-1));
-    });
-    $('[id^="remRisk_"]').click(function(){
-        if(riskIndex > 1)
-        {
-            currIndex = $(this).attr('id').split('_').pop();
-            $('#riskInput_'+currIndex+'_'+riskIndex)
-                .remove();
-            riskIndex--;
-        } 
-    });
-
-    $('[id^="addAcc_"]').click(function(){
-        accIndex++;
-        currIndex = $(this).attr('id').split('_').pop();
-        $('#accInput_1_1')
-            .clone()
-            .attr('id', 'accInput_'+currIndex+'_'+accIndex)
-            .insertAfter('#accInput_'+currIndex+'_'+(accIndex-1));
-    });
-    $('[id^="remAcc_"]').click(function(){
-        if(accIndex > 1)
-        {
-            currIndex = $(this).attr('id').split('_').pop();
-            $('#accInput_'+currIndex+'_'+accIndex)
-                .remove();
-            accIndex--;
-        }
-    });
-
-    $('[id^="addEmail_"]').click(function(){
-        emailIndex++;
-        currIndex = $(this).attr('id').split('_').pop();
-        $('#emailInput_1_1')
-            .clone()
-            .attr('id', 'emailInput_'+currIndex+'_'+emailIndex)
-            .insertAfter('#emailInput_'+currIndex+'_'+(emailIndex-1));
-    });
-    $('[id^="remEmail_"]').click(function(){
-        if(emailIndex > 1)
-        {
-            currIndex = $(this).attr('id').split('_').pop();
-            $('#emailInput_'+currIndex+'_'+emailIndex)
-                .remove();
-            emailIndex--;
-        }
-    });
-
-    $('[id^="addFile_"]').click(function(){
-        fileIndex++;
-        currIndex = $(this).attr('id').split('_').pop();
-        $('#fileInput_1_1')
-            .clone()
-            .attr('id', 'fileInput_'+currIndex+'_'+fileIndex)
-            .insertAfter('#fileInput_'+currIndex+'_'+(fileIndex-1));
-    });
-    $('[id^="remFile_"]').click(function(){
-        if(fileIndex > 1)
-        {
-            currIndex = $(this).attr('id').split('_').pop();
-            $('#fileInput_'+currIndex+'_'+fileIndex)
-                .remove();
-            fileIndex--;
-        }
-    });
-   */
 });
