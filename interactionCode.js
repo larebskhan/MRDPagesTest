@@ -84,8 +84,6 @@ function serverWarning(id){
     if(str.startsWith("a03") || (str.startsWith("a70")))
     {
         document.getElementById('serverWarningText').innerHTML = "";
-
-
     }
     else
     {

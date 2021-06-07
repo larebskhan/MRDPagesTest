@@ -26,12 +26,10 @@
   </div>
 
   <body>
-  <!--Heading-->
+    <!--Heading-->
     <div id="boxForm">
       <h2>Monitoring Requirements Document Form &nbsp</h2>
-              <!--<img src="https://abcnews4.com/resources/media/0f73c9b8-3b67-4aaf-b61c-5483a3192fb0-large16x9_BCBSSCPartner.png?1538141737266" alt="Photo" width=100">-->
-
-      
+      <!--<img src="https://abcnews4.com/resources/media/0f73c9b8-3b67-4aaf-b61c-5483a3192fb0-large16x9_BCBSSCPartner.png?1538141737266" alt="Photo" width=100">-->
       <div class="container">
         <br>
         <form class="form-horizontal was-validated" name="mrdform" id="mrdform">
@@ -134,11 +132,7 @@
               </td>
             </tr>
           </table>
-          
-          <!--Separates header from Requirements-->
-          <!--<hr>-->
           <br>
-          
           <br>
           <p>
             <em>Click on the requirements tab to input more data.</em>
@@ -156,9 +150,7 @@
                           <h4 style="text-align: left" class="panel-title">
                             <a id="toggle_1" data-toggle="collapse" href="#collapse_1">Requirement</a>
                             <span class="star">&#42;</span>
-                            <!--div class="triangle-down"></div>-->
                           </h4>
-                          
                         </td>
                         <td>
                           <button id="remReq_1" type="button" class="btn" onclick="removeReq(this.id, 'req_');">x</button>
@@ -198,7 +190,6 @@
                         <div style="width: 200%" >
                           <a id="riskInput_1" data-toggle="tooltip" title="Please enter any Risk(s) that pertain to the project">
                             <input type="text" class="form-control" id="risks" placeholder="Ex. Contractual Obligation, Financial Risk, Customer Impact" name="Risk 1">
-                            <!--<button type="button" class="btn btn-default">x</button>-->
                             <span class="help-block"></span>
                             <div id='addedriskInput_1'>
                             </div>
@@ -235,11 +226,11 @@
                       <div id="serverSection_1"></div>
                         <h5 style="text-decoration: underline;"> Servers</h5>
                         <!--Server Type buttons-->
-                        <input class="form-check-input" type="radio" name="Server Type 1" id="windows" value="Windows"> <!-- onclick="--> 
+                        <input class="form-check-input" type="radio" name="Server Type 1" id="windows" value="Windows">
                         <label for="ticketAlert">Windows</label><br>
-                        <input class="form-check-input" type="radio" name="Server Type 1" id="linux" value="Linux"> <!-- onclick=" -->
+                        <input class="form-check-input" type="radio" name="Server Type 1" id="linux" value="Linux">
                         <label for="emailAlert">Linux</label><br>
-                        <input class="form-check-input" type="radio" checked="checked" name="Server Type 1" id="bothServers" value="Both"> <!-- onclick=" -->  
+                        <input class="form-check-input" type="radio" checked="checked" name="Server Type 1" id="bothServers" value="Both">  
                         <label for="bothAlert">Both</label><br>
                         <span class="help-block"id="serverWarningText"></span>
                         <div class="" id="serverWarning">
@@ -469,7 +460,6 @@
                         <div style="width: 200%" >
                           <a id="accInput_1" data-toggle="tooltip" title="Please enter all acceptance criteria.">
                             <input type="text" class="form-control" id="acceptanceCrit" placeholder="Ex: When _____, I expect _____" name="Acceptance Criteria 1" required>
-                            <!--<button type="button" class="btn btn-default">x</button>-->
                             <span class="help-block"></span>
                             <div id='addedaccInput_1'>
                                   
@@ -498,8 +488,10 @@
                         <div style="width: 200%" >
                           <a id="addInput_1" data-toggle="tooltip" title="Please enter any additional information.">
                             <textarea class="form-control" id="addInfo" placeholder="Additional Information" name="Additional Information 1" rows="3" maxlength="350" oninput="characterCount()"></textarea><span id='remainingC'></span>
-                            <!--<button type="button" class="btn btn-default">x</button>-->
                             <span class="help-block"></span>
+                          </a>
+                        </div>
+                      </div>
                     </li>
  
                   </ul>
@@ -507,10 +499,9 @@
               </div>
             </div>
           </section>
+
           <div style="position: relative; left: 45%" id="addRemReq">
             <input id="addReq" type="button" class="btn" value="+ Add Requirement">
-            <!--<span>&nbsp</span>
-            <input id="remReq" type="button" class="btn" value="- Delete Requirement">-->
           </div>
           <button style="position: relative; left: 90%;" type="submit" class="btn"onclick="validatetextboxes(); return confirm('Are you sure you want to submit?');">Submit</button>
           
