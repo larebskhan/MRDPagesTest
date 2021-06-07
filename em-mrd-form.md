@@ -29,9 +29,9 @@ The github repository for the form files is ....
 | confirmationSubmit.js | Function that grabs the confirmation number that was generated in confirmation.js and outputs it to the confrimation page for the user to view|
 | dataHandling.js | Convert the form data to a JSON file when submitted using two functions <p>&nbsp;</p> The function *getFormJSON* creates a json object including all fields in the form as key-value pairs <p>&nbsp;</p> The function *handler* handles the form submission event, prevents default form behaviour, checks validity, and converts form to a JSON file  |
 | duplicate.js | Functions to duplicate input boxes when any add button is clicked <p>&nbsp;</p>|
-| index.html | Creates form fields and input boxes on page with formatting|
-| interactionCode.js | Functions for form elements in index.html |
-| style.css |  Style classes of form elements: color, size, position, font, borders, etc|
+| index.html | Creates form fields and input boxes on page with formatting <p>&nbsp;</p> The *head* section includes form metadata, the title, and imports necesary bootstrap and css files as well as javascript files and scripts <p>&nbsp;</p> The *body* section creates all form fields and input boxes with proper formatting, it is the frontend code in html. The code appears in the order of the page from top to bottom. <p>&nbsp;</p>Instuctions on how to create form fields with certain attributes can be found below|
+| interactionCode.js | Functions to manipulate form elements in index.html based on user interaction. <p>&nbsp;</p> Descriptions for each function in interactionCode.js can be found below |
+| style.css |  Style classes of form element attributes. These attributes include color, size, position, font, borders, etc <p>&nbsp;</p> To give an html element a class of attributes use class="className" within the html element|
 
 ##Form Functionality Overview
 | Form Section/Question/Input | Functionality/Features |
