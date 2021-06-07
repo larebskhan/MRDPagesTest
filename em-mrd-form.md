@@ -40,10 +40,10 @@ The github repository for the form files is ....
 |Prerequisites/Preliminary Information | <ul><li>"Required" Field</li><li>Calendar Date</li></ul> | 
 | Requirements | <ul><li>"Required" Field</li><li>Collapsible</li><li>Add</li><li>Remove</li></ul> |
 | Buisness Reason | <ul><li>"Required" Field</li></ul> |
-| Risks | <ul><li>Add</li><li>Remove</li><li>Tool Tip</li>/ul> |
+| Risks | <ul><li>Add</li><li>Remove</li><li>Tool Tip</li></ul> |
 | Servers/URL | <ul><li>"Required" Field</li><li>Radio Button (Disable Future Inputs)</li><li>Add</li><li>Remove</li></ul> |
-| File Monioting | <ul><li>Add</li><li>Remove</li><li>Tool Tip</li>/ul> |
-| | |
+| File Monioting | <ul><li>Add</li><li>Remove</li><li>Tool Tip</li></ul> |
+| Alerting | Ticketing | Distribution List |
 | | |
 | | |
 | | |
