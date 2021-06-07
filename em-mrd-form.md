@@ -69,23 +69,41 @@ The GitHub repository for the form files is ....
 
 ###Adding a New Input Section under Requirements
 1. Add the section
-    1. (index.html) <br> Add a new list element in the unordered list element in requirements section
-    1. (index.html) <br> Add inputs/labels/tool tips/any other additional information needed for the new section inside of the list element
+    index.html
+    1. Add a new list element in the unordered list element in requirements section
+    1. Add inputs/labels/tool tips/any other additional information needed for the new section inside of the list element
         1. For input names, name them as: **Section Identifier** + “ 1” <br> [1] UN
-    1. (duplicate.js) <br> If checkboxes were used:
+
+    duplicate.js
+    1. If checkboxes were used:
         1. Under the section commented with “Keep Requirement 1 Radio Buttons Checked”, create a variable and initialize it with the checked value of the input. <br> var *variableName = $("input[name='**inputName**']:checked").attr('id');*
         1. Set the value of the radio button in requirement 1 to that variable. <br> *$('#req_1').find('#'+**variableName**).prop('checked', true);*
-    1. (duplicate.js) <br> If any inputs/buttons were disabled using interaction.js:
+    1. If any inputs/buttons were disabled using interaction.js:
         1. Under the section commented with “Enable Buttons/Inputs after Duplication”, enable the inputs. <br> *$('#req_'+ index).find('#**inputId**') prop('disabled', false)*
-    1. (duplicate.js) <br> Change input id and name values. For names, change the value under the section commented with “” and for id values, create a commented section for the specific section and change the id value there. For id, ensure that the value is changed after the section commented with “Clone Requirement and Change IDs Collapse Functionality section”.
+    1. Change input id and name values. For names, change the value under the section commented with “” and for id values, create a commented section for the specific section and change the id value there. For id, ensure that the value is changed after the section commented with “Clone Requirement and Change IDs Collapse Functionality section”.
         1. Id Change: <br> *$('#req_'+index).find('#**idValue**').attr('id','#**idValueString**_'+index);*
         1. Name Change: <br> *$('#req_'+ index).find("[name='**Input Name** 1']").attr('name', '**Input Name** '+index)*
-    1. (duplicate.js) <br> Under the section commented with “Clear Input Values After Cloned”, clear the value of the new input (after creation of new requirement). <br> *$('#req_'+ index).find('#**idValue**').val('');*
+    1. Under the section commented with “Clear Input Values After Cloned”, clear the value of the new input (after creation of new requirement). <br> *$('#req_'+ index).find('#**idValue**').val('');*
+    <br>
 1. Create an "add" button
-    1. (index.html) <br> Underneath the original input box add a div element with an id of “added” + **Section Identifier** + “Input_1” <br>[1] LLU
-    1. (index.html) <br> At the bottom of the list element add a button with an id of “add” + **Section Identifier** + “_1” <br> [1] LUN
-    1. (index.html) <br> Add an onclick event to the add button that calls on the function “addInputBox” and sends the button id and a name as parameters. <br> “addInputBox(this.id, name)” <br> *The name should be the same as the id of the div in part a, except without “added” and “_1”. <br> (**Section Identifier** + “Input”) 
+    index.html
+    1. Underneath the original input box add a div element with an id of “added” + **Section Identifier** + “Input_1” <br>[1] LLU
+    1. At the bottom of the list element add a button with an id of “add” + **Section Identifier** + “_1” <br> [1] LUN
+    1. Add an onclick event to the add button that calls on the function “addInputBox” and sends the button id and a name as parameters. <br> “addInputBox(this.id, name)” <br> *The name should be the same as the id of the div in part a, except without “added” and “_1”. <br> (**Section Identifier** + “Input”) 
     [1] LU
+
+    interactionCode.js
+    1. Find the “addInputBox()” function and add another else-if clause with the condition: name == **section identifier** (value passed in part c)
+    1. Outside of the function, add a global variable for the section and initialize it to 1.
+    1. Inside the else-if clause, set “newBox.innerHTML” to the input element used to create the original input box in part a.
+        1. Set the id of this new input to: “**Original Input Id**” + idNum + “_” + **Section Global Variable**
+        1. Set the name of this new input to: “**Original Input Name** ” + idNum
+    1. Increment the global variable created in part e
+
+(duplicate.js) 
+Change the id of the cloned version of the div created in part a $('#req_'+ index).find('#divID).attr('id', 'divIDString_'+index);
+(duplicate.js)
+Change the id of the cloned version of the of the button created in part b $('#req_'+ index).find('#buttonID').attr('id', 'buttonIDString_'+index);
 
 
 
