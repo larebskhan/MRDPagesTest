@@ -43,7 +43,7 @@ The github repository for the form files is ....
 | Risks | <ul><li>Add</li><li>Remove</li><li>Tool Tip</li></ul> |
 | Servers/URL | <ul><li>"Required" Field</li><li>Radio Button (Disable Future Inputs)</li><li>Add</li><li>Remove</li></ul> |
 | File Monioting | <ul><li>Add</li><li>Remove</li><li>Tool Tip</li></ul> |
-| Alerting | Ticketing | Distribution List |
+| Alerting | Ticketing <br><ul><li>"Required" Field</li><li>Radio Button (Disable Future Inputs)</li><li>Tool Tip</li><li>Form Validation</li></ul> Distribution List |
 | | |
 | | |
 | | |
