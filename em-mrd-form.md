@@ -103,15 +103,24 @@ The GitHub repository for the form files is ....
     duplicate.js
     1. Change the id of the cloned version of the div created in part a <br> *$('#req_'+ index).find('#**divID**).attr('id', '**divIDString**_'+index);*
     1. Change the id of the cloned version of the of the button created in part b $('#req_'+ index).find('#**buttonID**').attr('id', '**buttonIDString**_'+index);
+    <br>
+1. Create "remove" button
+    index.html
+    1. Create a button inside of the list element for the section and create a button. Set the id as: **Section Identifier** + “Rem” <br> [1] LU
+    1. Add a div element with an id: “added” + **Section Identifier** + “RemButton_1” <br> [1] LLUU
 
+    interactionCode.js
+    1. Inside of the else-if clause for the section in the “addInputBox” function set “newRemBox.innerHTML” to button element created the original input box in part a. Set the id of this new button to: “**Original Button Id**” + idNum + “_” + **Section Global Variable**
+    1. After the global variable increment, add: 
+    *document.getElementById('**divIDString**_' + idNum).appendChild(newRemBox);
+    newRemBox.onclick = function() 
+    {
+        newBox.innerHTML = '';
+        newRemBox.innerHTML = '';
+    };*
 
-
-
-
-
-
-
-
+    duplicate.js
+    1. In the section where the previous ids for this section were changed add: $('#req_'+ index).find('#**divID**’).attr('id', '**divIDString**_'+index);
 
 ###Detailed Functionality Instructions
 **Key: <span style="color:red">File name</span>-<span style="color:blue">Reference to specific attribute</span>-<span style="color:green">Function Name</span>*
