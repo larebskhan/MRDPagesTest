@@ -139,7 +139,10 @@ The GitHub repository for the form files is ....
         - ii. Add another else-if clause in *<span style="color:green">addInputBox</span>*
         - iii. Set newBox.innerHTML to the input box being duplicated
 3. Remove Specific Input Boxes
-    - a. 
+    - a. In *<span style="color:red">index.html</span>*
+      - i. look under the comments to find what section of the form you want to remove
+      - ii. find the line starting with the <input tag and delete it to delete the input box
+      - iii. delete the line containing the <label tag for that specific box to delete the label text
 4. Add Requirement
     - a. 
 5. Remove Speicific Requirement
