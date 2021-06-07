@@ -59,12 +59,12 @@ The GitHub repository for the form files is ....
 
 #### Input Types
 | Input Type | Section Used In |
-| ----------- | ----------- |
-| Text | <ul><li>Preliminary Information/Prequisites</li><li>Business Reason</li><li>Risks</li><li>Servers/URL</li><li>File Monitoring</li><li>Alerting</li><li>Acceptance Criteria</li><li>Additional Information</li></ul> |
-| Checkbox | <ul><li>Preliminary Information/Prequisites</li></ul> | 
-| Calendar | <ul><li>Preliminary Information/Prequisites</li></ul> |
-| Checkbox | <ul><li>Servers/URL</li><li>Alerting</li></ul> | 
-| Drop Down | <ul><li>Alerting</li></ul> | 
+|------------|-----------------|
+| Text | Preliminary Information/Prequisites<br>Business Reason<br>Risks<br>Servers/URL<br>File Monitoring<br>Alerting<br>Acceptance Criteria<br>Additional Information |
+| Checkbox | Preliminary Information/Prequisites | 
+| Calendar | Preliminary Information/Prequisites |
+| Checkbox | Servers/URL<br>Alerting | 
+| Drop Down | Alerting | 
 
 
 #### Adding a New Input Section under Requirements
