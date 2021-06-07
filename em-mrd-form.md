@@ -50,6 +50,15 @@ The github repository for the form files is ....
 | Confirmation Page | <ul><li>Display Confirmation Number </li><li>Option to Submit New Form</li></ul> |
 
 
+##Input Types
+| Input Type | Section Used In |
+| ----------- | ----------- |
+| Text | <ul><li>Preliminary Information/Prequisites</li><li>Business Reason</li><li>Risks</li><li>Servers/URL</li><li>File Monitoring</li><li>Alerting</li><li>Acceptance Criteria</li><li>Additional Information</li></ul> |
+| Checkbox | <ul><li>Preliminary Information/Prequisites</li></ul> | 
+| Calendar | <ul><li>Preliminary Information/Prequisites</li></ul> |
+| Checkbox | <ul><li>Servers/URL</li><li>Alerting</li></ul> | 
+| Drop Down | <ul><li>Alerting</li></ul> | 
+
 ###Detailed Functionality Instructions
 **Key: <span style="color:red">File name</span>-<span style="color:blue">Reference to specific attribute</span>-<span style="color:green">Function Name</span>*
 1. Add new element within a requirement(ex. Server, Additional Information, etc.)
