@@ -37,63 +37,37 @@ The github repository for the form files is ....
 | Form Section/Question/Input | Functionality/Features |
 | ----------- | ----------- |
 |Prerequisites/Preliminary Information | <ul><li>"Required" Field</li><li>Calendar Date</li></ul> | 
+| Requirements | <ul><li>"Required" Field</li><li>Collapsible</li><li>Add</li><li>Remove</li></ul> |
+| Buisness Reason | <ul><li>"Required" Field</li></ul> |
+| Risks | <ul><li>Add</li><li>Remove</li><li>Tool Tip</li></ul> |
+| Servers/URL | <ul><li>"Required" Field</li><li>Radio Button (Disable Future Inputs)</li><li>Add</li><li>Remove</li></ul> |
+| File Monioting | <ul><li>Add</li><li>Remove</li><li>Tool Tip</li></ul> |
+| Alerting | Ticketing <br><ul><li>"Required" Field</li><li>Radio Button (Disable Future Inputs)</li><li>Tool Tip</li></ul> Distribution List <ul><li>"Required" Field</li><li>Tool Tip</li><li>Add</li><li>Remove</li><li>Form Validation</li></ul> |
+| Acceptance Criteria | <ul><li>Add</li><li>Remove</li><li>Tool Tip</li></ul> |
+| Additional Information | <ul><li>Add</li><li>Remove</li><li>Tool Tip</li></ul> |
+| Submit | <ul><li>Alerts User</li><li>Highlight Inavlid Inputs</li><li>Change to SubmitValidation.js on success</li><li>Saves data to JSON</li></ul> |
+| Confirmation Page | <ul><li>Display Confirmation Number </li><li>Option to Submit New Form</li></ul> |
 
-###Form Functionality Overview
-1. Header information
-    - Checkboxes
-    - Required
-    - Calendar Date
-2. Requirements 
-    - Required
-    - Collapsible
-    - Add
-    - Remove targeted requirements
-3. Business Reason
-    - Required
-4. Risks
-    - Add
-    - Remove
-    - Tooltip
-5. Servers
-    - Required
-    - Radio Button
-    - Add
-    - Remove
-6. File Monitoring
-    - Tooltip
-    - Add
-    - Remove
-7. Alerting
-    - Required
-    - Tooltip
-    - Search Scheduler
-    - Radio Button
-        - Disables/enables specific sections based on user input
-    - Ticketing
-        - Serverity drop-down(required)
-        - Ticketing Condition
-        - Ticket bucket drop-down
-    - Distribution List
-        - Add
-            - Form Validation(email with specific domains)
-        - Remove
-        - Tooltip
-8. Acceptance Criteria
-    - Tooltip
-    - Add
-    - Remove
-9. Additional Information
-    - Tooltip
-    - Add
-    - Remove
-10. Submit
-    - Alerts user
-    - Highlights inputs red on invalid input
-    - Moves to SubmitValidation.html on success
-    - Saves data to JSON
-11. Confirmation Page
-    - Display confirmation number
-    - Button to submit new form 
+
+##Input Types
+| Input Type | Section Used In |
+| ----------- | ----------- |
+| Text | <ul><li>Preliminary Information/Prequisites</li><li>Business Reason</li><li>Risks</li><li>Servers/URL</li><li>File Monitoring</li><li>Alerting</li><li>Acceptance Criteria</li><li>Additional Information</li></ul> |
+| Checkbox | <ul><li>Preliminary Information/Prequisites</li></ul> | 
+| Calendar | <ul><li>Preliminary Information/Prequisites</li></ul> |
+| Checkbox | <ul><li>Servers/URL</li><li>Alerting</li></ul> | 
+| Drop Down | <ul><li>Alerting</li></ul> | 
+
+
+##Adding a New Input Section under Requirements
+1. Add the section
+    1. (index.html) <br> Add a new list element in the unordered list element in requirements section
+    1. (index.html) <br> Add inputs/labels/tool tips/any other additional information needed for the new section inside of the list element
+        1. For input names, name them as: **Section Identifier** + “ 1” <br> [1] UN
+    1. (duplicate.js) <br> If checkboxes were used:
+        1. Under the section commented with “Keep Requirement 1 Radio Buttons Checked”, create a variable and initialize it with the checked value of the input. <br> var *variableName = $("input[name='**inputName**']:checked").attr('id');*
+        1. Set the value of the radio button in requirement 1 to that variable. <br> *$('#req_1').find('#'+**variableName**).prop('checked', true);*
+
 
 
 ###Detailed Functionality Instructions
