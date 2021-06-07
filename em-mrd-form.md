@@ -50,7 +50,7 @@ The GitHub repository for the form files is ....
 | Risks | Add<br>Remove<br>Tool Tip<br> |
 | Servers/URL | "Required" Field<br>Radio Button (Disable Future Inputs)<br>Add<br>Remove |
 | File Monioting | Add<br>Remove<br>Tool Tip |
-| Alerting | *Ticketing* <br>"Required" Field<br>Radio Button (Disable Future Inputs)<br>Tool Tip<br> *Distribution List* <br>"Required" Field<br>Tool Tip<br>Add<br>Remove<br>Form Validation |
+| Alerting | *Ticketing* <br>"Required" Field<br>Radio Button (Disable Future Inputs)<br>Tool Tip<br><br> *Distribution List* <br>"Required" Field<br>Tool Tip<br>Add<br>Remove<br>Form Validation |
 | Acceptance Criteria | Add<br>Remove<br>Tool Tip<br> |
 | Additional Information | Add<br>Remove<br>Tool Tip |
 | Submit | Alerts User<br>Highlight Inavlid Inputs<br>Change to SubmitValidation.js on success<br>Saves data to JSON |
