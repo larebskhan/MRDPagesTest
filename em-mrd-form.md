@@ -34,6 +34,12 @@ The github repository for the form files is ....
 | interactionCode.js | Functions for form elements in index.html |
 | style.css |  Style classes of form elements: color, size, position, font, borders, etc|
 
+##Form Functionality Overview
+| Form Section/Question/Input | Functionality/Features |
+| ----------- | ----------- |
+|Prerequisites/Preliminary Information | 1. "Required" Field
+2. Calendar Date | 
+
 ###Form Functionality Overview
 1. Header information
     - Checkboxes
