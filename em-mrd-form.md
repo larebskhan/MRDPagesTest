@@ -7,29 +7,29 @@ product: MRD
 ---
 
 # MRD Form
-####Important Information:
+#### Important Information:
 [1] L: Lower Case
-    &nbsp;&nbsp;&nbsp;&nbsp; U: Upper Case
-    &nbsp;&nbsp;&nbsp;&nbsp; N: No case
-    &nbsp;&nbsp;&nbsp;&nbsp; Ex. LUL = Lower Case, Upper Case, Lower Case
+    <br>&nbsp;&nbsp;&nbsp;&nbsp; U: Upper Case
+    <br>&nbsp;&nbsp;&nbsp;&nbsp; N: No case
+    <br>&nbsp;&nbsp;&nbsp;&nbsp; Ex. LUL = Lower Case, Upper Case, Lower Case
 *Bolded values are not to be written verbatim: Change value depending on previous naming conventions
 *Please see MRD Form files for more detailed commentary
 
-####MRD Form Overview
+#### MRD Form Overview
 The Monitoring Requirements Document Form was created in order to produce and process MRDS more easily. The form ensures both clear communication between clients and the data monitoring team. It ensures all expectations are met.
 
 Users can access the form at ...... On submission, the form data is saved in JSON file format and injected into Splunk to be accessed by the monitoring team. Each form has a confirmation number so users can find the status of their monitoring request.
 
 The GitHub repository for the form files is ....
 
-####Required Preliminary Knowledge:
+#### Required Preliminary Knowledge:
 - Basic HTML (Form Structure / elements)
 - Basic JavaScript (Create functions to manipulate form elements)
 - Basic CSS (Styling)
 - Basic familiarity with jQuery (JavaScript library)
 - Basic familiarity with Bootstrap (Webpage framework of HTML, JS, and CSS)
 
-####File List
+#### File List
 | File Name | File Purpose / Description |
 | ----------- | ----------- |
 | SubmitValidation.html | Confirmation page that is accessed once form is submitted. <br><br> Includes a confirmation number, some additional information, and a button to fill out another form. |
@@ -41,7 +41,7 @@ The GitHub repository for the form files is ....
 | interactionCode.js | Includes functions that manipulate form elements in index.html and SubmitValidation.html based on user interaction. <br><br> Descriptions for each function in interactionCode.js can be found in the *interactionCode.js Function Descriptions* section below. |
 | style.css |  Contains styles for most elements in index.html and SubmitValidation.html. Style classes of form element attributes. These attributes include color, size, position, font, borders, etc. <br><br> To give an html element a class of attributes use class="className" within the html element <br><br> *Note: Some styling has also been done using internal CSS in the index.html file.* |
 
-####Form Functionality Overview
+#### Form Functionality Overview
 | Form Section/Question/Input | Functionality/Features |
 | ----------- | ----------- |
 |Prerequisites/Preliminary Information | <ul><li>"Required" Field</li><li>Calendar Date</li></ul> | 
@@ -57,7 +57,7 @@ The GitHub repository for the form files is ....
 | Confirmation Page | <ul><li>Display Confirmation Number </li><li>Option to Submit New Form</li></ul> |
 
 
-####Input Types
+#### Input Types
 | Input Type | Section Used In |
 | ----------- | ----------- |
 | Text | <ul><li>Preliminary Information/Prequisites</li><li>Business Reason</li><li>Risks</li><li>Servers/URL</li><li>File Monitoring</li><li>Alerting</li><li>Acceptance Criteria</li><li>Additional Information</li></ul> |
@@ -67,7 +67,7 @@ The GitHub repository for the form files is ....
 | Drop Down | <ul><li>Alerting</li></ul> | 
 
 
-####Adding a New Input Section under Requirements
+#### Adding a New Input Section under Requirements
 1. Add the section
     index.html
     1. Add a new list element in the unordered list element in requirements section
@@ -138,8 +138,8 @@ The GitHub repository for the form files is ....
     1. In the section where the previous ids for this section were changed add: 
         - $('#req_'+ index).find('#**divID**’).attr('id', '**divIDString**_'+index);
 
-####Additional Functionality Information
-######Tool Tips
+#### Additional Functionality Information
+###### Tool Tips
 Tool tip images were imported using: 
 <xmp> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></xmp>
 - To add a question mark: <xmp> <i class="fa fa-question-circle"></i> </xmp>
@@ -156,62 +156,10 @@ Email form validation is done in *index.html* using the pattern attribute:
     onchange="this.setCustomValidity('')" 
     required></xmp>
     
-######Confirmation Number
+###### Confirmation Number
 The confirmation number is generated in *confirmation.js* when *index.html* loads. That value is saved, and displayed on *SubmitValidation.html* when *SubmitValidation.html* loads using *confirmationSubmit.js*.
-<!---
-###Detailed Functionality Instructions
-**Key: <span style="color:red">File name</span>-<span style="color:blue">Reference to specific attribute</span>-<span style="color:green">Function Name</span>*
-1. Add new element within a requirement(ex. Server, Additional Information, etc.)
-    - a. Create a list element within the unordered list inside div with the id *<span style="color:blue">collapsible_1</span>* in the *<span style="color:red">index.html</span>* file.
-    - b. Add *<span style="color:blue">"label"</span>* tag for the new element with the name of the new element
-    - c. Add and style user inputs using Bootstrap and CSS
-2. Add/Duplicate an Additional Input Box
-    - a. In *<span style="color:red">index.html</span>*:
-        - i. Create a button element. Set the ID of this button to *<span style="color:blue">"add" + sectionName + "_1".</span>*
-        - ii. Add an onclick event to button that calls the *<span style="color:green">addInputBox</span>* function
-        - iii. Pass *<span style="color:green">this.id</span>* and a string containing a name that corresponds to the element. 
-        - iv. Create "div" element. Set the id to *<span style="color:blue">"added" + name + "input".</span>* Note the name should be the same string as the one passed in the *<span style="color:green">addInputBox</span>* function in the step above.
-    - b. In *<span style="color:red">interactionCode.js</span>*
-        - i. Add global variable for new element
-        - ii. Add another else-if clause in *<span style="color:green">addInputBox</span>*
-        - iii. Set newBox.innerHTML to the input box being duplicated
-3. Remove Specific Input Boxes
-    - a. In *<span style="color:red">index.html</span>*
-      - i. look under the comments to find what section of the form you want to remove
-      - ii. find the line starting with the <input tag and delete it to delete the input box
-      - iii. delete the line containing the <label tag for that specific box to delete the label text
-4. Add Requirement
-    - a. 
-5. Remove Speicific Requirement
-    - a. 
-6. Create Collapsible
-    - a. Create header for collapsible: INSTRUCTIONS
-    - b. Create body for collapsible: INSTRUCTIONS
-    - c. To add a new collapsible within the list element: INSTRUCTIONS
-7. Submission Review Alert
-    - a. 
-8. Outline Invalid Inputs
-    - a.
-9. Confirmation Number Generations+Display
-    - a.
-10. Date Restriction
-    - a.
-11. Radio Button Options
-    - a.
-12. Drop-Down options
-    - a. 
-13. Email Form Validation
-    - a.
-14. Add Tooltips
-    - a. 
-15. JSON file save
-    - a.
-16. Button to new Form
-    - a.
-17. Disable Inputs
-    - a. 
---->
-####interactionCode.js Function Descriptions
+
+#### interactionCode.js Function Descriptions
 
     - alertingInput(choice,id)
   This function is called when the radio buttons for ticket, email, or 'both' are selected in the alerting section of the form (index.html). If ticket is selected, the email input elements will be disabled. If email is selected, the ticket input elements will be disabled. If 'both' is selected, all elements will be enabled.
