@@ -22,18 +22,11 @@ Users can access the form at ...... On submission, the form data is saved in JSO
 
 The GitHub repository for the form files is ....
 
-*Please see MRD Form files for more detailed commentary
-The Monitroing Requirements Document Form was created in order to produce and process MRDS more easily. The form ensures both clear communication between clients and the data monitoring team. It ensures all expectations are met.
-
-Users can access the form at ...... On submission, the form data is saved in  JSON file format and inkected into Splunk to be accessed by the monitoring team. Each form has a confirmation number so users can find the status of their monitroing request.
-
-The github repository for the form files is ....
-
 ###Required Preliminary Knowledge:
 - Basic HTML (Form Structure / elements)
-- Basic JavaScript(Create functions to manipulate form elements)
+- Basic JavaScript (Create functions to manipulate form elements)
 - Basic CSS (Styling)
-- Basic familiarity with jQuery(JavaScript library)
+- Basic familiarity with jQuery (JavaScript library)
 - Basic familiarity with Bootstrap (Webpage framework of HTML, JS, and CSS)
 
 ###File List
@@ -43,7 +36,7 @@ The github repository for the form files is ....
 | confirmation.js | A simple JavaScript function that genertes a confirmation number when each form is loaded using the built in Math.floor() and Math.random() functions |
 | confirmationSubmit.js | Function that grabs the confirmation number that was generated in confirmation.js and outputs it to the confrimation page for the user to view|
 | dataHandling.js | Convert the form data to a JSON file when submitted using two functions <p>&nbsp;</p> The function *getFormJSON* creates a json object including all fields in the form as key-value pairs <p>&nbsp;</p> The function *handler* handles the form submission event, prevents default form behaviour, checks validity, and converts form to a JSON file  |
-| duplicate.js | Functions to duplicate input boxes when any add button is clicked <p>&nbsp;</p>|
+| duplicate.js | Function to duplicate input boxes when any add button is clicked <p>&nbsp;</p> Every time a new field is created this function needs to be updated so that any duplicate fields can be added for multiple requirements or multiple instances of that field. Instructions for this are included below|
 | index.html | Creates form fields and input boxes on page with formatting <p>&nbsp;</p> The *head* section includes form metadata, the title, and imports necesary bootstrap and css files as well as javascript files and scripts <p>&nbsp;</p> The *body* section creates all form fields and input boxes with proper formatting, it is the frontend code in html. The code appears in the order of the page from top to bottom. <p>&nbsp;</p>Instuctions on how to create form fields with certain attributes can be found below|
 | interactionCode.js | Functions to manipulate form elements in index.html based on user interaction. <p>&nbsp;</p> Descriptions for each function in interactionCode.js can be found below |
 | style.css |  Style classes of form element attributes. These attributes include color, size, position, font, borders, etc <p>&nbsp;</p> To give an html element a class of attributes use class="className" within the html element|
