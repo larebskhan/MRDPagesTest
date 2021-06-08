@@ -130,12 +130,14 @@ The GitHub repository for the form files is ....
     1. Inside of the else-if clause for the section in the “addInputBox” function set “newRemBox.innerHTML” to button element created the original input box in part a. Set the id of this new button to: 
         - *“**Original Button Id**” + idNum + “_” + **Section Global Variable***
     1. After the global variable increment, add:
-        - *document.getElementById('**divIDString**_' + idNum).appendChild(newRemBox);
+        ```
+        document.getElementById('**divIDString**_' + idNum).appendChild(newRemBox);
         newRemBox.onclick = function() 
         {
             newBox.innerHTML = '';
             newRemBox.innerHTML = '';
-        };*
+        };
+        ```
 
     duplicate.js
     1. In the section where the previous ids for this section were changed add: 
@@ -144,20 +146,25 @@ The GitHub repository for the form files is ....
 ### Additional Functionality Information
 ##### Tool Tips
 Tool tip images were imported using: 
-<xmp> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> </xmp>
-- To add a question mark: <xmp> <i class="fa fa-question-circle"></i> </xmp>
-- To add an exclamation mark: <xmp><i class="fa fa-exclamation-circle" aria-hidden="true"></i> </xmp>
+```
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+```
+
+- To add a question mark: ```<i class="fa fa-question-circle"></i>```
+- To add an exclamation mark: ```<i class="fa fa-exclamation-circle" aria-hidden="true"></i>```
 
 ##### Email Form Validation
 Email form validation is done in *index.html* using the pattern attribute: 
-<xmp><input type="email" 
+```
+    <input type="email" 
     class="form-control" id="email" 
     placeholder="Distribution List" 
     name="Distribution List 1" 
     pattern=".+@bcbssc.com|.+@paisc.com|.+@cgifederal.com|.+@palmettogba.com|.+@palmettogbaservices.com|.+@companiondataservices.com|.+@cdsedc.com|.+@ngc.com|.+@cgsadmin.com|.+@docfinity.com|.+@a70amed.com"  
     oninvalid="this.setCustomValidity('Please enter your email address with one of the following domains from below')" 
     onchange="this.setCustomValidity('')" 
-    required></xmp>
+    required>
+ ```
     
 ##### Confirmation Number
 The confirmation number is generated in *confirmation.js* when *index.html* loads. That value is saved, and displayed on *SubmitValidation.html* when *SubmitValidation.html* loads using *confirmationSubmit.js*.
