@@ -6,7 +6,7 @@ tags: [enterprise-monitoring, ICT, ITBS]
 product: MRD
 ---
 
-###Important Information
+### Important Information
 [1] L: Lower Case
     <br> &nbsp;&nbsp;&nbsp;&nbsp; U: Upper Case
     <br> &nbsp;&nbsp;&nbsp;&nbsp; N: No case
