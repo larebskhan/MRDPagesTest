@@ -6,7 +6,10 @@ tags: [enterprise-monitoring, ICT, ITBS]
 product: MRD
 ---
 
-### Important Information:
+<div class="panel panel-warning">
+**Important Information**
+{: .panel-heading}
+<div class="panel-body">
 [1] L: Lower Case
     <br> &nbsp;&nbsp;&nbsp;&nbsp; U: Upper Case
     <br> &nbsp;&nbsp;&nbsp;&nbsp; N: No case
@@ -14,6 +17,8 @@ product: MRD
      Ex. LUL = Lower Case, Upper Case, Lower Case
 <br> *Bolded values are not to be written verbatim: Change value depending on previous naming conventions
 <br> *Please see MRD Form files for more detailed commentary
+    </div>
+    </div>
 
 ### MRD Form Overview
 The Monitoring Requirements Document Form was created in order to produce and process MRDS more easily. The form ensures clear communications between clients and the data monitoring team. It ensures all expectations are met.
