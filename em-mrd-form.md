@@ -81,19 +81,19 @@ The GitHub repository for the form files is ....
     duplicate.js
     1. If checkboxes were used:
         1. Under the section commented with “Keep Requirement 1 Radio Buttons Checked”, create a variable and initialize it with the checked value of the input.
-            - var *variableName = $("input[name='**inputName**']:checked").attr('id');*
+            ```var *variableName = $("input[name='**inputName**']:checked").attr('id');*```
         1. Set the value of the radio button in requirement 1 to that variable.
-            - *$('#req_1').find('#'+**variableName**).prop('checked', true);*
+            ```*$('#req_1').find('#'+**variableName**).prop('checked', true);```
     1. If any inputs/buttons were disabled using interaction.js:
         1. Under the section commented with “Enable Buttons/Inputs after Duplication”, enable the inputs. 
-            - *$('#req_'+ index).find('#**inputId**') prop('disabled', false)*
+            ```*$('#req_'+ index).find('#**inputId**') prop('disabled', false)```
     1. Change input id and name values. For names, change the value under the section commented with “” and for id values, create a commented section for the specific section and change the id value there. For id, ensure that the value is changed after the section commented with “Clone Requirement and Change IDs Collapse Functionality section”.
         1. Id Change: 
-            - *$('#req_'+index).find('#**idValue**').attr('id','#**idValueString**_'+index);*
+            ```$('#req_'+index).find('#**idValue**').attr('id','#**idValueString**_'+index);```
         1. Name Change: 
-            - *$('#req_'+ index).find("[name='**Input Name** 1']").attr('name', '**Input Name** '+index)*
+            ```$('#req_'+ index).find("[name='**Input Name** 1']").attr('name', '**Input Name** '+index)```
     1. Under the section commented with “Clear Input Values After Cloned”, clear the value of the new input (after creation of new requirement). 
-        - *$('#req_'+ index).find('#**idValue**').val('');*
+        ```$('#req_'+ index).find('#**idValue**').val('');```
     <br>
 1. Create an "add" button
     index.html
@@ -115,9 +115,9 @@ The GitHub repository for the form files is ....
     
     duplicate.js
     1. Change the id of the cloned version of the div created in part a 
-        - *$('#req_'+ index).find('#**divID**).attr('id', '**divIDString**_'+index);*
+        ```$('#req_'+ index).find('#**divID**).attr('id', '**divIDString**_'+index);```
     1. Change the id of the cloned version of the of the button created in part b 
-        - $('#req_'+ index).find('#**buttonID**').attr('id', '**buttonIDString**_'+index);
+        ```$('#req_'+ index).find('#**buttonID**').attr('id', '**buttonIDString**_'+index);```
     <br>
 1. Create "remove" button
     index.html
@@ -128,7 +128,9 @@ The GitHub repository for the form files is ....
 
     interactionCode.js
     1. Inside of the else-if clause for the section in the “addInputBox” function set “newRemBox.innerHTML” to button element created the original input box in part a. Set the id of this new button to: 
-        - *“**Original Button Id**” + idNum + “_” + **Section Global Variable***
+        - *“**Original Button Id**” + idNum + “_” + **Section Global Variable*** 
+        
+
     1. After the global variable increment, add:
         ```
         document.getElementById('**divIDString**_' + idNum).appendChild(newRemBox);
