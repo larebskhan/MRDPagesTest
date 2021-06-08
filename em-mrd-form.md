@@ -16,7 +16,7 @@ product: MRD
 <br> *Please see MRD Form files for more detailed commentary
 
 ### MRD Form Overview
-The Monitoring Requirements Document Form was created in order to produce and process MRDS more easily. The form ensures both clear communication between clients and the data monitoring team. It ensures all expectations are met.
+The Monitoring Requirements Document Form was created in order to produce and process MRDS more easily. The form ensures clear communications between clients and the data monitoring team. It ensures all expectations are met.
 
 Users can access the form at ...... On submission, the form data is saved in JSON file format and injected into Splunk to be accessed by the monitoring team. Each form has a confirmation number so users can find the status of their monitoring request.
 
@@ -33,14 +33,14 @@ The GitHub repository for the form files is ....
 
 | File Name | File  Description |
 |-----------|-------------------|
-| SubmitValidation.html | Confirmation page that is accessed once form is submitted. <br><br> Includes a confirmation number, some additional information, and a button to fill out another form. |
-| confirmation.js | A simple JavaScript function that genertes a confirmation number when each form is loaded using the built in Math.floor() and Math.random() functions. |
-| confirmationSubmit.js | Function that grabs the confirmation number that was generated in confirmation.js and outputs it to the confrimation page for the user to view. |
-| dataHandling.js | Convert the form data to a JSON file when submitted using two functions. <br><br> The function *getFormJSON* creates a json object including all fields in the form as key-value pairs. <br><br> The function *handler* handles the form submission event, prevents default form behaviour, and checks validity.  Saving the JSON file is done in interactioncode.js |
-| duplicate.js | Uses jQuery to duplicate the contents in the first requirement, empty the inputs so that the new requirement does not have data from the first one, and change id values and name attributes. <br> <br>  Every time a new section is added this function needs to be updated for that section, so that elements do not have the same id and name attributes after a new requirements have been added.|
-| index.html | Creates form fields and input boxes on page with formatting. <br><br> The *head* section includes form metadata, the title, and imports necesary bootstrap and css files as well as javascript files and scripts. <br><br> The *body* section creates all form fields and input boxes with proper formatting, it is the frontend code in html. The code appears in the order of the page from top to bottom. <br><br>Instuctions on how to create form fields with certain attributes can be found in the *Adding a New Input Section under Requirements* section below. |
+| SubmitValidation.html | Confirmation page that is accessed once the form is submitted. <br><br> Includes a confirmation number, some additional information, and a button to fill out another form. |
+| confirmation.js | A simple JavaScript function that generates a confirmation number when each form is loaded using the built-in Math.floor() and Math.random() functions. |
+| confirmationSubmit.js | Function that grabs the confirmation number that was generated in confirmation.js and outputs it to the confirmation page for the user to view. |
+| dataHandling.js | Convert the form data to a JSON file when submitted using two functions. <br><br> The function *getFormJSON* creates a JSON object including all fields in the form as key-value pairs. <br><br> The function *handler* handles the form submission event, prevents default form behavior, and checks validity.  Saving the JSON file is done in interactioncode.js |
+| duplicate.js | Uses jQuery to duplicate the contents in the first requirement, empty the inputs so that the new requirement does not have data from the first one, and change id values and name attributes. <br> <br>  Every time a new section is added this function needs to be updated for that section so that elements do not have the same id and name attributes after new requirements have been added.|
+| index.html | Creates form fields and input boxes on the page with formatting. <br><br> The *head* section includes form metadata, the title, and imports necessary Bootstrap and CSS files as well as javascript files and scripts. <br><br> The *body* section creates all form fields and input boxes with proper formatting, it is the frontend code in HTML. The code appears in the order of the page from top to bottom. <br><br>Instuctions on how to create form fields with certain attributes can be found in the *Adding a New Input Section under Requirements* section below. |
 | interactionCode.js | Includes functions that manipulate form elements in index.html and SubmitValidation.html based on user interaction. <br><br> Descriptions for each function in interactionCode.js can be found in the *interactionCode.js Function Descriptions* section below. |
-| style.css |  Contains styles for most elements in index.html and SubmitValidation.html. Style classes of form element attributes. These attributes include color, size, position, font, borders, etc. <br><br> To give an html element a class of attributes use class="className" within the html element <br><br> *Note: Some styling has also been done using internal CSS in the index.html file.* |
+| style.css |  Contains styles for most elements in index.html and SubmitValidation.html. Style classes of form element attributes. These attributes include color, size, position, font, borders, etc. <br><br> To give an HTML element a class of attributes use class="className" within the HTML element <br><br> *Note: Some styling has also been done using internal CSS in the index.html file.* |
 
 ### Form Functionality Overview
 
@@ -73,8 +73,8 @@ The GitHub repository for the form files is ....
 ### Adding a New Input Section under Requirements
 1. Add the section
     index.html
-    1. Add a new list element in the unordered list element in requirements section
-    1. Add inputs/labels/tool tips/any other additional information needed for the new section inside of the list element
+    1. Add a new list element in the unordered list element in the requirements section
+    1. Add inputs/labels/tooltips/any other additional information needed for the new section inside of the list element
         1. For input names, name them as: 
             - *_**Section Identifier** + “ 1_* <br> [1] UN
 
@@ -143,7 +143,7 @@ The GitHub repository for the form files is ....
 
     duplicate.js
     1. In the section where the previous ids for this section were changed add: 
-        - $('#req_'+ index).find('#**divID**’).attr('id', '**divIDString**_'+index);
+        ```$('#req_'+ index).find('#**divID**’).attr('id', '**divIDString**_'+index);```
 
 ### Additional Functionality Information
 ##### Tool Tips
@@ -169,22 +169,18 @@ Email form validation is done in *index.html* using the pattern attribute:
  ```
     
 ##### Confirmation Number
-The confirmation number is generated in *confirmation.js* when *index.html* loads. That value is saved, and displayed on *SubmitValidation.html* when *SubmitValidation.html* loads using *confirmationSubmit.js*.
+The confirmation number is generated in *confirmation.js* when *index.html* loads. That value is saved and displayed on *SubmitValidation.html* when *SubmitValidation.html* loads using *confirmationSubmit.js*.
 
 ### interactionCode.js Function Descriptions
 
 | Function | Description |
 |----------|-------------|
-| alertingInput(choice,id) | This function is called when the radio buttons for ticket, email, or 'both' are selected in the alerting section of the form (index.html). If ticket is selected, the email input elements will be disabled. If email is selected, the ticket input elements will be disabled. If 'both' is selected, all elements will be enabled |
-| URLServerInput(choice,id)  |  Similar to alerting Input, disable URL if server is secelected and vice versa, if "both" is selected, neither should be disabled |
+| alertingInput(choice,id) | This function is called when the radio buttons for a ticket, email, or 'both' are selected in the alerting section of the form (index.html). If ticket is selected, the email input elements will be disabled. If email is selected, the ticket input elements will be disabled. If 'both' is selected, all elements will be enabled |
+| URLServerInput(choice,id)  |  Similar to alerting Input, disable URL if the server is selected and vice versa, if "both" is selected, neither should be disabled |
 | saveJSON(text, filename) | Downloads files locally |
 | serverWarning(id) | A warning pops up if a user inputs a server name that does not start with a03 or a70. The warning does not prevent the user from submitting |
-| removeReq(id,name) | Allows user to remove requirements using an X button. The first requirement cannot be removed |
+| removeReq(id,name) | Allows the user to remove requirements using an X button. The first requirement cannot be removed |
 | minDate() | Restricts the user from inputting Project End Dates that occurred in the past |
 | addInputBox(id, name) | Adds a new input box whenever an add button is clicked for a field |
-| validatetextboxes() | If a user clicks submit and any input boxes that are required are not filled out, that input box will then have red border around it to indicate it has not been completed. The border will change to default once the input box has been filled out |
-| characterCount() | Once user begins typing in the text area for additional information, a character counter of 350 characters appears at the bottom of the textarea and reaches 0 once user has reached the character limit |
-
-
-
-
+| validatetextboxes() | If a user clicks submit and any input boxes that are required are not filled out, that input box will then have a red border around it to indicate it has not been completed. The border will change to default once the input box has been filled out |
+| characterCount() | Once the user begins typing in the text area for additional information, a character counter of 350 characters appears at the bottom of the textarea and reaches 0 once the user has reached the character limit |
