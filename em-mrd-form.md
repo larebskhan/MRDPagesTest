@@ -1,5 +1,5 @@
 --- 
-title: Monitoring Requiremens Document Form
+title: Monitoring Requirements Document Form
 permalink: em-mrd-help.html
 sidebar: generic
 tags: [enterprise-monitoring, ICT, ITBS]
@@ -71,8 +71,7 @@ The GitHub repository for the form files is ....
 
 
 ### Adding a New Input Section under Requirements
-1. Add the section
-    index.html
+1. Add the section <br> index.html
     1. Add a new list element in the unordered list element in the requirements section
     1. Add inputs/labels/tooltips/any other additional information needed for the new section inside of the list element
         1. For input names, name them as: 
