@@ -81,12 +81,12 @@ The GitHub repository for the form files is ....
     duplicate.js
     1. If checkboxes were used:
         1. Under the section commented with “Keep Requirement 1 Radio Buttons Checked”, create a variable and initialize it with the checked value of the input.
-            ```var *variableName = $("input[name='**inputName**']:checked").attr('id');*```
+            ```var *variableName = $("input[name='**inputName**']:checked").attr('id');```
         1. Set the value of the radio button in requirement 1 to that variable.
-            ```*$('#req_1').find('#'+**variableName**).prop('checked', true);```
+            ```$('#req_1').find('#'+**variableName**).prop('checked', true);```
     1. If any inputs/buttons were disabled using interaction.js:
         1. Under the section commented with “Enable Buttons/Inputs after Duplication”, enable the inputs. 
-            ```*$('#req_'+ index).find('#**inputId**') prop('disabled', false)```
+            ```$('#req_'+ index).find('#**inputId**') prop('disabled', false)```
     1. Change input id and name values. For names, change the value under the section commented with “” and for id values, create a commented section for the specific section and change the id value there. For id, ensure that the value is changed after the section commented with “Clone Requirement and Change IDs Collapse Functionality section”.
         1. Id Change: 
             ```$('#req_'+index).find('#**idValue**').attr('id','#**idValueString**_'+index);```
@@ -122,7 +122,7 @@ The GitHub repository for the form files is ....
 1. Create "remove" button
     index.html
     1. Create a button inside of the list element for the section and create a button. Set the id:
-        - ***Section Identifier** + “Rem”* <br> [1] LU
+        ***Section Identifier** + “Rem”* <br> [1] LU
     1. Add a div element with an id:
         -  *“added” + **Section Identifier** + “RemButton_1”* <br> [1] LLUU
 
