@@ -13,7 +13,8 @@ product: MRD
     <br> &nbsp;&nbsp;&nbsp;&nbsp; N: No case
     <br> &nbsp;&nbsp;&nbsp;&nbsp; 
      Ex. LUL = Lower Case, Upper Case, Lower Case
-<br> *Bolded values are not to be written verbatim: Change value depending on previous naming conventions
+<br> *Any values surrounded by @ signs and in all caps are not to be written verbatim: Change the value depending on previous naming conventions. 
+<br> Ex:  @SECTIONIDENTIFIER@ + “Input_1” can be written as addRiskInput_1 
 <br> *Please see MRD Form files for more detailed commentary
 </div>
 
@@ -77,63 +78,63 @@ The GitHub repository for the form files is ....
     1. Add a new list element in the unordered list element in the requirements section
     1. Add inputs/labels/tooltips/any other additional information needed for the new section inside of the list element
         1. For input names, name them as: 
-            - <mark>*_**Section Identifier** + “ 1_*</mark> <br> [1] UN
+            - <mark>@SECTION IDENTIFIER@ + “ 1"</mark> <br> [1] UN
 
     **duplicate.js**
     1. If checkboxes were used:
         1. Under the section commented with “Keep Requirement 1 Radio Buttons Checked”, create a variable and initialize it with the checked value of the input.
-            <code><span style="color:red">var *variableName = $("input[name='**inputName**']:checked").attr('id');</span></code>
+            <code><span style="color:red">var @VARIABLENAME@ = $("input[name='@INPUT_NAME@']:checked").attr('id');</span></code>
         1. Set the value of the radio button in requirement 1 to that variable.
-            <code><span style="color:red">$('#req_1').find('#'+**variableName**).prop('checked', true);</span></code>
+            <code><span style="color:red">$('#req_1').find('#'+@VARIABLENAME@).prop('checked', true);</span></code>
     1. If any inputs/buttons were disabled using interaction.js:
         1. Under the section commented with “Enable Buttons/Inputs after Duplication”, enable the inputs. 
-            <code><span style="color:red">$('#req_'+ index).find('#**inputId**') prop('disabled', false)</span></code>
-    1. Change input id and name values. For names, change the value under the section commented with “” and for id values, create a commented section for the specific section and change the id value there. For id, ensure that the value is changed after the section commented with “Clone Requirement and Change IDs Collapse Functionality section”.
+            <code><span style="color:red">$('#req_'+ index).find('#@INPUT ID@').prop('disabled', false)</span></code>
+    1. Change input id and name values. For names, change the value under the section commented with “Change Names of all Inputs” and for id values, create a commented section for the specific section and change the id value there. For id, ensure that the value is changed after the section commented with “Clone Requirement and Change IDs Collapse Functionality section”.
         1. Id Change: 
-            <code><span style="color:red">$('#req_'+index).find('#**idValue**').attr('id','#**idValueString**_'+index);```</span></code>
+            <code><span style="color:red">$('#req_'+index).find('#@IDVALUE@').attr('id','#@IDVALUESTRING@'+index);</span></code>
         1. Name Change: 
-            <code><span style="color:red">$('#req_'+ index).find("[name='**Input Name** 1']").attr('name', '**Input Name** '+index)</span></code>
+            <code><span style="color:red">$('#req_'+ index).find("[name='@INPUT_NAME@ 1']").attr('name', '@INPUTNAME@'+index)</span></code>
     1. Under the section commented with “Clear Input Values After Cloned”, clear the value of the new input (after creation of new requirement). 
-        <code><span style="color:red">$('#req_'+ index).find('#**idValue**').val('');</span></code>
+        <code><span style="color:red">$('#req_'+ index).find('#@IDVALUE@').val('');</span></code>
     <br>
 1. Create an "add" button
     **index.html**
-    1. Underneath the original input box add a div element with an id: <br> <mark>*“added” + **Section Identifier** + “Input_1”* </mark> <br> [1] LLU
-    1. At the bottom of the list element add a button with an id: <br> <mark>*“add” + **Section Identifier** + “_1”* </mark> <br> [1] LUN
+    1. Underneath the original input box add a div element with an id: <br> <mark>“added” + @SECTIONIDENTIFIER@ + “Input_1”* </mark> <br> [1] LLU
+    1. At the bottom of the list element add a button with an id: <br> <mark>“add” + @SECTIONIDENTIFIER@ + “_1” </mark> <br> [1] LUN
     1. Add an onclick event to the add button that calls on the function “addInputBox” and sends the button id and a name as parameters. <br> “addInputBox(this.id, name)” <br> *The name should be the same as the id of the div in part a, except without “added” and “_1”.
-        - <mark> _**Section Identifier** + “Input”_</mark>
+        - <mark> @SECTIONIDENTIFIER@ + “Input”</mark>
     [1] LU
 
     **interactionCode.js**
-    1. Find the “addInputBox()” function and add another else-if clause with the <br><mark> _condition: name == **section identifier** (value passed in part c)_</marK>
+    1. Find the “addInputBox()” function and add another else-if clause with the <br><mark> condition: name == @SECTIONIDENTIFIER@ (value passed in part c)</marK>
     1. Outside of the function, add a global variable for the section and initialize it to 1.
     1. Inside the else-if clause, set “newBox.innerHTML” to the input element used to create the original input box in part a.
         1. Set the id of this new input to: 
-            - <mark>*“**Original Input Id**” + idNum + “_” + **Section Global Variable***</mark>
+            - <mark>“@ORIGINALINPUTID@” + idNum + “_” + @SECTIONGLOBALVARIABLE@</mark>
         1. Set the name of this new input to: 
-            - <mark>*“**Original Input Name** ” + idNum*</mark>
+            - <mark>“@ORIGINALINPUTNAME@” + idNum</mark>
     1. Increment the global variable created in part e
     
     **duplicate.js**
     1. Change the id of the cloned version of the div created in part a 
-        <code><span style="color:red">$('#req_'+ index).find('#**divID**).attr('id', '**divIDString**_'+index);</span></code>
+        <code><span style="color:red">$('#req_'+ index).find('#@DIVID@).attr('id', '@DIV ID STRING@'+index);</span></code>
     1. Change the id of the cloned version of the of the button created in part b 
-        <code><span style="color:red">$('#req_'+ index).find('#**buttonID**').attr('id', '**buttonIDString**_'+index);</span></code>
+        <code><span style="color:red">$('#req_'+ index).find('#@BUTTONID@').attr('id', '@BUTTONIDSTRING@'+index);</span></code>
     <br>
 1. Create "remove" button
     **index.html**
     1. Create a button inside of the list element for the section and create a button. Set the id:
-        <mark>***Section Identifier** + “Rem”* </mark><br> [1] LU
+        <mark>@SECTIONIDENTIFIER@> + “Rem” </mark><br> [1] LU
     1. Add a div element with an id:
-        -  <mark>*“added” + **Section Identifier** + “RemButton_1*</mark> <br> [1] LLUU
+        -  <mark>“added” + @SECTIONIDENTIFIER@> + “RemButton_1"</mark> <br> [1] LLUU
 
     **interactionCode.js**
     1. Inside of the else-if clause for the section in the “addInputBox” function set “newRemBox.innerHTML” to button element created the original input box in part a. Set the id of this new button to: 
-        - <mark>*“**Original Button Id**” + idNum + “_” + **Section Global Variable***</mark> 
+        - <mark>“@ORIGINALBUTTONID@” + idNum + “_” + @SECTIONGLOBALVARIABLE@</mark> 
         
 
     1. After the global variable increment, add:
-        <code><span style="color:red">document.getElementById('**divIDString**_' + idNum).appendChild(newRemBox);
+        <code><span style="color:red">document.getElementById('@DIVIDSTRING@' + idNum).appendChild(newRemBox);
         newRemBox.onclick = function() 
         {
             newBox.innerHTML = '';
@@ -142,7 +143,7 @@ The GitHub repository for the form files is ....
 
     **duplicate.js**
     1. In the section where the previous ids for this section were changed add: 
-        <code><span style="color:red">$('#req_'+ index).find('#**divID**’).attr('id', '**divIDString**_'+index);</span></code>
+        <code><span style="color:red">$('#req_'+ index).find('#@DIVID@’).attr('id', '@DIVIDSTRING@'+index);</span></code>
 
 ### Additional Functionality Information
 ##### Tool Tips
