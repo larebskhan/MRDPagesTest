@@ -99,7 +99,7 @@ The GitHub repository for the form files is ....
     <br>
 1. Create an "add" button
     **index.html**
-    1. Underneath the original input box add a div element with an id: <br> <mark>“added” + @SECTIONIDENTIFIER@ + “Input_1”* </mark> <br> [1] LLU
+    1. Underneath the original input box add a div element with an id: <br> <mark>“added” + @SECTIONIDENTIFIER@ + “Input_1” </mark> <br> [1] LLU
     1. At the bottom of the list element add a button with an id: <br> <mark>“add” + @SECTIONIDENTIFIER@ + “_1” </mark> <br> [1] LUN
     1. Add an onclick event to the add button that calls on the function “addInputBox” and sends the button id and a name as parameters. <br> “addInputBox(this.id, name)” <br> *The name should be the same as the id of the div in part a, except without “added” and “_1”.
         - <mark> @SECTIONIDENTIFIER@ + “Input”</mark>
