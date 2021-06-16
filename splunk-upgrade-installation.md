@@ -7,15 +7,8 @@ product: Splunk Upgrade
 
 ## Important Information:
 <div class="alert alert-warning">
-This was all done on lab server: http://10.142.193.244:8000
-
-### Splunk Login Information
-
-| Username | Password |
-|-----------|-------------------|
-| admin | passw0rd |
-
-All Splunk binaries are located in /root.
+This was all done on a lab server.
+<br> All Splunk binaries are located in /root.
 </div>
 
 ### Helpful Linux Commands
