@@ -24,7 +24,9 @@ const handler = (event) =>
     {
 		const result = getFormJSON(formElement);
 		console.log(result);
-        saveJSON(JSON.stringify(result, null, 5), "MRDJSON.json");
+		data = {"event": result}
+		//console.log(data)
+        saveJSON(JSON.stringify(data, null, 5), "MRDJSON.json");
 	}
 }
 
