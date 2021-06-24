@@ -73,7 +73,7 @@ function saveJSON(text, filename)
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "http://localhost:8088/services/collector/event", true);
     xhr.setRequestHeader('Authorization', authToken);
-    xhr.setRequestHeader("Access-Control-Allow-Origin","https://larebskhan.github.io/MRDPagesTest/index.html")
+    xhr.setRequestHeader("Access-Control-Allow-Origin","http://larebskhan.github.io/MRDPagesTest/index.html")
     xhr.send(
         JSON.stringify
         (
