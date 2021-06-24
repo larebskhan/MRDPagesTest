@@ -69,14 +69,54 @@ function URLServerInput(choice, id)
 //Saves data in a JSON file
 function saveJSON(text, filename)
 {
+    data = 
+    {
+        "event": "Hello from form"
+    }
+
+    var xhr = new XMLHttpRequest();
+    var token = "https://localhost:8088/services/collector/event"
+
+    $.ajax({
+        url: "https://localhost:8088/services/collector/event",
+        headers: 
+        {
+            "Authorization" : token
+        },
+        type: 'POST',
+        data: data,
+        dataType: 'json',
+        beforeSend: function (xhr)
+        {
+            xhr.withCredentials = false;
+            //xhr.setRequestHeader("Authorization", token);
+        } 
+    })
+
+    //console.log(text)
+    /*var xhr = new XMLHttpRequest();
+    xhr.open("POST", "https://localhost:8088/services/collector/event", true);
+    xhr.setRequestHeader('Authorization', 'Splunk 4db8111-f7a9-4ea0-afd2-89e936599809');
+    xhr.send(
+        JSON.stringify
+        (
+            {
+                value: data
+            }
+        )
+
+    );
+    
+    */
     //create anchor element
     var a = document.createElement('a');
-    //donwload file locally --> THIS NEEDS TO DOWNLOAD TO SERVER
+    //donwload file locally --> THIS NEEDS TO POST TO SERVER
     a.setAttribute('href', 'data:text/plain;charset=utf-8,'+encodeURIComponent(text));
     //change donwload filename
     a.setAttribute('download', filename);
     a.click();
-    window.location.href = "SubmitValidation.html";
+    //UNCOMMENT THE LINE BELOW AFTER FIX SPLUNK INGEST
+    //window.location.href = "SubmitValidation.html";
 }
 
 //Gives a warning if the server names do not start with a03 or a70
