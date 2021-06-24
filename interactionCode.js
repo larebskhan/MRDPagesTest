@@ -69,34 +69,11 @@ function URLServerInput(choice, id)
 //Saves data in a JSON file
 function saveJSON(text, filename)
 {
-    data = 
-    {
-        "event": "Hello from form"
-    }
-
+    var authToken = "Splunk 94db8111-f7a9-4ea0-afd2-89e936599809"
     var xhr = new XMLHttpRequest();
-    var token = "https://localhost:8088/services/collector/event"
-
-    $.ajax({
-        url: "https://localhost:8088/services/collector/event",
-        headers: 
-        {
-            "Authorization" : token
-        },
-        type: 'POST',
-        data: data,
-        dataType: 'json',
-        beforeSend: function (xhr)
-        {
-            xhr.withCredentials = false;
-            //xhr.setRequestHeader("Authorization", token);
-        } 
-    })
-
-    //console.log(text)
-    /*var xhr = new XMLHttpRequest();
-    xhr.open("POST", "https://localhost:8088/services/collector/event", true);
-    xhr.setRequestHeader('Authorization', 'Splunk 4db8111-f7a9-4ea0-afd2-89e936599809');
+    xhr.open("POST", "http://localhost:8088/services/collector/event", true);
+    xhr.setRequestHeader('Authorization', authToken);
+    xhr.setRequestHeader("Access-Control-Allow-Origin","https://larebskhan.github.io/MRDPagesTest/index.html")
     xhr.send(
         JSON.stringify
         (
@@ -104,10 +81,8 @@ function saveJSON(text, filename)
                 value: data
             }
         )
-
     );
     
-    */
     //create anchor element
     var a = document.createElement('a');
     //donwload file locally --> THIS NEEDS TO POST TO SERVER
