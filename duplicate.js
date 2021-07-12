@@ -56,6 +56,12 @@ $(document).ready(function(){
             .find('#urlChoice_1')
             .attr('id', 'urlChoice_'+index);
         $('#req_'+ index)
+            .find('#url_1')
+            .attr('id', 'url_'+index);
+        $('#req_'+ index)
+            .find('#server_1')
+            .attr('id', 'server_'+index);
+        $('#req_'+ index)
             .find('#bothServerURL_1')
             .attr('id', 'bothServerURL_'+index);
 
@@ -251,7 +257,13 @@ $(document).ready(function(){
         $('#req_'+ index)
             .find('#addURL_'+index)
             .prop('disabled', false)
-        
+        $('#req_'+ index)
+            .find('#url_'+index)
+            .prop('disabled', false)
+        $('#req_'+ index)
+            .find('#server_'+index)
+            .prop('disabled', false)
+            
         //Clear div element with old added inputs
         $('#req_'+ index)
             .find('#addedserverInput_'+index)
