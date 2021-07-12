@@ -41,27 +41,27 @@ function URLServerInput(choice, id)
     //alert(idNum);
     if(choice == 'server')
     {
-        document.getElementById('server').disabled = false;
+        document.getElementById('server_'+idNum).disabled = false;
         document.getElementById('addServer_'+idNum).disabled = false;
-        document.getElementById('url').disabled = true;
+        document.getElementById('url_'+idNum).disabled = true;
         document.getElementById('addURL_'+idNum).disabled = true;
         document.getElementById('addedURLInput_'+idNum).innerHTML = '';
         document.getElementById('addedURLRemButton_'+idNum).innerHTML = '';
     }
     else if(choice == 'url')
     {
-        document.getElementById('url').disabled = false;
+        document.getElementById('url_'+idNum).disabled = false;
         document.getElementById('addURL_'+idNum).disabled = false;
-        document.getElementById('server').disabled = true;
+        document.getElementById('server_'+idNum).disabled = true;
         document.getElementById('addServer_'+idNum).disabled = true;
         document.getElementById('addedserverInput_'+idNum).innerHTML = '';
         document.getElementById('addedserverRemButton_'+idNum).innerHTML = '';
     }
     else if(choice == 'both')
     {
-        document.getElementById('url').disabled = false;
+        document.getElementById('url_'+idNum).disabled = false;
         document.getElementById('addURL_'+idNum).disabled = false;
-        document.getElementById('server').disabled = false;
+        document.getElementById('server_'+idNum).disabled = false;
         document.getElementById('addServer_'+idNum).disabled = false;
     }
 }
