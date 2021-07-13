@@ -81,7 +81,7 @@ function saveJSON(text, filename)
                 value: data
             }
         )
-    );*/
+    );
     data =
     {
         "event": "Hello from form"
@@ -96,7 +96,7 @@ function saveJSON(text, filename)
         type: 'POST',
         data: data,
         dataType: 'jsonp',
-    })
+    })*/
     
     //create anchor element
     var a = document.createElement('a');
@@ -106,7 +106,7 @@ function saveJSON(text, filename)
     a.setAttribute('download', filename);
     a.click();
     //UNCOMMENT THE LINE BELOW AFTER FIX SPLUNK INGEST
-    //window.location.href = "SubmitValidation.html";
+    window.location.href = "SubmitValidation.html";
 }
 
 //Gives a warning if the server names do not start with a03 or a70
