@@ -70,7 +70,7 @@ function URLServerInput(choice, id)
 function saveJSON(text, filename)
 {
     var authToken = "Splunk 94db8111-f7a9-4ea0-afd2-89e936599809"
-    var xhr = new XMLHttpRequest();
+    /*var xhr = new XMLHttpRequest();
     xhr.open("POST", "http://localhost:8088/services/collector/event", true);
     xhr.setRequestHeader('Authorization', authToken);
     xhr.setRequestHeader("Access-Control-Allow-Origin","http://larebskhan.github.io/MRDPagesTest/index.html")
@@ -81,7 +81,22 @@ function saveJSON(text, filename)
                 value: data
             }
         )
-    );
+    );*/
+    data =
+    {
+        "event": "Hello from form"
+    }
+    $.ajax({
+        url: "https://localhost:8088/services/collector/event",
+        headers:
+        {
+            "Authorization" : "Splunk 94db8111-f7a9-4ea0-afd2-89e936599809",
+            "Acess-Control-Allow-Origin" : "https://github.com"
+        },
+        type: 'POST',
+        data: data,
+        dataType: 'jsonp',
+    })
     
     //create anchor element
     var a = document.createElement('a');
