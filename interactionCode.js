@@ -1,4 +1,5 @@
 //Disable ticketing if email is secelected and vice versa, if "both" is selected, neither should be disabled
+//test clone
 function alertingInput(choice, id)
 {
     var idNum = id.match(/\d+/);
