@@ -1,5 +1,4 @@
 //Disable ticketing if email is secelected and vice versa, if "both" is selected, neither should be disabled
-//test clone
 function alertingInput(choice, id)
 {
     var idNum = id.match(/\d+/);
@@ -11,15 +10,15 @@ function alertingInput(choice, id)
         document.getElementById('addedemailRemButton_'+idNum).innerHTML = '';
         document.getElementById('addEmail_'+idNum).disabled = true;
         document.getElementById('ticket_'+idNum).disabled = false;
-        document.getElementById('ticketCircum_'+idNum).disabled = false;
+        //document.getElementById('ticketCircum_'+idNum).disabled = false;
         document.getElementById('ticketBucket_'+idNum).disabled = false;
     }
     else if(choice == 'email')
     {
         document.getElementById('ticket_'+idNum).disabled = true;
         document.getElementById('ticket_'+idNum).value = '';
-        document.getElementById('ticketCircum_'+idNum).disabled = true;
-        document.getElementById('ticketCircum_'+idNum).value = '';
+        //document.getElementById('ticketCircum_'+idNum).disabled = true;
+        //document.getElementById('ticketCircum_'+idNum).value = '';
         document.getElementById('ticketBucket_'+idNum).disabled = true;
         document.getElementById('ticketBucket_'+idNum).value = '';
         document.getElementById('emailInput_'+idNum).getElementsByClassName('form-control')[0].disabled = false;
@@ -28,7 +27,7 @@ function alertingInput(choice, id)
     else if(choice == 'both')
     {
         document.getElementById('ticket_'+idNum).disabled = false;
-        document.getElementById('ticketCircum_'+idNum).disabled = false;
+        //document.getElementById('ticketCircum_'+idNum).disabled = false;
         document.getElementById('ticketBucket_'+idNum).disabled = false;
         document.getElementById('emailInput_'+idNum).getElementsByClassName('form-control')[0].disabled = false;
         document.getElementById('addEmail_'+idNum).disabled = false;
@@ -42,6 +41,7 @@ function URLServerInput(choice, id)
     //alert(idNum);
     if(choice == 'server')
     {
+        document.getElementById('url_'+idNum).value = '';
         document.getElementById('server_'+idNum).disabled = false;
         document.getElementById('addServer_'+idNum).disabled = false;
         document.getElementById('url_'+idNum).disabled = true;
@@ -51,6 +51,7 @@ function URLServerInput(choice, id)
     }
     else if(choice == 'url')
     {
+        document.getElementById('server_'+idNum).value = '';
         document.getElementById('url_'+idNum).disabled = false;
         document.getElementById('addURL_'+idNum).disabled = false;
         document.getElementById('server_'+idNum).disabled = true;
@@ -70,44 +71,28 @@ function URLServerInput(choice, id)
 //Saves data in a JSON file
 function saveJSON(text, filename)
 {
-    var authToken = "Splunk 94db8111-f7a9-4ea0-afd2-89e936599809"
-    /*var xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:8088/services/collector/event", true);
-    xhr.setRequestHeader('Authorization', authToken);
-    xhr.setRequestHeader("Access-Control-Allow-Origin","http://larebskhan.github.io/MRDPagesTest/index.html")
-    xhr.send(
-        JSON.stringify
-        (
-            {
-                value: data
-            }
-        )
-    );
-    data =
-    {
-        "event": "Hello from form"
-    }
+    var post_url = 'http://127.0.0.1:5000/'
     $.ajax({
-        url: "https://localhost:8088/services/collector/event",
-        headers:
-        {
-            "Authorization" : "Splunk 94db8111-f7a9-4ea0-afd2-89e936599809",
-            "Acess-Control-Allow-Origin" : "https://github.com"
-        },
         type: 'POST',
-        data: data,
-        dataType: 'jsonp',
-    })*/
-    
-    //create anchor element
-    var a = document.createElement('a');
-    //donwload file locally --> THIS NEEDS TO POST TO SERVER
-    a.setAttribute('href', 'data:text/plain;charset=utf-8,'+encodeURIComponent(text));
-    //change donwload filename
-    a.setAttribute('download', filename);
-    a.click();
-    //UNCOMMENT THE LINE BELOW AFTER FIX SPLUNK INGEST
-    window.location.href = "SubmitValidation.html";
+        url: post_url,
+        data: text,
+        headers: {
+            'Content-Type' : 'application/json',
+            'Access-Control-Allow-Origin' : 'http://127.0.0.1:5500'
+        },
+        success: function (data) {
+            alert("success");
+            window.location.href = "SubmitValidation.html"
+        },
+        error: function (error) {
+            alert("Error Occured: Could not submit form. Downloading form data to your local machine.");
+            //Download file
+            var a = document.createElement('a');
+            a.setAttribute('href', 'data:text/plain;charset=utf-8,'+encodeURIComponent(text));
+            a.setAttribute('download', filename);
+            a.click();
+        }
+      });
 }
 
 //Gives a warning if the server names do not start with a03 or a70
@@ -275,22 +260,27 @@ function validatetextboxes()
 }
 
 //Displays character count
-function characterCount(){
+function characterCount(id)
+{
+    idNum = id.match(/\d+/);
+    var maxchar = 350;
     $(document).ready(function(){
         var len = 0;
-        var maxchar = 350;
+        //var maxchar = 350;
 
-    $( '#addInfo' ).keyup(function(){
+    $('#addInfo_'+idNum).keyup(function()
+    {
         len = this.value.length
-        if(len > maxchar){
+        $("#remainingC_"+idNum).html("Remaining characters: "+( maxchar - len ));
+        /*if(len > maxchar){
             return false;
         }
         else if (len>0){
-            $( "#remainingC" ).html( "Remaining characters: " +( maxchar - len ));
+            $("#remainingC_"+idNum).html("Remaining characters: "+( maxchar - len ));
         }
         else{
-            $( "#remainingC" ).html( "Remaining characters: " + ( maxchar ));
-        }
+            $("#remainingC_"+idNum).html("Remaining characters: "+( maxchar ));
+        }*/
     })
     });
 }

@@ -179,6 +179,14 @@ $(document).ready(function(){
             .find('#domainButton_'+index)
             .attr('data-target', '#domains_'+index);
 
+        //Additional Information
+        $('#req_'+ index)
+            .find('#addInfo_1')
+            .attr('id', 'addInfo_'+index);
+        $('#req_'+ index)
+            .find('#remainingC_1')
+            .attr('id', 'remainingC_'+index);
+
         //Clear Input Values After Cloned
         $('#req_'+ index)
             .find('#server')
@@ -205,8 +213,11 @@ $(document).ready(function(){
             .find('#logRotation')
             .val(''); 
         $('#req_'+ index)
-            .find('#addInfo')
+            .find('#addInfo_'+index)
             .val(''); 
+        $('#req_'+ index)
+            .find('#remainingC_'+index)
+            .html(''); 
         $('#req_'+ index)
             .find('#searchSched')
             .val(''); 
@@ -219,6 +230,9 @@ $(document).ready(function(){
         $('#req_'+ index)
             .find('#ticketTeam_'+index)
             .val('');
+        $('#req_'+ index)
+            .find('#url_'+index)
+            .val(''); 
         
         //Enable Buttons/Inputs after Duplication
         $('#req_'+ index)
@@ -269,8 +283,14 @@ $(document).ready(function(){
             .find('#addedserverInput_'+index)
             .empty(); 
         $('#req_'+ index)
+            .find('#addedURLInput_'+index)
+            .empty();
+        $('#req_'+ index)
             .find('#addedserverRemButton_'+index)
             .empty(); 
+        $('#req_'+ index)
+            .find('#addedURLRemButton_'+index)
+            .empty();
         $('#req_'+ index)
             .find('#addedriskInput_'+index)
             .empty(); 

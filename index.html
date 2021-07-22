@@ -13,7 +13,7 @@
  
     <!--Include JS and CSS-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="interactionCode.js"></script>
     <script src="duplicate.js"></script>
@@ -150,6 +150,7 @@
                           <h4 style="text-align: left" class="panel-title">
                             <a id="toggle_1" data-toggle="collapse" href="#collapse_1">Requirement</a>
                             <span class="star">&#42;</span>
+                            <i class="fa fa-question-circle" onmouseover="this.innerHTML = '<em> Enter technical details. </em>'" onmouseout="this.innerHTML = ''"></i>
                           </h4>
                         </td>
                         <td>
@@ -350,9 +351,13 @@
                         <em style="font-size: 12px;">If no alerting is required, <a href="http://a70lpcrpcapm009/isWiki/index.php?title=Add_Data_to_Splunk" target="_blank"> click here!</a></em>
                         <br>
                         <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                        <em style="font-size: 12px;"> Note: For servers, the only required field is ticket severity.</em>
+                        <em style="font-size: 12px;"> Note: Search schedule is not required.</em>
                       </p>
-                      <!-- Search Schedule-->
+                      <!-- Ticketing Condition -->
+                      <span class="help-block" id="serverWarningText"></span>
+                      <input type="input" class="form-control" id="ticketCircum_1" placeholder="Ticketing Condition" name="Ticketing Condition 1" required>
+                      <span class="help-block" id="serverWarningText"></span>
+                      <!-- Search Schedule -->
                       <input type="input" class="form-control" id="searchSched" placeholder="Search Schedule: Ex. Every 10 minutes" name="Search Schedule 1"><span class="help-block"></span>
                       <!-- Ticket email or both alerts-->
                       <input class="form-check-input" type="radio" name="Alert 1" id="ticketAlert_1" value="Ticket" onclick="alertingInput('ticket', this.id);">
@@ -363,25 +368,23 @@
                       <label for="bothAlert">Both</label><br>
                       
                       <div id="ticketAlert">
-                        <!--Ticket Criteria and Bucket-->
-                        <select id="ticket_1" class="form-control" aria-label=".form-select-sm example" name="Ticket Severity 1" required>
-                          <option disabled selected value> -- Select Severity -- </option>
-                          <option value="S1">S1</option>
-                          <option value="S2">S2</option>
-                          <option value="S3">S3</option>
-                          <option value="TBD">TBD</option>
-                        </select>
-                        <span class="help-block" id="serverWarningText"></span>
                         <table width="100%">
                           <tr>
                             <td>
-                              <span class="help-block" id="serverWarningText"></span>
-                              <input type="input" class="form-control" id="ticketCircum_1" placeholder="Ticketing Condition" name="Ticketing Condition 1"><span class="help-block" id="serverWarningText"></span>
+                              <!--Ticket Criteria and Bucket-->
+                              <select id="ticket_1" class="form-control" aria-label=".form-select-sm example" name="Ticket Severity 1" required>
+                                <option disabled selected value> -- Select Severity -- </option>
+                                <option value="S1">S1</option>
+                                <option value="S2">S2</option>
+                                <option value="S3">S3</option>
+                                <option value="TBD">TBD</option>
+                              </select>
+                              <!--<span class="help-block" id="serverWarningText"></span>-->
                             </td>
                             <td width="1%">
                             </td>
                             <td>
-                              <select id="ticketBucket_1" class="form-control" aria-label=".form-select-sm example" name="Ticket Bucket 1">
+                              <select id="ticketBucket_1" class="form-control" aria-label=".form-select-sm example" name="Ticket Bucket 1" required>
                                 <option disabled selected value> -- Select Ticket Bucket -- </option>
                                 <option value="SS-CGSAPP">SS-CGSAPP</option>
                                 <option value="SS-CIRCA">SS-CIRCA</option>
@@ -487,7 +490,8 @@
                       <div class="flex">
                         <div style="width: 200%" >
                           <a id="addInput_1" data-toggle="tooltip" title="Please enter any additional information.">
-                            <textarea class="form-control" id="addInfo" placeholder="Additional Information" name="Additional Information 1" rows="3" maxlength="350" oninput="characterCount()"></textarea><span id='remainingC'></span>
+                            <textarea class="form-control" id="addInfo_1" placeholder="Additional Information" name="Additional Information 1" rows="3" maxlength="350" oninput="characterCount(this.id)"></textarea>
+                            <span id='remainingC_1'></span>
                             <span class="help-block"></span>
                           </a>
                         </div>
