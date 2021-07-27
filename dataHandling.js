@@ -28,7 +28,7 @@ const handler = (event) =>
 		//console.log(data)
 		const json_data = JSON.stringify(data, null, 5);
 		const confirmationNum = result["Confirmation Number"];
-        saveJSON(JSON.stringify(data, null, 5), "MRD_Request_"+confirmationNum+".json");
+        saveJSON(JSON.stringify(data, null, 5), "MRD_Request_"+confirmationNum+".json", confirmationNum);
 		//saveJSON(data, "MRD_Request_"+confirmationNum+".json")
 	}
 }
