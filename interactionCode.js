@@ -1,38 +1,4 @@
-//Disable ticketing if email is secelected and vice versa, if "both" is selected, neither should be disabled
-function alertingInput(choice, id)
-{
-    var idNum = id.match(/\d+/);
-    if(choice == 'ticket')
-    {
-        document.getElementById('emailInput_'+idNum).getElementsByClassName('form-control')[0].disabled = true;
-        document.getElementById('email').value = '';
-        document.getElementById('addedemailInput_'+idNum).innerHTML = '';
-        document.getElementById('addedemailRemButton_'+idNum).innerHTML = '';
-        document.getElementById('addEmail_'+idNum).disabled = true;
-        document.getElementById('ticket_'+idNum).disabled = false;
-        //document.getElementById('ticketCircum_'+idNum).disabled = false;
-        document.getElementById('ticketBucket_'+idNum).disabled = false;
-    }
-    else if(choice == 'email')
-    {
-        document.getElementById('ticket_'+idNum).disabled = true;
-        document.getElementById('ticket_'+idNum).value = '';
-        //document.getElementById('ticketCircum_'+idNum).disabled = true;
-        //document.getElementById('ticketCircum_'+idNum).value = '';
-        document.getElementById('ticketBucket_'+idNum).disabled = true;
-        document.getElementById('ticketBucket_'+idNum).value = '';
-        document.getElementById('emailInput_'+idNum).getElementsByClassName('form-control')[0].disabled = false;
-        document.getElementById('addEmail_'+idNum).disabled = false;
-    }
-    else if(choice == 'both')
-    {
-        document.getElementById('ticket_'+idNum).disabled = false;
-        //document.getElementById('ticketCircum_'+idNum).disabled = false;
-        document.getElementById('ticketBucket_'+idNum).disabled = false;
-        document.getElementById('emailInput_'+idNum).getElementsByClassName('form-control')[0].disabled = false;
-        document.getElementById('addEmail_'+idNum).disabled = false;
-    }
-}
+
 
 //Disable URL if server is secelected and vice versa, if "both" is selected, neither should be disabled
 function URLServerInput(choice, id)
@@ -69,17 +35,23 @@ function URLServerInput(choice, id)
 }
 
 //Saves data in a JSON file
-function saveJSON(text, filename)
+function saveJSON(text, filename, confirmation_number)
 {
-    var post_url = 'http://127.0.0.1:5000/'
+    //curl -X PUT -H "Authorization: token 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" https://api.github.com/repos/larebskhan/test/contents/test_file -d '{"message":"message","content":"dGVzdA=="}'
+    //var create_repo = '{"name":"test", "auto_init": true, "private": "true", "gitignore_template": "nanoc"}';
+    var form_data_base64 = btoa(text);
+    var create_file = '{"message":"message","content":"'+form_data_base64+'"}'
+    const post_url = "https://api.github.com/repos/larebskhan/test/contents/"+confirmation_number+".json";
+    //post_url format: https://api.github.com/repos/{{user}}/{{repo}}/contents/{{file_name}}
+    const headers = {
+        "Content-Type" : "application/json",
+        'Authorization' : 'token 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',
+    }
     $.ajax({
-        type: 'POST',
+        type: 'PUT',
         url: post_url,
-        data: text,
-        headers: {
-            'Content-Type' : 'application/json',
-            'Access-Control-Allow-Origin' : 'http://127.0.0.1:5500'
-        },
+        data: create_file,
+        headers: headers,
         success: function (data) {
             alert("success");
             window.location.href = "SubmitValidation.html"
